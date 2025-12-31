@@ -45,7 +45,9 @@ import { UI } from 'astrowind:config';
     let ticking = true;
 
     attachEvent('#header nav', 'click', function () {
-      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+      const toggleBtn = document.querySelector('[data-aw-toggle-menu]');
+      toggleBtn?.classList.remove('expanded');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
       document.getElementById('header')?.classList.remove('expanded');
@@ -56,6 +58,9 @@ import { UI } from 'astrowind:config';
 
     attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
       elem.classList.toggle('expanded');
+      // Update aria-expanded for accessibility
+      const isExpanded = elem.classList.contains('expanded');
+      elem.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
       document.body.classList.toggle('overflow-hidden');
       document.getElementById('header')?.classList.toggle('h-screen');
       document.getElementById('header')?.classList.toggle('expanded');
@@ -110,7 +115,9 @@ import { UI } from 'astrowind:config';
 
     const screenSize = window.matchMedia('(max-width: 767px)');
     screenSize.addEventListener('change', function () {
-      document.querySelector('[data-aw-toggle-menu]')?.classList.remove('expanded');
+      const toggleBtn = document.querySelector('[data-aw-toggle-menu]');
+      toggleBtn?.classList.remove('expanded');
+      toggleBtn?.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('overflow-hidden');
       document.getElementById('header')?.classList.remove('h-screen');
       document.getElementById('header')?.classList.remove('expanded');

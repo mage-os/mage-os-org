@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* WCAG 2.1 AA Focus Indicators */
+@layer base {
+  /* Global focus-visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Interactive elements with enhanced focus states */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-slate-900;
+  }
+
+  /* Remove default outline when using ring */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    @apply outline-none;
+  }
+}
+
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);
