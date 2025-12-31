@@ -15,7 +15,7 @@ import astrowind from './vendor/integration';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
-import alpinejs from '@astrojs/alpinejs';
+// Alpine.js removed - not used in this project
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -54,16 +54,16 @@ export default defineConfig({
         removeAttributeQuotes: false,
       },
     },
-    Image: false,
+    Image: true,
     JavaScript: true,
     SVG: false,
     Logger: 1,
   }), astrowind({
     config: './src/config.yaml',
-  }), alpinejs()],
+  })],
 
   image: {
-    domains: ['cdn.pixabay.com'],
+    domains: ['images.unsplash.com'],  // TODO: Remove when Unsplash placeholders are replaced
   },
 
   markdown: {
