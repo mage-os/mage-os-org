@@ -31,6 +31,10 @@ export const headerData = {
       href: getPermalink('/community'),
     },
     {
+      text: 'Events',
+      href: getPermalink('/events'),
+    },
+    {
       text: 'Blog',
       href: getBlogPermalink(),
     },
@@ -66,6 +70,7 @@ export const footerData = {
       title: 'Community',
       links: [
         { text: 'Get Involved', href: getPermalink('/community') },
+        { text: 'Events', href: getPermalink('/events') },
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'GitHub', href: 'https://github.com/mage-os' },
         { text: 'Discord', href: 'https://discord.com/invite/nvZDVA2NdC' },
