@@ -7,8 +7,11 @@ export interface Props {
 }
 
 const { posts } = Astro.props;
+
+// Adjust grid columns based on post count
+const gridCols = posts.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4';
 ---
 
-<div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6" role="list" aria-label="Blog posts">
+<div class={`grid gap-6 row-gap-5 md:grid-cols-2 ${gridCols} -mb-6`} role="list" aria-label="Blog posts">
   {posts.map((post) => <Item post={post} />)}
 </div>

@@ -62,6 +62,18 @@ const metadata = {
     description="Built by merchants, developers, and agencies worldwide. No shareholders, no investors—just the community."
   />
 
+  <!-- Latest News Widget ******* -->
+
+  <BlogLatestPosts
+    title="Latest News & Updates"
+    information={`Stay up to date with the latest Mage-OS releases, community events, and ecosystem news.`}
+    count={3}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-slate-50 dark:bg-slate-800/50"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
   <!-- Features Widget *************** -->
 
   <Features
@@ -311,13 +323,6 @@ const metadata = {
           'Community support is available through our Discord server, GitHub discussions, and forums. For enterprise needs, our partner network offers professional services and dedicated support.',
       },
     ]}
-  />
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Latest News & Updates"
-    information={`Stay up to date with the latest Mage-OS releases, community events, and ecosystem news.`}
   />
 
   <!-- Community Section ************* -->
