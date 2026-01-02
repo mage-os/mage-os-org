@@ -1,0 +1,303 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ReleasePostsGrid from '~/components/widgets/ReleasePostsGrid.astro';
+import { findReleasePosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
+import { getFormattedDate } from '~/utils/utils';
+import { Icon } from 'astro-icon/components';
+
+const releasePosts = await findReleasePosts();
+const latestRelease = releasePosts.length > 0 ? releasePosts[0] : null;
+
+const metadata = {
+  title: 'Releases',
+  description: 'Download the latest Mage-OS release and view the complete version history with release notes.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget -->
+  <Hero tagline="Product">
+    <Fragment slot="title">Releases</Fragment>
+    <Fragment slot="subtitle">
+      Download the latest Mage-OS Distribution and explore our complete release history below.
+    </Fragment>
+  </Hero>
+
+  <section class="px-4 py-8 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <!-- Latest Release Section -->
+    {latestRelease && (
+      <div class="p-6 bg-blue-50 dark:bg-slate-800 rounded-lg border-l-4 border-primary mb-12">
+        <span class="text-xs uppercase font-bold text-primary tracking-wide">Latest Release</span>
+        <h2 class="text-2xl font-bold mt-2 font-heading">{latestRelease.title}</h2>
+        <div class="text-sm text-muted dark:text-slate-400 mt-1">
+          <Icon name="tabler:clock" class="w-3.5 h-3.5 inline-block -mt-0.5" />
+          <time datetime={String(latestRelease.publishDate)}>
+            Released {getFormattedDate(latestRelease.publishDate)}
+          </time>
+        </div>
+        {latestRelease.excerpt && (
+          <p class="mt-4 text-muted dark:text-slate-300">{latestRelease.excerpt}</p>
+        )}
+        <a
+          href={getPermalink(latestRelease.permalink, 'post')}
+          class="inline-flex items-center mt-4 text-primary font-medium hover:underline"
+        >
+          Read the full release notes
+          <Icon name="tabler:chevron-right" class="w-4 h-4 ml-1" />
+        </a>
+      </div>
+    )}
+
+    <div class="prose dark:prose-invert prose-headings:font-heading prose-headings:font-bold max-w-none">
+      <!-- Quick Install Section -->
+      <h2>Quick Install (New Project)</h2>
+      <p>Create a fresh Mage-OS installation with a single command:</p>
+      <pre><code class="language-bash">composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition .</code></pre>
+      <p>
+        After Composer finishes, run the installer to complete setup. See the{' '}
+        <a href="/get-started/installation">Full Installation Guide</a> for detailed steps.
+      </p>
+
+      <h2>Migrate from Magento Open Source</h2>
+      <p>Switch your existing Magento store to Mage-OS:</p>
+      <pre><code class="language-bash">composer config repositories.0 composer https://repo.mage-os.org/ && \
+composer require mage-os/product-community-edition --no-update && \
+composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update && \
+composer update --no-plugins --with-all-dependencies</code></pre>
+      <blockquote>
+        <p><strong>Tip:</strong> We recommend updating to the latest Magento version before migrating to minimize compatibility issues.</p>
+      </blockquote>
+      <p>
+        <a href="/get-started/installation">Full Installation Guide</a> |{' '}
+        <a href="/get-started/migration-guide">Migration Guide</a> |{' '}
+        <a href="/get-started/system-requirements">System Requirements</a>
+      </p>
+    </div>
+
+    <!-- Dynamic Release Posts Grid -->
+    {releasePosts.length > 0 && (
+      <ReleasePostsGrid posts={releasePosts} title="All Release Announcements" />
+    )}
+
+    <div class="prose dark:prose-invert prose-headings:font-heading prose-headings:font-bold max-w-none mt-12">
+      <hr />
+
+      <h2>Version Support</h2>
+      <p>
+        As a volunteer-run nonprofit, Mage-OS currently supports only the <strong>latest release branch</strong>.
+        We recommend staying up to date to ensure you have the latest security patches and features.
+      </p>
+
+      <h3>Security Patch Schedule</h3>
+      <p>
+        Adobe releases security patches on the second Tuesday of each month ("Patch Tuesday").
+        Mage-OS typically publishes corresponding updates within days of each Adobe release to incorporate the latest security fixes.
+      </p>
+      <blockquote>
+        <p>
+          <strong>Why upgrade regularly?</strong> Security patches address vulnerabilities that could put your store and customer data at risk.
+          Staying current is the best way to protect your business.
+        </p>
+      </blockquote>
+
+      <hr />
+
+      <h2>Upgrading</h2>
+
+      <h3>From a Previous Mage-OS Version</h3>
+      <p>Upgrade your existing Mage-OS installation to the latest version:</p>
+      <pre><code class="language-bash"># Step 1: Update packages
+composer update mage-os/product-community-edition --with-all-dependencies
+
+# Step 2: Run database migrations
+bin/magento setup:upgrade
+
+# Step 3: Compile dependency injection
+bin/magento setup:di:compile
+
+# Step 4: Deploy static content
+bin/magento setup:static-content:deploy -f
+
+# Step 5: Clear cache
+bin/magento cache:flush</code></pre>
+      <blockquote>
+        <p>
+          <strong>Before upgrading:</strong> Always back up your database and files before performing any upgrade.
+          Test the upgrade in a staging environment first.
+        </p>
+      </blockquote>
+
+      <h3>From Magento Open Source</h3>
+      <p>
+        Migrating from Magento to Mage-OS is straightforward and typically takes 15-30 minutes.
+        Your existing extensions, themes, and customizations remain compatible.
+      </p>
+      <p>See the <a href="/get-started/migration-guide">Migration Guide</a> for step-by-step instructions.</p>
+
+      <hr />
+
+      <h2>Repositories</h2>
+
+      <h3>Main Distribution</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Composer Repository</strong></td>
+            <td><code>https://repo.mage-os.org/</code></td>
+          </tr>
+          <tr>
+            <td><strong>GitHub Source</strong></td>
+            <td><a href="https://github.com/mage-os/mageos-magento2">github.com/mage-os/mageos-magento2</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Mage-OS Lab</h3>
+      <p>Experimental features and community innovations are developed in Mage-OS Lab before being included in the main distribution.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>GitHub Organization</strong></td>
+            <td><a href="https://github.com/mage-os-lab">github.com/mage-os-lab</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Magento Mirrors</h3>
+      <p>Mage-OS provides public Magento Open Source mirrors for installing Magento without Adobe Marketplace authentication:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Mirror URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EU (Primary)</td>
+            <td><a href="https://mirror.mage-os.org/">mirror.mage-os.org</a></td>
+          </tr>
+          <tr>
+            <td>EU (Hypernode)</td>
+            <td><a href="https://mage-os.hypernode.com/mirror/">mage-os.hypernode.com/mirror/</a></td>
+          </tr>
+          <tr>
+            <td>EU (maxcluster)</td>
+            <td><a href="https://mage-os.maxcluster.net/mirror/">mage-os.maxcluster.net/mirror/</a></td>
+          </tr>
+          <tr>
+            <td>UK (Sonassi)</td>
+            <td><a href="https://mirror.sonassi.com/">mirror.sonassi.com</a></td>
+          </tr>
+          <tr>
+            <td>US (Breeze)</td>
+            <td><a href="https://mage-os-usa.breeze.io/mirror/">mage-os-usa.breeze.io/mirror/</a></td>
+          </tr>
+          <tr>
+            <td>US (JetRails)</td>
+            <td><a href="https://mage-os-repo.jetrails.com/mirror/">mage-os-repo.jetrails.com/mirror/</a></td>
+          </tr>
+          <tr>
+            <td>IN (Breeze)</td>
+            <td><a href="https://mage-os-india.breeze.io/mirror/">mage-os-india.breeze.io/mirror/</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Documentation</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Developer Docs</strong></td>
+            <td><a href="https://devdocs.mage-os.org">devdocs.mage-os.org</a></td>
+          </tr>
+          <tr>
+            <td><strong>Docs GitHub</strong></td>
+            <td><a href="https://github.com/mage-os/devdocs">github.com/mage-os/devdocs</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <h2>Acknowledgments</h2>
+      <p>Mage-OS releases are made possible by our global community of contributors. Special thanks to:</p>
+      <ul>
+        <li><strong>Code Contributors</strong> - Pull request authors and reviewers</li>
+        <li><strong>Lab Developers</strong> - Creators of experimental features and innovations</li>
+        <li><strong>QA Volunteers</strong> - Testing and quality assurance</li>
+        <li><strong>Documentation Writers</strong> - Keeping our docs accurate and helpful</li>
+        <li><strong>Financial Supporters</strong> - Partners and sponsors who fund development</li>
+      </ul>
+      <p>
+        <a href="/community">View all contributors</a> |{' '}
+        <a href="/community/get-involved">Become a contributor</a>
+      </p>
+
+      <hr />
+
+      <h2>Get Started Today</h2>
+      <p>Ready to try the latest Mage-OS release?</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Link</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Quick Start</strong></td>
+            <td><a href="/get-started/quick-start">Get Started</a></td>
+            <td>Install Mage-OS in 30 minutes</td>
+          </tr>
+          <tr>
+            <td><strong>System Requirements</strong></td>
+            <td><a href="/get-started/system-requirements">View Requirements</a></td>
+            <td>Check your server compatibility</td>
+          </tr>
+          <tr>
+            <td><strong>Migration Guide</strong></td>
+            <td><a href="/get-started/migration-guide">Migrate Now</a></td>
+            <td>Switch from Magento Open Source</td>
+          </tr>
+          <tr>
+            <td><strong>Features</strong></td>
+            <td><a href="/product/features">Explore Features</a></td>
+            <td>See what makes Mage-OS different</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <h2>Need Help?</h2>
+      <ul>
+        <li><strong>Community Support:</strong> Join our <a href="/discord-channel">Discord server</a> for real-time help</li>
+        <li><strong>Documentation:</strong> Browse <a href="https://devdocs.mage-os.org">devdocs.mage-os.org</a> for technical guides</li>
+        <li><strong>GitHub Issues:</strong> Report bugs at <a href="https://github.com/mage-os/mageos-magento2/issues">github.com/mage-os/mageos-magento2</a></li>
+      </ul>
+    </div>
+  </section>
+</Layout>

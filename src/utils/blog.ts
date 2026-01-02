@@ -173,6 +173,19 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
   return posts ? posts.slice(0, _count) : [];
 };
 
+/** Fetch all posts in the "Releases" category, sorted by publishDate desc */
+export const findReleasePosts = async ({ count }: { count?: number } = {}): Promise<Array<Post>> => {
+  const posts = await fetchPosts();
+  const releasePosts = posts.filter((post) => post.category?.slug === 'releases');
+  return count ? releasePosts.slice(0, count) : releasePosts;
+};
+
+/** Fetch the single latest release post */
+export const findLatestReleasePost = async (): Promise<Post | null> => {
+  const releasePosts = await findReleasePosts({ count: 1 });
+  return releasePosts.length > 0 ? releasePosts[0] : null;
+};
+
 /** */
 export const getStaticPathsBlogList = async ({ paginate }: { paginate: PaginateFunction }) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
