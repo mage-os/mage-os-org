@@ -2,15 +2,19 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Get Started',
+  title: 'Get Started with Mage-OS',
   description:
-    'Launch your Mage-OS ecommerce store with our comprehensive getting started guide covering installation, migration, and system requirements.',
+    'Launch your Mage-OS ecommerce store with our comprehensive getting started guide. Choose from quick start, detailed installation, or migration paths.',
 };
 ---
 
@@ -22,11 +26,11 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Quick Start Guide',
+        text: 'Quick Start (15 min)',
         href: '/get-started/quick-start',
         icon: 'tabler:rocket',
       },
-      { text: 'Migration Guide', href: '/get-started/migration-guide' },
+      { text: 'Migration Guide', href: '/get-started/migration-guide', icon: 'tabler:refresh' },
     ]}
   >
     <Fragment slot="title">
@@ -34,31 +38,39 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Whether you're launching a new store, migrating from Magento Open Source, or exploring Mage-OS capabilities—we've
-      designed a fast, clear path to get you up and running.
+      Whether you're launching a new store, migrating from Magento Open Source, or setting up a development environment—we have a clear path to get you running quickly.
     </Fragment>
   </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note
+    icon="tabler:clock"
+    title="Most users are up and running in under 30 minutes."
+    description="New to ecommerce platforms? Start with our Quick Start guide for the fastest path to a working store."
+  />
 
   <!-- Features Widget: Choose Your Path *************** -->
 
   <Features
     tagline="Choose Your Path"
     title="How Would You Like to Start?"
+    subtitle="Select the guide that best matches your situation. Each path is designed to get you to a working Mage-OS installation as quickly as possible."
     items={[
       {
-        title: 'New to Mage-OS?',
+        title: 'Quick Start',
         description:
-          'Launch your first project in under 30 minutes with our Quick Start guide. Perfect for new installations and fresh projects.',
+          'New to Mage-OS? Get a working store in 15-30 minutes with our streamlined guide. Covers Composer setup, basic configuration, and your first storefront.',
         icon: 'tabler:rocket',
         callToAction: {
-          text: 'Quick Start Guide',
+          text: 'Start Now',
           href: '/get-started/quick-start',
         },
       },
       {
-        title: 'Migrating from Magento?',
+        title: 'Migration from Magento',
         description:
-          'Seamlessly transition from Magento Open Source with zero downtime and full compatibility. Keep your existing extensions and themes.',
+          'Already running Magento Open Source? Migrate in as little as 15 minutes with full extension compatibility. Includes rollback procedures and testing checklist.',
         icon: 'tabler:refresh',
         callToAction: {
           text: 'Migration Guide',
@@ -66,52 +78,57 @@ const metadata = {
         },
       },
       {
-        title: 'Custom Installation?',
+        title: 'Detailed Installation',
         description:
           'Explore detailed installation methods for Docker, cloud hosting, local development, and production environments.',
-        icon: 'tabler:settings',
+        icon: 'tabler:server',
         callToAction: {
-          text: 'Installation Guide',
+          text: 'Installation Options',
           href: '/get-started/installation',
         },
       },
       {
-        title: 'Planning Your Setup?',
+        title: 'System Requirements',
         description:
-          'Review technical prerequisites, server requirements, and compatibility information before you begin.',
+          'Planning your infrastructure? Review PHP versions, database options, search engines, and hosting requirements before you begin.',
         icon: 'tabler:checklist',
         callToAction: {
-          text: 'System Requirements',
+          text: 'View Requirements',
           href: '/get-started/system-requirements',
         },
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Quick Start Overview"
-    subtitle="Get Mage-OS running in three simple steps"
+    title="Quick Start Preview"
+    subtitle="Here's what you'll accomplish in our Quick Start guide"
     items={[
       {
         title: 'Step 1: <span class="font-medium">Install via Composer</span>',
         description:
-          '<code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm">composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition .</code>',
+          'One command gets you started: <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm">composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition .</code>',
         icon: 'tabler:terminal-2',
       },
       {
-        title: 'Step 2: <span class="font-medium">Run the Installer</span>',
-        description: 'Configure your database, admin user, and store settings using the Magento installer command.',
+        title: 'Step 2: <span class="font-medium">Configure Your Store</span>',
+        description: 'Run the setup wizard to connect your database, create an admin account, and configure basic store settings like currency and locale.',
         icon: 'tabler:settings',
       },
       {
-        title: 'Step 3: <span class="font-medium">Deploy & Launch</span>',
-        description: 'Compile DI, deploy static content, and flush the cache. Your store is ready to go!',
-        icon: 'tabler:rocket',
+        title: 'Step 3: <span class="font-medium">Build & Deploy</span>',
+        description: 'Compile dependency injection, deploy static assets, and clear the cache. These commands prepare your store for visitors.',
+        icon: 'tabler:package',
       },
       {
-        title: "You're Live!",
+        title: 'Your Store is Live!',
+        description: 'Access your new storefront and admin panel. From here, explore product setup, payment configuration, and shipping options.',
         icon: 'tabler:check',
       },
     ]}
@@ -121,74 +138,152 @@ const metadata = {
     }}
   />
 
+  <!-- Content Widget: Migration Highlight ************** -->
+
+  <Content
+    isReversed
+    tagline="For Magento Users"
+    title="Migrating from Magento? It's Easier Than You Think"
+    callToAction={{
+      text: 'View Migration Guide',
+      href: '/get-started/migration-guide',
+    }}
+    items={[
+      {
+        title: 'Full Extension Compatibility',
+        description: 'Your existing Magento 2 extensions, themes, and customizations work seamlessly with Mage-OS.',
+      },
+      {
+        title: 'Simple Composer Update',
+        description: 'Migration is typically just a repository swap in composer.json followed by a composer update.',
+      },
+      {
+        title: 'Rollback Ready',
+        description: 'Our guide includes complete rollback procedures so you can migrate with confidence.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Migration from Magento to Mage-OS',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Keep What Works, Gain What's Better
+      </h3>
+      Many stores have successfully migrated from Magento Open Source to Mage-OS without disruption.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
   <!-- Features2 Widget: Requirements ************** -->
 
   <Features2
     title="What You'll Need"
     tagline="Prerequisites"
+    subtitle="Most modern hosting environments meet these requirements. Check our detailed system requirements page for compatibility notes."
     items={[
       {
         title: 'PHP 8.3 or 8.4',
-        description: 'Modern PHP version with required extensions',
+        description: 'With required extensions (intl, soap, gd, etc.)',
         icon: 'tabler:brand-php',
       },
       {
         title: 'MySQL 8.4 or MariaDB 11.4',
-        description: 'Database server for storing your data',
+        description: 'For product, customer, and order data',
         icon: 'tabler:database',
       },
       {
         title: 'Composer 2.8+',
-        description: 'PHP dependency manager',
+        description: 'Manages PHP dependencies and updates',
         icon: 'tabler:package',
       },
       {
         title: 'OpenSearch 2.19',
-        description: 'Search engine for catalog and site search',
+        description: 'Powers catalog and site search',
         icon: 'tabler:search',
       },
       {
         title: 'Redis or Valkey',
-        description: 'For cache and session storage',
-        icon: 'tabler:database',
+        description: 'Handles cache and session storage',
+        icon: 'tabler:bolt',
       },
       {
-        title: 'Web Server',
-        description: 'Apache 2.4 or nginx 1.26',
+        title: 'Apache 2.4 or nginx 1.26',
+        description: 'Serves your storefront to visitors',
         icon: 'tabler:server',
+      },
+    ]}
+    callToAction={{
+      text: 'Full System Requirements',
+      href: '/get-started/system-requirements',
+    }}
+  />
+
+  <!-- Features3 Widget: Common Scenarios ************** -->
+
+  <Features3
+    title="Deployment Options"
+    tagline="Choose Your Environment"
+    subtitle="Mage-OS runs anywhere Magento does. Here are the most common deployment scenarios."
+    columns={2}
+    items={[
+      {
+        title: 'Local Development',
+        description: 'Use Docker with DDEV or Warden for a consistent, isolated development environment. Perfect for building extensions, testing upgrades, or local debugging.',
+        icon: 'tabler:device-laptop',
+      },
+      {
+        title: 'Cloud Hosting',
+        description: 'Deploy to AWS, Google Cloud, Azure, or specialized Magento hosts. Scalable and managed options available.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Dedicated Servers',
+        description: 'Full control with VPS or bare metal. Ideal for agencies managing multiple stores or businesses with specific compliance requirements.',
+        icon: 'tabler:server-2',
+      },
+      {
+        title: 'Enterprise Infrastructure',
+        description: 'Multi-server setups with load balancers, separate database clusters, Redis clusters, and CDN integration for maximum performance and reliability.',
+        icon: 'tabler:building',
       },
     ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
     </Fragment>
-  </Features2>
+  </Features3>
 
-  <!-- Features2 Widget: Common Scenarios ************** -->
+  <!-- FAQs Widget ******************* -->
 
-  <Features2
-    title="Common Deployment Scenarios"
-    tagline="Environments"
+  <FAQs
+    title="Common Questions"
+    tagline="Getting Started FAQs"
+    classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Local Development',
-        description: 'Docker with DDEV or Warden, perfect for developers testing features or building extensions.',
-        icon: 'tabler:device-laptop',
+        title: 'Do I need to be a developer to install Mage-OS?',
+        description:
+          'Basic command-line knowledge is helpful, but our Quick Start guide walks you through each step.',
       },
       {
-        title: 'Cloud Hosting',
-        description: 'Deploy to AWS, Google Cloud, Azure, or managed Magento hosting providers like Hypernode.',
-        icon: 'tabler:cloud',
+        title: 'Can I migrate from Adobe Commerce?',
+        description:
+          'Mage-OS is based on Magento Open Source. If you are using Adobe Commerce-specific features, some additional planning may be required. Contact our community for guidance on your specific situation.',
       },
       {
-        title: 'Shared Hosting',
-        description: 'Budget-friendly option for small stores with SSH and adequate resources.',
-        icon: 'tabler:server-2',
+        title: 'What support is available during setup?',
+        description:
+          'Our Discord community has active channels for installation help. You can also find partner agencies offering professional installation and migration services.',
       },
       {
-        title: 'Enterprise Infrastructure',
-        description: 'High-availability, multi-server setups with load balancing and dedicated resources.',
-        icon: 'tabler:building',
+        title: 'How long does migration from Magento take?',
+        description:
+          'A straightforward migration typically takes 15-30 minutes. Complex stores with many customizations should plan additional time for testing but rarely exceed a few hours.',
       },
     ]}
   />
@@ -204,13 +299,16 @@ const metadata = {
         icon: 'tabler:rocket',
       },
       {
-        text: 'View Documentation',
-        href: '/documentation',
+        text: 'Migration Guide',
+        href: '/get-started/migration-guide',
+        icon: 'tabler:refresh',
       },
     ]}
   >
-    <Fragment slot="title"> Ready to Begin? </Fragment>
+    <Fragment slot="title">Ready to Begin Your Mage-OS Journey?</Fragment>
 
-    <Fragment slot="subtitle"> Follow our Quick Start guide to have Mage-OS running in under 30 minutes. </Fragment>
+    <Fragment slot="subtitle">
+      Choose your path: new installations start with our Quick Start guide, while existing Magento stores should check out the Migration Guide. Either way, you'll be running Mage-OS in no time.
+    </Fragment>
   </CallToAction>
 </Layout>

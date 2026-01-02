@@ -5,28 +5,44 @@ tagline: 'Get Started'
 layout: '~/layouts/ContentPageLayout.astro'
 ---
 
-This guide will take you from **zero to a working Mage-OS installation** with minimal complexity. Perfect for developers, merchants evaluating the platform, or anyone wanting a fast local development environment.
+Get from **zero to a working Mage-OS store** in under 30 minutes. This guide is designed for developers, merchants evaluating the platform, or anyone wanting a fast local development environment.
 
-## Prerequisites
+**Total time:** 20-30 minutes | **Difficulty:** Beginner-friendly
 
-Before you begin, ensure you have:
+---
 
-- **Server or local environment** with command-line access
-- **PHP 8.3 or 8.4** installed with required extensions
-- **Composer 2.8+** installed ([Get Composer](https://getcomposer.org/))
-- **MySQL 8.4+** or **MariaDB 11.4+** running
-- **OpenSearch 2.19+** running
-- **Web server** (Apache 2.4+ or Nginx 1.26+) configured
+## Before You Begin
 
-**Don't have a development environment?** We recommend:
+### System Requirements
 
-- [DDEV](https://ddev.com/) - Docker-based, easiest setup
-- [Warden](https://warden.dev/) - Docker-based, Magento-focused
-- [Lando](https://lando.dev/) - Docker-based, flexible
+| Component | Version Required |
+| --------- | ---------------- |
+| PHP | 8.3 or 8.4 |
+| Composer | 2.8+ |
+| MySQL | 8.4+ (or MariaDB 11.4+) |
+| OpenSearch | 2.19+ |
+| Web Server | Apache 2.4+ or Nginx 1.26+ |
+
+Need the full list? See [System Requirements](/get-started/system-requirements).
+
+### Choose Your Environment
+
+**Already have a development environment?** Skip to [Step 1](#step-1-create-project).
+
+**Need an environment?** We recommend these Docker-based options:
+
+| Tool | Best For | Setup Time |
+| ---- | -------- | ---------- |
+| [DDEV](https://ddev.com/) | Easiest setup, great for beginners | 5 minutes |
+| [Warden](https://warden.dev/) | Magento-focused, production-like | 10 minutes |
+
+For detailed Docker installation, see the [Installation Guide](/get-started/installation#docker-installation).
 
 ---
 
 ## Step 1: Create Project
+
+**Time:** 3-5 minutes
 
 Navigate to your web server's document root and create a new project:
 
@@ -38,13 +54,13 @@ composer create-project --repository-url=https://repo.mage-os.org/ mage-os/proje
 
 - Downloads Mage-OS Distribution and all dependencies
 - Sets up the basic file structure
-- Configures composer autoloading
-
-**Time:** 3-5 minutes (depending on connection speed)
+- Configures Composer autoloading
 
 ---
 
 ## Step 2: Create Database
+
+**Time:** 1 minute
 
 Create an empty database for your Mage-OS installation:
 
@@ -55,11 +71,13 @@ mysql -u root -p -e "GRANT ALL PRIVILEGES ON mage_os.* TO 'mage_os_user'@'localh
 mysql -u root -p -e "FLUSH PRIVILEGES;"
 ```
 
-**Time:** 1 minute
+> **Security note:** Replace `secure_password` with a strong, unique password for production environments.
 
 ---
 
 ## Step 3: Run Installation
+
+**Time:** 5-10 minutes
 
 Run the setup installer with your configuration:
 
@@ -84,19 +102,25 @@ bin/magento setup:install \
   --opensearch-port=9200
 ```
 
-**Replace these values with your own:**
+**Customize these values:**
 
-- `yourdomain.local` → Your local or production domain
-- Database credentials
-- Admin account details
-
-**Time:** 5-10 minutes
+| Parameter | Description | Example |
+| --------- | ----------- | ------- |
+| `--base-url` | Your store URL | `http://mystore.local/` |
+| `--db-name` | Database name | `mage_os` |
+| `--db-user` | Database username | `mage_os_user` |
+| `--db-password` | Database password | Your secure password |
+| `--admin-email` | Admin email address | `you@example.com` |
+| `--admin-user` | Admin login username | `admin` |
+| `--admin-password` | Admin login password | Min 7 chars, 1 letter, 1 number |
 
 ---
 
-## Step 4: Deploy Static Content
+## Step 4: Set Permissions and Deploy
 
-After installation completes, deploy assets and compile code:
+**Time:** 5-10 minutes
+
+After installation completes, set permissions and deploy assets:
 
 ```bash
 # Set file permissions
@@ -114,23 +138,25 @@ bin/magento setup:static-content:deploy -f
 bin/magento cache:flush
 ```
 
-**Time:** 5-10 minutes
-
 ---
 
 ## Step 5: Set Deploy Mode
 
-For **local development**, enable developer mode:
+**For local development:**
 
 ```bash
 bin/magento deploy:mode:set developer
 ```
 
-For **production**, use production mode:
+Developer mode provides detailed error messages and disables static file caching for easier debugging.
+
+**For production:**
 
 ```bash
 bin/magento deploy:mode:set production
 ```
+
+Production mode enables full caching and optimizations for performance.
 
 ---
 
@@ -138,42 +164,56 @@ bin/magento deploy:mode:set production
 
 ### Storefront
 
-Navigate to: `http://yourdomain.local/`
+Open your browser and navigate to:
+
+```
+http://yourdomain.local/
+```
+
+You should see the default Mage-OS/Magento storefront with the Luma theme.
 
 ### Admin Panel
 
-Navigate to: `http://yourdomain.local/admin`
+Navigate to:
 
-**Login Credentials:**
+```
+http://yourdomain.local/admin
+```
 
-- **Username:** admin (or what you specified)
-- **Password:** Admin123! (or what you specified)
+**Login with:**
+
+- **Username:** `admin` (or your custom value)
+- **Password:** `Admin123!` (or your custom value)
 
 ---
 
 ## Success! Your Store is Live
 
-You now have a working Mage-OS installation. Here's what to do next:
+Congratulations! You now have a working Mage-OS installation. Here is what to do next:
 
-### Configure Basic Settings
+### Essential Configuration
 
-**Admin → Stores → Configuration**
+Access **Admin > Stores > Configuration** to configure:
 
-- **General → Web:** Set secure base URLs
-- **General → Store Information:** Add store name, address, contact info
-- **Sales → Payment Methods:** Configure payment gateways
-- **Sales → Shipping Methods:** Set up shipping options
-- **Sales → Tax:** Configure tax rules
+| Setting | Location | Purpose |
+| ------- | -------- | ------- |
+| Store Information | General > General | Store name, address, contact |
+| Base URLs | General > Web | Secure URLs for production |
+| Payment Methods | Sales > Payment Methods | Enable payment gateways |
+| Shipping Methods | Sales > Shipping Methods | Configure shipping options |
+| Tax Rules | Sales > Tax | Set up tax calculations |
 
 ### Set Up Cron Jobs
 
-Mage-OS requires cron for scheduled tasks:
+Mage-OS requires cron for scheduled tasks (indexing, emails, etc.):
+
+@TODO: Change to cron:install
 
 ```bash
 crontab -e
 ```
 
-Add:
+Add this line (adjust the path to match your installation):
 
 ```
 * * * * * /usr/bin/php /var/www/html/bin/magento cron:run 2>&1 | grep -v "Ran jobs by schedule" >> /var/www/html/var/log/magento.cron.log
@@ -183,7 +223,9 @@ Add:
 
 ## Troubleshooting
 
-### Blank page after installation
+### Blank Page After Installation
+
+**Cause:** Usually a cache or compilation issue.
 
 ```bash
 rm -rf var/cache/* var/page_cache/* generated/*
@@ -191,22 +233,28 @@ bin/magento setup:upgrade
 bin/magento cache:flush
 ```
 
-### 404 errors on storefront pages
+### 404 Errors on Storefront Pages
 
-Enable Apache mod_rewrite:
+**Cause:** Apache mod_rewrite not enabled.
 
 ```bash
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-### Composer memory limit errors
+For Nginx, ensure your configuration includes the rewrite rules. See the [Installation Guide](/get-started/installation#nginx-configuration).
+
+### Composer Memory Limit Errors
+
+**Cause:** PHP memory limit too low for Composer.
 
 ```bash
-php -d memory_limit=4G /usr/local/bin/composer create-project ...
+php -d memory_limit=1G /usr/local/bin/composer create-project ...
 ```
 
-### OpenSearch connection failed
+### OpenSearch Connection Failed
+
+**Cause:** OpenSearch service not running.
 
 Verify OpenSearch is running:
 
@@ -214,11 +262,51 @@ Verify OpenSearch is running:
 curl http://localhost:9200
 ```
 
+You should see a JSON response with cluster information. If not, start OpenSearch:
+
+```bash
+sudo systemctl start opensearch
+```
+
+### Admin Login Not Working
+
+**Cause:** Two-factor authentication is enabled by default.
+
+@TODO: Suggest disable-2fa module for dev instead
+
+Disable 2FA temporarily for development:
+
+```bash
+bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
+bin/magento cache:flush
+```
+
+### Static Content Not Loading (CSS/JS Missing)
+
+**Cause:** Static content not deployed or permissions issue.
+
+```bash
+bin/magento setup:static-content:deploy -f
+bin/magento cache:clean
+```
+
 ---
 
 ## Next Steps
 
-- [Full Installation Guide](/get-started/installation) - For custom environments
-- [Migration Guide](/get-started/migration-guide) - Migrating from Magento
-- [System Requirements](/get-started/system-requirements) - Detailed technical specs
-- [Developer Documentation](https://devdocs.mage-os.org) - Full developer docs
+Now that your store is running, explore these resources:
+
+| Resource | Description |
+| -------- | ----------- |
+| [Full Installation Guide](/get-started/installation) | Detailed installation for custom environments |
+| [Migration Guide](/get-started/migration-guide) | Migrating from Magento Open Source |
+| [System Requirements](/get-started/system-requirements) | Detailed technical specifications |
+| [Developer Documentation](https://devdocs.mage-os.org) | Full developer documentation |
+
+### Join the Community
+
+- **Discord:** Get real-time help from the community
+- **GitHub:** Report issues and contribute code
+- **Forums:** Discuss best practices and solutions
+
+Visit [mage-os.org/community](/community) to get connected.
