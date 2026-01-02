@@ -120,7 +120,15 @@ bin/magento cache:flush
 
 Docker-based environments are ideal for local development and testing. They provide consistent, reproducible setups without modifying your host system.
 
-### Using DDEV (Recommended)
+We recommend one of these Docker-based options:
+
+| Tool | Best For                                                  | Setup Time |
+| ---- |-----------------------------------------------------------| ---------- |
+| [DDEV](https://ddev.com/) | Easiest setup, great for beginners                        | 5 minutes |
+| [docker-magento](https://github.com/markshust/docker-magento) | Production-like, excellent docs                           | 10 minutes |
+| [Warden](https://warden.dev/) | Production-like, built for managing multiple environments | 10 minutes |
+
+### Using DDEV
 
 DDEV is the easiest way to get started with Mage-OS development. It handles all service configuration automatically.
 
@@ -163,8 +171,40 @@ ddev magento setup:static-content:deploy -f
 ddev magento cache:flush
 ```
 
-@TODO: Cover markshust/docker-magento
-@TODO: Contrast the different docker options
+### Using docker-magento
+
+[docker-magento](https://github.com/markshust/docker-magento) by Mark Shust is a production-like Docker environment with excellent documentation and community support.
+
+```bash
+# Download the setup script
+curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- mageos.test
+
+# Navigate to project directory
+cd mageos.test
+
+# Install Mage-OS (instead of default Magento)
+bin/removeall
+bin/download --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition
+
+# Start containers and install
+bin/setup mageos.test
+
+# Access admin panel
+bin/magento admin:user:create \
+  --admin-user="admin" \
+  --admin-password="Admin123!" \
+  --admin-email="admin@example.com" \
+  --admin-firstname="Admin" \
+  --admin-lastname="User"
+```
+
+**Access your store:** `https://mageos.test/`
+
+**Features:**
+- Production-ready Nginx, PHP-FPM, and Redis configuration
+- Xdebug integration for debugging
+- Comprehensive helper scripts (`bin/magento`, `bin/composer`, etc.)
+- Excellent [documentation](https://github.com/markshust/docker-magento#readme)
 
 ### Using Warden
 
@@ -212,41 +252,6 @@ bin/magento cache:flush
 ```
 
 **Access your store:** `https://app.mageos.test/`
-
-### Using docker-magento
-
-[docker-magento](https://github.com/markshust/docker-magento) by Mark Shust is a production-like Docker environment with excellent documentation and community support.
-
-```bash
-# Download the setup script
-curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- mageos.test
-
-# Navigate to project directory
-cd mageos.test
-
-# Install Mage-OS (instead of default Magento)
-bin/removeall
-bin/download --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition
-
-# Start containers and install
-bin/setup mageos.test
-
-# Access admin panel
-bin/magento admin:user:create \
-  --admin-user="admin" \
-  --admin-password="Admin123!" \
-  --admin-email="admin@example.com" \
-  --admin-firstname="Admin" \
-  --admin-lastname="User"
-```
-
-**Access your store:** `https://mageos.test/`
-
-**Features:**
-- Production-ready Nginx, PHP-FPM, and Redis configuration
-- Xdebug integration for debugging
-- Comprehensive helper scripts (`bin/magento`, `bin/composer`, etc.)
-- Excellent [documentation](https://github.com/markshust/docker-magento#readme)
 
 ---
 
@@ -390,25 +395,30 @@ After completing the installation, configure these essential settings for optima
 
 ### Configure Cron Jobs
 
-Mage-OS requires cron for scheduled tasks like indexing, email sending, and cache management.
-
-@TODO: Change to use Magento's cron:install command
+Mage-OS requires cron for scheduled tasks like indexing, email sending, and cache management. Use Magento's built-in command to automatically configure the crontab:
 
 ```bash
-# Edit crontab for the web server user
-sudo crontab -u www-data -e
+# Install cron jobs for the current user
+bin/magento cron:install
+
+# Or for a specific user (e.g., www-data)
+sudo -u www-data bin/magento cron:install
 ```
 
-Add the following line:
-
-```cron
-* * * * * /usr/bin/php /var/www/mageos/bin/magento cron:run 2>&1 | grep -v "Ran jobs by schedule" >> /var/www/mageos/var/log/magento.cron.log
-```
-
-Verify cron is running:
+This automatically adds the necessary cron entries. To verify cron is configured:
 
 ```bash
+# Check crontab entries
+crontab -l
+
+# Verify cron status in Magento
 bin/magento cron:status
+```
+
+To remove cron jobs if needed:
+
+```bash
+bin/magento cron:remove
 ```
 
 ### Set Production Mode

@@ -31,11 +31,11 @@ Need the full list? See [System Requirements](/get-started/system-requirements).
 
 **Need an environment?** We recommend these Docker-based options:
 
-| Tool | Best For | Setup Time |
-| ---- | -------- | ---------- |
-| [DDEV](https://ddev.com/) | Easiest setup, great for beginners | 5 minutes |
-| [Warden](https://warden.dev/) | Magento-focused, production-like | 10 minutes |
-| [docker-magento](https://github.com/markshust/docker-magento) | Production-like, excellent docs | 10 minutes |
+| Tool | Best For                                                  | Setup Time |
+| ---- |-----------------------------------------------------------| ---------- |
+| [DDEV](https://ddev.com/) | Easiest setup, great for beginners                        | 5 minutes |
+| [docker-magento](https://github.com/markshust/docker-magento) | Production-like, excellent docs                           | 10 minutes |
+| [Warden](https://warden.dev/) | Production-like, built for managing multiple environments | 10 minutes |
 
 For detailed Docker installation, see the [Installation Guide](/get-started/installation#docker-installation).
 
@@ -206,18 +206,16 @@ Access **Admin > Stores > Configuration** to configure:
 
 ### Set Up Cron Jobs
 
-Mage-OS requires cron for scheduled tasks (indexing, emails, etc.):
-
-@TODO: Change to cron:install
+Mage-OS requires cron for scheduled tasks (indexing, emails, etc.). Use the built-in command to configure cron automatically:
 
 ```bash
-crontab -e
+bin/magento cron:install
 ```
 
-Add this line (adjust the path to match your installation):
+Verify the installation:
 
-```
-* * * * * /usr/bin/php /var/www/html/bin/magento cron:run 2>&1 | grep -v "Ran jobs by schedule" >> /var/www/html/var/log/magento.cron.log
+```bash
+bin/magento cron:status
 ```
 
 ---
