@@ -3,7 +3,7 @@ import { join, basename } from 'path';
 import { parseStringPromise } from 'xml2js';
 import yaml from 'js-yaml';
 
-const WP_XML_FILE = '../wp-export/mage-os.WordPress.2025-10-21.xml';
+const WP_XML_FILE = '../wp-export/mage-os.WordPress.2026-01-03.xml';
 const ASTRO_EVENTS_DIR = './src/data/events';
 const ASTRO_IMAGES_DIR = './src/assets/images/events';
 const WP_IMAGES_BASE = '../wp-export/output/';

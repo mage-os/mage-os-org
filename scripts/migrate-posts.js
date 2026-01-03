@@ -13,7 +13,9 @@ const categoryMap = {
   initiatives: 'Initiatives',
   'ecommerce-insights': 'eCommerce Insights',
   'case-studies': 'Case Studies',
+  event: 'Events',
   events: 'Events',
+  'event-recap': 'Events',
   community: 'Community',
   technical: 'Technical',
 };
@@ -141,7 +143,7 @@ async function main() {
   }
 
   // Get all markdown files from year subdirectories (which have coverImage)
-  const yearDirs = ['2021', '2022', '2023', '2024', '2025'];
+  const yearDirs = ['2021', '2022', '2023', '2024', '2025', '2026'];
   let allMdFiles = [];
 
   for (const year of yearDirs) {
