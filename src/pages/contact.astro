@@ -188,8 +188,44 @@ const metadata = {
     </Fragment>
   </Features>
 
+  <!-- Contact Form Widget ************** -->
+  <!-- TODO: Replace this with a Google form or such. -->
+  <ContactUs
+    id="form"
+    title="Send Us a Message"
+    subtitle="Can't find what you need above? Use this form for general inquiries. For faster support, we recommend joining our Discord community."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+        required: true,
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+        required: true,
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+      required: true,
+    }}
+    disclaimer={{
+      label:
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+    }}
+    description="We typically respond to form submissions within 2-3 business days."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </ContactUs>
+  
   <!-- Features2 Widget: Follow Us ************** -->
 
+  <!-- TODO: Add a newsletter signup bit here. -->
   <Features2
     title="Stay Connected"
     subtitle="Follow us on social media for the latest news, release announcements, and community highlights"
@@ -203,26 +239,6 @@ const metadata = {
         callToAction: {
           text: 'Follow',
           href: 'https://www.linkedin.com/company/mage-os',
-          target: '_blank',
-        },
-      },
-      {
-        title: 'Twitter/X',
-        description: 'Quick updates, release announcements, and community engagement.',
-        icon: 'tabler:brand-x',
-        callToAction: {
-          text: 'Follow',
-          href: 'https://twitter.com/mage_os',
-          target: '_blank',
-        },
-      },
-      {
-        title: 'YouTube',
-        description: 'Tutorials, event recordings, and community presentations.',
-        icon: 'tabler:brand-youtube',
-        callToAction: {
-          text: 'Subscribe',
-          href: 'https://www.youtube.com/@maborak',
           target: '_blank',
         },
       },
@@ -280,41 +296,6 @@ const metadata = {
       <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
     </Fragment>
   </FAQs>
-
-  <!-- Contact Form Widget ************** -->
-
-  <ContactUs
-    id="form"
-    title="Send Us a Message"
-    subtitle="Can't find what you need above? Use this form for general inquiries. For faster support, we recommend joining our Discord community."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-        required: true,
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-        required: true,
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-      required: true,
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="We typically respond to form submissions within 2-3 business days."
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </ContactUs>
 
   <!-- CallToAction Widget *********** -->
 
