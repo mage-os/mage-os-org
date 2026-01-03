@@ -1,12 +1,13 @@
 ---
-title: 'Transforming Magento: The Power of Community, Contributions, and Innovation'
-publishDate: '2025-02-08T00:00:00.000Z'
-category: 'Initiatives'
-author: 'Mage-OS Team'
+title: "Transforming Magento: The Power of Community, Contributions, and Innovation"
+publishDate: "2025-02-08T00:00:00.000Z"
+category: "Initiatives"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'E-commerce is constantly changing, and Magento continues to be a leading platform, providing great tools for developers and businesses. Two exciting additions...'
+excerpt: "E-commerce is constantly changing, and Magento continues to be a leading platform, providing great tools for developers and businesses. Two exciting additions..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2025/IMG-20241130-WA0002-.jpg"
 ---
 
 E-commerce is constantly changing, and Magento continues to be a leading platform, providing great tools for developers and businesses. Two exciting additions to this system have recently stood out: the Automatic Translations Module and the PageBuilder Import-Export Module. Created by [Davide Lunardon](https://www.linkedin.com/in/davide-lunardon-b78813a1/), [Luca Fuser](https://www.linkedin.com/in/luca-alessio-fuser/) and [Samuele Martini](https://www.linkedin.com/in/samuele-martini-02820795/), these tools aim to make Magento even more useful and easy to use.
@@ -25,11 +26,11 @@ The module enables the translation of all entities, including products, categori
 
 1. **Handling HTML in Descriptions** – Ensuring AI engines preserved structural elements while translating text was complex.
 
-2. **Prompt Engineering** – While DeepL required no prompts, OpenAI and Gemini needed specific instructions to produce quality translations.
+3. **Prompt Engineering** – While DeepL required no prompts, OpenAI and Gemini needed specific instructions to produce quality translations.
 
-3. **Attribute Translation** – Unlike textual attributes, select and multiselect attributes store only IDs, requiring a separate translation mechanism.
+5. **Attribute Translation** – Unlike textual attributes, select and multiselect attributes store only IDs, requiring a separate translation mechanism.
 
-4. **Alt Text Handling** – Since Magento associates alt text with a "gallery" entity, special logic was needed to integrate it seamlessly.
+7. **Alt Text Handling** – Since Magento associates alt text with a "gallery" entity, special logic was needed to integrate it seamlessly.
 
 Today, [the module](https://github.com/mage-os-lab/module-automatic-translation) allows merchants to translate products, categories, CMS pages, and static blocks either manually or automatically via cron jobs, ensuring efficient multilingual expansion. Recognizing its potential, Samuele and Davide made it available to the Mage-OS community.
 
@@ -57,7 +58,7 @@ Additionally, a Dropbox API integration enables remote template imports. This in
 
 1. **Recursive CMS Dependency Handling** – Extracting interdependent assets and templates in a structured manner was a significant challenge.
 
-2. **Choosing the Right Remote Service** – A flexible API solution was needed for sustainable integration with Mage-OS.
+3. **Choosing the Right Remote Service** – A flexible API solution was needed for sustainable integration with Mage-OS.
 
 Supported by fellow developers Luca Fuser and Samuele Martini, Davide’s vision took shape, and [the module](https://github.com/mage-os-lab/module-pagebuilder-template-import-export) is now actively being refined for stability and efficiency.
 
@@ -65,7 +66,7 @@ The module was created by [**Samuele Martini**](https://www.linkedin.com/in/samu
 
 ## **About the Developers**
 
-![](https://mage-os.org/wp-content/uploads/2025/02/AD_4nXc3l9wjH95o8Nah8a5dR7ZF33NlgfoJroZN-7IrOxBdipcTs5RsIAt2LU5hdqHN0RJAmZQpvMIVxHrtbmxKXrvWlWwxU9Joo-QItqsE0ErUKsSFflay3kNx_PECYOIICAAJH-ch.png)
+![](~/assets/images/blog/2025/AD_4nXc3l9wjH95o8Nah8a5dR7ZF33NlgfoJroZN-7IrOxBdipcTs5RsIAt2LU5hdqHN0RJAmZQpvMIVxHrtbmxKXrvWlWwxU9Joo-QItqsE0ErUKsSFflay3kNx_PECYOIICAAJH-ch.png)
 
 Samuele, a developer from Treviso, Italy, has a diverse academic background in statistics, business management, and computer science. After earning his degree from the University of Padua in 2011, he built his career across multiple web agencies, progressing from developer to technical director. In 2025, he decided to start his own business, collaborating with Davide, a longtime friend and former colleague.
 

@@ -1,17 +1,17 @@
 ---
-title: 'The Mage-OS Association has been founded!'
-publishDate: '2022-09-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "The Mage-OS Association has been founded!"
+publishDate: "2022-09-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'It finally happened! We have founded Mage-OS as an official association registered in Poland. Huge thanks to Maciej Kalkowski, who took care of the legal...'
+excerpt: "It finally happened! We have founded Mage-OS as an official association registered in Poland. Huge thanks to Maciej Kalkowski, who took care of the legal..."
 ---
 
 It finally happened!
 
 We have founded Mage-OS as an official association registered in Poland. Huge thanks to Maciej Kalkowski, who took care of the legal matters with the lawyers and organized everything, and also thank you to everyone who gathered in Warsaw as the initial signing members. Now Mage-OS can register a bank account, get members, and employ people. This is an important step toward much bigger things for this Magento-based open source project.
 
-![](https://mage-os.org/wp-content/uploads/2022/12/2022-07-21-founding-meeting-warsaw.png)
+![](~/assets/images/blog/2022/2022-07-21-founding-meeting-warsaw.png)
 
 Our goal is to strengthen the Magento ecosystem, and see it thrive for years to come!
 

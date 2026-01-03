@@ -1,10 +1,11 @@
 ---
-title: 'Embracing Innovation: My Journey to Join Mage-OS'
-publishDate: '2023-06-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Embracing Innovation: My Journey to Join Mage-OS"
+publishDate: "2023-06-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Once upon a time, I found myself seeking a new adventure in the world of e-commerce. Having worked extensively with Magento, I was drawn to its flexibility and...'
+excerpt: "Once upon a time, I found myself seeking a new adventure in the world of e-commerce. Having worked extensively with Magento, I was drawn to its flexibility and..."
+image: "~/assets/images/blog/2023/Marek.jpg"
 ---
 
 Once upon a time, I found myself seeking a new adventure in the world of e-commerce. Having worked extensively with Magento, I was drawn to its flexibility and robust features. However, I yearned for something more, a chance to be part of an innovative movement that pushes the boundaries of what is possible.
@@ -25,7 +26,7 @@ Suppose you, too, seek an adventure, a chance to be part of a movement that embr
 
 Marek Kubačák
 
----
+* * *
 
 ##### Join Us!
 

@@ -1,10 +1,10 @@
 ---
-title: 'Mage-OS update January 2022'
-publishDate: '2022-02-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS update January 2022"
+publishDate: "2022-02-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Dear Magento community members, It has been a while since you last heard from us. Apart from updates on social media and conferences/discussion panels we...'
+excerpt: "Dear Magento community members, It has been a while since you last heard from us. Apart from updates on social media and conferences/discussion panels we..."
 ---
 
 ## Mage-OS update January 2022
@@ -152,8 +152,8 @@ The Mage-OS team,
 
 - Willem Wigman, Hyvä Themes B.V.
 - Vinai Kopp, Hyvä Themes B.V.
-- Andreas von Studnitz, integer_net GmbH
-- Fabian Schmengler, integer_net GmbH
+- Andreas von Studnitz, integer\_net GmbH
+- Fabian Schmengler, integer\_net GmbH
 - Ignacio Riesco, Interactiv4 S.L.
 - Óscar Recio, Interactiv4 S.L.
 - Peter Jaap Blaakmeer, elgentos

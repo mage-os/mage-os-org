@@ -1,18 +1,21 @@
 ---
-title: 'Mage-OS March Recap'
-publishDate: '2025-04-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS March Recap"
+publishDate: "2025-04-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "- Welcome to our newest partners and members!     - Jonathan Visser\_ – community member          - Alin Munteanu\_ – community member          - Illya Arefiev –..."
+image: "~/assets/images/blog/2025/mage-os-may-blog.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Jonathan Visser  – community member
-  - Alin Munteanu  – community member
-  - Illya Arefiev – community member
+    - Jonathan Visser  – community member
+    
+    - Alin Munteanu  – community member
+    
+    - Illya Arefiev – community member
 
 - You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
 
@@ -24,7 +27,7 @@ The sold-out edition radiated energy, innovation, and community spirit. From vis
 
 Check out the [official LinkedIn page](https://www.linkedin.com/posts/meet-magento-france_magento-ecommerce-adobecommerce-activity-7310367386577088512-jYNS/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABUaYtIBKBOe9-aESwhKh4_njhnvo98UZxQ) for Meet Magento France for updates, highlights, and community insights!
 
-[![](https://mage-os.org/wp-content/uploads/2025/04/1742923840841-1024x683.jpg)](https://www.linkedin.com/posts/meet-magento-france_magento-ecommerce-adobecommerce-activity-7310367386577088512-jYNS?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABUaYtIBKBOe9-aESwhKh4_njhnvo98UZxQ)
+[![](~/assets/images/blog/2025/1742923840841-1024x683.jpg)](https://www.linkedin.com/posts/meet-magento-france_magento-ecommerce-adobecommerce-activity-7310367386577088512-jYNS?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABUaYtIBKBOe9-aESwhKh4_njhnvo98UZxQ)
 
 ### Tech Updates
 
@@ -60,7 +63,7 @@ The big 1.1 release is brewing. We’re syncing with Magento 2.4.8 and lining up
 - Optional Creatuity interceptor module
 
 - Possibly even a revamped web installer  
-   Testing and merges are ramping up in April.
+    Testing and merges are ramping up in April.
 
 ## **Opportunities**
 

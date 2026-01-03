@@ -1,15 +1,16 @@
 ---
 title: "Happily ever after\_- Online Spy Shop and Magento 2"
-publishDate: '2023-03-12T00:00:00.000Z'
-category: 'Case Studies'
-author: 'Mage-OS Team'
+publishDate: "2023-03-12T00:00:00.000Z"
+category: "Case Studies"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Hollywood love stories usually start with some ups and downs in a relationship and then a big showdown – preferably with a great sunset as a backdrop. True...'
+excerpt: "Hollywood love stories usually start with some ups and downs in a relationship and then a big showdown – preferably with a great sunset as a backdrop. True..."
+image: "~/assets/images/blog/2023/OnlineSpyShop.png"
 ---
 
 Hollywood love stories usually start with some ups and downs in a relationship and then a big showdown – preferably with a great sunset as a backdrop. True love stories are often much simpler: You find the perfect match and stay together. In the case of Magento 2 and [Online Spy Shop](https://www.onlinespyshop.co.uk/), a UK-based company offering surveillance equipment for companies, governments and individuals, one can certainly speak of true love.
 
-![](https://mage-os.org/wp-content/uploads/2023/08/OnlineSpyShop.png)
+![](~/assets/images/blog/2023/OnlineSpyShop.png)
 
 ## How it began
 
@@ -25,13 +26,13 @@ To back this, the online store has, from the beginning, certain functions consid
 
 1. Customer reviews: These show real examples of customer satisfaction to generate trust. (Do you want to implement such a powerful feature? [Read more here](https://mage-os.org/why-magento/features/marketing-seo/).)
 
-2. Site search: Helps the customer to find his product as quickly as possible without any distraction – if not wanted.
+3. Site search: Helps the customer to find his product as quickly as possible without any distraction – if not wanted.
 
-3. Content: Shows that the company has expert knowledge and is, therefore, trustworthy.
+5. Content: Shows that the company has expert knowledge and is, therefore, trustworthy.
 
-4. Live Chat: To offer superior customer service by answering in real time.
+7. Live Chat: To offer superior customer service by answering in real time.
 
-5. Address Validation verification service: Suggests validated addresses for fast and correct delivery.
+9. Address Validation verification service: Suggests validated addresses for fast and correct delivery.
 
 They also set a focus on a streamlined and user-friendly yet comprehensive checkout. Including the acceptance of all payments that they needed and being compatible with PCA Predict, they met their expectations to provide their customers with the possibility of placing an order with minimum friction. 
 
@@ -41,7 +42,7 @@ Surveillance equipment is used by most people these days, whether that be a non-
 
 It is, therefore, not surprising that a provider of such equipment should also make sure that the user experience in the store is as positive as possible. Having this in mind, Online Spy Shop implemented plenty of improvements and optimizations over time to ensure a great customer experience.
 
-![](https://lh3.googleusercontent.com/KsI1zdISpJsLHCBs2otsUHcD-I3ZhmhMLhe0yHgoU0kIM6bWOcCok6EHUgXk-llDG26Bevga3jl8zYYLeQuvIOw6hMztg9_6dgcWAsq75mBRFn49lhK7ROPSaBhwlNZm5E_HCTtfmDQkWDgGXTnpa9U)
+![](~/assets/images/blog/2023/KsI1zdISpJsLHCBs2otsUHcD-I3ZhmhMLhe0yHgoU0kIM6bWOcCok6EHUgXk-llDG26Bevga3jl8zYYLeQuvIOw6hMztg9_6dgcWAsq75mBRFn49lhK7ROPSaBhwlNZm5E_HCTtfmDQkWDgGXTnpa9U)
 
 The first thing customer will notice (and fall in love with) is the significantly improved top navigation bar. Not only did Online Spy Shop include a variety of trust elements such as the delivery time, positive reviews and an easily accessible phone support, but also a focus on “Made in UK”-products and UK-based support.
 
@@ -65,7 +66,7 @@ For those who don’t want any strings attached, even without a registration or 
 
 “We implemented OneStepCheckout in the beginning and are still more than happy with that decision”, says Steve. “What we can clearly see in the various iterations of the checkout design is that the business made sure customers are focused on completing checkout and not tempted to click away from this page.” The iterations include the removal of navigation bars and various icons, but also the replacement of Sage Pay with Stripe so that the customers can stay on the same page to pay.  
 
-![](https://lh4.googleusercontent.com/jkYizenG4xbgyRLZnvRlj8IQaym22GP_UNIbrPSDuOT5xmMErktgx8rcslkEgHH8qY1zByC-y4tnDgIoqP22oOC_SkDKYo7ACsT_h0XJRrTyvW8BjmEZXIMObBLjwqJV5tU9pZC8-i01hZuMnVIi-2o)
+![](~/assets/images/blog/2023/jkYizenG4xbgyRLZnvRlj8IQaym22GP_UNIbrPSDuOT5xmMErktgx8rcslkEgHH8qY1zByC-y4tnDgIoqP22oOC_SkDKYo7ACsT_h0XJRrTyvW8BjmEZXIMObBLjwqJV5tU9pZC8-i01hZuMnVIi-2o)
 
 Although these efforts are certainly made to maximize the checkout conversion, it adds to the flawless user experience on the site. Store owners who want an equally good user experience can find [more information here](/?page_id=129).
 
@@ -75,7 +76,7 @@ In every relationship, you’ll need to make an effort to keep the fire burning.
 
 He also found a great agency - [Foundation Commerce](https://foundationcommerce.co.uk/) \- to support him in his next growth phase using new innovative technologies like Hyvä. As Steve Robert puts it:
 
- *“Ryan’s credentials and skillset are a rare find and bringing Foundation Commerce agency onboard was the best decision we’ve made\_\_.”* 
+ _“Ryan’s credentials and skillset are a rare find and bringing Foundation Commerce agency onboard was the best decision we’ve made__.”_ 
 
 Perfect match with technology and people leads to the customer’s trust, which is the base of a longtime relationship and the “happily ever after”.
 

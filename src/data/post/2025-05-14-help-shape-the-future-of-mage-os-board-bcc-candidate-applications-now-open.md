@@ -1,10 +1,11 @@
 ---
-title: 'Help Shape the Future of Mage-OS — Board & BCC Candidate Applications Now Open!'
-publishDate: '2025-05-14T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Help Shape the Future of Mage-OS — Board & BCC Candidate Applications Now Open!"
+publishDate: "2025-05-14T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Are you passionate about open-source eCommerce? Do you believe in the power of community-led innovation? Mage-OS is growing — and now is your chance to help...'
+excerpt: "Are you passionate about open-source eCommerce? Do you believe in the power of community-led innovation? Mage-OS is growing — and now is your chance to help..."
+image: "~/assets/images/blog/2025/Elections.jpg"
 ---
 
 Are you passionate about open-source eCommerce? Do you believe in the power of community-led innovation? Mage-OS is growing — and now is your chance to help lead the charge.

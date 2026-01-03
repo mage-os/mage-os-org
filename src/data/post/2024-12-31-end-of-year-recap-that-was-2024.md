@@ -1,10 +1,11 @@
 ---
-title: 'End of Year Recap - That was 2024'
-publishDate: '2024-12-31T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "End of Year Recap - That was 2024"
+publishDate: "2024-12-31T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Looking Back on an Awesome Year with Mage-OS – Happy New Year! As 2024 wraps up, we want to take a moment to celebrate everything we’ve accomplished together...'
+excerpt: "Looking Back on an Awesome Year with Mage-OS – Happy New Year! As 2024 wraps up, we want to take a moment to celebrate everything we’ve accomplished together..."
+image: "~/assets/images/blog/2024/mageos_blog_december-2024-update.jpg"
 ---
 
 **Looking Back on an Awesome Year with Mage-OS – Happy New Year!**

@@ -1,17 +1,19 @@
 ---
-title: 'Mage-OS July 2024 Recap'
-publishDate: '2024-07-31T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS July 2024 Recap"
+publishDate: "2024-07-31T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: '- Welcome to our newest partners and members!       -...'
+excerpt: "- Welcome to our newest partners and members!       -..."
+image: "~/assets/images/blog/2024/mage-os-july-2024.jpg"
 ---
 
 ## **Association News**
 
-- Welcome to our newest partners and members!
-  - ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdsrUnlfdBECVfmxohpYW4iJ0eizuHwcUwIn1NfdOOQTy5WLoXYytv-bkbybgqEQhKd6_zujW6NbO3edCn5nUcJ4HNcjqfpBGBym1Gn7BdluweQwuXbsVpxuFDKPsMgYOYdC0sEX3pqFGbdUDmSy8uKUsc?key=Xxfm6tZ84aHdJAyUjSFZ2g)
-    Develo - Bronze partner
+- Welcome to our newest partners and members!  
+    - ![](~/assets/images/blog/2024/AD_4nXdsrUnlfdBECVfmxohpYW4iJ0eizuHwcUwIn1NfdOOQTy5WLoXYytv-bkbybgqEQhKd6_zujW6NbO3edCn5nUcJ4HNcjqfpBGBym1Gn7BdluweQwuXbsVpxuFDKPsMgYOYdC0sEX3pqFGbdUDmSy8uKUsc)  
+          
+        Develo - Bronze partner
 
 _“At Develo our support for Mage-OS is about embracing the true essence of Magento’s community-driven spirit. We are confident that Mage-OS is going to play a pivotal role in advancing the Magento Open Source platform and ecosystem so we’re very excited to be a part of the journey!_
 
@@ -37,9 +39,10 @@ _If you can, please consider sponsoring — together we will make a significant 
 
 ### **New Releases and Community Updates**
 
-- [**Mage-OS Distribution 1.0.3**](/?p=3987): The latest release aligns with Magento Open Source 2.4.7-p1, along with improvements in testing suites. Check out the full release notes and join the conversation on LinkedIn.
+- [**Mage-OS Distribution 1.0.3**](/?p=3987): The latest release aligns with Magento Open Source 2.4.7-p1, along with improvements in testing suites. Check out the full release notes and join the conversation on LinkedIn.  
+    
 
-- **Crypt Key Rotation:** Gene Commerce has released a package to help encryption key rotation for the recent security patch. Check it out: [Gene_EncryptionKeyManager](https://github.com/genecommerce/module-encryption-key-manager)
+- **Crypt Key Rotation:** Gene Commerce has released a package to help encryption key rotation for the recent security patch. Check it out: [Gene\_EncryptionKeyManager](https://github.com/genecommerce/module-encryption-key-manager)
 
 ### **Ongoing Projects**
 
@@ -62,8 +65,9 @@ Our marketing and content meetings (on Mondays 3pm CEST) are bringing together a
 - **Talking points** to highlight [the benefits of Open Source vs Saas](https://magento-opensource.com/magento-open-source/magento-open-source-open-source-advantage/) when it comes to eCommerce. 
 
 - **Social Media support**: We’ve launched new social accounts for Magento Open Source:
-  - [@magentoOSS](https://x.com/magentoOSS) on Twitter
-  - [Magento Open Source](https://www.linkedin.com/showcase/magento-open-source/about/) on LinkedIn
+    - [@magentoOSS](https://x.com/magentoOSS) on Twitter
+    
+    - [Magento Open Source](https://www.linkedin.com/showcase/magento-open-source/about/) on LinkedIn
 
 \=> We need help to manage these social media accounts. [Apply here](https://www.linkedin.com/posts/magentoassociation_empowering-our-magento-open-source-community-activity-7219302333703151616-qEHw?utm_source=share&utm_medium=member_desktop)
 
@@ -89,9 +93,11 @@ Our marketing and content meetings (on Mondays 3pm CEST) are bringing together a
 
 ## **Opportunities**
 
-- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org
+- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org  
+    
 
-- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org
+- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org  
+    
 
 - We’re looking for new features to enhance Mage-OS this year that will help to modernize and excite merchants. This might include AI enhancements, low/no code processes, or more. Talk to Vinai Kopp or #tech if you’re interested!
 
@@ -110,7 +116,7 @@ Stay updated with the latest events and gatherings in the worldwide Magento comm
 - [Meet Magento New York](https://meetmagentonyc.com/) - 10 October 2024, New York 
 
 - [Magentiamo](https://www.magentiamo.it/) **& Webinars:** - 11 October 2024, Milan  
-   Don’t miss our Italian-focused webinars on September 10th, October 22nd, and November 20th.
+    Don’t miss our Italian-focused webinars on September 10th, October 22nd, and November 20th.
 
 - [Meet Magento NL](https://nl.meet-magento.com/) – 31 October 2024, in Amsterdam
 

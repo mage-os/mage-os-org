@@ -1,21 +1,27 @@
 ---
-title: 'Mage-OS June 2024 Recap'
-publishDate: '2024-07-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS June 2024 Recap"
+publishDate: "2024-07-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: '- Welcome to our newest partners and members!     - Nikola - community member          - Szymon Niedziela - professional member          - Ryan Sun - community...'
+excerpt: "- Welcome to our newest partners and members!     - Nikola - community member          - Szymon Niedziela - professional member          - Ryan Sun - community..."
+image: "~/assets/images/blog/2024/mage-os-june-2024.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Nikola - community member
-  - Szymon Niedziela - professional member
-  - Ryan Sun - community member
-  - Neo -  professional member
-  - Lukasz Linczewski - community member
-  - Mark van der Sanden -  professional member
+    - Nikola - community member
+    
+    - Szymon Niedziela - professional member
+    
+    - Ryan Sun - community member
+    
+    - Neo -  professional member
+    
+    - Lukasz Linczewski - community member
+    
+    - Mark van der Sanden -  professional member
 
 - You too can become a Mage-OS member and join our vibrant community, starting from just €10 per year!
 
@@ -26,12 +32,17 @@ It’s annual meeting time! In June both Mage-OS and Mage-OS NL held their annua
 ## Mage-OS Live 2024:
 
 - Agenda
-  - What we’ve been up to (Vinai Kopp, President)
-  - 2023 financial report (Maciej Kalkowski, Board)
-  - Business Control Committee report (Laura Folco, Business Control Committee)
-  - Open Q&A
-  - 2023 closing resolutions and votes
-  - Free votes and motions
+    - What we’ve been up to (Vinai Kopp, President)
+    
+    - 2023 financial report (Maciej Kalkowski, Board)
+    
+    - Business Control Committee report (Laura Folco, Business Control Committee)
+    
+    - Open Q&A
+    
+    - 2023 closing resolutions and votes
+    
+    - Free votes and motions
 
 - [Check out Maciej’s recap](https://www.linkedin.com/feed/update/urn:li:activity:7209190987850543106/)
 
@@ -89,9 +100,11 @@ We are implementing detailed analytics and refining our SEO strategy to better u
 
 ## **Opportunities**
 
-- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org
+- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org  
+    
 
-- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org
+- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org  
+    
 
 - We’re looking for new features to enhance Mage-OS this year that will help to modernize and excite merchants. This might include AI enhancements, low/no code processes, or more. Talk to Vinai Kopp or #tech if you’re interested!
 
@@ -99,7 +112,8 @@ We are implementing detailed analytics and refining our SEO strategy to better u
 
 Stay updated with the latest events and gatherings in the worldwide Magento community:
 
-- [Mage Titans Groningen](https://www.mage-titans.nl/) – 13 September 2024
+- [Mage Titans Groningen](https://www.mage-titans.nl/) – 13 September 2024  
+    
 
 - [Meet Magento NL](https://nl.meet-magento.com/) – 31 October 2024, in Amsterdam
 

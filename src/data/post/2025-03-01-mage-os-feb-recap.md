@@ -1,13 +1,14 @@
 ---
-title: 'Mage-OS Feb Recap'
-publishDate: '2025-03-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Feb Recap"
+publishDate: "2025-03-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'MageOS is evolving into a tech incubator, focusing on innovation and making development easier for the community. This shift aims to encourage research,...'
+excerpt: "MageOS is evolving into a tech incubator, focusing on innovation and making development easier for the community. This shift aims to encourage research,..."
+image: "~/assets/images/blog/2025/mageos_blog_february-2024.jpg"
 ---
 
-## \***\*Content and Community Initiatives**:\*\*
+## ****Content and Community Initiatives**:**
 
 MageOS is evolving into a **tech incubator**, focusing on innovation and making development easier for the community. This shift aims to encourage research, improve tools, and create a more efficient ecosystem for Magento-based solutions. The goal is to support developers, merchants, and businesses of all sizes by making the platform more accessible and user-friendly.
 

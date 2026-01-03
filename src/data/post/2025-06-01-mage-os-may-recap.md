@@ -1,17 +1,19 @@
 ---
-title: 'Mage-OS May Recap'
-publishDate: '2025-06-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS May Recap"
+publishDate: "2025-06-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "- Welcome to our newest partners and members!     - Abi Green\_ – professional member          - Ruthger Idema – community member - You too can become a Mage-OS..."
+image: "~/assets/images/blog/2025/mage-os-may-blog.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Abi Green  – professional member
-  - Ruthger Idema – community member
+    - Abi Green  – professional member
+    
+    - Ruthger Idema – community member
 
 - You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
 

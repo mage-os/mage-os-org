@@ -1,10 +1,10 @@
 ---
-title: 'Nightly repository now available; Mirror improvements; and more'
-publishDate: '2022-08-29T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Nightly repository now available; Mirror improvements; and more"
+publishDate: "2022-08-29T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are moving at a quick pace — buckle up for a fresh batch of Mage-OS updates! We reached two milestones during the last week! 🎉🎉 The first step towards an...'
+excerpt: "We are moving at a quick pace — buckle up for a fresh batch of Mage-OS updates! We reached two milestones during the last week! 🎉🎉 The first step towards an..."
 ---
 
 We are moving at a quick pace — buckle up for a fresh batch of Mage-OS updates!

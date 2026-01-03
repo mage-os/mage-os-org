@@ -1,10 +1,11 @@
 ---
-title: 'Meet Magento NYC 2023: A Gathering of the Mage-OS Community'
-publishDate: '2023-10-31T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Meet Magento NYC 2023: A Gathering of the Mage-OS Community"
+publishDate: "2023-10-31T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'October’s cool New York City breeze witnessed the confluence of Magento aficionados. Nestled in the heart of the city, the New World stage off-broadway theater...'
+excerpt: "October’s cool New York City breeze witnessed the confluence of Magento aficionados. Nestled in the heart of the city, the New World stage off-broadway theater..."
+image: "~/assets/images/blog/2023/Concluding-1-scaled.jpg"
 ---
 
 ## Setting the Stage in The Big Apple
@@ -19,19 +20,19 @@ Before the main event even began, the tone was set with a pre-party on Monday ev
 
 Tuesday saw the venue buzzing with enthusiasts. The Mage-OS booth emerged as a popular spot, thanks to Ryan Hoerr’s commendable management. It was heartening to see notable Mage-OS stalwarts like David Lambauer, Damien Retzinger, Anton Kril, Jakub Winkler, and John Hughes rally around, amplifying the energy.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Mage-OS-Booth-1-1024x991.jpg)
+![](~/assets/images/blog/2023/Mage-OS-Booth-1-1024x991.jpg)
 
 ## Innovating Magento: Damien's Revelation
 
 The afternoon sessions commenced with one of our longest-serving and most active technical contributors, Damien Ratzinger, who gave an enlightening and in-depth talk on NX. The promise? Making Magento a whopping 1000x faster. An interesting note: this groundbreaking tech is currently the pride of Mage-OS and is regularly discussed in our weekly technical meetings, with contributions ongoing (and more welcome!)
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Damien-1-1024x991.jpg)
+![](~/assets/images/blog/2023/Damien-1-1024x991.jpg)
 
 ## AI & Devdocs: David’s Journey
 
 David Lambauer later took center stage, narrating his compelling journey to create the Mage-OS DevDocs. The awe-inspiring aspect? A massive 70,000 words, crafted with a sprinkle of AI magic. But it wasn’t just about quantity. The revamped devdocs are meticulously designed with newcomers in mind, emphasizing developer friendliness. Enhanced with Algolia doc search, finding information has never been more seamless. And the best part? Contributing to the DevDocs is now as effortless as clicking a single button.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/David-1-1024x968.jpg)
+![](~/assets/images/blog/2023/David-1-1024x968.jpg)
 
 ## Blazing Fast Catalog Performance: Ivan’s Mission
 
@@ -43,7 +44,7 @@ The day reached its zenith with a fireside (panel) chat about the current state 
 
 There were also many burning (and some controversial) questions submitted from the audience (and farther afield) that weren't answered on the day due to time constraints. However, we felt these were important to respond to, which is why we spent time collectively reviewing these questions, which culminated in us recently publishing a [follow up article](/?p=3013) to outline our responses.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/whats-Up-Magento-1-1024x768.jpg)
+![](~/assets/images/blog/2023/whats-Up-Magento-1-1024x768.jpg)
 
 ## An Evening of Camaraderie
 
@@ -53,7 +54,7 @@ While there was no official post-conference celebration on the evening of the fi
 
 Diving straight into Wednesday, the day was enriched with informative sessions. The standout was undoubtedly our Board Member John Hughes enlightening the audience on the essence of Mage-OS. From its humble beginnings, the current achievements (such as our initial Mage-Os Distribution release and recent membership rollout), to a future shimmering with promise - the narrative was both engaging and insightful.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Mage_OS-1-1024x767.jpg)
+![](~/assets/images/blog/2023/Mage_OS-1-1024x767.jpg)
 
 ## Bowling & Bonding: An After-Party to Remember
 
@@ -63,15 +64,15 @@ As day turned to evening, the ambiance shifted from formal to fun. Attendees wer
 
 Post bowling, many ventured to The Perfect Pint, a charming pub that would be a recurring locale. Here, amidst clinks of glasses and hearty laughter, conversations flowed seamlessly, stretching till 3 am. Tales were exchanged, memories forged, and Magento stories shared under the dim lights of the pub.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Perfect-Pint-1-1024x768.jpg)
+![](~/assets/images/blog/2023/Perfect-Pint-1-1024x768.jpg)
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Perfect-Pint-2-2-1-689x1024.jpg)
+![](~/assets/images/blog/2023/Perfect-Pint-2-2-1-689x1024.jpg)
 
 ## Mage-OS Meetup: Concluding with a Bang
 
 Thursday, though signaling the end, was far from a winding down. The Perfect Pint once again played host, this time to the Mage-OS & Friends Get Together. The week might have been packed, but the enthusiasm was undiminished. A substantial crowd turned up, proving that when it comes to Mage-OS, the community’s spirit is indefatigable.
 
-![](https://mage-os.org/wp-content/uploads/2023/10/Concluding-1-1024x549.jpg)
+![](~/assets/images/blog/2023/Concluding-1-1024x549.jpg)
 
 ## Takeaways: Many Thanks & Food For Thought
 

@@ -1,10 +1,11 @@
 ---
-title: 'Launching the Very First Mage-OS Store Ever – Our Journey...'
-publishDate: '2025-08-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Launching the Very First Mage-OS Store Ever – Our Journey..."
+publishDate: "2025-08-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'For years, our agency website was a bit like that old rag rug everyone has—a collection of patches and mismatched pieces that somehow managed to hold together...'
+excerpt: "For years, our agency website was a bit like that old rag rug everyone has—a collection of patches and mismatched pieces that somehow managed to hold together..."
+image: "~/assets/images/blog/2025/First-Mage-OS-Live-Store-Ever-3-2.png"
 ---
 
 For years, our agency website was a bit like that old rag rug everyone has—a collection of patches and mismatched pieces that somehow managed to hold together while somehow getting the job done.  
@@ -14,8 +15,8 @@ We cherished the memories and lessons, but it was time to transition to somethin
 
 ## Time to Move to Something Better: Magento!
 
-We jumped into the project with the kind of enthusiasm usually reserved for pizza on a Friday night, ready to build on the most robust eCommerce platform out there, the tech stack we happily use in our client projects since more than 10 years:
-
+We jumped into the project with the kind of enthusiasm usually reserved for pizza on a Friday night, ready to build on the most robust eCommerce platform out there, the tech stack we happily use in our client projects since more than 10 years:  
+  
 **Magento, of course!** – and pair it with the lightning-fast, **cutting-edge [Hyvä Theme](https://www.hyva.io/)**.
 
 Easy peasy, right? Wrong!  

@@ -1,10 +1,11 @@
 ---
-title: 'Mage OS Sept Update'
-publishDate: '2025-10-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage OS Sept Update"
+publishDate: "2025-10-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Meet Magento Italy was attended by several Mage-OS contributors. While the event was more marketing-oriented with fewer technical sessions, the networking...'
+excerpt: "Meet Magento Italy was attended by several Mage-OS contributors. While the event was more marketing-oriented with fewer technical sessions, the networking..."
+image: "~/assets/images/blog/2025/mage-os-may-blog-2.jpg"
 ---
 
 ## **Events and Community Engagement**
@@ -45,11 +46,14 @@ Several community and lab modules received updates, including a geoIP redirect m
 
 ## **Technical Highlights**
 
-- A new version of **Magerun** was released with support for creating Magento 2 module skeletons.
+- A new version of **Magerun** was released with support for creating Magento 2 module skeletons.  
+    
 
-- Experiments with **headless Magento demos** showcased GraphQL API usage and potential for multi-platform storefronts.
+- Experiments with **headless Magento demos** showcased GraphQL API usage and potential for multi-platform storefronts.  
+    
 
-- CSP compliance improvements remain on the agenda, with ongoing discussions about GDPR and security considerations.
+- CSP compliance improvements remain on the agenda, with ongoing discussions about GDPR and security considerations.  
+    
 
 - The SeaVoice bot continues to provide free meeting transcription, working with around 80-90% accuracy.
 
@@ -81,7 +85,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 #### **Gold Partners**
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-1-1024x1024.png)](https://opencollective.com/mdoq)
+[![](~/assets/images/blog/2025/image-1-1024x1024.png)](https://opencollective.com/mdoq)
 
 [MDOQ](https://opencollective.com/mdoq)
 
@@ -89,7 +93,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-2.png)](https://opencollective.com/paradoxlabs)
+[![](~/assets/images/blog/2025/image-2.png)](https://opencollective.com/paradoxlabs)
 
 <figcaption>
 
@@ -101,7 +105,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-5-1024x1008.png)](https://opencollective.com/vendic)
+[![](~/assets/images/blog/2025/image-5-1024x1008.png)](https://opencollective.com/vendic)
 
 <figcaption>
 
@@ -113,7 +117,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-6.png)](https://opencollective.com/hyva-themes)
+[![](~/assets/images/blog/2025/image-6.png)](https://opencollective.com/hyva-themes)
 
 <figcaption>
 
@@ -125,7 +129,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-7-1024x1024.png)](https://opencollective.com/inchoo)
+[![](~/assets/images/blog/2025/image-7-1024x1024.png)](https://opencollective.com/inchoo)
 
 <figcaption>
 
@@ -139,7 +143,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-8.png)](https://opencollective.com/jetrails)
+[![](~/assets/images/blog/2025/image-8.png)](https://opencollective.com/jetrails)
 
 <figcaption>
 
@@ -151,7 +155,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-9.png)](https://opencollective.com/develo)
+[![](~/assets/images/blog/2025/image-9.png)](https://opencollective.com/develo)
 
 <figcaption>
 
@@ -163,7 +167,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-10.png)](https://opencollective.com/canary)
+[![](~/assets/images/blog/2025/image-10.png)](https://opencollective.com/canary)
 
 <figcaption>
 
@@ -175,11 +179,11 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-11.png)](https://opencollective.com/integer_net)
+[![](~/assets/images/blog/2025/image-11.png)](https://opencollective.com/integer_net)
 
 <figcaption>
 
-[integer_net](https://opencollective.com/integer_net)
+[integer\_net](https://opencollective.com/integer_net)
 
 </figcaption>
 
@@ -187,7 +191,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <figure>
 
-[![](https://mage-os.org/wp-content/uploads/2025/08/image-12.png)](https://opencollective.com/wearejh)
+[![](~/assets/images/blog/2025/image-12.png)](https://opencollective.com/wearejh)
 
 <figcaption>
 

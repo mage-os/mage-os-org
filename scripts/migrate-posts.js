@@ -102,7 +102,11 @@ function transformPost(filename, content) {
   // Fix markdown image references
   updatedBody = updatedBody.replace(
     /!\[([^\]]*)\]\((?!http)([^)]+)\)/g,
-    (match, alt, src) => `![${alt}](~/assets/images/blog/${year}/${src})`
+    (match, alt, src) => {
+      // Strip 'images/' prefix if present since assets are stored directly in year folders
+      const cleanSrc = src.replace(/^images\//, '');
+      return `![${alt}](~/assets/images/blog/${year}/${cleanSrc})`;
+    }
   );
 
   // Generate new content
@@ -136,18 +140,29 @@ async function main() {
     await mkdir(ASTRO_POSTS_DIR, { recursive: true });
   }
 
-  // Get all markdown files from root level only
-  const files = await readdir(WP_POSTS_DIR);
-  const mdFiles = files.filter((f) => f.endsWith('.md') && !f.startsWith('.'));
+  // Get all markdown files from year subdirectories (which have coverImage)
+  const yearDirs = ['2021', '2022', '2023', '2024', '2025'];
+  let allMdFiles = [];
 
-  console.log(`Found ${mdFiles.length} posts to migrate`);
+  for (const year of yearDirs) {
+    const yearDir = join(WP_POSTS_DIR, year);
+    if (existsSync(yearDir)) {
+      const files = await readdir(yearDir);
+      const mdFiles = files
+        .filter((f) => f.endsWith('.md') && !f.startsWith('.'))
+        .map((f) => ({ file: f, sourceDir: yearDir }));
+      allMdFiles = allMdFiles.concat(mdFiles);
+    }
+  }
+
+  console.log(`Found ${allMdFiles.length} posts to migrate from year subdirectories`);
 
   let success = 0;
   let failed = 0;
 
-  for (const file of mdFiles) {
+  for (const { file, sourceDir } of allMdFiles) {
     try {
-      if (await migratePost(file, WP_POSTS_DIR, ASTRO_POSTS_DIR)) {
+      if (await migratePost(file, sourceDir, ASTRO_POSTS_DIR)) {
         success++;
       } else {
         failed++;

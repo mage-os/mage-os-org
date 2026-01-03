@@ -1,10 +1,11 @@
 ---
-title: 'Mage-OS 2nd General Assembly: A Big Thank You to the Community'
-publishDate: '2025-06-19T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS 2nd General Assembly: A Big Thank You to the Community"
+publishDate: "2025-06-19T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'This week, we wrapped up our second-ever General Assembly, and we’re honestly feeling energized, proud, and deeply grateful for everyone who helped make it...'
+excerpt: "This week, we wrapped up our second-ever General Assembly, and we’re honestly feeling energized, proud, and deeply grateful for everyone who helped make it..."
+image: "~/assets/images/blog/2025/mage-os-may-blog-1.jpg"
 ---
 
 This week, we wrapped up our **second-ever General Assembly**, and we’re honestly feeling energized, proud, and deeply grateful for everyone who helped make it happen. From the new elections to exciting project updates, this was more than just a meeting, it was a celebration of what we’ve built together.
@@ -110,25 +111,34 @@ We had a fantastic level of participation in this year’s election. Here’s a 
 ### Role Elections for 2025–2026:
 
 - **President:**
-  - Vinai Kopp: 61%
-  - Ryan Hoerr: 29%
-  - Abstain: 10%
+    - Vinai Kopp: 61%
+    
+    - Ryan Hoerr: 29%
+    
+    - Abstain: 10%
 
 - **Vice President:**
-  - David Lambauer: 34%
-  - Ryan Hoerr: 31%
-  - Ruggero Landolina: 16%
-  - Others: 19% combined
+    - David Lambauer: 34%
+    
+    - Ryan Hoerr: 31%
+    
+    - Ruggero Landolina: 16%
+    
+    - Others: 19% combined
 
 - **Treasurer:**
-  - Cezary Kozon: 80%
-  - Ruggero Landolina: 10%
-  - Others: 10% combined
+    - Cezary Kozon: 80%
+    
+    - Ruggero Landolina: 10%
+    
+    - Others: 10% combined
 
 - **Actuary:**
-  - John Prendergast: 83%
-  - Ruggero Landolina: 10%
-  - Michiel Gerritsen: 7%
+    - John Prendergast: 83%
+    
+    - Ruggero Landolina: 10%
+    
+    - Michiel Gerritsen: 7%
 
 ### Resolutions:
 

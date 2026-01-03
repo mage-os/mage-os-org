@@ -1,15 +1,16 @@
 ---
-title: 'Magento Community Events September: Highlights and Insights'
-publishDate: '2024-10-27T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Magento Community Events September: Highlights and Insights"
+publishDate: "2024-10-27T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'The Magento community has had an exciting month filled with key events that showcased innovation, collaboration, and the drive to keep Magento Open Source at...'
+excerpt: "The Magento community has had an exciting month filled with key events that showcased innovation, collaboration, and the drive to keep Magento Open Source at..."
+image: "~/assets/images/blog/2024/1727946724462.jpg"
 ---
 
 The Magento community has had an exciting month filled with key events that showcased innovation, collaboration, and the drive to keep Magento Open Source at the forefront of eCommerce technology. From Poland to New York, the community has come together to explore new features, discuss future strategies, and share valuable knowledge. Here's a roundup of the highlights from some of the biggest Magento events in September 2024.
 
----
+* * *
 
 #### **Meet Magento Poland 2024: Speed and Sustainability**
 
@@ -23,11 +24,11 @@ The panel called for continued community participation in prioritizing updates, 
 
 [Read more about Meet Magento Poland 2024](https://inchoo.net/dev-talk/meet-magento-poland-2024)​
 
----
+* * *
 
 In his [LinkedIn post,](https://www.linkedin.com/posts/pauliusnagys_meetmagento-story-magentoopenforlife-ugcPost-7247533864380727296-EcjF/?utm_source=share&utm_medium=member_android) Paulius Nagy celebrated the vibrant and growing Magento community, noting how events like [Meet Magento Poland](https://meetmagento.pl) are breathing new life into the platform. Key takeaways from the event included Adobe’s continued support for the open-source community and the exciting collaborations between Mage-OS and the [Magento Association](https://www.magentoassociation.org/home). The future of [Magento Open Source](https://magento-opensource.com/), as discussed in the "Future of Magento Open Source Vol. 2" panel, shows a bright path ahead, with new features and stronger community-driven initiatives.
 
----
+* * *
 
 #### **Meet Magento NYC 2024: A Call to Action**
 
@@ -41,7 +42,7 @@ The event also featured updates on deployment processes, community voting, and e
 
 [Check out the full Meet Magento NYC roundup](https://www.linkedin.com/pulse/meet-magento-nyc-2024-roundup-chapter-1-kick-off-opening-ollie-hunt-hk93e/?trackingId=Y8z8uMJFSxmQecvraOchcQ%3D%3D).
 
----
+* * *
 
 #### **MageTitans Groningen 2024: Code, Community, and Career**
 
@@ -51,7 +52,7 @@ Highlights included [Willem Poortman](https://www.linkedin.com/in/wpoortman/)’
 
 Read about MageTitans Groningen 2024 [here](https://www.hyva.io/blog/events/magetitans-groningen-2024.html) and [here](https://e3n-de.translate.goog/blog/magetitans-netherlands-2024-insights-und-innovationen?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=de&_x_tr_pto=wapp)​
 
----
+* * *
 
 #### **Magentiamo Day 2024: The Italian Magento Revival**
 
@@ -61,7 +62,7 @@ After a three-year hiatus, the Italian Magento community came together for [Mage
 
 [Check out Magentiamo Day 2024](https://www.linkedin.com/feed/update/urn:li:activity:7251885662000279552/).
 
----
+* * *
 
 These events demonstrate the Magento community’s dedication to innovation, sustainability, and open collaboration. With continued support from Adobe, Mage-OS, and developers worldwide, the future of [Magento Open Source](https://magento-opensource.com/) remains bright, with exciting new features and strategic developments on the horizon.
 

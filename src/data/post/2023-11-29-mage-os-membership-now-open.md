@@ -1,10 +1,11 @@
 ---
-title: 'Mage-OS Membership Now Open'
-publishDate: '2023-11-29T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Membership Now Open"
+publishDate: "2023-11-29T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Hello friends! As you may know, one of the main ways we plan for Mage-OS to be funded is through a membership and partner program. This is a chance to support...'
+excerpt: "Hello friends! As you may know, one of the main ways we plan for Mage-OS to be funded is through a membership and partner program. This is a chance to support..."
+image: "~/assets/images/blog/2023/Mage_Os_memberships_open_1600_x_1100.jpg"
 ---
 
 Hello friends!
@@ -62,9 +63,9 @@ Contributions are in Euros because that's where the Mage-OS Association is regis
 As Niek Verkolen and Tjitse Efdé co-founder of Dutch agency [Vendic](https://www.linkedin.com/company/vendic/) put it:
 
 > "For us, supporting Mage-OS means taking Magento 2 back to its community roots. We believe this organisation will propel the Magento ecosystem forward.
->
+> 
 > The Magento community has given us so much over the years, now it's our turn to contribute. Sponsor if you can. It will help the entire community massively."
->
+> 
 > Vendic, [Silver Partner of Mage-OS since November 2023](https://opencollective.com/vendic)
 
 [Contact us](/?page_id=717) if you're interested in a bigger contribution or support role. We don't do pay-for-access, we won't sell data, but we are open to ideas. This includes the ability to sponsor development of a specific feature or improvement.

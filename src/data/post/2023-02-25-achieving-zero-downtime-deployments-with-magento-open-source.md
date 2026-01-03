@@ -1,10 +1,10 @@
 ---
-title: 'Achieving Zero-Downtime deployments with Magento Open Source'
-publishDate: '2023-02-25T00:00:00.000Z'
-category: 'eCommerce Insights'
-author: 'Mage-OS Team'
+title: "Achieving Zero-Downtime deployments with Magento Open Source"
+publishDate: "2023-02-25T00:00:00.000Z"
+category: "eCommerce Insights"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Introducing Zero-Downtime deployments facilitates faster, more frequent deployments As an agency working with Magento since 2009, we are always excited at the...'
+excerpt: "Introducing Zero-Downtime deployments facilitates faster, more frequent deployments As an agency working with Magento since 2009, we are always excited at the..."
 ---
 
 _Introducing Zero-Downtime deployments facilitates faster, more frequent deployments_
@@ -39,8 +39,8 @@ I'm almost certainly going to miss options here however this content is here to 
 
 1. Magento Commerce Cloud: Reading their documentation, it does not actually sound like true zero-downtime is achieved, however if there are no database changes or module upgrades then we assume that deployments could take place with minimal front-end customer impact. Ie the site does always go into maintenance mode however the amount of time could be very small. I've noted this here more for perspective, but since this article is focussed on supporting concepts with Magento Open Source, it's an irrelevant option.
 
-2. MGT Code Deploy: Looks powerful, but since it’s only for AWS and carries a monthly fee of 99 Euros, it might not suit the smaller merchants. That said I would recommend any small business on Magento consider something like this to improve stability and therefore frequency of your deployment process. If you only deploy once every 6 months you should be asking yourself the question, did I pick the right platform?
+3. MGT Code Deploy: Looks powerful, but since it’s only for AWS and carries a monthly fee of 99 Euros, it might not suit the smaller merchants. That said I would recommend any small business on Magento consider something like this to improve stability and therefore frequency of your deployment process. If you only deploy once every 6 months you should be asking yourself the question, did I pick the right platform?
 
-3. MDOQ offers intelligent deployments and is compatible with AWS and any other production hosting, however with integrated production hosting, MDOQ slashes development costs even when deployment multiple times per day. 
+5. MDOQ offers intelligent deployments and is compatible with AWS and any other production hosting, however with integrated production hosting, MDOQ slashes development costs even when deployment multiple times per day. 
 
-4. If you have any recommendations on solid deployment tools for Magento, please feel free to suggest them for inclusion here. We intend for this article to be live and up-to-date
+7. If you have any recommendations on solid deployment tools for Magento, please feel free to suggest them for inclusion here. We intend for this article to be live and up-to-date

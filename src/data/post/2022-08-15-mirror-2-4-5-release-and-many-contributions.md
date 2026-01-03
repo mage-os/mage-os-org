@@ -1,12 +1,12 @@
 ---
-title: 'Mirror 2.4.5 release and many contributions'
-publishDate: '2022-08-15T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Mirror 2.4.5 release and many contributions"
+publishDate: "2022-08-15T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Work has been progressing nicely, and we celebrate that more people are getting involved! Here is an overview of what has been happening since the last blog...'
+excerpt: "Work has been progressing nicely, and we celebrate that more people are getting involved! Here is an overview of what has been happening since the last blog..."
 tags:
-  - 'Updates'
+  - "Updates"
 ---
 
 Work has been progressing nicely, and we celebrate that more people are getting involved! Here is an overview of what has been happening since the last blog post.

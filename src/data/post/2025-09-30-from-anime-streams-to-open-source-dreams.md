@@ -1,10 +1,11 @@
 ---
-title: 'From Anime Streams to Open Source Dreams'
-publishDate: '2025-09-30T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "From Anime Streams to Open Source Dreams"
+publishDate: "2025-09-30T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Francis M. Gallagher’s journey into the world of Magento, and later Mage-OS, began almost by accident. In 2012, while still fresh out of university, Francis...'
+excerpt: "Francis M. Gallagher’s journey into the world of Magento, and later Mage-OS, began almost by accident. In 2012, while still fresh out of university, Francis..."
+image: "~/assets/images/blog/2025/ChatGPT-Image-30.-Sept.-2025-08_39_22.png"
 ---
 
 ### **From Accidental Magento Developer to Community Builder**

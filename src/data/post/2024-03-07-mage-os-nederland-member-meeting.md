@@ -1,10 +1,11 @@
 ---
-title: 'Mage-OS Nederland member meeting'
-publishDate: '2024-03-07T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Nederland member meeting"
+publishDate: "2024-03-07T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'On February 29th (a leap day), the second member meeting of Mage-OS Nederland took place: Hosted at the beautiful venue of De Rechtbank in the center of...'
+excerpt: "On February 29th (a leap day), the second member meeting of Mage-OS Nederland took place: Hosted at the beautiful venue of De Rechtbank in the center of..."
+image: "~/assets/images/blog/2024/mage-os-nl.webp"
 ---
 
 On February 29th (a leap day), the second member meeting of Mage-OS Nederland took place: Hosted at the beautiful venue of De Rechtbank in the center of Utrecht (very close to the famous Dom Tower), a group of about 40 people came together to push the association into a new year. Here is a recap, but also some lessons for other local Mage-OS groups to learn from.

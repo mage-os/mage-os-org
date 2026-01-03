@@ -1,10 +1,11 @@
 ---
-title: 'Meet us in New York'
-publishDate: '2023-09-19T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Meet us in New York"
+publishDate: "2023-09-19T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'In case you missed the news, Meet Magento New York 2023 is coming up! If you can make your way to New York City on October 10th and 11th, you should. Mage-OS...'
+excerpt: "In case you missed the news, Meet Magento New York 2023 is coming up! If you can make your way to New York City on October 10th and 11th, you should. Mage-OS..."
+image: "~/assets/images/blog/2023/Mage-OS-MM23NYC.jpg"
 ---
 
 In case you missed the news, [Meet Magento New York 2023](https://meetmagentonyc.com/) is coming up! If you can make your way to New York City on October 10th and 11th, you should.
@@ -14,30 +15,32 @@ Mage-OS will be at the conference in force, including multiple sessions and a bo
 ### Look out for these sessions related to Mage-OS:
 
 - **Making Magento 1000x Faster to Build, aka The Power of the Directed Acyclic Graph**  
-   [Damien Retzinger](https://www.linkedin.com/in/damien-retzinger-7615ba91/)  
-   Founder, Software Engineer  
-   Graycore, LLC
+    [Damien Retzinger](https://www.linkedin.com/in/damien-retzinger-7615ba91/)  
+    Founder, Software Engineer  
+    Graycore, LLC
 
 - **Vibing the Mage-OS DevDocs**  
-   [David Lambauer](https://www.linkedin.com/in/david-lambauer/)  
-   CEO  
-   run_as_root GmbH
+    [David Lambauer](https://www.linkedin.com/in/david-lambauer/)  
+    CEO  
+    run\_as\_root GmbH
 
 - **Mage-OS - Fork It, Own It, Grow It, Better!**  
-   [John Hughes](https://www.linkedin.com/in/johnhughes1984/)  
-   Board Member (& Content Committee Lead)  
-   Mage-OS
+    [John Hughes](https://www.linkedin.com/in/johnhughes1984/)  
+    Board Member (& Content Committee Lead)  
+    Mage-OS
 
 - **Edit the Core (Open Source Panel)**  
-   [Ryan Hoerr](https://www.linkedin.com/in/rhoerr/)  
-   [Anton Kril](https://www.linkedin.com/in/antonkril/)  
-   [Damien Retzinger](https://www.linkedin.com/in/damien-retzinger-7615ba91/)  
-   [Willem Wigman](https://www.linkedin.com/in/willem-wigman/)
+    [Ryan Hoerr](https://www.linkedin.com/in/rhoerr/)  
+    [Anton Kril](https://www.linkedin.com/in/antonkril/)  
+    [Damien Retzinger](https://www.linkedin.com/in/damien-retzinger-7615ba91/)  
+    [Willem Wigman](https://www.linkedin.com/in/willem-wigman/)  
+      
+    
 
 - **Fireside Chat: What's Up Magento? Let's cut to the Crunch. A Conversation With the Magento Association and Mage-OS Addressing Community-Curated Inquiries**  
-   [Jo Baker](https://www.linkedin.com/in/saas-boss/)  
-   [Mathias Schreiber](https://www.linkedin.com/in/mathias-schreiber/)  
-   [Ryan Hoerr](https://www.linkedin.com/in/rhoerr/)
+    [Jo Baker](https://www.linkedin.com/in/saas-boss/)  
+    [Mathias Schreiber](https://www.linkedin.com/in/mathias-schreiber/)  
+    [Ryan Hoerr](https://www.linkedin.com/in/rhoerr/)
 
 And look for these friends of Mage-OS on stage or at the event!:
 

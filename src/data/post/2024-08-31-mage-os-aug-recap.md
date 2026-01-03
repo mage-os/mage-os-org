@@ -1,21 +1,26 @@
 ---
-title: 'Mage-OS Aug Recap'
-publishDate: '2024-08-31T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Aug Recap"
+publishDate: "2024-08-31T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "- Welcome to our newest partners and members!     - Joshua Hughes\_ - community member          - Greg Caughill\_ - community member          - Lucas van Staden..."
+image: "~/assets/images/blog/2024/mageos_blog_august-2024-update.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Joshua Hughes  - community member
-  - Greg Caughill  - community member
-  - Lucas van Staden - professional member
-  - Sean Breeden - professional member
+    - Joshua Hughes  - community member
+    
+    - Greg Caughill  - community member
+    
+    - Lucas van Staden - professional member
+    
+    - Sean Breeden - professional member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
+- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!  
+    
 
 ## **Events** 
 
@@ -114,9 +119,11 @@ If you can help, check out the Taiga board for available tickets: [Mage-OS Techn
 
 ## **Opportunities**
 
-- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org
+- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org  
+    
 
-- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org
+- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org  
+    
 
 - We’re looking for new features to enhance Mage-OS this year that will help to modernize and excite merchants. This might include AI enhancements, low/no code processes, or more. Talk to Vinai Kopp or #tech if you’re interested!
 
@@ -124,14 +131,20 @@ If you can help, check out the Taiga board for available tickets: [Mage-OS Techn
 
 Stay updated with the latest events and gatherings in the worldwide Magento community:
 
-- [Mage Titans Groningen](https://www.mage-titans.nl/) – 13 September 2024, Groningen
+- [Mage Titans Groningen](https://www.mage-titans.nl/) – 13 September 2024, Groningen  
+    
 
-- [Meet Magento Poland](https://meetmagento.pl/) - 30 September 2024, Poznan
+- [Meet Magento Poland](https://meetmagento.pl/) - 30 September 2024, Poznan  
+    
 
-- [Meet Magento New York](https://meetmagentonyc.com/) - 10 October 2024, New York
+- [Meet Magento New York](https://meetmagentonyc.com/) - 10 October 2024, New York  
+    
 
-- [Magentiamo Day](https://www.magentiamo.it/) - 11 October, Milan: the Italian Magentocommunity is celebrating its 10th birthday
+- [Magentiamo Day](https://www.magentiamo.it/) - 11 October, Milan: the Italian Magentocommunity is celebrating its 10th birthday  
+    
 
-- [Meet Magento NL](https://nl.meet-magento.com/) – 31 October 2024, in Amsterdam
+- [Meet Magento NL](https://nl.meet-magento.com/) – 31 October 2024, in Amsterdam  
+      
+    
 
 Stay tuned for more updates and announcements from Mage-OS!

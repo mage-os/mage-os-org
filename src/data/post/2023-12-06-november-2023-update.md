@@ -1,17 +1,18 @@
 ---
-title: 'November 2023 Update'
-publishDate: '2023-12-06T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "November 2023 Update"
+publishDate: "2023-12-06T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We hope that everyone in the Community had a successful Black Friday and Cyber Monday. In the meantime, while it might already be snowing in your part of the...'
+excerpt: "We hope that everyone in the Community had a successful Black Friday and Cyber Monday. In the meantime, while it might already be snowing in your part of the..."
+image: "~/assets/images/blog/2023/mageos_blog_november-update.jpg"
 ---
 
 We hope that everyone in the Community had a successful Black Friday and Cyber Monday. In the meantime, while it might already be snowing in your part of the world, here’s a recap of what has been going on recently–not just dance parties like at Meet Magento Netherlands, but also taking collaboration within the ecosystem to the next step and funding our future.
 
 ## Membership is open!
 
-[![](https://mage-os.org/wp-content/uploads/2023/12/Parter-Tiers-1024x391.png)](https://mage-os.org/about/mage-os-membership/)
+[![](~/assets/images/blog/2023/Parter-Tiers-1024x391.png)](https://mage-os.org/about/mage-os-membership/)
 
 You can become a member or partner of Mage-OS now! Companies can back us as partners, and individuals as members.
 
@@ -33,14 +34,14 @@ Sincere thank you to the following businesses for being the first to partner wit
 
 #### Silver Partners
 
-- [![ParadoxLabs](https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/09a28978-6467-49e3-8bd5-2beccd5c6909/f77c424b-4ea4-4402-b062-67c6d0074494.png)ParadoxLabs](https://opencollective.com/paradoxlabs 'ParadoxLabs')
-- [![webvisum GmbH](https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/5453724e-1ae6-42fa-817a-ea0c96d55b9d/logoweb450x450.png)webvisum GmbH](https://opencollective.com/webvisum-gmbh 'webvisum GmbH')
-- [![Vendic](https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/3f6a55b5-e02b-469f-856a-a2dc30e9f62d/vendic-logo-new.jpg)Vendic](https://opencollective.com/vendic 'Vendic')
-- [![Hyvä](https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/5d6ec674-7faa-4590-9e98-8c1b75f789ab/331ffa43-c56d-4b34-bb66-96fe94d8215a.png)Hyvä](https://opencollective.com/hyva-themes 'Hyvä')
+- [![ParadoxLabs](~/assets/images/blog/2023/paradoxlabs.com)ParadoxLabs](https://opencollective.com/paradoxlabs "ParadoxLabs")
+- [![webvisum GmbH](~/assets/images/blog/2023/logoweb450x450.png)webvisum GmbH](https://opencollective.com/webvisum-gmbh "webvisum GmbH")
+- [![Vendic](~/assets/images/blog/2023/vendic-logo-new.jpg)Vendic](https://opencollective.com/vendic "Vendic")
+- [![Hyvä](~/assets/images/blog/2023/hyva.io)Hyvä](https://opencollective.com/hyva-themes "Hyvä")
 
 #### Bronze Partners
 
-- [![FindCanary](https://opencollective-production.s3.us-west-1.amazonaws.com/account-avatar/6f27f173-6bf6-4516-96eb-f5021d3d45b5/BIrd%20Copy-BIrd.png)FindCanary](https://opencollective.com/canary 'FindCanary')
+- [![FindCanary](~/assets/images/blog/2023/BIrd%20Copy-BIrd.png)FindCanary](https://opencollective.com/canary "FindCanary")
 
 If you want to help us shape the future of the Magento ecosystem, join us!
 
@@ -50,7 +51,7 @@ If you want to help us shape the future of the Magento ecosystem, join us!
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/12/Nov-23-update-MM23NL-picture-1024x502.png)
+![](~/assets/images/blog/2023/Nov-23-update-MM23NL-picture-1024x502.png)
 
 <figcaption>
 
@@ -72,7 +73,7 @@ Hot off the press, you can now see the professional photos and recap video from 
 
 ## Engaging in proactive collaboration 
 
-![Mathias and Vinai](https://mage-os.org/wp-content/uploads/2023/11/Mathias-and-Vinai-1024x768.jpg)
+![Mathias and Vinai](~/assets/images/blog/2023/Mathias-and-Vinai-1024x768.jpg)
 
 In the last few months, Mage-OS participated in many Meet Magento events and got the opportunity to collect [feedback and questions](/?p=3013). Many of you have asked for clarity on how we relate to Magento Association, and what it all means for this ecosystem.
 
@@ -95,8 +96,9 @@ On the Mage-OS end, we keep focusing on:
 - Community growth and engagement: we gather more people and bring magic to events, we widen the community's footprint on social media, carrying our positive, open and inclusive values everywhere we go
 
 - Product enhancement: improve our infrastructure so that
-  - the platform is easy and cost effective to maintain
-  - it is rewarding for Magento community members to enrich it with creativity, innovation and Magento mastery
+    - the platform is easy and cost effective to maintain
+    
+    - it is rewarding for Magento community members to enrich it with creativity, innovation and Magento mastery
 
 - Product long term support: we plan to set up a commercial entity and provide long term support to the Mage-OS eCommerce platform for merchants of all shapes and sizes.
 
@@ -106,7 +108,7 @@ On the Mage-OS end, we keep focusing on:
 
 Special Christmas Edition!
 
-![Aachen Meetup](https://mage-os.org/wp-content/uploads/2023/10/Magento_Stammtisch_Aachen_weihnachten_1196930_400x250_8ef2008797-1.png)
+![Aachen Meetup](~/assets/images/blog/2023/Magento_Stammtisch_Aachen_weihnachten_1196930_400x250_8ef2008797-1.png)
 
 Both Mathias, from the Magento Association, and Vinai, our President, will be there to continue the conversation with you on how we can, together, strengthen the Magento Ecosystem further.
 
@@ -116,7 +118,7 @@ As for the Christmas feel, there will be fun activities including an escape room
 
 ### Europe: Magento Meetup in Poznań, 13th December
 
-![Magento Meetup Poznań](https://mage-os.org/wp-content/uploads/2023/11/poznan-dec-modified.png)
+![Magento Meetup Poznań](~/assets/images/blog/2023/poznan-dec-modified.png)
 
 The long-running Polish Magento Meetup is back in Poznań before the end of the year! Expect lots of great technical content and even better company!
 
@@ -124,7 +126,7 @@ The long-running Polish Magento Meetup is back in Poznań before the end of the 
 
 ### Europe: Webvinkelvagdaag Mage OS NL drinks, January 23rd 2024
 
-![](https://mage-os.org/wp-content/uploads/2023/12/WWVD-Mage-OS-NL-1024x451.jpg)
+![](~/assets/images/blog/2023/WWVD-Mage-OS-NL-1024x451.jpg)
 
 In 2024, the Webwinkel Vakdagen (Dutch eCommerce days) takes place in Utrecht on January 23 and 24. After the first day, on January 23rd, 17:00, [Mage-OS Netherlands](https://nl.mage-os.org/en/) is organizing New Year's drinks for the Magento community, together with sponsors at Uncle Jim, Utrecht ([https://uncle-jim.nl/](https://uncle-jim.nl/)).
 
@@ -132,7 +134,7 @@ You are welcome to attend and cheer the new year with us!
 
 ### Europe: Magento Meetup Rhein-Main, January 24th 2024
 
-![](https://mage-os.org/wp-content/uploads/2023/11/rhein-modified.png)
+![](~/assets/images/blog/2023/rhein-modified.png)
 
 The new year kicks off in Germany with the return of the Magento Meetup Rhein-Main. This new years edition focuses on product data, and in particular PIMs (Product Information Management) systems. Don't miss it!
 
@@ -140,7 +142,7 @@ The new year kicks off in Germany with the return of the Magento Meetup Rhein-Ma
 
 ### USA: Meet Magento Florida, 31 Jan - 1st Feb 2024
 
-![Meet Magento Florida](https://mage-os.org/wp-content/uploads/2023/04/Meet-Magento-Florida-img.png)
+![Meet Magento Florida](~/assets/images/blog/2023/Meet-Magento-Florida-img.png)
 
 The best weather in the US, in February! We’ll get our dose of Vitamin D with our US based contributors and active members, and Thien-Lan, our Vice President, is flying over from Europe for more fun!
 
@@ -150,7 +152,7 @@ Use code **30-MAGE-OS** for 30% off on conference tickets
 
 ### Asia: Meet Magento India, Ahmedabad, 10th February 2024 
 
-![Meet Magento India](https://mage-os.org/wp-content/uploads/2023/10/MMIN24-1-1024x600.png)
+![Meet Magento India](~/assets/images/blog/2023/MMIN24-1-1024x600.png)
 
 The Magento community is huge in India, with over 1,000 attendees to the event and 40 speakers! We hope you can join, as we know the Meet Magento India team and sponsors will put on a great and vibrant event.
 

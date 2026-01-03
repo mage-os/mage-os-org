@@ -1,13 +1,14 @@
 ---
-title: 'Meet you soon in Madrid!'
-publishDate: '2022-12-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Meet you soon in Madrid!"
+publishDate: "2022-12-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: "![](https://mage-os.org/wp-content/uploads/2022/12/2022-12-02-meetcommerce-mage-os-talk-bannner-1024x628.jpeg) Meet Commerce Spain\_is taking place on Tuesday..."
+excerpt: "![](images/2022-12-02-meetcommerce-mage-os-talk-bannner-1024x628.jpeg) Meet Commerce Spain\_is taking place on Tuesday 13th December, in Madrid, Spain. For a..."
+image: "~/assets/images/blog/2022/Meet-you-soon-in-Madrid.png"
 ---
 
-![](https://mage-os.org/wp-content/uploads/2022/12/2022-12-02-meetcommerce-mage-os-talk-bannner-1024x628.jpeg)
+![](~/assets/images/blog/2022/2022-12-02-meetcommerce-mage-os-talk-bannner-1024x628.jpeg)
 
 [Meet Commerce Spain](https://meetcommerce.es/) is taking place on Tuesday 13th December, in Madrid, Spain.
 
@@ -47,9 +48,10 @@ Here is a list of Mage-OS board members and contributors who are confirmed at th
 
 As a nice thank-you gift, Interactiv4 has offered free tickets to individuals who are contributing to Mage-OS efforts, whether on the technical, content, or organizational side. If this is you and you’re interested in attending, let us know!
 
-[Join our Mage-OS Discord](https://discord.gg/9xHBTTpa) to find and connect with other attendees!
+[Join our Mage-OS Discord](https://discord.gg/9xHBTTpa) to find and connect with other attendees!  
+  
 
-![](https://mage-os.org/wp-content/uploads/2022/12/2022-12-02-meetcommerce-mageos-2-1024x765.jpeg)
+![](~/assets/images/blog/2022/2022-12-02-meetcommerce-mageos-2-1024x765.jpeg)
 
 ## Meet Commerce Spain: what else is different?
 

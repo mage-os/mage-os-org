@@ -1,10 +1,11 @@
 ---
-title: 'Mage-OS Magic in Action'
-publishDate: '2023-09-15T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Magic in Action"
+publishDate: "2023-09-15T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Hallo everyone! I have much excitement to share about our latest adventure in the world of coding and camaraderie. Our team came together for a hackathon that...'
+excerpt: "Hallo everyone! I have much excitement to share about our latest adventure in the world of coding and camaraderie. Our team came together for a hackathon that..."
+image: "~/assets/images/blog/2023/First_ever_Hackathon.jpg"
 ---
 
 ### Recapping the Mage-OS Hackathon Weekend in Würzburg
@@ -12,24 +13,30 @@ excerpt: 'Hallo everyone! I have much excitement to share about our latest adven
 Hallo everyone! I have much excitement to share about our latest adventure in the world of coding and camaraderie. Our team came together for a hackathon that was, how do we say... einfach fantastisch!
 
 **When and Where?**  
-So, this great gathering? It was happening on Thursday 7th and Friday 8th September. And the place? The run_as_root office in the wonderful Würzburg city.
+So, this great gathering? It was happening on Thursday 7th and Friday 8th September. And the place? The run\_as\_root office in the wonderful Würzburg city.
 
 **Our Purpose? Mage-OS!**  
 Mage-OS was our shining star. With 14 of us, all buzzing with ideas, it was quite the atmosphere. Vinai, he shared many thoughts on Mage-OS. And I (David) gave some rules for the house. Then, ah, the brainstorming! Ideas were like rivers, flowing non-stop.
 
 ### **Projects? Oh, So Many!**
 
-- Thorben, Manuel, Cristiano from faraway Brazil, and yours truly, we played with TypeSense. It’s like Algolia, but open-source. Thanks to time zones, we worked like a relay race. Non-stop!
+- Thorben, Manuel, Cristiano from faraway Brazil, and yours truly, we played with TypeSense. It’s like Algolia, but open-source. Thanks to time zones, we worked like a relay race. Non-stop!  
+    
 
-- Andreas, he went deep into the world of Async Events. Imagine connecting any webhook to Magento Events. Toll, right?
+- Andreas, he went deep into the world of Async Events. Imagine connecting any webhook to Magento Events. Toll, right?  
+    
 
-- Vinai, Fabian, Vlad - these three musketeers made the Mage-OS Release Process even cooler, creating custom distributions.
+- Vinai, Fabian, Vlad - these three musketeers made the Mage-OS Release Process even cooler, creating custom distributions.  
+    
 
-- Maryna and Rico? Ah, artists! They gave a new face to Mage-OS DevDocs, and shared knowledge on contributor workflows.
+- Maryna and Rico? Ah, artists! They gave a new face to Mage-OS DevDocs, and shared knowledge on contributor workflows.  
+    
 
-- Tjitje, he was a busy bee with PHP Codestyle GitHub Action, making things faster with a Baseline.
+- Tjitje, he was a busy bee with PHP Codestyle GitHub Action, making things faster with a Baseline.  
+    
 
-- Matthias, our hero, made Elasticsearch optional. A big, big move!
+- Matthias, our hero, made Elasticsearch optional. A big, big move!  
+    
 
 - Laura, she was our sunshine. Taking photos, making everyone smile. Ein wunderbar person!
 
@@ -43,7 +50,7 @@ We had lovely dinner in a Würzburg biergarten. Laughs, food, and good memories.
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/09/team-1-1024x768.jpg)
+![](~/assets/images/blog/2023/team-1-1024x768.jpg)
 
 <figcaption>
 
@@ -55,7 +62,7 @@ Go Team
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/09/Bonding-1-1024x768.jpg)
+![](~/assets/images/blog/2023/Bonding-1-1024x768.jpg)
 
 <figcaption>
 
@@ -67,7 +74,7 @@ Mage-OS bonding
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/09/Hackathon-1-1-1024x768.jpg)
+![](~/assets/images/blog/2023/Hackathon-1-1-1024x768.jpg)
 
 <figcaption>
 
@@ -79,7 +86,7 @@ Ready for action
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/09/Coffee-tutorial-1-1024x768.jpg)
+![](~/assets/images/blog/2023/Coffee-tutorial-1-1024x768.jpg)
 
 <figcaption>
 
@@ -91,6 +98,7 @@ Coffee Tutorial
 
 </figure>
 
+  
 **An Unforgettable Friday Afternoon**  
 Now, a special memory from Friday afternoon. I wanted to say some closing words, but I saw something beautiful. The whole office, everyone, was in a deep focus tunnel. No sound, just passion and work. It was like watching a silent orchestra. Very impressive and heartwarming.
 

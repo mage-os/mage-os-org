@@ -1,10 +1,11 @@
 ---
-title: 'Revitalizing Magento Through Mage-OS and Smarter Frontend Design'
-publishDate: '2025-07-14T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Revitalizing Magento Through Mage-OS and Smarter Frontend Design"
+publishDate: "2025-07-14T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'In a world where Magento has often felt caught between its open-source roots and corporate oversight, Davide Lunardon is one of the developers pushing it back...'
+excerpt: "In a world where Magento has often felt caught between its open-source roots and corporate oversight, Davide Lunardon is one of the developers pushing it back..."
+image: "~/assets/images/blog/2025/davide.jpg"
 ---
 
 In a world where Magento has often felt caught between its open-source roots and corporate oversight, _[Davide Lunardon](https://www.linkedin.com/in/davide-lunardon-b78813a1/)_ is one of the developers pushing it back toward its community-driven origins. Known to many as **dadolun95**, Davide is a freelance web developer based in Italy, spending his days crafting Magento solutions and his downtime at the ping pong table.

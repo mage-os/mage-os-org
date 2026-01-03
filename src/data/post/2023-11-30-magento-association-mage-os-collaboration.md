@@ -1,10 +1,11 @@
 ---
-title: 'Magento Association &amp; Mage-OS Collaboration'
-publishDate: '2023-11-30T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Magento Association &amp; Mage-OS Collaboration"
+publishDate: "2023-11-30T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'The Mage-OS Association and the Magento Association serve the interests of the broader Magento community. We understand the confusion surrounding the existence...'
+excerpt: "The Mage-OS Association and the Magento Association serve the interests of the broader Magento community. We understand the confusion surrounding the existence..."
+image: "~/assets/images/blog/2023/Mathias-and-Vinai.jpg"
 ---
 
 The Mage-OS Association and the Magento Association serve the interests of the broader Magento community. We understand the confusion surrounding the existence of two associations, with questions such as "Why are there two?", "What are the differences?", "Which one should I support?" being the most common.

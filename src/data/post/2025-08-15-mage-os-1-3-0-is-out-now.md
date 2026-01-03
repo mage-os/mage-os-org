@@ -1,12 +1,13 @@
 ---
-title: 'Mage-OS 1.3.0 is out now!'
-publishDate: '2025-08-15T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Mage-OS 1.3.0 is out now!"
+publishDate: "2025-08-15T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are excited to announce the release of Mage-OS Distribution 1.3.0, another step in the building of the definitive open source e-commerce platform! Mage-OS...'
+excerpt: "We are excited to announce the release of Mage-OS Distribution 1.3.0, another step in the building of the definitive open source e-commerce platform! Mage-OS..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2025/New-Mage-OS-Website.png"
 ---
 
 We are excited to announce the release of Mage-OS Distribution 1.3.0, another step in the building of the definitive open source e-commerce platform!
@@ -17,18 +18,18 @@ Mage-OS 1.3.0 is built on Magento Open Source 2.4.8-p2, and includes all platfor
 
 The latest recommended software versions are:
 
-| Composer      | 2.8                       |
-| ------------- | ------------------------- |
+| Composer | 2.8 |
+| --- | --- |
 | Elasticsearch | \-- (no longer supported) |
-| OpenSearch    | 2.19                      |
-| MariaDB       | 11.4                      |
-| MySQL         | 8.4                       |
-| PHP           | 8.4/8.3                   |
-| RabbitMQ      | 4                         |
-| Redis         | Valkey 8 (or Redis 7.2+)  |
-| Varnish       | 7.6                       |
-| Apache        | 2.4                       |
-| nginx         | 1.26                      |
+| OpenSearch | 2.19 |
+| MariaDB | 11.4 |
+| MySQL | 8.4 |
+| PHP | 8.4/8.3 |
+| RabbitMQ | 4 |
+| Redis | Valkey 8 (or Redis 7.2+) |
+| Varnish | 7.6 |
+| Apache | 2.4 |
+| nginx | 1.26 |
 
 ## Updates to our backend theme
 
@@ -38,7 +39,7 @@ In this release, we enhanced the user interface with improved icon styling, refi
 
 - [Fixed JavaScript error encountered when selecting "All Resources"](https://github.com/mage-os/mageos-magento2/pull/150) by Lucas van Staden
 
-- [Fixed integration tests for Magento_Backend and Magento_Bundle](https://github.com/mage-os/mageos-magento2/pull/151) by Simon Humeau (Antadis)
+- [Fixed integration tests for Magento\_Backend and Magento\_Bundle](https://github.com/mage-os/mageos-magento2/pull/151) by Simon Humeau (Antadis)
 
 - [Fixed missing screen-l styles added using .media-width mixin](https://github.com/mage-os/mageos-magento2/pull/155) by Vova Yatsyuk
 
@@ -87,10 +88,10 @@ After a successful composer download, you will need to run the installer. Please
 If you are already using Magento 2.4 and PHP 8.2+, you can change to Mage-OS by running the following in SSH:
 
 ```
-composer config repositories.0 composer https://repo.mage-os.org/ &&
-    composer require mage-os/product-community-edition --no-update &&
-    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update &&
-    composer remove sebastian/comparator --dev --no-update &&
+composer config repositories.0 composer https://repo.mage-os.org/ && 
+    composer require mage-os/product-community-edition --no-update && 
+    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update && 
+    composer remove sebastian/comparator --dev --no-update && 
     composer update --no-plugins --with-all-dependencies
 ```
 

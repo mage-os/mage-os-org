@@ -1,10 +1,11 @@
 ---
-title: 'Dependency Graphs, Website, and more'
-publishDate: '2023-02-28T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Dependency Graphs, Website, and more"
+publishDate: "2023-02-28T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "See\_Adam Crossland’s NX demo for a sneak peek of where Mage-OS tech is headed. Adam Crossland and Damien Retzinger have been working on using a tool called NX..."
+image: "~/assets/images/blog/2023/Dependency-Graphs-Website-and-more.png"
 ---
 
 ## Product Update
@@ -65,7 +66,7 @@ Thanks to the many who have contributed over the past few months to help get to 
 
 We plan to launch the new site before the end of March.
 
-![A preview of the new Mage-OS website](https://mage-os.org/blog/2023/2023-02-28-new-website-preview.png)
+![A preview of the new Mage-OS website](~/assets/images/blog/2023/2023-02-28-new-website-preview.png)
 
 If you want to help out before it launches, head over and say hello on the content channel on our Discord server. 👋
 

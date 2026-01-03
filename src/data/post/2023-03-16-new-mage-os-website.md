@@ -1,10 +1,11 @@
 ---
-title: 'New Mage-OS Website'
-publishDate: '2023-03-16T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "New Mage-OS Website"
+publishDate: "2023-03-16T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "We're excited to announce the launch of the brand new Mage-OS website, which brings a fresh new design, more content on Mage-OS itself, and, even more..."
+image: "~/assets/images/blog/2023/New-Mage-OS-Website.png"
 ---
 
 We're excited to announce the launch of the brand new Mage-OS website, which brings a fresh new design, more content on Mage-OS itself, and, even more importantly, dedicated merchant-focused content on Magento Open Source and the Magento community and ecosystem. And this is just the start, as our new site provides the base to add even more content and functionality in future.

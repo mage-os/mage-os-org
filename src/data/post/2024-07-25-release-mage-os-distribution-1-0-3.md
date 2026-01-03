@@ -1,12 +1,13 @@
 ---
-title: 'Release: Mage-OS Distribution 1.0.3'
-publishDate: '2024-07-25T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Release: Mage-OS Distribution 1.0.3"
+publishDate: "2024-07-25T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are proud to announce Mage-OS Distribution version 1.0.3 is now available! This Mage-OS update brings parity with Magento Open Source 2.4.7 and 2.4.7-p1,...'
+excerpt: "We are proud to announce Mage-OS Distribution version 1.0.3 is now available! This Mage-OS update brings parity with Magento Open Source 2.4.7 and 2.4.7-p1,..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2024/New-Mage-OS-Website.png"
 ---
 
 We are proud to announce Mage-OS Distribution version 1.0.3 is now available!
@@ -24,20 +25,30 @@ Please see the [release notes for Magento Open Source 2.4.7](https://experiencel
 - Security changes from upstream 2.4.7-p1 by [@rhoerr](https://github.com/rhoerr) in [#98](https://github.com/mage-os/mageos-magento2/pull/98)
 
 - GitHub Actions
-  - Add inputs to mage-os/github-actions/coding-standard-baseline by [@Tjitse-E](https://github.com/Tjitse-E) in [#59](https://github.com/mage-os/mageos-magento2/pull/59)
-  - Add full integration tests workflow by [@vpodorozh](https://github.com/vpodorozh) in [#57](https://github.com/mage-os/mageos-magento2/pull/57)
-  - Add Nx integration tests by [@adamzero1](https://github.com/adamzero1) in [#64](https://github.com/mage-os/mageos-magento2/pull/64)
+    - Add inputs to mage-os/github-actions/coding-standard-baseline by [@Tjitse-E](https://github.com/Tjitse-E) in [#59](https://github.com/mage-os/mageos-magento2/pull/59)
+    
+    - Add full integration tests workflow by [@vpodorozh](https://github.com/vpodorozh) in [#57](https://github.com/mage-os/mageos-magento2/pull/57)
+    
+    - Add Nx integration tests by [@adamzero1](https://github.com/adamzero1) in [#64](https://github.com/mage-os/mageos-magento2/pull/64)
 
 - Unit and Integration Test Fixes
-  - Integration tests/ fix failed tests by [@vpodorozh](https://github.com/vpodorozh) in [#61](https://github.com/mage-os/mageos-magento2/pull/61)
-  - Resolve merge conflicts by [@Vinai](https://github.com/Vinai) in [#87](https://github.com/mage-os/mageos-magento2/pull/87)
-  - Update incorrect dataprovider for Catalog\\SortingTest by [@vpodorozh](https://github.com/vpodorozh) in [#89](https://github.com/mage-os/mageos-magento2/pull/89)
-  - GraphQl mutation state check | PlaceOrder and Customer actions - skip list adjustments by [@vpodorozh](https://github.com/vpodorozh) in [#90](https://github.com/mage-os/mageos-magento2/pull/90)
-  - Skip some of the Bundle tests as the underlying problems are too big … by [@vpodorozh](https://github.com/vpodorozh) in [#92](https://github.com/mage-os/mageos-magento2/pull/92)
-  - Fix expireDate formating for integration test by [@vpodorozh](https://github.com/vpodorozh) in [#91](https://github.com/mage-os/mageos-magento2/pull/91)
-  - [#79](https://github.com/mage-os/mageos-magento2/issues/79) - add shutdown functions wrapper to make sure TestModules will be… by [@vpodorozh](https://github.com/vpodorozh) in [#93](https://github.com/mage-os/mageos-magento2/pull/93)
-  - Fix failed tests after the upstream update - db&app isolation were missed by [@vpodorozh](https://github.com/vpodorozh) in [#94](https://github.com/mage-os/mageos-magento2/pull/94)
-  - Fix invalid data-sets for unit tests by [@vpodorozh](https://github.com/vpodorozh) in [#95](https://github.com/mage-os/mageos-magento2/pull/95)
+    - Integration tests/ fix failed tests by [@vpodorozh](https://github.com/vpodorozh) in [#61](https://github.com/mage-os/mageos-magento2/pull/61)
+    
+    - Resolve merge conflicts by [@Vinai](https://github.com/Vinai) in [#87](https://github.com/mage-os/mageos-magento2/pull/87)
+    
+    - Update incorrect dataprovider for Catalog\\SortingTest by [@vpodorozh](https://github.com/vpodorozh) in [#89](https://github.com/mage-os/mageos-magento2/pull/89)
+    
+    - GraphQl mutation state check | PlaceOrder and Customer actions - skip list adjustments by [@vpodorozh](https://github.com/vpodorozh) in [#90](https://github.com/mage-os/mageos-magento2/pull/90)
+    
+    - Skip some of the Bundle tests as the underlying problems are too big … by [@vpodorozh](https://github.com/vpodorozh) in [#92](https://github.com/mage-os/mageos-magento2/pull/92)
+    
+    - Fix expireDate formating for integration test by [@vpodorozh](https://github.com/vpodorozh) in [#91](https://github.com/mage-os/mageos-magento2/pull/91)
+    
+    - [#79](https://github.com/mage-os/mageos-magento2/issues/79) - add shutdown functions wrapper to make sure TestModules will be… by [@vpodorozh](https://github.com/vpodorozh) in [#93](https://github.com/mage-os/mageos-magento2/pull/93)
+    
+    - Fix failed tests after the upstream update - db&app isolation were missed by [@vpodorozh](https://github.com/vpodorozh) in [#94](https://github.com/mage-os/mageos-magento2/pull/94)
+    
+    - Fix invalid data-sets for unit tests by [@vpodorozh](https://github.com/vpodorozh) in [#95](https://github.com/mage-os/mageos-magento2/pull/95)
 
 - Resolve merge conflict [https://github.com/mage-os/mageos-magen…](https://github.com/mage-os/mageos-magen%E2%80%A6) by [@vitaliy-golomoziy](https://github.com/vitaliy-golomoziy) in [#58](https://github.com/mage-os/mageos-magento2/pull/58)
 
@@ -151,6 +162,6 @@ All of our work on [creating custom releases based on Magento](https://github.c
 
 1. Mage-OS builds can be independently built and verified, and are fully reproducible;
 
-2. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
+3. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
 
 That’s all for now!

@@ -1,10 +1,11 @@
 ---
-title: 'The first Mage-OS meetup in Italy'
-publishDate: '2023-04-24T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "The first Mage-OS meetup in Italy"
+publishDate: "2023-04-24T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Hello from Italy! This is Alessandro Ronchi, on behalf of the Mage-OS Association. On April 4th, 2023, I participated as a speaker in the first Mage-OS meetup...'
+excerpt: "Hello from Italy! This is Alessandro Ronchi, on behalf of the Mage-OS Association. On April 4th, 2023, I participated as a speaker in the first Mage-OS meetup..."
+image: "~/assets/images/blog/2023/Meet-you-soon-in-Madrid.png"
 ---
 
 Hello from Italy! This is Alessandro Ronchi, on behalf of the Mage-OS Association.
@@ -19,7 +20,7 @@ I also took the opportunity to share **some updates**, such as that the Mage-OS 
 
 <figure>
 
-![Alessandro Ronchi speaking at a PHP User Group Romagna meetup to present Mage-OS](https://mage-os.org/wp-content/uploads/2023/04/1680778466362-edited.jpeg)
+![Alessandro Ronchi speaking at a PHP User Group Romagna meetup to present Mage-OS](~/assets/images/blog/2023/1680778466362-edited.jpeg)
 
 <figcaption>
 
@@ -53,7 +54,7 @@ Finally, regarding the type of support Mage-OS will offer, we plan to create a c
 
 <figure>
 
-![Meetup refreshments, provided by Extera](https://mage-os.org/wp-content/uploads/2023/04/1680778468539-edited.jpeg)
+![Meetup refreshments, provided by Extera](~/assets/images/blog/2023/1680778468539-edited.jpeg)
 
 <figcaption>
 

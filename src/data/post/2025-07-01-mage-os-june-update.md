@@ -1,23 +1,31 @@
 ---
-title: 'Mage-OS June Update'
-publishDate: '2025-07-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS June Update"
+publishDate: "2025-07-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: '- Welcome to our newest partners and members!     - Carl – community member          - Jacqueline Gerritsen – community member          - Ben – community...'
+excerpt: "- Welcome to our newest partners and members!     - Carl – community member          - Jacqueline Gerritsen – community member          - Ben – community..."
+image: "~/assets/images/blog/2025/mage-os-may-blog.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Carl – community member
-  - Jacqueline Gerritsen – community member
-  - Ben – community member
-  - Ksenia – community member
-  - Pawel – community member
-  - Jakub Frieb – community member
-  - Xavier Ojeda – community member
-  - Gianluca Porta – community member
+    - Carl – community member
+    
+    - Jacqueline Gerritsen – community member
+    
+    - Ben – community member
+    
+    - Ksenia – community member
+    
+    - Pawel – community member
+    
+    - Jakub Frieb – community member
+    
+    - Xavier Ojeda – community member
+    
+    - Gianluca Porta – community member
 
 - You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
 
@@ -47,7 +55,7 @@ The community also thanked the outgoing board members for their time and dedicat
 
 The Business Control Committee shared the 2024 financial report, showing that Mage-OS is in strong financial shape. The organization had more than 270,000 PLN in revenue and ended the year with a surplus of over 163,000 PLN. All finances were handled according to Polish nonprofit standards, and regular updates have kept the community informed.
 
----
+* * *
 
 ## Technical Progress
 
@@ -81,7 +89,7 @@ Checkout compliance continues to be a high priority. The team is exploring diffe
 
 - Contributions continue from agencies and developers, showing strong and steady engagement.
 
----
+* * *
 
 ## Looking Ahead
 
@@ -89,7 +97,7 @@ Mage-OS is moving into a new phase focused on innovation and growth. The team is
 
 There are also discussions about replacing the current WordPress site with a static site generator (like Hugo), which would make the website easier to maintain and contribute to.
 
----
+* * *
 
 ## **Opportunities**
 

@@ -1,17 +1,18 @@
 ---
-title: 'Mage Titans 2023 - The Mage-OS Recap'
-publishDate: '2023-05-18T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage Titans 2023 - The Mage-OS Recap"
+publishDate: "2023-05-18T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Mage Titans returned to Manchester, UK, on April 22nd 2023, for the first time in nearly 4 and half years, and what a comeback it was! Over 150 passionate...'
+excerpt: "Mage Titans returned to Manchester, UK, on April 22nd 2023, for the first time in nearly 4 and half years, and what a comeback it was! Over 150 passionate..."
+image: "~/assets/images/blog/2023/MageTitans-1.png"
 ---
 
 Mage Titans returned to Manchester, UK, on April 22nd 2023, for the first time in nearly 4 and half years, and what a comeback it was!
 
 Over 150 passionate community members attended the event, and while the main focus of any Mage Titans event is aimed at developers, there were also many others from different backgrounds involved. The day itself was an incredible success, with many great speakers, including long-time community members and newcomers to the stage, giving talks on a wide range of topics, from in-depth technical talks to productivity, mental health and well-being.
 
-![](https://mage-os.org/wp-content/uploads/2023/08/MageTitans-1.png)
+![](~/assets/images/blog/2023/MageTitans-1.png)
 
 There was a strong turnout from Mage-OS, including our President, Vinai, Vice President, Thien-Lan, Board Members Alessandro, Peter-Jaap and myself (John), plus many of our incredible contributors from both our technical and content committees, as well as board members from our first local community initiative group: Mage-OS Nederland.
 
@@ -21,7 +22,7 @@ Mage-OS was a hot topic all weekend, starting out on Friday night at the Dev Exc
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/05/Dev-Exchange-MT23-1024x576.jpg)
+![](~/assets/images/blog/2023/Dev-Exchange-MT23-1024x576.jpg)
 
 <figcaption>
 
@@ -41,7 +42,7 @@ While the debate and opinions did get a little heated at times, everyone involve
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/05/The-Dome-MT23-1024x469.jpg)
+![](~/assets/images/blog/2023/The-Dome-MT23-1024x469.jpg)
 
 <figcaption>
 
@@ -59,7 +60,7 @@ After a handful of engaging talks in the morning, it was time for our President,
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/05/Vinai-on-Stage-MT23-1024x576.jpg)
+![](~/assets/images/blog/2023/Vinai-on-Stage-MT23-1024x576.jpg)
 
 <figcaption>
 
@@ -95,7 +96,7 @@ The panel was hosted by longtime Magento community advocate Rebecca Brocton and 
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/05/Future-of-Magento-Panel-MT23-1024x576.jpg)
+![](~/assets/images/blog/2023/Future-of-Magento-Panel-MT23-1024x576.jpg)
 
 <figcaption>
 
@@ -129,7 +130,7 @@ There were further talks through the afternoon, and Mage Titans legend Tadhg Bow
 
 <figure>
 
-![](https://mage-os.org/wp-content/uploads/2023/05/Mage-OS-Friends-MT23-768x1024.jpg)
+![](~/assets/images/blog/2023/Mage-OS-Friends-MT23-768x1024.jpg)
 
 <figcaption>
 

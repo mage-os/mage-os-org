@@ -1,12 +1,13 @@
 ---
-title: 'Mage-OS 2.0: Innovation Takes Flight'
-publishDate: '2025-10-16T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Mage-OS 2.0: Innovation Takes Flight"
+publishDate: "2025-10-16T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are excited to announce the release of Mage-OS Distribution 2.0, a major milestone that shows the power of community-driven innovation. This release...'
+excerpt: "We are excited to announce the release of Mage-OS Distribution 2.0, a major milestone that shows the power of community-driven innovation. This release..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2025/mage-os-2.0-scaled.png"
 ---
 
 We are excited to announce the release of **Mage-OS Distribution 2.0**, a major milestone that shows the power of community-driven innovation. This release represents a significant step forward in Mage-OS's commitment to advancing open-source e-commerce.
@@ -17,34 +18,37 @@ Mage-OS 2.0 builds on **Magento Open Source 2.4.8-p3**, including all the latest
 
 ### See recommended software versions
 
-| **Component** | **Recommended Version**  |
-| ------------- | ------------------------ |
-| Composer      | 2.8                      |
-| OpenSearch    | 2.19                     |
-| MariaDB       | 11.4                     |
-| MySQL         | 8.4                      |
-| PHP           | 8.4/8.3                  |
-| RabbitMQ      | 4                        |
-| Redis         | Valkey 8 (or Redis 7.2+) |
-| Varnish       | 7.6                      |
-| Apache        | 2.4                      |
-| nginx         | 1.26                     |
+| **Component** | **Recommended Version** |
+| --- | --- |
+| Composer | 2.8 |
+| OpenSearch | 2.19 |
+| MariaDB | 11.4 |
+| MySQL | 8.4 |
+| PHP | 8.4/8.3 |
+| RabbitMQ | 4 |
+| Redis | Valkey 8 (or Redis 7.2+) |
+| Varnish | 7.6 |
+| Apache | 2.4 |
+| nginx | 1.26 |
 
 ## Version and Support Policy
 
 We adopted a new versioning policy, starting with Mage-OS 1.2 in June. This is our first major update.
 
 - **#.0.0** **Major Updates**
-  - 2x per year, around April/May and October.
-  - These may include new features, useful bundled extensions, significant changes, or changes to system requirements like PHP versions.
-  - They should stay mostly compatible with Magento and existing extensions, allowing you to easily switch between Mage-OS and Magento.
+    - 2x per year, around April/May and October.
+    
+    - These may include new features, useful bundled extensions, significant changes, or changes to system requirements like PHP versions.
+    
+    - They should stay mostly compatible with Magento and existing extensions, allowing you to easily switch between Mage-OS and Magento.
 
 - **2.#.0 Minor Updates**
-  - Any Magento release or security patch between a feature release will become a Mage-OS minor version update, unless there is a change in system requirements.
-  - These should be compatible with existing installations.​
+    - Any Magento release or security patch between a feature release will become a Mage-OS minor version update, unless there is a change in system requirements.
+    
+    - These should be compatible with existing installations.​
 
 - **2.0.# Patch Updates**
-  - Small but critical off-schedule fixes to a Mage-OS release. These should be rare.​
+    - Small but critical off-schedule fixes to a Mage-OS release. These should be rare.​
 
 This reflects our plan for more rapid releases and innovation, and lets everyone know and plan for updates in advance.
 
@@ -166,7 +170,7 @@ Mage-OS wouldn't exist without the support of our growing community. We extend o
 
 **Bronze Partners** (€1,250/year):
 
-- JetRails, Develo, FindCanary, JH, integer_net, and basecom
+- JetRails, Develo, FindCanary, JH, integer\_net, and basecom
 
 We also celebrate our **81 Community Members and 67 Professional Members** who power the grassroots support that makes everything possible.
 
@@ -176,7 +180,7 @@ Thank you to the people who made Mage-OS 2.0 possible:
 
 - **Davide Lunardon, Luca Fuser, and Samuele Martini** for the Automatic Translation and PageBuilder modules​
 
-- **Ryan Hoerr, **Oliver Jaufmann/**JaJuMa GmbH\*\*\*\***, \***\*Sean van Zuidam, and** David Lambauer\*\* for the Theme Optimization module​
+- **Ryan Hoerr, **Oliver Jaufmann/**JaJuMa GmbH******, ****Sean van Zuidam, and** David Lambauer** for the Theme Optimization module​
 
 - **The Aligent team** for their PCI 4.0 Compatibility module​
 
@@ -249,6 +253,6 @@ This is just the beginning. With your support, Mage-OS will continue to evolve, 
 
 **Welcome to Mage-OS 2.0. Welcome to the future of e-commerce.**
 
----
+* * *
 
 _For complete installation instructions and technical details, visit [devdocs.mage-os.org](https://devdocs.mage-os.org/). Join our community discussions on [Discord](http://chat.mage-os.org), and follow our progress on [GitHub](https://github.com/mage-os)._

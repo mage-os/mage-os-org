@@ -1,10 +1,11 @@
 ---
-title: 'Merchant Focused Content'
-publishDate: '2022-11-23T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Merchant Focused Content"
+publishDate: "2022-11-23T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'While a lot of the focus of Mage-OS to date has been on forming our organization and moving things forward technically, there has also been work ongoing around...'
+excerpt: "While a lot of the focus of Mage-OS to date has been on forming our organization and moving things forward technically, there has also been work ongoing around..."
+image: "~/assets/images/blog/2022/Merchant-Focused-Content.png"
 ---
 
 While a lot of the focus of Mage-OS to date has been on forming our organization and moving things forward technically, there has also been work ongoing around content for Magento Open Source. In this update we want to share what we’ve been up to, why, what we’re planning next, and finally, how you can get involved!
@@ -76,7 +77,7 @@ Here’s how you can contribute:
 - Join the conversation and discussion on the #content channel on our Discord server
 
 - Share your views and input on our weekly meetings
-  - These take place on Mondays at 15:00 UTC (07:00 PST, 10:00 EST, 15:00 GMT, 16:00 CET, 17:00 EET, 20:30 IST) on our Discord server
+    - These take place on Mondays at 15:00 UTC (07:00 PST, 10:00 EST, 15:00 GMT, 16:00 CET, 17:00 EET, 20:30 IST) on our Discord server
 
 - Help write or review content for pages on the site
 

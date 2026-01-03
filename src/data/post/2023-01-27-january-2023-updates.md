@@ -1,10 +1,11 @@
 ---
-title: 'January 2023 Updates'
-publishDate: '2023-01-27T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "January 2023 Updates"
+publishDate: "2023-01-27T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Happy New Year, dear friends! Over the holidays we took some time to rest and reflect on all that we’ve achieved last year. We hope you found as much energy as...'
+excerpt: "Happy New Year, dear friends! Over the holidays we took some time to rest and reflect on all that we’ve achieved last year. We hope you found as much energy as..."
+image: "~/assets/images/blog/2023/January-2023-Updates.png"
 ---
 
 Happy New Year, dear friends!
@@ -21,7 +22,7 @@ This delay has prevented us from opening a bank account or conducting any busine
 
 The silver lining is that this has given us more time to prepare the membership program, budget, and plans for the coming year. Here’s a sneak preview of the Mage-OS supporter program badges:
 
-![A preview of the Mage-OS Association's upcoming membership badges, courtesy of Amasty](https://mage-os.org/blog/2023/2023-01-27-mageos-badge-preview.png)
+![A preview of the Mage-OS Association's upcoming membership badges, courtesy of Amasty](~/assets/images/blog/2023/2023-01-27-mageos-badge-preview.png)
 
 A massive thank you to Sergej Derzap and the Amasty graphic team for their work designing these badges!
 
@@ -31,7 +32,7 @@ We have discovered that the nightly-mirror builds are an excellent way to be awa
 
 Recently, an issue in the Magento Open Source repository caused the Mage-OS nightly builds to fail. Adobe implemented a workaround in the 2.4.6 beta builds (outside of the Magento repository), which we have also applied to the nightly builds until a proper and permanent solution is applied.
 
-In brief: A new [Magento_Elasticsearch8](https://github.com/mage-os/mirror-magento2/tree/2.4-develop/app/code/Magento/Elasticsearch8) module is added to Magento Open Source 2.4.6, and requires `elasticsearch/elasticsearch` library version 8. That directly conflicts with the existing `Magento_Elasticsearch7` module, which requires version 7 of the same library. Only one can be installed at a time, so this causes an unresolvable dependency failure and a broken build.
+In brief: A new [Magento\_Elasticsearch8](https://github.com/mage-os/mirror-magento2/tree/2.4-develop/app/code/Magento/Elasticsearch8) module is added to Magento Open Source 2.4.6, and requires `elasticsearch/elasticsearch` library version 8. That directly conflicts with the existing `Magento_Elasticsearch7` module, which requires version 7 of the same library. Only one can be installed at a time, so this causes an unresolvable dependency failure and a broken build.
 
 In 2.4.6-beta1, Adobe resolved this by removing the requirement from `Magento_Elasticsearch8`. However, that makes the `Elasticsearch8` module non-functional, because composer will always install `elasticsearch/elasticsearch` version 7. Damien Retzinger opened [an issue](https://github.com/magento/magento2/issues/36687) on the Magento Open Source repository to track and discuss this problem.
 

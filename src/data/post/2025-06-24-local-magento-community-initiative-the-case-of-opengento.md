@@ -1,10 +1,11 @@
 ---
-title: 'Local Magento Community initiative: the case of Opengento'
-publishDate: '2025-06-24T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Local Magento Community initiative: the case of Opengento"
+publishDate: "2025-06-24T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'On 25th March, a couple of Mage-OS active members attended the first ever Meet Magento France, and since many recaps have already been published online, we...'
+excerpt: "On 25th March, a couple of Mage-OS active members attended the first ever Meet Magento France, and since many recaps have already been published online, we..."
+image: "~/assets/images/blog/2025/250325_VIP_BOX-351-scaled.jpg"
 ---
 
 On 25th March, a couple of Mage-OS active members attended the first ever [Meet Magento France](https://fr.meet-magento.com/), and since [many recaps](https://www.linkedin.com/search/results/all/?keywords=%23mm25fr&origin=GLOBAL_SEARCH_HEADER&sid=JNM) have already been published online, we thought we’d provide a different angle to the story and shed more light on the organisation that was behind this whole event.
@@ -25,7 +26,7 @@ Since the first Opengento event, which took place in 2015 in Toulouse, seven oth
 
 To put it briefly, Opengento is an association that publishes POCs & modules during its hackathons (our famous Opengento weekends) in order to support innovation within the e-commerce developer community.
 
-![](https://mage-os.org/wp-content/uploads/2025/06/Opengento-weekend-1024x576.jpeg)
+![](~/assets/images/blog/2025/Opengento-weekend-1024x576.jpeg)
 
 # Who is Opengento 
 
@@ -44,14 +45,15 @@ Their mission is to 
 - Promote the Magento Open Source initiatives
 
 - Organize events for the Magento Community
-  - Weekend Opengento (developer paradise like)
-  - Meetups (networking)
+    - Weekend Opengento (developer paradise like)
+    
+    - Meetups (networking)
 
 - Publish Open-Source modules for free on packagist! ([https://github.com/opengento](https://github.com/opengento))
 
 - Share knowledge & expertise (events, Slack)
 
-![](https://mage-os.org/wp-content/uploads/2025/06/groupe-drone-1.jpg)
+![](~/assets/images/blog/2025/groupe-drone-1.jpg)
 
 # What innovation has been brought by Opengento?
 
@@ -93,7 +95,7 @@ Other functionalities developed over Opengento Hackathons include:
 
 # How does Opengento fit with Adobe, the Magento Association or Mage-OS?
 
-![](https://mage-os.org/wp-content/uploads/2025/06/20241010_095502-1024x768.jpg)
+![](~/assets/images/blog/2025/20241010_095502-1024x768.jpg)
 
 ### Adobe
 
@@ -115,7 +117,7 @@ You can meet them at key Meet Magento events in North America, and together, the
 
 - **Showcasing Magento Open Source** and how it helps SMB merchants scale their eCommerce stores and capabilities at their own pace. 
 
-![](https://mage-os.org/wp-content/uploads/2025/06/20250206_093356-1024x768.jpg)
+![](~/assets/images/blog/2025/20250206_093356-1024x768.jpg)
 
 _Presentation of Parking Zone case study by Ritesh at Meet Magento Florida 2025_
 
@@ -153,7 +155,7 @@ Here are their 2025 big priorities and [board members’ roles and responsibilit
 
 10\. Adobe’s Vision for the Future
 
-![](https://mage-os.org/wp-content/uploads/2025/06/Screenshot-2025-06-19-095835.png)
+![](~/assets/images/blog/2025/Screenshot-2025-06-19-095835.png)
 
 What has been quite visible so far is how their Marketing task force, led by Laura Folco staffed up big times with high profile members such as Emily Sturges, Rebecca Brocton and Ola Czapiewska , and you can already see the momentum they are gaining, starting with their [LinkedIn activities](https://www.linkedin.com/company/magentoassociation/posts/?feedView=all).
 

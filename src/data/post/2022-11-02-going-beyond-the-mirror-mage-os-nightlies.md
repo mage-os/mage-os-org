@@ -1,10 +1,11 @@
 ---
-title: 'Going beyond the Mirror - Mage-OS Nightlies'
-publishDate: '2022-11-02T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Going beyond the Mirror - Mage-OS Nightlies"
+publishDate: "2022-11-02T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'As we all are busy bees, a lot has been happening! New faces are joining the meetings and more and more people are eager to contribute. Very exciting! Please...'
+excerpt: "As we all are busy bees, a lot has been happening! New faces are joining the meetings and more and more people are eager to contribute. Very exciting! Please..."
+image: "~/assets/images/blog/2022/Going-beyond-the-Mirror-–-Mage-OS-Nightlies.png"
 ---
 
 As we all are busy bees, a lot has been happening!

@@ -1,10 +1,11 @@
 ---
-title: 'Meet Magento NL 2023 Recap - The Dutch are back'
-publishDate: '2023-11-14T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Meet Magento NL 2023 Recap - The Dutch are back"
+publishDate: "2023-11-14T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: '> This post was written and submitted by Jisse Reitsma, Chair of Mage-OS Nederland, in conjunction with our global marketing working group. Thursday, November...'
+excerpt: "> This post was written and submitted by Jisse Reitsma, Chair of Mage-OS Nederland, in conjunction with our global marketing working group. Thursday, November..."
+image: "~/assets/images/blog/2023/MMNL-1-scaled.jpg"
 ---
 
 > This post was written and submitted by Jisse Reitsma, Chair of [Mage-OS Nederland](https://nl.mage-os.org/https://nl.mage-os.org/), in conjunction with our global marketing working group.
@@ -33,7 +34,7 @@ Earlier in 2023, [Mage-OS NL was founded](https://nl.mage-os.org/nl/vereniging) 
 
 In the same way, MMNL was put together. Not necessarily by Mage-OS Nederland though. The new association's task is to facilitate the community, to bring together people, to inform people on the state of the ecosystem. However, we decided that it would be better if the association would be more about governing instead of doing the actual thing.
 
-![](https://mage-os.org/wp-content/uploads/2023/11/team-2-1024x683.jpg)
+![](~/assets/images/blog/2023/team-2-1024x683.jpg)
 
 With that, two board members - Core and Sanne - stepped up to organize MMNL and the rest of the board mainly took on a supporting role. Core and Sanne assembled a group of ten volunteers and with that the MMNL team became a real thing.
 
@@ -41,23 +42,23 @@ Big thank you to our ten MM23NL organizers
 
 1. [Sanne Bolkenstein](https://www.linkedin.com/in/sanne-bolkenstein-12079726/)
 
-2. [Core de Reeper](https://www.linkedin.com/in/ACoAABPjuSABZBldyz5mp4bLSODwT8S8p6xoKno)
+3. [Core de Reeper](https://www.linkedin.com/in/ACoAABPjuSABZBldyz5mp4bLSODwT8S8p6xoKno)
 
-3.  [Danny Verkade](https://www.linkedin.com/in/ACoAAAB9QvcBNjD0lYsKQLVTe4jmwjdMaqllu00)
+5.  [Danny Verkade](https://www.linkedin.com/in/ACoAAAB9QvcBNjD0lYsKQLVTe4jmwjdMaqllu00)
 
-4.  [Danny Uranka](https://www.linkedin.com/in/ACoAAAd1A7oBal6qYB9RrZxb63DXTfFsecK1V90)
+7.  [Danny Uranka](https://www.linkedin.com/in/ACoAAAd1A7oBal6qYB9RrZxb63DXTfFsecK1V90)
 
-5.  [Dominique de Maa](https://www.linkedin.com/in/ACoAAACjZe0BIlcIAakmgaqmHszLRNEQNZDa1SU)
+9.  [Dominique de Maa](https://www.linkedin.com/in/ACoAAACjZe0BIlcIAakmgaqmHszLRNEQNZDa1SU)
 
-6.  [Charif Eddini](https://www.linkedin.com/in/ACoAABH9oOEBUUxPiDXyW_xcMFWg0EQ39dcD9gg)
+11.  [Charif Eddini](https://www.linkedin.com/in/ACoAABH9oOEBUUxPiDXyW_xcMFWg0EQ39dcD9gg)
 
-7.  [Henk de Gier](https://www.linkedin.com/in/ACoAAAPD49UBNG1OzCe7CctlVv09miQnyduy9yY)
+13.  [Henk de Gier](https://www.linkedin.com/in/ACoAAAPD49UBNG1OzCe7CctlVv09miQnyduy9yY)
 
-8.  [Jelle Siderius](https://www.linkedin.com/in/ACoAABB5hRwBs4G3X55ZapZlWJWdK7cGc1DvJps)
+15.  [Jelle Siderius](https://www.linkedin.com/in/ACoAABB5hRwBs4G3X55ZapZlWJWdK7cGc1DvJps)
 
-9.  [Jelle van Genderen](https://www.linkedin.com/in/ACoAAB_4wOEB6q-Jt_7x36EH3eTcP-CE9YVVUvY) 
+17.  [Jelle van Genderen](https://www.linkedin.com/in/ACoAAB_4wOEB6q-Jt_7x36EH3eTcP-CE9YVVUvY) 
 
-10. [Tom Ketels](https://www.linkedin.com/in/ACoAABlRWw0BZ4rGopCQDSPmJ7MGWR_5yhpLzdI)
+19. [Tom Ketels](https://www.linkedin.com/in/ACoAABlRWw0BZ4rGopCQDSPmJ7MGWR_5yhpLzdI)
 
 I'm kind of glad that it went this way. The board doesn't become solely responsible for events in The Netherlands: It only makes sure that people are able to organize events in such a manner that as many people as possible are reached. And on the other hand, \*anyone\* is able to create an event and have it backed up by Mage-OS Nederland, as long as the event is helping out the Magento / Adobe Commerce / Mage-OS ecosystem.
 
@@ -65,7 +66,7 @@ All in all, I'm so happy that we actually reached two very important social goal
 
 ## Carried by the Dutch Magento community
 
-![](https://mage-os.org/wp-content/uploads/2023/11/Jisse-1024x811.jpg)
+![](~/assets/images/blog/2023/Jisse-1024x811.jpg)
 
 Oh and we organized a Meet Magento. And not \*we\* as in a small group of people. But \*we\* as in a large group of Magento fans: The board of seven. The Meet Magento NL team of ten. But also a large group of sponsors that stood up as one to make sure the event was financially doable (with the association having zero budget to begin with). And a group of speakers. And a group of people listening to speakers. The event really brought everyone together.
 
@@ -119,7 +120,7 @@ For more fun pictures taken across the Community, use the hashtag #MM23NL on [Li
 
 We were delighted to come together as the whole Magento ecosystem. Mathias Schreiber from the Magento Association joined us for the whole day including a speaking session sharing all the latest updates on his end. Thank you to Dewi Wassenaar from Adobe for coming and supporting us as a local. Vinai Kopp also shared updates about Mage-OS, the international organization, in his closing remarks, highlighting how we need to all collaborate with Adobe and the Magento Association. Stay tuned on that one!
 
-![](https://mage-os.org/wp-content/uploads/2023/11/mv-1024x815.jpg)
+![](~/assets/images/blog/2023/mv-1024x815.jpg)
 
 ## What is next?
 

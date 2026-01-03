@@ -1,12 +1,13 @@
 ---
-title: 'Release: Mage-OS Distribution 1.0.6'
-publishDate: '2025-02-13T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Release: Mage-OS Distribution 1.0.6"
+publishDate: "2025-02-13T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are excited to announce the release of Mage-OS Distribution 1.0.6! This release achieves full parity with Magento Open Source 2.4.7-p4, which incorporates...'
+excerpt: "We are excited to announce the release of Mage-OS Distribution 1.0.6! This release achieves full parity with Magento Open Source 2.4.7-p4, which incorporates..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2025/New-Mage-OS-Website.png"
 ---
 
 We are excited to announce the release of Mage-OS Distribution 1.0.6!
@@ -68,10 +69,10 @@ After a successful composer download, you will need to run the installer. Please
 If you are already using Magento 2.4 and PHP 8.1+, you can change to Mage-OS by running the following in SSH:
 
 ```
-composer config repositories.0 composer https://repo.mage-os.org/ &&
-    composer require mage-os/product-community-edition --no-update &&
-    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update &&
-    composer remove sebastian/comparator --dev --no-update &&
+composer config repositories.0 composer https://repo.mage-os.org/ && 
+    composer require mage-os/product-community-edition --no-update && 
+    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update && 
+    composer remove sebastian/comparator --dev --no-update && 
     composer update --no-plugins --with-all-dependencies
 ```
 
@@ -123,6 +124,6 @@ All of our work on [creating custom releases based on Magento](https://github.c
 
 1. Mage-OS builds can be independently built and verified, and are fully reproducible;
 
-2. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
+3. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
 
 That’s all for now!

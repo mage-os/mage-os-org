@@ -1,17 +1,19 @@
 ---
-title: 'Mage-OS Jan Recap'
-publishDate: '2025-02-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Jan Recap"
+publishDate: "2025-02-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "- Welcome to our newest partners and members!     - Mino\_ – community member          - David Nimorwicz\_ – professional member - You too can become a Mage-OS..."
+image: "~/assets/images/blog/2025/mageos_blog_jan-2025-update.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Mino  – community member
-  - David Nimorwicz  – professional member
+    - Mino  – community member
+    
+    - David Nimorwicz  – professional member
 
 - You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
 

@@ -1,12 +1,13 @@
 ---
-title: 'Introducing the Mage-OS Distribution'
-publishDate: '2023-10-09T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Introducing the Mage-OS Distribution"
+publishDate: "2023-10-09T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are proud to announce version 1 of the Mage-OS Distribution! This release is based on Magento 2.4.6-p3, plus additional contributions including a refreshed...'
+excerpt: "We are proud to announce version 1 of the Mage-OS Distribution! This release is based on Magento 2.4.6-p3, plus additional contributions including a refreshed..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2023/New-Mage-OS-Website.png"
 ---
 
 We are proud to announce version 1 of the Mage-OS Distribution!
@@ -135,7 +136,7 @@ All of our work on [creating custom releases based on Magento](https://github.co
 
 1. Mage-OS builds can be independently built and verified, and are fully reproducible;
 
-2. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
+3. If you want to create your own fork and version of Magento or Mage-OS, you can do that too.
 
 ### Up Next: Mage-OS Flavored Distributions
 

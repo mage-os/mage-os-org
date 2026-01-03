@@ -1,22 +1,29 @@
 ---
-title: 'Mage-OS Nov Recap'
-publishDate: '2024-12-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Mage-OS Nov Recap"
+publishDate: "2024-12-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
 excerpt: "- Welcome to our newest partners and members!     - Jeanmarcos\_ - community member          - Kyle\_ - community member          - Ben Wake - community member  ..."
+image: "~/assets/images/blog/2024/mageos_blog_november-2024-update.jpg"
 ---
 
 ## **Association News**
 
 - Welcome to our newest partners and members!
-  - Jeanmarcos  - community member
-  - Kyle  - community member
-  - Ben Wake - community member
-  - Ivaylo Alexandrov - community member
-  - SamJUK  - professional member
-  - Ajay Khampariya - professional member
-  - Jim Gilbert - community member
+    - Jeanmarcos  - community member
+    
+    - Kyle  - community member
+    
+    - Ben Wake - community member
+    
+    - Ivaylo Alexandrov - community member
+    
+    - SamJUK  - professional member
+    
+    - Ajay Khampariya - professional member
+    
+    - Jim Gilbert - community member
 
 - You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
 
@@ -76,8 +83,10 @@ This month showcased remarkable progress across development, AI initiatives, com
 
 ## **Opportunities**
 
-- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org
+- Want to help promote Magento and Mage-OS? Join our weekly marketing meeting, public on [Discord](http://chat.mage-os.org/) at 4 PM CET/3 PM UTC / 10 AM EST every Monday: chat.mage-os.org  
+    
 
-- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org
+- Have a contribution idea or interested in the Mage-OS Distribution? Join our weekly tech meetings, public on [Discord](http://chat.mage-os.org/) at 3 PM CET / 2 PM UTC / 9 AM EST every Tuesday: chat.mage-os.org  
+    
 
 - We’re looking for new features to enhance Mage-OS this year that will help to modernize and excite merchants. This might include AI enhancements, low/no code processes, or more. Talk to Vinai Kopp or #tech if you’re interested!

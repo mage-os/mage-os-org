@@ -1,24 +1,25 @@
 ---
-title: 'December 2023 Update'
-publishDate: '2024-01-10T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "December 2023 Update"
+publishDate: "2024-01-10T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Below is our Mage-OS recap for December 2023, but first off a Happy New Year to everyone in the Magento ecosystem from all of us at Mage-OS!...'
+excerpt: "Below is our Mage-OS recap for December 2023, but first off a Happy New Year to everyone in the Magento ecosystem from all of us at Mage-OS!..."
+image: "~/assets/images/blog/2024/mageos_blog_december-update.jpg"
 ---
 
 Below is our Mage-OS recap for December 2023, but first off a Happy New Year to everyone in the Magento ecosystem from all of us at Mage-OS!
 
 ## Welcome to our New Partner
 
-[![](https://mage-os.org/wp-content/uploads/2024/01/integer_net-1024x225.png)](https://www.integer-net.com/)
+[![](~/assets/images/blog/2024/integer_net-1024x225.png)](https://www.integer-net.com/)
 
-Thank you [integer_net](https://www.integer-net.com/) for becoming a Bronze sponsor this month!
+Thank you [integer\_net](https://www.integer-net.com/) for becoming a Bronze sponsor this month!
 
 > _Mage-OS stands for everything we believe in: a strong community and creative minds._  
-> W*e love to work in a cooperative and future-oriented way - that's why we've been active in the Magento community for a long time. The foundation of Mage-OS has shown us once again that we believe in the right platform and that together we will advance the world of e-commerce!*
->
-> Christian Philipp, CEO at integer_net
+> W_e love to work in a cooperative and future-oriented way - that's why we've been active in the Magento community for a long time. The foundation of Mage-OS has shown us once again that we believe in the right platform and that together we will advance the world of e-commerce!_
+> 
+> Christian Philipp, CEO at integer\_net
 
 If you, too, want to help us shape the future of the Magento ecosystem, join us!
 
@@ -26,13 +27,13 @@ If you, too, want to help us shape the future of the Magento ecosystem, join us!
 
 ## Magento Meetup Aachen
 
-![Magento Meetup Aachen](https://mage-os.org/wp-content/uploads/2024/01/aachen-mage-os-MA-1024x771.jpg)
+![Magento Meetup Aachen](~/assets/images/blog/2024/aachen-mage-os-MA-1024x771.jpg)
 
-It was great to connect with people in Aachen! Our president, Vinai, attended and gave a talk, and you can read a nice recap of the event from integer_net: [https://www.integer-net.com/blog_english/magento-meetup-aachen-christmas-mage-os-magento-association-en](https://www.integer-net.com/blog_english/magento-meetup-aachen-christmas-mage-os-magento-association-en)
+It was great to connect with people in Aachen! Our president, Vinai, attended and gave a talk, and you can read a nice recap of the event from integer\_net: [https://www.integer-net.com/blog\_english/magento-meetup-aachen-christmas-mage-os-magento-association-en](https://www.integer-net.com/blog_english/magento-meetup-aachen-christmas-mage-os-magento-association-en)
 
 ## Magento Women Initiative
 
-![Women In Tech Facts](https://mage-os.org/wp-content/uploads/2024/01/20231102_113447-1024x768.jpg)
+![Women In Tech Facts](~/assets/images/blog/2024/20231102_113447-1024x768.jpg)
 
 Recently a talk at Meet Magento Netherlands 2023 called “7 ways to be an ally for Women in Tech” sparked conversation and bonding between women at the event. Women are underrepresented, at only 27% of the workforce in the industry. This inequality intensifies the more you go up in the responsibility levels, with only 1 in 7 of CEOs being women.
 
@@ -54,9 +55,9 @@ With those objectives in mind, we took a couple a first steps, in cooperation wi
 
 1. Europe: Dinner in Utrecht (the Netherlands) on January 22nd
 
-2. USA: Get together at [Meet Magento Florida](https://www.eventbrite.com/e/women-in-ecommerce-tickets-783175497997?aff=oddtdtcreator) on January 31th from 5.30 to 6.30pm
+3. USA: Get together at [Meet Magento Florida](https://www.eventbrite.com/e/women-in-ecommerce-tickets-783175497997?aff=oddtdtcreator) on January 31th from 5.30 to 6.30pm
 
-3. Asia: Get together at [Meet Magento India](https://www.meetmagento.in/) February 10th
+5. Asia: Get together at [Meet Magento India](https://www.meetmagento.in/) February 10th
 
 Join us on Slack for details and to register. Also [follow us on LinkedIn](https://www.linkedin.com/company/mage-os) to be notified when event registrations opens.
 
@@ -72,7 +73,7 @@ Is your organization supporting Women in Tech? To sponsor one of the events or t
 
 23 January 2024 | Utrecht, Netherlands
 
-### ![](https://lh7-us.googleusercontent.com/9KXFfGOg3PfR_eTQr705E0pAaRfWNg9xKEZu30AIyUIYJD8ls47E_65u4tULTBn7PcDOra05PdfQPYDExI9v8tkkKCFXythNRbYMpLTAXp1VFj5CXFDIDocdLhpDQdRTaK0FeCJn3D8NpqZqwMhsEqo)
+### ![](~/assets/images/blog/2024/9KXFfGOg3PfR_eTQr705E0pAaRfWNg9xKEZu30AIyUIYJD8ls47E_65u4tULTBn7PcDOra05PdfQPYDExI9v8tkkKCFXythNRbYMpLTAXp1VFj5CXFDIDocdLhpDQdRTaK0FeCJn3D8NpqZqwMhsEqo)
 
 As a tradition, the Dutch Magento Community gathers over drinks during Webwinkel Vakdagen, the biggest eCommerce expo in the Netherlands. In 2024, the event is taking place in Utrecht on January 23 and 24. 
 
@@ -82,13 +83,13 @@ After the first day, [Mage-OS Netherlands](https://nl.mage-os.org/en/) is shouti
 
 - Where: Uncle Jim, Utrecht ([https://uncle-jim.nl/](https://uncle-jim.nl/))
 
-[Register Here](http://(https://www.eventbrite.com/e/tickets-mage-os-wwvd-borrel-777521025317)
+[Register Here](http://\(https://www.eventbrite.com/e/tickets-mage-os-wwvd-borrel-777521025317)
 
 ### Magento Stammtisch Rhein-Main
 
 24th January 2024 | Mainz, Germany
 
-![](https://lh7-us.googleusercontent.com/KCZrBjIju7Q47UjU4k3zhbMqZvc_y2M1C8Vxr86PVQHeAtVAWWKrHs8sIOaKcpkyuLQK8s0LmmC0EfIx3MVvPJHufOz5ERosmzV7J5E6v8iG-5boquY9kPm-nJxOL3Y07Lb93A0Rf6gVAGcp41Mx3Fg)
+![](~/assets/images/blog/2024/KCZrBjIju7Q47UjU4k3zhbMqZvc_y2M1C8Vxr86PVQHeAtVAWWKrHs8sIOaKcpkyuLQK8s0LmmC0EfIx3MVvPJHufOz5ERosmzV7J5E6v8iG-5boquY9kPm-nJxOL3Y07Lb93A0Rf6gVAGcp41Mx3Fg)
 
 The 46th edition of this German Magento meetup is taking place at netz98 (Valantic) offices in Mainz 
 
@@ -102,7 +103,7 @@ The 46th edition of this German Magento meetup is taking place at netz98 (Valant
 
 31 January & 1st February 2024 | Hollywood, FL, USA
 
-![](https://lh7-us.googleusercontent.com/bZKUcIAAvI-PWcWlxjqthEfANXBJXuWaQubnp_-QTRhg59IcpvJUa41y37DcdGh1TRC6yxXboZ3t6FM9koI74SYDDYChUXN0wy2vz5vHKxnYY2tTwiOBKrU4HWnvbf0dMjT5k1y47CXAY4JGIDdyF_M)
+![](~/assets/images/blog/2024/bZKUcIAAvI-PWcWlxjqthEfANXBJXuWaQubnp_-QTRhg59IcpvJUa41y37DcdGh1TRC6yxXboZ3t6FM9koI74SYDDYChUXN0wy2vz5vHKxnYY2tTwiOBKrU4HWnvbf0dMjT5k1y47CXAY4JGIDdyF_M)
 
 This two day event at the iconic Hard Rock Cafe Resort offers plenty of ancillary events and sightseeing tours. Laura Folco, from our Business Control Committee, Thien-Lan, our Vice President, and Sanne Bolkenstein on the board of Mage-OS Netherlands will be there, alongside contributors and friends of Mage-OS including Jakub Winkler, Maier Bianchi, Kuba Zwolinski, and more.
 
@@ -114,7 +115,7 @@ What’s more, there will be a special treat for Women of Magento, so book your 
 
 10th February 2024 | Ahmedabad, India
 
-![](https://lh7-us.googleusercontent.com/ac-WaHfpuqc8EpQSX-PjWxqKqRdfvt8--EmmSJq9VgbZm2NBz4ydJbtU-uktX0ZBIPfYAjUPmiG-Y1gAqBn_7VJ7hplr1HApG1StrV0S1FHZvRG-qzflhV-OXr8_zbL1QOvX1DBygfGdHaubQVRNY1A)
+![](~/assets/images/blog/2024/ac-WaHfpuqc8EpQSX-PjWxqKqRdfvt8--EmmSJq9VgbZm2NBz4ydJbtU-uktX0ZBIPfYAjUPmiG-Y1gAqBn_7VJ7hplr1HApG1StrV0S1FHZvRG-qzflhV-OXr8_zbL1QOvX1DBygfGdHaubQVRNY1A)
 
 Vinai, our president, will be representing Mage-OS at Meet Magento India and looks forward to meeting the vibrant and huge Magento community there. 
 
@@ -126,7 +127,7 @@ We are really looking forward to spreading the excitement about the future of Ma
 
 15th April 2024 | Warsaw, Poland 
 
-![](https://mage-os.org/wp-content/uploads/2024/01/Meet-Commerce-Warsaw-1024x536.png)
+![](~/assets/images/blog/2024/Meet-Commerce-Warsaw-1024x536.png)
 
 Warsaw is where the Mage-OS Association was legally founded. It sure is a special place for us. Join us for this multi-platform eCommerce event, and meet the wonderful Polish agencies and community who have been supporting us from the beginning.
 
@@ -136,6 +137,6 @@ Don’t want to get FOMO on all the Magento events?
 
 [Bookmark our Events Calendar](/?page_id=368)
 
----
+* * *
 
 That's all for this time! The Mage-OS team.

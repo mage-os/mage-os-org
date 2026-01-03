@@ -1,10 +1,10 @@
 ---
-title: 'Diversity and Inclusion!'
-publishDate: '2022-09-20T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "Diversity and Inclusion!"
+publishDate: "2022-09-20T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Diversity and Inclusion is an important and complex topic that is close to our heart. We strongly believe that a wide array of perspectives are a key factor in...'
+excerpt: "Diversity and Inclusion is an important and complex topic that is close to our heart. We strongly believe that a wide array of perspectives are a key factor in..."
 ---
 
 Diversity and Inclusion is an important and complex topic that is close to our heart. We strongly believe that a wide array of perspectives are a key factor in the success of any business, and can only bring richer insights and fairer decisions.
@@ -45,7 +45,7 @@ Anybody who takes it on themselves to do that work will naturally become influen
 
 Even without a position on the board, the direction of Mage-OS can be influenced significantly by engaged individuals who take responsibility and put in the hours.
 
-**Aside:** *Board members are elected by the general assembly, which consists of all Mage-OS Association members. Half of the board member positions will be up for election in two years, the other half in three. After this initial cycle the term of office for all board members is two years.*
+**Aside:** _Board members are elected by the general assembly, which consists of all Mage-OS Association members. Half of the board member positions will be up for election in two years, the other half in three. After this initial cycle the term of office for all board members is two years._
 
 ### Overcoming Privilege
 

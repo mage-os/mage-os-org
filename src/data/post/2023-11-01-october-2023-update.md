@@ -1,10 +1,11 @@
 ---
-title: 'October 2023 Update'
-publishDate: '2023-11-01T00:00:00.000Z'
-category: 'Updates'
-author: 'Mage-OS Team'
+title: "October 2023 Update"
+publishDate: "2023-11-01T00:00:00.000Z"
+category: "Updates"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'Another month in 2023 has passed, and yet again, we’ve got lots of updates to bring you! The big news from October is the initial release of the Mage-OS...'
+excerpt: "Another month in 2023 has passed, and yet again, we’ve got lots of updates to bring you! The big news from October is the initial release of the Mage-OS..."
+image: "~/assets/images/blog/2023/mageos_blog_october-update.jpg"
 ---
 
 Another month in 2023 has passed, and yet again, we’ve got lots of updates to bring you! The big news from October is the initial release of the Mage-OS Distribution, but we’ve also got details on our recently launched membership offering as well community updates from recent (and upcoming) events.
@@ -15,7 +16,7 @@ A huge milestone was met this month. After more than a year of work with an incr
 
 However, with this release, we now have a completely standalone distribution. While this still includes Magento Open Source, we can implement additional modifications, paving the way for us to differentiate our offering with new functionality, along with enhancements and bug fixes.
 
-![Mage-OS Admin Panel Login Screen](https://mage-os.org/wp-content/uploads/2023/11/270081063-353abb42-ab86-4e4f-810c-ad005148cb48-1024x465.png)
+![Mage-OS Admin Panel Login Screen](~/assets/images/blog/2023/270081063-353abb42-ab86-4e4f-810c-ad005148cb48-1024x465.png)
 
 While the initial version only includes a handful of changes, including refreshed admin panel branding, we plan to roll out further (and more impactful) changes over time, as they are contributed from the open source community.
 
@@ -29,7 +30,7 @@ For more details, read our [full announcement](/?p=2838) article, which includes
 
 In [last month's update](/?p=2801), we announced the soft launch of our membership offering, which has already raised over €8,000 in our first month. A big thank you to all our initial backers.
 
-![](https://mage-os.org/wp-content/uploads/2023/11/Open-Collective-Initial-Backers-1024x576.png)
+![](~/assets/images/blog/2023/Open-Collective-Initial-Backers-1024x576.png)
 
 When we launched, we supported credit/debit card payments only, but we’ve now added bank transfer/direct bank payment offerings to aid larger contributions, plus reduce the fees paid (i.e. ensuring more of your contribution money goes to Mage-OS).
 
@@ -69,7 +70,7 @@ If you want to learn more, then see our [recap article](/?p=3049) (another shout
 
 ### Magento Events Listing and Recaps
 
-![](https://mage-os.org/wp-content/uploads/2023/11/Event-page-Mage-OS.png)
+![](~/assets/images/blog/2023/Event-page-Mage-OS.png)
 
 Events are an essential part of our community. As such, we feel it is important to provide the go-to place to find all the upcoming Magento events happening around the world. Check out our [Magento events calendar page](/?page_id=368), which is run manually by Mage-OS volunteers and enriched with recaps after each event. Plus, look out for a refreshed events page/system coming soon!
 
@@ -77,7 +78,7 @@ Big thank you to John Prendergast, David Lambauer, and others for this effort.
 
 ### Meet Magento Netherlands 2023
 
-![Meet Magento NL Banner](https://mage-os.org/wp-content/uploads/2023/11/Art-block.png)
+![Meet Magento NL Banner](~/assets/images/blog/2023/Art-block.png)
 
 Meet Magento Netherlands is back for 2023 after a 4-year hiatus, and takes place in Amsterdam on November 2nd. This is our last big event for 2023, and we couldn’t be more proud of our Dutch local chapter, [Mage-OS Nederlands](/?page_id=388), for organizing such a successful event before it even takes place! The initial ticket allocation sold out two weeks prior, and further tickets that were made available (thanks to additional sponsors) have now sold out, too. All this means an attendance of over 300 community enthusiasts, which is incredible!
 
@@ -103,7 +104,7 @@ Finally, if you’re looking to wear Mage-OS, we have lots of options for you to
 
 - AU: [https://mage-os.myspreadshop.com.au/](https://mage-os.myspreadshop.com.au/)
 
-![](https://mage-os.org/wp-content/uploads/2023/11/Mage-OS-Swag-Shop-1024x765.png)
+![](~/assets/images/blog/2023/Mage-OS-Swag-Shop-1024x765.png)
 
 Until next time! The Mage-OS team.
 

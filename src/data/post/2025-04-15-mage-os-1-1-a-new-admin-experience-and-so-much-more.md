@@ -1,12 +1,13 @@
 ---
-title: 'Mage-OS 1.1: A new admin experience, and so much more!'
-publishDate: '2025-04-15T00:00:00.000Z'
-category: 'Releases'
-author: 'Mage-OS Team'
+title: "Mage-OS 1.1: A new admin experience, and so much more!"
+publishDate: "2025-04-15T00:00:00.000Z"
+category: "Releases"
+author: "Mage-OS Team"
 draft: false
-excerpt: 'We are excited to announce the release of Mage-OS Distribution 1.1.0, a milestone in the development of our community project! This release packs one huge...'
+excerpt: "We are excited to announce the release of Mage-OS Distribution 1.1.0, a milestone in the development of our community project! This release packs one huge..."
 tags:
-  - 'Updates'
+  - "Updates"
+image: "~/assets/images/blog/2025/New-Mage-OS-Website.png"
 ---
 
 We are excited to announce the release of Mage-OS Distribution 1.1.0, a milestone in the development of our community project!
@@ -23,24 +24,24 @@ As part of that, Mage-OS 1.1 adds support for PHP 8.4, drops support for PHP 8.1
 
 The latest recommended software versions are:
 
-| Composer      | 2.8                       |
-| ------------- | ------------------------- |
+| Composer | 2.8 |
+| --- | --- |
 | Elasticsearch | \-- (no longer supported) |
-| OpenSearch    | 2.19                      |
-| MariaDB       | 11.4                      |
-| MySQL         | 8.4                       |
-| PHP           | 8.4/8.3                   |
-| RabbitMQ      | 4                         |
-| Redis         | Valkey 8 (or Redis 7.2+)  |
-| Varnish       | 7.6                       |
-| Apache        | 2.4                       |
-| nginx         | 1.26                      |
+| OpenSearch | 2.19 |
+| MariaDB | 11.4 |
+| MySQL | 8.4 |
+| PHP | 8.4/8.3 |
+| RabbitMQ | 4 |
+| Redis | Valkey 8 (or Redis 7.2+) |
+| Varnish | 7.6 |
+| Apache | 2.4 |
+| nginx | 1.26 |
 
 ## A new backend experience
 
 Thanks to the hard work of **Artem Kozynets**, one of the members of our community, we're proud to announce that Mage-OS 1.1 includes a completely redesigned theme for the admin panel!
 
-![](https://mage-os.org/wp-content/uploads/2025/04/mage-os-110-dashboard-936x1024.png)
+![](~/assets/images/blog/2025/mage-os-110-dashboard-936x1024.png)
 
 This is not just a quick style, it's a complete design system inspired by Material Design 3. The design system is [available for you to preview and use on Figma](https://www.figma.com/community/file/1486802857979032188/m137-design-system-and-ui-kit). We would like to extend a huge thank you to Artem for all of his effort and dedication here.
 
@@ -123,10 +124,10 @@ After a successful composer download, you will need to run the installer. Please
 If you are already using Magento 2.4 and PHP 8.2+, you can change to Mage-OS by running the following in SSH:
 
 ```
-composer config repositories.0 composer https://repo.mage-os.org/ &&
-    composer require mage-os/product-community-edition --no-update &&
-    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update &&
-    composer remove sebastian/comparator --dev --no-update &&
+composer config repositories.0 composer https://repo.mage-os.org/ && 
+    composer require mage-os/product-community-edition --no-update && 
+    composer remove magento/product-community-edition magento/composer-dependency-version-audit-plugin magento/composer-root-update-plugin --no-update && 
+    composer remove sebastian/comparator --dev --no-update && 
     composer update --no-plugins --with-all-dependencies
 ```
 

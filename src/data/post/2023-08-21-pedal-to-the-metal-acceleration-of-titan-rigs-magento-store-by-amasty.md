@@ -1,13 +1,14 @@
 ---
-title: 'Pedal to the Metal: Acceleration of Titan Rig’s Magento Store by Amasty'
-publishDate: '2023-08-21T00:00:00.000Z'
-category: 'Case Studies'
-author: 'Mage-OS Team'
+title: "Pedal to the Metal: Acceleration of Titan Rig’s Magento Store by Amasty"
+publishDate: "2023-08-21T00:00:00.000Z"
+category: "Case Studies"
+author: "Mage-OS Team"
 draft: false
-excerpt: '![](https://mage-os.org/wp-content/uploads/2023/08/Screen-2-1024x768.png) A popular US-based provider of PC cooling components, Titan Rig, helps thousands of...'
+excerpt: "![](images/Screen-2-1024x768.png) A popular US-based provider of PC cooling components, Titan Rig, helps thousands of customers keep their technical equipment..."
+image: "~/assets/images/blog/2023/Screen-2.png"
 ---
 
-![](https://mage-os.org/wp-content/uploads/2023/08/Screen-2-1024x768.png)
+![](~/assets/images/blog/2023/Screen-2-1024x768.png)
 
 A popular US-based provider of PC cooling components, Titan Rig, helps thousands of customers keep their technical equipment at maximum performance with minimum risks via their Magento Open Source store. However, due to poor implementation they were facing multiple technical and performance related challenges. 
 
@@ -53,7 +54,7 @@ The results were already excellent but Amasty knew that Magento could go even fa
 
 With the page load speed raised from 15-25 seconds to 2-4 and Algolia search showing results in just 2-3 seconds, Titan Rig’s desktop Magento store got a definite **‘Passed’** in Core Web Vitals Assessment by Google’s PageSpeed Insights.
 
-![](https://mage-os.org/wp-content/uploads/2023/08/Screen-1-1024x768.png)
+![](~/assets/images/blog/2023/Screen-1-1024x768.png)
 
 Kevin Keating, Vice President of Marketing and Sales at Titan Rig, provided more details on the results of the collaboration:
 
