@@ -1,7 +1,7 @@
 ---
 title: "The Evolution of Documentation in the Age of AI: A Magento Case Study"
 publishDate: "2025-05-06T00:00:00.000Z"
-category: "Initiatives"
+category: "eCommerce Insights"
 author: "Mage-OS Team"
 draft: false
 excerpt: "David Lambauer and run\\as\\root: Innovating Magento Documentation with AI In the ever-evolving world of e-commerce, documentation remains a critical but often..."

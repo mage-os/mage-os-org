@@ -173,6 +173,40 @@ export const findLatestPosts = async ({ count }: { count?: number }): Promise<Ar
   return posts ? posts.slice(0, _count) : [];
 };
 
+/** Find all unique categories from posts */
+export const findCategories = async (): Promise<Array<{ slug: string; title: string }>> => {
+  const posts = await fetchPosts();
+  const categories: Record<string, { slug: string; title: string }> = {};
+
+  posts.forEach((post) => {
+    if (post.category?.slug) {
+      categories[post.category.slug] = post.category;
+    }
+  });
+
+  return Object.values(categories);
+};
+
+/** Get posts grouped by category */
+export const getPostsByCategory = async (): Promise<Record<string, { category: { slug: string; title: string }; posts: Array<Post> }>> => {
+  const posts = await fetchPosts();
+  const grouped: Record<string, { category: { slug: string; title: string }; posts: Array<Post> }> = {};
+
+  posts.forEach((post) => {
+    if (post.category?.slug) {
+      if (!grouped[post.category.slug]) {
+        grouped[post.category.slug] = {
+          category: post.category,
+          posts: [],
+        };
+      }
+      grouped[post.category.slug].posts.push(post);
+    }
+  });
+
+  return grouped;
+};
+
 /** Fetch all posts in the "Releases" category, sorted by publishDate desc */
 export const findReleasePosts = async ({ count }: { count?: number } = {}): Promise<Array<Post>> => {
   const posts = await fetchPosts();

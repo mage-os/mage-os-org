@@ -30,6 +30,7 @@ export const headerData = {
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'User Guide', href: 'https://docs.magento-opensource.com/' },
         { text: 'Developer Docs', href: 'https://devdocs.mage-os.org' },
+        { text: 'Case Studies', href: getPermalink('case-studies', 'category') },
       ],
     },
     {

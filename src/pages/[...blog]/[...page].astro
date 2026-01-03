@@ -2,12 +2,14 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
+import BlogGrid from '~/components/blog/Grid.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import Button from '~/components/ui/Button.astro';
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { blogListRobots, getStaticPathsBlogList, getPostsByCategory } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
 
 export const prerender = true;
 
@@ -20,8 +22,19 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { page } = Astro.props as Props;
 const currentPage = page.currentPage ?? 1;
 
-// const allCategories = await findCategories();
-// const allTags = await findTags();
+// Get posts grouped by category for the index page
+const postsByCategory = currentPage === 1 ? await getPostsByCategory() : {};
+
+// Define category display order (most important first)
+const categoryOrder = ['updates', 'releases', 'events', 'case-studies', 'ecommerce-insights'];
+const sortedCategories = Object.entries(postsByCategory).sort(([slugA], [slugB]) => {
+  const indexA = categoryOrder.indexOf(slugA);
+  const indexB = categoryOrder.indexOf(slugB);
+  // Categories not in the list go to the end
+  const orderA = indexA === -1 ? 999 : indexA;
+  const orderB = indexB === -1 ? 999 : indexB;
+  return orderA - orderB;
+});
 
 const metadata = {
   title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
@@ -36,13 +49,52 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+  <section class="px-4 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
     <Headline subtitle="News, releases, tutorials, and community updates from the Mage-OS project"> The Blog </Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
+
+    {currentPage === 1 ? (
+      <>
+        {/* Category jump links - Flowbite pills style */}
+        <nav class="mb-12" aria-label="Jump to category">
+          <ul class="flex flex-wrap justify-center gap-2 text-sm font-medium">
+            {sortedCategories.map(([slug, { category }]) => (
+              <li>
+                <a
+                  href={`#${slug}`}
+                  class="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-primary hover:text-white dark:bg-slate-700 dark:text-gray-300 dark:hover:bg-primary dark:hover:text-white transition-colors duration-200"
+                >
+                  {category.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div class="space-y-16">
+          {sortedCategories.map(([slug, { category, posts }]) => (
+            <div id={slug} class="scroll-mt-24">
+              <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold font-heading dark:text-slate-200">
+                  {category.title}
+                </h2>
+                <Button
+                  variant="secondary"
+                  href={getPermalink(category.slug, 'category')}
+                  text="View all"
+                  icon="tabler:arrow-right"
+                  class="text-sm"
+                />
+              </div>
+              <BlogGrid posts={posts.slice(0, 4)} />
+            </div>
+          ))}
+        </div>
+      </>
+    ) : (
+      <>
+        <BlogList posts={page.data} />
+        <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+      </>
+    )}
   </section>
 </Layout>
