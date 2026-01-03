@@ -3,62 +3,99 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import PageHero from '~/components/widgets/PageHero.astro';
 import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Note from '~/components/widgets/Note.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Apparel | Mage-OS',
+  title: 'Swag Store | Mage-OS',
   description:
-    'Show your support for Mage-OS with official apparel and merchandise. T-shirts, hoodies, stickers, and more coming soon.',
+    'Shop official Mage-OS merchandise including polo shirts, hoodies, caps, and accessories. Show your support for open-source commerce.',
 };
+
+const storeUrl = 'https://mage-os.myspreadshop.com';
 ---
 
 <Layout metadata={metadata}>
   <PageHero
-    tagline="Apparel"
+    tagline="Swag Store"
     variant="gradient"
     actions={[
       {
         variant: 'primary',
-        text: 'Join Discord',
-        href: '/discord-channel',
-        icon: 'tabler:brand-discord',
+        text: 'Visit Store',
+        href: storeUrl,
+        target: '_blank',
+        icon: 'tabler:shopping-bag',
       },
-      { text: 'Become a Member', href: 'https://opencollective.com/mage-os', target: '_blank' },
+      { text: 'Become a Brand Ambassador', href: '/about/brand-ambassador' },
     ]}
   >
     <Fragment slot="title">
-      Mage-OS <span class="text-accent dark:text-white">Apparel</span>
+      Mage-OS <span class="text-accent dark:text-white">Swag Store</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Show your support for open-source commerce with official Mage-OS merchandise. Coming soon!
+      Wear your support for open-source commerce. Grab official Mage-OS apparel and accessories from our swag store.
     </Fragment>
   </PageHero>
 
+  <Note
+    title="Select Your Country"
+    description="For the best delivery service and currency options, select your country in the Spreadshop footer when visiting the store."
+    icon="tabler:world"
+  />
+
+  <!-- Featured Products -->
   <Features
-    tagline="Coming Soon"
+    id="products"
+    tagline="Featured Products"
     title="Official Mage-OS Merchandise"
-    subtitle="We are working on an official merchandise collection. Stay tuned for t-shirts, hoodies, stickers, and more!"
+    subtitle="High-quality apparel and accessories featuring the Mage-OS logo. Perfect for conferences, meetups, or everyday wear."
     items={[
       {
-        title: 'T-Shirts',
-        description: 'Premium quality t-shirts featuring the Mage-OS logo and community designs.',
+        title: 'Polo Shirts',
+        description:
+          'Professional polo shirts featuring the Mage-OS logo mark. Perfect for conferences, client meetings, or representing the community at events.',
         icon: 'tabler:shirt',
+        callToAction: {
+          text: 'Shop Polos',
+          href: storeUrl,
+          target: '_blank',
+        },
       },
       {
         title: 'Hoodies',
-        description: 'Stay warm while showing your support with comfortable Mage-OS hoodies.',
+        description:
+          'Comfortable hoodies with Mage-OS branding. Stay warm during those late-night coding sessions or cold conference halls.',
         icon: 'tabler:jacket',
+        callToAction: {
+          text: 'Shop Hoodies',
+          href: storeUrl,
+          target: '_blank',
+        },
       },
       {
-        title: 'Stickers',
-        description: 'Deck out your laptop with Mage-OS stickers and spread the word.',
-        icon: 'tabler:sticker',
+        title: 'Baseball Caps',
+        description:
+          'Classic baseball caps with the Mage-OS logo. A casual way to show your support for open-source commerce.',
+        icon: 'tabler:crown',
+        callToAction: {
+          text: 'Shop Caps',
+          href: storeUrl,
+          target: '_blank',
+        },
       },
       {
         title: 'Accessories',
-        description: 'Mugs, bags, and other accessories to complete your Mage-OS collection.',
+        description:
+          'Stickers, mugs, bags, and more. Complete your Mage-OS collection with our range of branded accessories.',
         icon: 'tabler:gift',
+        callToAction: {
+          text: 'Shop Accessories',
+          href: storeUrl,
+          target: '_blank',
+        },
       },
     ]}
   >
@@ -67,25 +104,67 @@ const metadata = {
     </Fragment>
   </Features>
 
+  <!-- Shop Categories -->
+  <Features2
+    title="Shop by Category"
+    tagline="Collections"
+    columns={3}
+    items={[
+      {
+        title: "Men's Apparel",
+        description: 'T-shirts, polos, hoodies, and more sized for men.',
+        icon: 'tabler:man',
+        callToAction: {
+          text: 'Shop Men',
+          href: storeUrl,
+          target: '_blank',
+        },
+      },
+      {
+        title: "Women's Apparel",
+        description: 'T-shirts, polos, hoodies, and more sized for women.',
+        icon: 'tabler:woman',
+        callToAction: {
+          text: 'Shop Women',
+          href: storeUrl,
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Accessories',
+        description: 'Caps, bags, mugs, stickers, and other branded items.',
+        icon: 'tabler:package',
+        callToAction: {
+          text: 'Shop Accessories',
+          href: storeUrl,
+          target: '_blank',
+        },
+      },
+    ]}
+  />
+
+  <!-- Brand Ambassador CTA -->
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Get Notified',
-        href: '/discord-channel',
-        icon: 'tabler:bell',
+        text: 'Visit the Swag Store',
+        href: storeUrl,
+        target: '_blank',
+        icon: 'tabler:shopping-bag',
       },
       {
-        text: 'Join the Community',
-        href: '/community',
+        text: 'Become a Brand Ambassador',
+        href: '/about/brand-ambassador',
+        icon: 'tabler:award',
       },
     ]}
   >
-    <Fragment slot="title"> Want to be notified when merchandise is available? </Fragment>
+    <Fragment slot="title"> Represent the Community </Fragment>
 
     <Fragment slot="subtitle">
-      Join our Discord community to be the first to know when official Mage-OS apparel becomes available. Community
-      members get early access!
+      Every purchase supports the Mage-OS community. Interested in representing Mage-OS at events? Join our Brand
+      Ambassador Program for exclusive swag and recognition.
     </Fragment>
 
     <Fragment slot="bg">
