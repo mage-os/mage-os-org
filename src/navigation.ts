@@ -4,6 +4,7 @@ export const headerData = {
   links: [
     {
       text: 'Product',
+      href: getPermalink('/product'),
       links: [
         { text: 'Overview', href: getPermalink('/product') },
         { text: 'Features', href: getPermalink('/product/features') },
@@ -14,6 +15,7 @@ export const headerData = {
     },
     {
       text: 'Get Started',
+      href: getPermalink('/get-started'),
       links: [
         { text: 'Overview', href: getPermalink('/get-started') },
         { text: 'Quick Start', href: getPermalink('/get-started/quick-start') },
@@ -28,9 +30,15 @@ export const headerData = {
     },
     {
       text: 'Community',
+      href: getPermalink('/community'),
       links: [
         { text: 'Overview', href: getPermalink('/community') },
         { text: 'Events', href: getPermalink('/events') },
+        { text: 'Get Involved', href: getPermalink('/community#get-involved') },
+        { text: 'Partners', href: getPermalink('/community/partners') },
+        { text: 'Apparel', href: getPermalink('/community/apparel') },
+        { text: 'GitHub', href: 'https://github.com/mage-os' },
+        { text: 'Discord', href: getPermalink('/discord-channel') },
       ],
     },
     {
@@ -40,6 +48,13 @@ export const headerData = {
     {
       text: 'About',
       href: getPermalink('/about'),
+      links: [
+        { text: 'About Mage-OS', href: getPermalink('/about') },
+        { text: 'Leadership', href: getPermalink('/about/leadership') },
+        { text: 'Contributors', href: getPermalink('/about/contributors') },
+        { text: 'FAQ', href: getPermalink('/faq') },
+        { text: 'Contact', href: getPermalink('/contact') },
+      ],
     },
   ],
   actions: [],
