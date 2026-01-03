@@ -1,5 +1,6 @@
 ---
 import Headline from '~/components/ui/Headline.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Faqs as Props } from '~/types';
 
@@ -15,40 +16,18 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
-
-// Determine grid classes based on columns
-const gridClass = columns === 1 ? 'max-w-3xl mx-auto' : 'grid md:grid-cols-2 gap-x-8';
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
-
-  <div class={gridClass}>
-    {
-      items.map(({ title: question, description: answer }) => (
-        <details class="group border-b border-gray-200 dark:border-gray-700 [&:first-child]:border-t">
-          <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-left font-medium text-gray-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors">
-            <span>{question}</span>
-            <svg
-              class="h-5 w-5 shrink-0 text-gray-500 transition-transform duration-200 group-open:rotate-180"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
-            </svg>
-          </summary>
-          <div class="pb-5 text-gray-600 dark:text-gray-400" set:html={answer} />
-        </details>
-      ))
-    }
-  </div>
+  <ItemGrid
+    items={items}
+    columns={columns}
+    defaultIcon="tabler:chevron-right"
+    classes={{
+      container: `${columns === 1 ? 'max-w-4xl' : ''} gap-y-8 md:gap-y-12`,
+      panel: 'max-w-none',
+      icon: 'flex-shrink-0 mt-1 w-6 h-6 text-primary',
+    }}
+  />
 </WidgetWrapper>
-
-<style>
-  details summary::-webkit-details-marker {
-    display: none;
-  }
-</style>
