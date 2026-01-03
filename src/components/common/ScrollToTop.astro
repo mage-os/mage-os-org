@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button
+  id="scroll-to-top"
+  type="button"
+  aria-label="Scroll to top"
+  class="fixed bottom-6 right-6 z-50 hidden h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 md:!hidden"
+>
+  <Icon name="tabler:arrow-up" class="h-5 w-5" aria-hidden="true" />
+</button>
+
+<script>
+  function initScrollToTop() {
+    const button = document.getElementById('scroll-to-top');
+    if (!button) return;
+
+    const scrollThreshold = 300;
+
+    function toggleVisibility() {
+      if (window.scrollY > scrollThreshold) {
+        button.classList.remove('hidden');
+        button.classList.add('flex');
+      } else {
+        button.classList.remove('flex');
+        button.classList.add('hidden');
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    button.addEventListener('click', scrollToTop);
+
+    // Initial check
+    toggleVisibility();
+  }
+
+  // Run on initial load
+  initScrollToTop();
+
+  // Re-run after view transitions
+  document.addEventListener('astro:after-swap', initScrollToTop);
+</script>
