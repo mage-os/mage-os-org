@@ -2,20 +2,55 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import PageHero from '~/components/widgets/PageHero.astro';
-import PartnersGrid from '~/components/widgets/PartnersGrid.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 import PartnerTiers from '~/components/widgets/PartnerTiers.astro';
+import PartnersGrid from '~/components/widgets/PartnersGrid.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import {
+  getPartners,
+  getIndividualMembers,
+  groupPartnersByTier,
+  groupMembersByTier,
+  calculatePartnerStats,
+  getInitials,
+  type Partner,
+  type IndividualMember,
+} from '~/utils/openCollective';
+
+// Fetch data from Open Collective
+const partners = await getPartners();
+const members = await getIndividualMembers();
+const partnersByTier = groupPartnersByTier(partners);
+const membersByTier = groupMembersByTier(members);
+const partnerStats = calculatePartnerStats(partners);
+
 const metadata = {
-  title: 'Partners | Mage-OS',
+  title: 'Partners & Members | Mage-OS',
   description:
-    'Meet the companies and organizations that partner with Mage-OS to advance open-source commerce. Learn how to become a partner.',
+    'Meet the companies and individuals supporting Mage-OS. Our partners and members make open-source commerce possible through their contributions.',
 };
+
+// Format currency
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
 ---
 
 <Layout metadata={metadata}>
   <PageHero
-    tagline="Partners"
+    tagline="Partners & Members"
     variant="gradient"
     actions={[
       {
@@ -25,35 +60,368 @@ const metadata = {
         target: '_blank',
         icon: 'tabler:heart',
       },
-      { text: 'View Partner Benefits', href: '#partner-tiers' },
+      { text: 'Join the Community', href: '/community' },
     ]}
   >
     <Fragment slot="title">
-      Our <span class="text-accent dark:text-white">Partners</span>
+      The People Behind <span class="text-accent dark:text-white">Mage-OS</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      The companies and organizations that make Mage-OS possible. Through their support, we are building the future of
-      open-source commerce together.
+      Mage-OS is made possible by a global community of partners, professional members, and individual contributors.
+      Together, we are building the future of open-source commerce.
     </Fragment>
   </PageHero>
 
-  <PartnersGrid
-    title="Current Partners"
-    subtitle="These organizations are actively supporting Mage-OS development through financial contributions and community involvement."
-  />
-
-  <PartnerTiers
-    id="partner-tiers"
-    title="Partner Tiers"
-    subtitle="Join the companies shaping the future of open-source commerce. Partner with Mage-OS to gain visibility, influence, and support."
-    tagline="Become a Partner"
+  <!-- Stats Widget -->
+  <Stats
+    stats={[
+      { title: 'Partner Companies', amount: `${partnerStats.totalPartners}`, icon: 'tabler:building' },
+      { title: 'Professional Members', amount: `${membersByTier.professional.length}`, icon: 'tabler:briefcase' },
+      { title: 'Community Members', amount: `${membersByTier.community.length}`, icon: 'tabler:users' },
+      {
+        title: 'Total Contributions',
+        amount: formatCurrency(partnerStats.totalContributions),
+        icon: 'tabler:currency-euro',
+      },
+    ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
-  </PartnerTiers>
+  </Stats>
 
+  <!-- Why Partner Section -->
+  <Content
+    id="why-partner"
+    tagline="Why Partner"
+    title="Invest in the Future of Commerce"
+    isReversed
+    items={[
+      {
+        title: 'Shape the Platform',
+        description:
+          'Partners have a direct voice in the development roadmap. Your business needs drive platform priorities.',
+        icon: 'tabler:compass',
+      },
+      {
+        title: 'Visibility & Recognition',
+        description:
+          'Partner logos are prominently displayed across our website, documentation, and event materials.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Community Connection',
+        description:
+          'Connect with a global network of Magento professionals, agencies, and merchants who share your commitment to open source.',
+        icon: 'tabler:network',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Business partnership',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">More Than a Donation</h3>
+      When you become a Mage-OS partner, you are not just supporting a project—you are investing in the ecosystem that powers
+      your business. Our partners help fund development, security updates, documentation, and community events that benefit
+      everyone in the Magento ecosystem.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Current Partners Grid -->
+  <PartnersGrid
+    id="current-partners"
+    title="Our Current Partners"
+    subtitle="These organizations are actively supporting Mage-OS development through financial contributions and community involvement."
+  />
+
+  <!-- Partner Benefits -->
+  <Features
+    id="benefits"
+    tagline="Partner Benefits"
+    title="What You Get as a Partner"
+    subtitle="Every partnership tier comes with meaningful benefits that grow with your commitment level."
+    items={[
+      {
+        title: 'Logo Placement',
+        description:
+          'Your company logo displayed on our website, partner pages, and marketing materials. Higher tiers get more prominent placement.',
+        icon: 'tabler:photo',
+      },
+      {
+        title: 'Voting Rights',
+        description:
+          'Participate in democratic governance. Vote on resolutions, elect board members, and shape the future direction of Mage-OS.',
+        icon: 'tabler:checkbox',
+      },
+      {
+        title: 'Event Recognition',
+        description:
+          'Recognition at Mage-OS events, Meet Magento conferences, and community gatherings. Speaking opportunities for higher tiers.',
+        icon: 'tabler:microphone',
+      },
+      {
+        title: 'Early Access',
+        description:
+          'Get early access to new releases, security patches, and roadmap updates. Stay ahead of the curve with insider information.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Grant Eligibility',
+        description:
+          'Partners can apply for development grants to fund work on platform improvements that benefit their business and the community.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Network Access',
+        description:
+          'Connect with other partners, agencies, and merchants. Build relationships that drive business growth.',
+        icon: 'tabler:users-group',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <!-- Partner Tiers -->
+  <PartnerTiers
+    id="partner-tiers"
+    title="Partnership Tiers"
+    subtitle="Choose the partnership level that fits your organization. All contributions are tax-deductible and transparently managed through Open Collective."
+    tagline="Become a Partner"
+  />
+
+  <!-- How Funds Are Used -->
+  <Steps2
+    title="How Your Support Makes an Impact"
+    subtitle="As a not-for-profit organization, every euro goes directly into advancing the platform and community."
+    items={[
+      {
+        title: 'Platform Development',
+        description:
+          'Fund new features like PCI DSS 4.0 compliance, AI-powered translations, and performance improvements that keep Mage-OS competitive.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Security & Maintenance',
+        description:
+          'Ensure timely security patches, bug fixes, and ongoing maintenance that merchants and agencies depend on.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Documentation & Education',
+        description:
+          'Support DevDocs, tutorials, and training materials that help developers and merchants succeed with the platform.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Community Events',
+        description:
+          'Enable hackathons, meetups, conference sponsorships, and community gatherings that bring the ecosystem together.',
+        icon: 'tabler:calendar-event',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps2>
+
+  <!-- Testimonials from Partners -->
+  <Testimonials
+    title="Partner Voices"
+    tagline="What Our Partners Say"
+    testimonials={[
+      {
+        testimonial:
+          "Collaborating closely with Mage-OS is not just about securing our clients' future; it's about actively shaping it, contributing to making Mage-OS even better.",
+        name: 'Ignacio Riesco',
+        job: 'CEO, Interactiv4',
+      },
+      {
+        testimonial:
+          "Making the decision to sponsor Mage-OS and become a gold partner was the easiest decision we've made. We are very excited for the future of the Magento platform.",
+        name: 'Arron Moss',
+        job: 'Co-founder, MDOQ',
+      },
+      {
+        testimonial:
+          'For us, supporting Mage-OS means taking Magento 2 back to its community roots. We believe this organisation will propel the Magento ecosystem forward.',
+        name: 'Niek Verkolen & Tjitse Efde',
+        job: 'Co-founders, Vendic',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Testimonials>
+
+  <!-- Professional Members Section -->
+  <section class="py-12 md:py-16 lg:py-20" id="professional-members">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase">Individual Members</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Professional Members</h2>
+        <p class="text-xl text-muted max-w-3xl mx-auto">
+          These Magento professionals invest in the future of the platform. Professional members contribute 100/year
+          and receive enhanced visibility and governance influence.
+        </p>
+      </div>
+
+      {
+        membersByTier.professional.length > 0 ? (
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {membersByTier.professional.map((member: IndividualMember) => (
+              <a
+                href={member.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col items-center p-4 rounded-lg bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-slate-700"
+              >
+                {member.imageUrl ? (
+                  <img
+                    src={member.imageUrl}
+                    alt={member.name}
+                    class="w-16 h-16 rounded-full object-cover mb-3"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-16 h-16 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-3">
+                    <span class="text-lg font-bold text-primary">{getInitials(member.name)}</span>
+                  </div>
+                )}
+                <span class="text-sm font-medium text-center line-clamp-2">{member.name}</span>
+                <span class="text-xs text-primary mt-1">Professional</span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-muted">No professional members found.</p>
+        )
+      }
+
+      <div class="text-center mt-8">
+        <a
+          href="https://opencollective.com/mage-os/contribute/professional-44723/checkout"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Become a Professional Member
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Members Section -->
+  <section class="py-12 md:py-16 lg:py-20 bg-gray-50 dark:bg-slate-800/50" id="community-members">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase">Individual Members</p>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Community Members</h2>
+        <p class="text-xl text-muted max-w-3xl mx-auto">
+          Our community members contribute 10/year to support the project and gain voting rights in our democratic
+          governance. Every contribution matters.
+        </p>
+      </div>
+
+      {
+        membersByTier.community.length > 0 ? (
+          <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            {membersByTier.community.map((member: IndividualMember) => (
+              <a
+                href={member.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col items-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-slate-700"
+                title={member.name}
+              >
+                {member.imageUrl ? (
+                  <img
+                    src={member.imageUrl}
+                    alt={member.name}
+                    class="w-12 h-12 rounded-full object-cover mb-2"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2">
+                    <span class="text-sm font-bold text-blue-600 dark:text-blue-400">{getInitials(member.name)}</span>
+                  </div>
+                )}
+                <span class="text-xs font-medium text-center line-clamp-1">{member.name}</span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-muted">No community members found.</p>
+        )
+      }
+
+      <div class="text-center mt-8">
+        <a
+          href="https://opencollective.com/mage-os/contribute/community-member-44722/checkout"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-secondary"
+        >
+          Become a Community Member
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <FAQs
+    title="Partnership Questions"
+    tagline="FAQs"
+    items={[
+      {
+        title: 'How do I become a partner?',
+        description:
+          'Visit our Open Collective page and select the partnership tier that fits your organization. Payment is processed securely, and your partnership is activated immediately.',
+      },
+      {
+        title: 'Are contributions tax-deductible?',
+        description:
+          'Mage-OS Association is a registered non-profit organization. Contributions may be tax-deductible depending on your jurisdiction. Consult your tax advisor for specific guidance.',
+      },
+      {
+        title: 'Can I upgrade my partnership tier?',
+        description:
+          'Yes! You can upgrade your tier at any time through Open Collective. Your new benefits will be activated immediately upon payment.',
+      },
+      {
+        title: 'How is my contribution used?',
+        description:
+          'All contributions are transparently tracked on Open Collective. Funds go toward platform development, security maintenance, documentation, and community events.',
+      },
+      {
+        title: 'What voting rights do partners have?',
+        description:
+          'All partners and members have voting rights in our annual General Assembly. Higher-tier partners may have enhanced influence in governance decisions according to our statutes.',
+      },
+      {
+        title: 'Can I cancel my partnership?',
+        description:
+          'Yes, you can cancel your recurring contribution at any time through Open Collective. Your partnership benefits will remain active until the end of your current billing period.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CTA -->
   <CallToAction
     actions={[
       {
@@ -64,20 +432,25 @@ const metadata = {
         icon: 'tabler:heart',
       },
       {
+        text: 'Join the Community',
+        href: '/community',
+        icon: 'tabler:users',
+      },
+      {
         text: 'Contact Us',
         href: '/contact',
       },
     ]}
   >
-    <Fragment slot="title"> Partner with Mage-OS </Fragment>
+    <Fragment slot="title"> Ready to Partner with Mage-OS? </Fragment>
 
     <Fragment slot="subtitle">
-      Join the growing ecosystem of companies supporting open-source commerce. As a partner, you will help shape the
-      future of Mage-OS while gaining visibility and influence in the community.
+      Join the companies and individuals shaping the future of open-source commerce. Your partnership directly funds
+      the development, security, and growth of the platform that powers your business.
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </CallToAction>
 </Layout>
