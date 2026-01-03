@@ -27,6 +27,7 @@ export const headerData = {
       text: 'Learn',
       href: 'https://devdocs.mage-os.org',
       links: [
+        { text: 'Blog', href: getBlogPermalink() },
         { text: 'User Guide', href: 'https://docs.magento-opensource.com/' },
         { text: 'Developer Docs', href: 'https://devdocs.mage-os.org' },
       ],
@@ -45,16 +46,13 @@ export const headerData = {
       ],
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
-    {
       text: 'About',
       href: getPermalink('/about'),
       links: [
         { text: 'About Mage-OS', href: getPermalink('/about') },
         { text: 'Leadership', href: getPermalink('/about/leadership') },
         { text: 'Contributors', href: getPermalink('/about/contributors') },
+        { text: 'Blog', href: getBlogPermalink() },
         { text: 'FAQ', href: getPermalink('/faq') },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
