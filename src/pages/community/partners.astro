@@ -1,0 +1,83 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import PageHero from '~/components/widgets/PageHero.astro';
+import PartnersGrid from '~/components/widgets/PartnersGrid.astro';
+import PartnerTiers from '~/components/widgets/PartnerTiers.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Partners | Mage-OS',
+  description:
+    'Meet the companies and organizations that partner with Mage-OS to advance open-source commerce. Learn how to become a partner.',
+};
+---
+
+<Layout metadata={metadata}>
+  <PageHero
+    tagline="Partners"
+    variant="gradient"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Become a Partner',
+        href: 'https://opencollective.com/mage-os',
+        target: '_blank',
+        icon: 'tabler:heart',
+      },
+      { text: 'View Partner Benefits', href: '#partner-tiers' },
+    ]}
+  >
+    <Fragment slot="title">
+      Our <span class="text-accent dark:text-white">Partners</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      The companies and organizations that make Mage-OS possible. Through their support, we are building the future of
+      open-source commerce together.
+    </Fragment>
+  </PageHero>
+
+  <PartnersGrid
+    title="Current Partners"
+    subtitle="These organizations are actively supporting Mage-OS development through financial contributions and community involvement."
+  />
+
+  <PartnerTiers
+    id="partner-tiers"
+    title="Partner Tiers"
+    subtitle="Join the companies shaping the future of open-source commerce. Partner with Mage-OS to gain visibility, influence, and support."
+    tagline="Become a Partner"
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </PartnerTiers>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Become a Partner',
+        href: 'https://opencollective.com/mage-os',
+        target: '_blank',
+        icon: 'tabler:heart',
+      },
+      {
+        text: 'Contact Us',
+        href: '/contact',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Partner with Mage-OS </Fragment>
+
+    <Fragment slot="subtitle">
+      Join the growing ecosystem of companies supporting open-source commerce. As a partner, you will help shape the
+      future of Mage-OS while gaining visibility and influence in the community.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>

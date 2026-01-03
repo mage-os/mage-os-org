@@ -1,0 +1,95 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import PageHero from '~/components/widgets/PageHero.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Apparel | Mage-OS',
+  description:
+    'Show your support for Mage-OS with official apparel and merchandise. T-shirts, hoodies, stickers, and more coming soon.',
+};
+---
+
+<Layout metadata={metadata}>
+  <PageHero
+    tagline="Apparel"
+    variant="gradient"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Discord',
+        href: '/discord-channel',
+        icon: 'tabler:brand-discord',
+      },
+      { text: 'Become a Member', href: 'https://opencollective.com/mage-os', target: '_blank' },
+    ]}
+  >
+    <Fragment slot="title">
+      Mage-OS <span class="text-accent dark:text-white">Apparel</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Show your support for open-source commerce with official Mage-OS merchandise. Coming soon!
+    </Fragment>
+  </PageHero>
+
+  <Features
+    tagline="Coming Soon"
+    title="Official Mage-OS Merchandise"
+    subtitle="We are working on an official merchandise collection. Stay tuned for t-shirts, hoodies, stickers, and more!"
+    items={[
+      {
+        title: 'T-Shirts',
+        description: 'Premium quality t-shirts featuring the Mage-OS logo and community designs.',
+        icon: 'tabler:shirt',
+      },
+      {
+        title: 'Hoodies',
+        description: 'Stay warm while showing your support with comfortable Mage-OS hoodies.',
+        icon: 'tabler:jacket',
+      },
+      {
+        title: 'Stickers',
+        description: 'Deck out your laptop with Mage-OS stickers and spread the word.',
+        icon: 'tabler:sticker',
+      },
+      {
+        title: 'Accessories',
+        description: 'Mugs, bags, and other accessories to complete your Mage-OS collection.',
+        icon: 'tabler:gift',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Notified',
+        href: '/discord-channel',
+        icon: 'tabler:bell',
+      },
+      {
+        text: 'Join the Community',
+        href: '/community',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Want to be notified when merchandise is available? </Fragment>
+
+    <Fragment slot="subtitle">
+      Join our Discord community to be the first to know when official Mage-OS apparel becomes available. Community
+      members get early access!
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </CallToAction>
+</Layout>
