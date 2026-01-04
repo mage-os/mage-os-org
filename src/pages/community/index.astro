@@ -57,17 +57,24 @@ const metadata = {
 
   <Note
     title="Open, Positive, and Inclusive"
-    description="Our community welcomes everyone. Read our Code of Conduct to learn more about our values."
+    description="We welcome everyone. Read our Code of Conduct to learn more about our values."
     icon="tabler:heart-handshake"
     callToAction={{ text: 'Read Code of Conduct', href: '/code-of-conduct' }}
+  />
+
+  <!-- Current Partners Grid ****************** -->
+
+  <PartnersGrid
+    title="Our Partners"
+    subtitle="These organizations are actively supporting Mage-OS operations and development"
   />
 
   <!-- Stats Widget ****************** -->
 
   <Stats
     stats={[
+      { title: 'Discord Members', amount: `1350+`, icon: 'tabler:users' },
       { title: 'Financial Contributors', amount: `${stats.totalContributors}+`, icon: 'tabler:heart' },
-      { title: 'Community Members', amount: `${stats.communityMembers}+`, icon: 'tabler:users' },
       { title: 'Professional Members', amount: `${stats.professionalMembers}+`, icon: 'tabler:briefcase' },
       { title: 'Partner Companies', amount: `${stats.partnerCompanies}+`, icon: 'tabler:building' },
     ]}
@@ -76,13 +83,6 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Stats>
-
-  <!-- Current Partners Grid ****************** -->
-
-  <PartnersGrid
-    title="Our Current Partners"
-    subtitle="These organizations are actively supporting Mage-OS development"
-  />
 
   <!-- Steps Widget: Getting Started Journey ****************** -->
 
