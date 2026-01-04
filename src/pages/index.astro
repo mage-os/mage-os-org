@@ -14,6 +14,9 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getCommunityStats, formatContributions } from '~/utils/openCollective';
 
+import heroLight from '~/assets/images/hero/CubicScene-White.webp';
+import heroDark from '~/assets/images/hero/CubicScene-Black.webp';
+
 const stats = await getCommunityStats();
 
 const metadata = {
@@ -42,14 +45,30 @@ const metadata = {
       { text: 'View Features', href: '/product/features', icon: 'tabler:list-check' },
     ]}
   >
+    <Fragment slot="bg">
+      <div class="absolute inset-0">
+        <img
+          src={heroLight.src}
+          alt=""
+          class="w-full h-full object-cover object-top opacity-75 brightness-105 dark:hidden"
+        />
+        <img
+          src={heroDark.src}
+          alt=""
+          class="w-full h-full object-cover object-top opacity-75 hidden dark:block"
+        />                       
+        <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent dark:from-slate-900/95 dark:via-slate-900/80 dark:to-transparent"></div>
+      </div>
+    </Fragment>
+
     <Fragment slot="title">
       The <span class="text-accent dark:text-white">Community-Driven</span><br />
       Open Source Commerce Platform
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="font-semibold">Mage-OS</span> is a community-owned, open-source ecommerce platform built on Magento® Open
-      Source. Experience innovation, independence, and enterprise-grade performance with seamless migration.
+      <span class="font-semibold">Mage-OS</span> is a community-owned, open-source ecommerce platform built on Magento<sup><small>®</small></sup> Open
+      Source. Experience innovation, independence, and great performance with seamless migration.
     </Fragment>
   </Hero>
 
@@ -88,7 +107,7 @@ const metadata = {
   <Content
     isReversed
     tagline="The Mage-OS Distribution"
-    title="Built on Magento®, Enhanced by Community"
+    title="Built on Magento<sup><small>®</small></sup>, Enhanced by Community"
     items={[
       {
         title: 'Based on Magento 2.4.8-p3',
