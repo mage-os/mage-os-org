@@ -13,6 +13,8 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getCommunityStats, formatContributions } from '~/utils/openCollective';
 
+import panelDiscussion from '~/assets/images/blog/2023/Future-of-Magento-Panel-MT23-scaled.jpg';
+
 const stats = await getCommunityStats();
 
 const metadata = {
@@ -73,8 +75,8 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Community collaboration',
+      src: panelDiscussion,
+      alt: 'Mage-OS community leaders discussing the Future of Magento panel at Mage Titans',
     }}
   >
     <Fragment slot="content">
@@ -96,39 +98,33 @@ const metadata = {
     tagline="Key Milestones"
     items={[
       {
-        title: 'September 2021: <span class="font-normal">The Open Letter</span>',
+        title: '2021: <span class="font-normal">The Open Letter</span>',
         description:
           "Concerns about Magento Open Source's future led 18 founding signatories to publish an open letter that ultimately gathered 1,641 signatures from merchants, developers, and agencies worldwide.",
         icon: 'tabler:mail',
       },
       {
-        title: 'September 2022: <span class="font-normal">Association Founded</span>',
+        title: '2022: <span class="font-normal">Association Founded</span>',
         description:
           'The Mage-OS Association was officially incorporated in Poland as a non-profit organization, with a founding board of 8 directors and 2 Business Control Committee members.',
         icon: 'tabler:building',
       },
       {
-        title: 'October 2023: <span class="font-normal">Distribution 1.0 Released</span>',
+        title: '2023: <span class="font-normal">Mage-OS 1.0 Released</span>',
         description:
           'The first official Mage-OS Distribution was released, providing an enhanced, community-driven alternative to Magento Open Source with performance improvements and a refreshed admin panel.',
         icon: 'tabler:package',
       },
       {
-        title: 'November 2023: <span class="font-normal">Membership Opens</span>',
+        title: '2025: <span class="font-normal">Mage-OS 2.0 Released</span>',
         description:
-          'Individual and company memberships became available, allowing supporters to directly fund and shape the future of Mage-OS through voting rights and governance participation.',
-        icon: 'tabler:users-group',
-      },
-      {
-        title: '2024: <span class="font-normal">Magento Brand Reclaimed</span>',
-        description:
-          'Together with the Magento Association, we achieved a historic milestone by acquiring the Magento brand, ensuring the community controls its own destiny.',
+          'With major community efforts, we released a new major version of Mage-OS, including a new admin theme and better performance, and established major updates twice a year going forward.',
         icon: 'tabler:award',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Team collaboration and milestones',
+      src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Winding mountain road representing the journey and milestones ahead',
     }}
   />
 

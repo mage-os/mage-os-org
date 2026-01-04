@@ -155,20 +155,6 @@ const governancePrinciples = [
     subtitle="The Mage-OS Association is governed by an elected Board of Directors and overseen by an independent Business Control Committee. Our leaders represent diverse countries, stakeholder types, and decades of Magento ecosystem expertise."
   />
 
-  <!-- Stats Widget -->
-  <Stats
-    stats={[
-      { title: 'Board Members', amount: '8', icon: 'tabler:users' },
-      { title: 'Countries Represented', amount: '6', icon: 'tabler:world' },
-      { title: 'Supporters', amount: `${stats.totalContributors}+`, icon: 'tabler:heart-handshake' },
-      { title: 'Founded', amount: '2022', icon: 'tabler:calendar-event' },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Stats>
-
   <!-- Governance Principles -->
   <Features
     id="governance-principles"
@@ -177,7 +163,11 @@ const governancePrinciples = [
     subtitle="Mage-OS was founded in Warsaw, Poland in September 2022 by community leaders who signed the Open Letter for the future of Magento. We operate as a registered non-profit association with democratic principles at our core."
     items={governancePrinciples}
     columns={4}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
 
   <!-- Officers Section -->
   <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-6xl">
