@@ -19,6 +19,7 @@ import { Icon } from 'astro-icon/components';
     const scrollThreshold = 300;
 
     function toggleVisibility() {
+      if (!button) return;
       if (window.scrollY > scrollThreshold) {
         button.classList.remove('hidden');
         button.classList.add('flex');
