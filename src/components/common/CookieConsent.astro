@@ -1,0 +1,22 @@
+---
+/**
+ * CookieYes Cookie Consent Banner
+ *
+ * This component loads the CookieYes consent management platform
+ * which handles GDPR/CCPA cookie consent for analytics and marketing cookies.
+ *
+ * CookieYes automatically:
+ * - Displays a cookie consent banner to visitors
+ * - Blocks analytics/marketing scripts until consent is given
+ * - Provides cookie preference management
+ * - Maintains consent records for compliance
+ */
+
+const COOKIEYES_CLIENT_ID = '63ec00be2b8265396d841b99';
+---
+
+<script
+  id="cookieyes"
+  type="text/javascript"
+  src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}
+></script>
