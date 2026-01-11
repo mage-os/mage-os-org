@@ -84,15 +84,19 @@ import { UI } from 'astrowind:config';
       e.preventDefault();
       e.stopPropagation();
 
-      const dropdownMenu = elem.nextElementSibling;
+      // Find the dropdown menu within the same parent <li>
+      const parentLi = elem.closest('li');
+      const dropdownMenu = parentLi?.querySelector('.dropdown-menu');
       const icon = elem.querySelector('svg');
       const isExpanded = elem.getAttribute('aria-expanded') === 'true';
 
       // Close other open dropdowns
       document.querySelectorAll('[data-aw-mobile-dropdown]').forEach((otherBtn) => {
         if (otherBtn !== elem) {
+          const otherParentLi = otherBtn.closest('li');
+          const otherDropdownMenu = otherParentLi?.querySelector('.dropdown-menu');
           otherBtn.setAttribute('aria-expanded', 'false');
-          otherBtn.nextElementSibling?.classList.add('hidden');
+          otherDropdownMenu?.classList.add('hidden');
           otherBtn.querySelector('svg')?.classList.remove('rotate-180');
         }
       });

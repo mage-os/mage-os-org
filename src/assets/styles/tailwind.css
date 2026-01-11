@@ -85,14 +85,11 @@
   padding: 0 5px;
 }
 
-/* Dropdown focus states work on all screen sizes for accessibility */
-.dropdown:focus .dropdown-menu,
-.dropdown:focus-within .dropdown-menu {
-  display: block;
-}
-
-/* Dropdown hover only on large screens (desktop) */
+/* Dropdown focus, focus-within, and hover states only on large screens (desktop) */
+/* On mobile, JavaScript handles the toggle behavior */
 @media (min-width: 1024px) {
+  .dropdown:focus .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu,
   .dropdown:hover .dropdown-menu {
     display: block;
   }
