@@ -1,0 +1,249 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Callout from '~/components/ui/Callout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Code of Conduct',
+  description: 'Community standards and expectations for all Mage-OS participants.',
+  openGraph: {
+    images: [{ url: '/og/page/code-of-conduct.png', width: 1200, height: 630 }],
+  },
+};
+
+// Positive behaviors with green checkmark icons
+const positiveBehaviors = [
+  {
+    title: 'Welcoming Language',
+    description: 'Using welcoming and inclusive language that makes everyone feel part of the community',
+    icon: 'tabler:circle-check',
+  },
+  {
+    title: 'Respectful Discussion',
+    description: 'Being respectful of differing viewpoints and experiences, even when you disagree',
+    icon: 'tabler:circle-check',
+  },
+  {
+    title: 'Accepting Feedback',
+    description: 'Gracefully accepting constructive criticism and using it to improve',
+    icon: 'tabler:circle-check',
+  },
+  {
+    title: 'Respecting Pronouns',
+    description: 'Referring to people by their preferred pronouns and using gender-neutral pronouns when uncertain',
+    icon: 'tabler:circle-check',
+  },
+];
+
+// Negative behaviors with red X icons
+const unacceptableBehaviors = [
+  {
+    title: 'Harassment',
+    description: 'Trolling, insulting/derogatory comments, public or private harassment',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Privacy Violations',
+    description:
+      "Publishing others' private information, such as physical or electronic addresses, without explicit permission",
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Ignoring Boundaries',
+    description:
+      'Not respecting reasonable communication boundaries like "leave me alone" or "I\'m not discussing this with you"',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Sexual Content',
+    description: 'Usage of sexualized language or imagery and unwelcome sexual attention or advances',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Inappropriate Language',
+    description: 'Swearing, usage of strong or disturbing language, or displaying disturbing content',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Political Arguments',
+    description: 'Starting and/or participating in arguments related to politics',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Discrimination',
+    description:
+      'Assuming or promoting inequality based on age, body size, disability, ethnicity, gender, nationality, race, religion, or sexual orientation',
+    icon: 'tabler:circle-x',
+  },
+  {
+    title: 'Unprofessional Conduct',
+    description: 'Drug promotion, attacking personal tastes, or other conduct inappropriate in a professional setting',
+    icon: 'tabler:circle-x',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Community" variant="default">
+    <Fragment slot="title">Code of Conduct</Fragment>
+    <Fragment slot="subtitle">
+      Community standards and expectations that make Mage-OS a welcoming space for everyone.
+    </Fragment>
+  </PageHero>
+
+  <section class="px-4 py-8 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+    <p class="text-sm text-muted mb-8">Last updated: February 2022</p>
+
+    <!-- Welcome Section -->
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 mb-12"
+    >
+      <h2 class="flex items-center gap-3">
+        <Icon name="tabler:heart-handshake" class="w-8 h-8 text-primary" />
+        Welcome to the Mage-OS Community
+      </h2>
+      <p>
+        All participants of Mage-OS are expected to abide by our Code of Conduct, both online and during in-person
+        events that are hosted and/or associated with Mage-OS.
+      </p>
+    </div>
+
+    <!-- The Pledge -->
+    <div class="bg-primary/5 dark:bg-primary/10 rounded-xl p-6 md:p-8 mb-12">
+      <h2 class="flex items-center gap-3 text-2xl font-bold font-heading mb-4 dark:text-white">
+        <Icon name="tabler:certificate" class="w-7 h-7 text-primary" />
+        The Pledge
+      </h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300">
+        In the interest of fostering an open and welcoming environment, we pledge to make participation in our project
+        and our community a <strong>harassment-free experience for everyone</strong>, regardless of age, body size,
+        disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance,
+        race, religion, or sexual identity and orientation.
+      </p>
+    </div>
+
+    <!-- The Standards -->
+    <h2 class="flex items-center gap-3 text-2xl font-bold font-heading mb-8 dark:text-white">
+      <Icon name="tabler:list-check" class="w-7 h-7 text-primary" />
+      The Standards
+    </h2>
+
+    <!-- Positive Behaviors -->
+    <div class="mb-12">
+      <h3 class="flex items-center gap-2 text-xl font-semibold mb-6 text-green-700 dark:text-green-400">
+        <Icon name="tabler:thumb-up" class="w-6 h-6" />
+        Behavior that creates a positive environment
+      </h3>
+      <ItemGrid
+        columns={2}
+        items={positiveBehaviors}
+        classes={{
+          container: 'gap-4 md:gap-6',
+          panel: 'bg-green-50 dark:bg-green-950/30 p-4 rounded-lg border border-green-200 dark:border-green-800',
+          title: 'text-base text-green-800 dark:text-green-200',
+          description: 'text-sm text-green-700 dark:text-green-300',
+          icon: 'text-green-600 dark:text-green-400',
+        }}
+      />
+    </div>
+
+    <!-- Unacceptable Behaviors -->
+    <div class="mb-12">
+      <h3 class="flex items-center gap-2 text-xl font-semibold mb-6 text-red-700 dark:text-red-400">
+        <Icon name="tabler:thumb-down" class="w-6 h-6" />
+        Unacceptable behavior
+      </h3>
+      <ItemGrid
+        columns={2}
+        items={unacceptableBehaviors}
+        classes={{
+          container: 'gap-4 md:gap-6',
+          panel: 'bg-red-50 dark:bg-red-950/30 p-4 rounded-lg border border-red-200 dark:border-red-800',
+          title: 'text-base text-red-800 dark:text-red-200',
+          description: 'text-sm text-red-700 dark:text-red-300',
+          icon: 'text-red-600 dark:text-red-400',
+        }}
+      />
+    </div>
+
+    <!-- Enforcement -->
+    <h2 class="flex items-center gap-3 text-2xl font-bold font-heading mb-6 dark:text-white">
+      <Icon name="tabler:gavel" class="w-7 h-7 text-primary" />
+      Enforcement
+    </h2>
+
+    <Callout type="info" title="Report a Violation" class="mb-6">
+      <p class="mb-2">
+        Violations of the Code of Conduct may be reported by sending an email to{' '}
+        <a href="mailto:board@mage-os.org" class="font-medium underline">board@mage-os.org</a>. All reports will be
+        reviewed and investigated.
+      </p>
+      <p>Reports are kept confidential and will result in a response appropriate to the circumstances.</p>
+    </Callout>
+
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-a:text-indigo-600 dark:prose-a:text-indigo-400 mb-12"
+    >
+      <p>
+        We hold the right and responsibility to remove comments or other contributions that are not aligned to this Code
+        of Conduct, or to ban temporarily or permanently any members for behaviors that they deem inappropriate,
+        threatening, offensive, or harmful.
+      </p>
+    </div>
+
+    <!-- Attribution -->
+    <div class="text-sm text-muted mb-12">
+      <h3 class="font-semibold mb-2 dark:text-gray-300">Attribution</h3>
+      <p>
+        This Code of Conduct is generated by{' '}
+        <a
+          href="https://miloslav.website/code-of-conduct/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:underline">miloslav.website/code-of-conduct/</a
+        >{' '}
+        and adapted from{' '}
+        <a
+          href="https://dev.to/code-of-conduct"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:underline">dev.to</a
+        >.
+      </p>
+    </div>
+  </section>
+
+  <!-- Welcoming Message Box -->
+  <section class="bg-gradient-to-r from-primary/10 to-indigo-500/10 dark:from-primary/20 dark:to-indigo-500/20 py-12">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/20 dark:bg-primary/30 rounded-full mb-6">
+        <Icon name="tabler:heart" class="w-8 h-8 text-primary" />
+      </div>
+      <h2 class="text-2xl md:text-3xl font-bold font-heading mb-4 dark:text-white">
+        Thank you for helping make Mage-OS a welcoming community for everyone.
+      </h2>
+      <p class="text-lg text-muted mb-8">
+        Together, we're building an inclusive space where developers, merchants, and agencies can collaborate and
+        thrive.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/community"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+        >
+          <Icon name="tabler:users" class="w-5 h-5" />
+          Join Our Community
+        </a>
+        <a
+          href="/discord-channel"
+          class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium"
+        >
+          <Icon name="tabler:brand-discord" class="w-5 h-5" />
+          Chat on Discord
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
