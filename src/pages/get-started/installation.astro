@@ -1,0 +1,921 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import TabbedContent from '~/components/ui/TabbedContent.astro';
+import Callout from '~/components/ui/Callout.astro';
+import VersionBadge from '~/components/ui/VersionBadge.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Installation Guide',
+  description:
+    'Comprehensive installation guide for Mage-OS covering Composer, Docker, cloud, and manual installation methods.',
+  openGraph: {
+    images: [{ url: '/og/page/installation.png', width: 1200, height: 630 }],
+  },
+};
+
+const installationTabs = [
+  { id: 'composer', label: 'Composer', icon: 'tabler:package' },
+  { id: 'docker', label: 'Docker', icon: 'tabler:brand-docker' },
+  { id: 'cloud', label: 'Cloud', icon: 'tabler:cloud' },
+];
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Get Started" variant="default">
+    <Fragment slot="title">Installation Guide</Fragment>
+    <Fragment slot="subtitle">
+      Comprehensive installation guide for <strong>Mage-OS</strong> covering all deployment methods. For a quick setup, see
+      the <a href="/get-started/quick-start" class="text-primary hover:underline">Quick Start Guide</a>.
+    </Fragment>
+  </PageHero>
+
+  <!-- Installation Methods Overview -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+    <Headline
+      title="Choose Your Installation Method"
+      subtitle="Select the method that best fits your environment and expertise"
+      tagline="Overview"
+    />
+
+    <ItemGrid
+      columns={3}
+      items={[
+        {
+          title: 'Composer',
+          description:
+            'Production servers, VPS, dedicated hosting. <strong>Intermediate</strong> difficulty, 30-45 minutes.',
+          icon: 'tabler:package',
+        },
+        {
+          title: 'Docker',
+          description:
+            'Local development, quick testing, reproducible environments. <strong>Easy to Intermediate</strong>, 15-30 minutes.',
+          icon: 'tabler:brand-docker',
+        },
+        {
+          title: 'Cloud',
+          description: 'AWS, GCP, Azure scalable production deployments. <strong>Advanced</strong>, 1-2 hours.',
+          icon: 'tabler:cloud',
+        },
+      ]}
+      classes={{
+        panel: 'bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4',
+      }}
+    />
+  </section>
+
+  <!-- Tabbed Installation Methods -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+      <TabbedContent tabs={installationTabs} defaultTab="composer">
+        <!-- Composer Tab -->
+        <div slot="composer">
+          <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <Icon name="tabler:package" class="w-8 h-8 text-primary" />
+              <div>
+                <h3 class="text-2xl font-bold dark:text-white">Composer Installation</h3>
+                <p class="text-muted">Recommended for production installations and custom server environments</p>
+              </div>
+            </div>
+
+            <Callout type="info" title="Prerequisites">
+              <p class="mb-2">
+                Ensure your system meets the <a
+                  href="/get-started/system-requirements"
+                  class="text-primary hover:underline">System Requirements</a
+                >:
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-sm">
+                <li>
+                  <strong>PHP 8.3 or 8.4</strong> with required extensions
+                </li>
+                <li>
+                  <strong>Composer 2.8+</strong> (<a
+                    href="https://getcomposer.org/"
+                    target="_blank"
+                    class="text-primary hover:underline">Get Composer</a
+                  >)
+                </li>
+                <li><strong>MySQL 8.4+</strong> or <strong>MariaDB 11.4+</strong></li>
+                <li><strong>OpenSearch 2.19+</strong> or <strong>Elasticsearch 8.x</strong></li>
+                <li><strong>Apache 2.4+</strong> or <strong>Nginx 1.26+</strong></li>
+              </ul>
+            </Callout>
+
+            <div
+              class="prose prose-lg max-w-none dark:prose-invert mt-8 prose-headings:font-heading prose-headings:font-bold prose-a:text-primary prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900"
+            >
+              <h4 id="composer-step-1" class="flex items-center gap-2">
+                <span
+                  class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold"
+                  >1</span
+                >
+                Create Project
+              </h4>
+
+              <pre><code>{`composer create-project --repository-url=https://repo.mage-os.org/ \\
+  mage-os/project-community-edition <install-directory>`}</code></pre>
+
+              <p class="text-sm text-muted">
+                Replace <code>&lt;install-directory&gt;</code> with your desired path or <code>.</code> for current directory.
+              </p>
+
+              <h4 id="composer-step-2" class="flex items-center gap-2">
+                <span
+                  class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold"
+                  >2</span
+                >
+                Set File Permissions
+              </h4>
+
+              <pre><code>{`cd <install-directory>
+find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+chown -R :www-data .
+chmod u+x bin/magento`}</code></pre>
+
+              <h4 id="composer-step-3" class="flex items-center gap-2">
+                <span
+                  class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold"
+                  >3</span
+                >
+                Create Database
+              </h4>
+
+              <pre><code>{`mysql -u root -p`}</code></pre>
+
+              <pre><code>{`CREATE DATABASE mageos;
+CREATE USER 'mageos'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL ON mageos.* TO 'mageos'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;`}</code></pre>
+
+              <h4 id="composer-step-4" class="flex items-center gap-2">
+                <span
+                  class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold"
+                  >4</span
+                >
+                Run Installer
+              </h4>
+
+              <pre><code>{`bin/magento setup:install \\
+  --base-url="http://your-domain.com/" \\
+  --db-host="localhost" \\
+  --db-name="mageos" \\
+  --db-user="mageos" \\
+  --db-password="your_password" \\
+  --admin-firstname="Admin" \\
+  --admin-lastname="User" \\
+  --admin-email="admin@example.com" \\
+  --admin-user="admin" \\
+  --admin-password="Admin123!" \\
+  --language="en_US" \\
+  --currency="USD" \\
+  --timezone="America/New_York" \\
+  --use-rewrites="1" \\
+  --search-engine="opensearch" \\
+  --opensearch-host="localhost" \\
+  --opensearch-port="9200" \\
+  --opensearch-index-prefix="mageos" \\
+  --opensearch-timeout="15"`}</code></pre>
+
+              <h4 id="composer-step-5" class="flex items-center gap-2">
+                <span
+                  class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold"
+                  >5</span
+                >
+                Post-Installation
+              </h4>
+
+              <pre><code>{`bin/magento setup:di:compile
+bin/magento setup:static-content:deploy -f
+bin/magento indexer:reindex
+bin/magento cache:flush`}</code></pre>
+            </div>
+
+            <Callout type="tip" title="Next Steps" class="mt-6">
+              Continue to <a href="#post-installation" class="text-primary hover:underline">Post-Installation Setup</a> for
+              cron jobs, Redis configuration, and production mode settings.
+            </Callout>
+          </div>
+        </div>
+
+        <!-- Docker Tab -->
+        <div slot="docker">
+          <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <Icon name="tabler:brand-docker" class="w-8 h-8 text-primary" />
+              <div>
+                <h3 class="text-2xl font-bold dark:text-white">Docker Installation</h3>
+                <p class="text-muted">
+                  Ideal for local development and testing with consistent, reproducible environments
+                </p>
+              </div>
+            </div>
+
+            <p class="text-muted mb-6">
+              Docker-based environments provide consistent, reproducible setups without modifying your host system.
+              Choose one of these recommended options:
+            </p>
+
+            <!-- Docker Tool Selection -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+              <div
+                class="border-2 border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20 rounded-lg p-4"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="font-bold dark:text-white">DDEV</h4>
+                  <VersionBadge status="recommended" />
+                </div>
+                <p class="text-sm text-muted mb-2">Easiest setup, great for beginners</p>
+                <div class="flex items-center gap-2 text-sm">
+                  <Icon name="tabler:clock" class="w-4 h-4 text-muted" />
+                  <span class="text-muted">5 minutes</span>
+                </div>
+                <a
+                  href="https://ddev.com/"
+                  target="_blank"
+                  class="text-sm text-primary hover:underline mt-2 inline-block"
+                >
+                  ddev.com
+                </a>
+              </div>
+
+              <div class="border dark:border-gray-700 rounded-lg p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="font-bold dark:text-white">docker-magento</h4>
+                  <VersionBadge status="supported" />
+                </div>
+                <p class="text-sm text-muted mb-2">Production-like, excellent docs</p>
+                <div class="flex items-center gap-2 text-sm">
+                  <Icon name="tabler:clock" class="w-4 h-4 text-muted" />
+                  <span class="text-muted">10 minutes</span>
+                </div>
+                <a
+                  href="https://github.com/markshust/docker-magento"
+                  target="_blank"
+                  class="text-sm text-primary hover:underline mt-2 inline-block"
+                >
+                  GitHub
+                </a>
+              </div>
+
+              <div class="border dark:border-gray-700 rounded-lg p-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <h4 class="font-bold dark:text-white">Warden</h4>
+                  <VersionBadge status="supported" />
+                </div>
+                <p class="text-sm text-muted mb-2">Multi-environment management</p>
+                <div class="flex items-center gap-2 text-sm">
+                  <Icon name="tabler:clock" class="w-4 h-4 text-muted" />
+                  <span class="text-muted">10 minutes</span>
+                </div>
+                <a
+                  href="https://warden.dev/"
+                  target="_blank"
+                  class="text-sm text-primary hover:underline mt-2 inline-block">warden.dev</a
+                >
+              </div>
+            </div>
+
+            <!-- DDEV Instructions -->
+            <details class="group border dark:border-gray-700 rounded-lg mb-4" open>
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-docker" class="w-6 h-6 text-green-600 dark:text-green-400" />
+                  <span class="font-bold dark:text-white">Using DDEV</span>
+                  <VersionBadge status="recommended" />
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  DDEV is the easiest way to get started with Mage-OS development. It handles all service configuration
+                  automatically.
+                </p>
+                <pre><code>{`# Install DDEV
+curl -fsSL https://ddev.com/install.sh | bash
+
+# Create project directory
+mkdir mageos && cd mageos
+
+# Configure DDEV
+ddev config --project-type=magento2 --docroot=pub --php-version=8.3
+
+# Start environment
+ddev start
+
+# Create Mage-OS project
+ddev composer create-project --repository-url=https://repo.mage-os.org/ \\
+  mage-os/project-community-edition .
+
+# Run installer
+ddev magento setup:install \\
+  --base-url="https://mageos.ddev.site/" \\
+  --db-host="db" \\
+  --db-name="db" \\
+  --db-user="db" \\
+  --db-password="db" \\
+  --admin-firstname="Admin" \\
+  --admin-lastname="User" \\
+  --admin-email="admin@example.com" \\
+  --admin-user="admin" \\
+  --admin-password="Admin123!" \\
+  --search-engine="opensearch" \\
+  --opensearch-host="opensearch" \\
+  --opensearch-port="9200"
+
+# Deploy
+ddev magento setup:di:compile
+ddev magento setup:static-content:deploy -f
+ddev magento cache:flush`}</code></pre>
+                <p>
+                  <strong>Access your store:</strong>
+                  <code>https://mageos.ddev.site/</code>
+                </p>
+              </div>
+            </details>
+
+            <!-- docker-magento Instructions -->
+            <details class="group border dark:border-gray-700 rounded-lg mb-4">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-docker" class="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <span class="font-bold dark:text-white">Using docker-magento</span>
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  <a
+                    href="https://github.com/markshust/docker-magento"
+                    target="_blank"
+                    class="text-primary hover:underline">docker-magento</a
+                  > by Mark Shust is a production-like Docker environment with excellent documentation.
+                </p>
+                <pre><code>{`# Download the setup script
+curl -s https://raw.githubusercontent.com/markshust/docker-magento/master/lib/onelinesetup | bash -s -- mageos.test
+
+# Navigate to project directory
+cd mageos.test
+
+# Install Mage-OS (instead of default Magento)
+bin/removeall
+bin/download --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition
+
+# Start containers and install
+bin/setup mageos.test
+
+# Access admin panel
+bin/magento admin:user:create \\
+  --admin-user="admin" \\
+  --admin-password="Admin123!" \\
+  --admin-email="admin@example.com" \\
+  --admin-firstname="Admin" \\
+  --admin-lastname="User"`}</code></pre>
+                <p>
+                  <strong>Access your store:</strong>
+                  <code>https://mageos.test/</code>
+                </p>
+                <p><strong>Features:</strong></p>
+                <ul>
+                  <li>Production-ready Nginx, PHP-FPM, and Redis configuration</li>
+                  <li>Xdebug integration for debugging</li>
+                  <li>
+                    Comprehensive helper scripts (<code>bin/magento</code>, <code>bin/composer</code>, etc.)
+                  </li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Warden Instructions -->
+            <details class="group border dark:border-gray-700 rounded-lg">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-docker" class="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <span class="font-bold dark:text-white">Using Warden</span>
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  Warden is a Docker-based development environment specifically designed for Magento and Mage-OS
+                  projects with advanced features for professional development teams.
+                </p>
+                <pre><code>{`# Install Warden (macOS)
+brew install davidalger/warden/warden
+
+# Initialize Warden (first time only)
+warden svc up
+
+# Create project
+mkdir mageos && cd mageos
+warden env-init mageos magento2
+
+# Start environment
+warden env up
+
+# Enter shell and install Mage-OS
+warden shell
+composer create-project --repository-url=https://repo.mage-os.org/ \\
+  mage-os/project-community-edition .
+
+# Run installer (inside warden shell)
+bin/magento setup:install \\
+  --base-url="https://app.mageos.test/" \\
+  --db-host="db" \\
+  --db-name="magento" \\
+  --db-user="magento" \\
+  --db-password="magento" \\
+  --admin-firstname="Admin" \\
+  --admin-lastname="User" \\
+  --admin-email="admin@example.com" \\
+  --admin-user="admin" \\
+  --admin-password="Admin123!" \\
+  --search-engine="opensearch" \\
+  --opensearch-host="opensearch" \\
+  --opensearch-port="9200"
+
+# Deploy static content
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy -f
+bin/magento cache:flush`}</code></pre>
+                <p>
+                  <strong>Access your store:</strong>
+                  <code>https://app.mageos.test/</code>
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- Cloud Tab -->
+        <div slot="cloud">
+          <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center gap-3 mb-6">
+              <Icon name="tabler:cloud" class="w-8 h-8 text-primary" />
+              <div>
+                <h3 class="text-2xl font-bold dark:text-white">Cloud Deployment</h3>
+                <p class="text-muted">Scalable infrastructure for production Mage-OS deployments</p>
+              </div>
+            </div>
+
+            <Callout type="info" title="Advanced Users">
+              Cloud deployments require familiarity with Linux system administration, networking, and cloud platform
+              management. Consider managed hosting if you're new to cloud infrastructure.
+            </Callout>
+
+            <!-- AWS EC2 -->
+            <details class="group border dark:border-gray-700 rounded-lg mb-4 mt-6">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-aws" class="w-6 h-6 text-orange-500" />
+                  <span class="font-bold dark:text-white">AWS EC2</span>
+                  <span class="text-sm text-muted">t3.large minimum</span>
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  <strong>Recommended instance:</strong> t3.large (minimum) or t3.xlarge for production
+                </p>
+                <pre><code>{`# Connect to your EC2 instance
+ssh -i your-key.pem ec2-user@your-instance-ip
+
+# Update system packages
+sudo yum update -y
+
+# Install required packages (Amazon Linux 2023)
+sudo dnf install -y php8.3 php8.3-{bcmath,cli,common,curl,fpm,gd,intl,mbstring,mysqlnd,opcache,soap,sodium,xml,zip}
+sudo dnf install -y nginx mariadb105-server composer
+sudo dnf install -y opensearch
+
+# Start services
+sudo systemctl enable --now nginx mariadb opensearch php-fpm
+
+# Create database
+sudo mysql -e "CREATE DATABASE mageos; CREATE USER 'mageos'@'localhost' IDENTIFIED BY 'your_password'; GRANT ALL ON mageos.* TO 'mageos'@'localhost'; FLUSH PRIVILEGES;"
+
+# Install Mage-OS (in /var/www/mageos)
+cd /var/www
+sudo composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition mageos
+sudo chown -R nginx:nginx mageos
+
+# Follow Composer installation steps 4-5 above`}</code></pre>
+                <p><strong>Security group rules:</strong></p>
+                <ul>
+                  <li>Port 80 (HTTP) - 0.0.0.0/0</li>
+                  <li>Port 443 (HTTPS) - 0.0.0.0/0</li>
+                  <li>Port 22 (SSH) - Your IP only</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Google Cloud Platform -->
+            <details class="group border dark:border-gray-700 rounded-lg mb-4">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-google" class="w-6 h-6 text-blue-500" />
+                  <span class="font-bold dark:text-white">Google Cloud Platform</span>
+                  <span class="text-sm text-muted">n2-standard-2 minimum</span>
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  <strong>Recommended instance:</strong> n2-standard-2 (minimum) or n2-standard-4 for production
+                </p>
+                <pre><code>{`# Connect via gcloud
+gcloud compute ssh your-instance-name
+
+# Update and install packages (Debian/Ubuntu)
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y php8.3 php8.3-{bcmath,cli,common,curl,fpm,gd,intl,mbstring,mysql,opcache,soap,xml,zip}
+sudo apt install -y nginx mysql-server composer
+
+# Install OpenSearch (follow OpenSearch documentation)
+# https://opensearch.org/docs/latest/install-and-configure/install-opensearch/debian/
+
+# Start services
+sudo systemctl enable --now nginx mysql php8.3-fpm
+
+# Create database
+sudo mysql -e "CREATE DATABASE mageos; CREATE USER 'mageos'@'localhost' IDENTIFIED BY 'your_password'; GRANT ALL ON mageos.* TO 'mageos'@'localhost'; FLUSH PRIVILEGES;"
+
+# Install Mage-OS
+cd /var/www
+sudo composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition mageos
+sudo chown -R www-data:www-data mageos
+
+# Follow Composer installation steps 4-5 above`}</code></pre>
+                <p><strong>Firewall rules:</strong></p>
+                <ul>
+                  <li>Allow HTTP (tcp:80)</li>
+                  <li>Allow HTTPS (tcp:443)</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Azure -->
+            <details class="group border dark:border-gray-700 rounded-lg">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 dark:bg-gray-800/50 rounded-t-lg group-open:rounded-b-none"
+              >
+                <div class="flex items-center gap-3">
+                  <Icon name="tabler:brand-azure" class="w-6 h-6 text-blue-600" />
+                  <span class="font-bold dark:text-white">Microsoft Azure</span>
+                  <span class="text-sm text-muted">Standard_D2s_v3 minimum</span>
+                </div>
+                <Icon
+                  name="tabler:chevron-down"
+                  class="w-5 h-5 text-muted transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <div
+                class="p-4 prose prose-sm max-w-none dark:prose-invert prose-pre:bg-gray-900 prose-code:bg-gray-100 dark:prose-code:bg-gray-800"
+              >
+                <p>
+                  <strong>Recommended VM:</strong> Standard_D2s_v3 (minimum) or Standard_D4s_v3 for production
+                </p>
+                <pre><code>{`# Connect via Azure CLI
+az ssh vm -n your-vm-name -g your-resource-group
+
+# Update and install packages (Ubuntu)
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y php8.3 php8.3-{bcmath,cli,common,curl,fpm,gd,intl,mbstring,mysql,opcache,soap,xml,zip}
+sudo apt install -y nginx mysql-server composer
+
+# Follow same steps as GCP above`}</code></pre>
+                <p><strong>Network security group rules:</strong></p>
+                <ul>
+                  <li>Allow inbound TCP 80, 443 from Any</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+      </TabbedContent>
+    </div>
+  </section>
+
+  <!-- Web Server Configuration -->
+  <section id="web-server-configuration" class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+    <Headline title="Web Server Configuration" subtitle="Configure Apache or Nginx for Mage-OS" />
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Apache -->
+      <div class="border dark:border-gray-700 rounded-lg overflow-hidden">
+        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 flex items-center gap-3">
+          <Icon name="tabler:feather" class="w-6 h-6 text-red-600 dark:text-red-400" />
+          <h3 class="font-bold dark:text-white">Apache Virtual Host</h3>
+        </div>
+        <div class="p-4">
+          <pre
+            class="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto"><code>{`<VirtualHost *:80>
+    ServerName your-domain.com
+    DocumentRoot /var/www/mageos/pub
+
+    <Directory /var/www/mageos/pub>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog \${APACHE_LOG_DIR}/mageos-error.log
+    CustomLog \${APACHE_LOG_DIR}/mageos-access.log combined
+</VirtualHost>`}</code></pre>
+        </div>
+      </div>
+
+      <!-- Nginx -->
+      <div class="border dark:border-gray-700 rounded-lg overflow-hidden">
+        <div class="bg-gray-50 dark:bg-gray-800/50 p-4 flex items-center gap-3">
+          <Icon name="tabler:brand-docker" class="w-6 h-6 text-green-600 dark:text-green-400" />
+          <h3 class="font-bold dark:text-white">Nginx Configuration</h3>
+        </div>
+        <div class="p-4">
+          <pre
+            class="bg-gray-900 text-gray-100 p-4 rounded text-xs overflow-x-auto"><code>{`upstream fastcgi_backend {
+    server unix:/var/run/php/php8.3-fpm.sock;
+}
+
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    set $MAGE_ROOT /var/www/mageos;
+    set $MAGE_MODE production;
+
+    include /var/www/mageos/nginx.conf.sample;
+}`}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Post-Installation Setup -->
+  <section id="post-installation" class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+      <Headline
+        title="Post-Installation Setup"
+        subtitle="Configure essential settings for optimal performance"
+        tagline="Configuration"
+      />
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Cron Jobs -->
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="tabler:clock" class="w-6 h-6 text-primary" />
+            <h3 class="text-lg font-bold dark:text-white">Configure Cron Jobs</h3>
+          </div>
+          <p class="text-muted mb-4">
+            Required for scheduled tasks like indexing, email sending, and cache management.
+          </p>
+          <pre
+            class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mb-3"><code>{`# Install cron jobs
+bin/magento cron:install
+
+# Verify cron status
+bin/magento cron:status`}</code></pre>
+        </div>
+
+        <!-- Production Mode -->
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="tabler:rocket" class="w-6 h-6 text-primary" />
+            <h3 class="text-lg font-bold dark:text-white">Set Production Mode</h3>
+          </div>
+          <p class="text-muted mb-4">Enable production mode for best performance on live stores.</p>
+          <pre
+            class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mb-3"><code>bin/magento deploy:mode:set production</code></pre>
+          <div class="text-sm text-muted">
+            <strong>Modes:</strong> default (initial), developer (debugging), production (optimized)
+          </div>
+        </div>
+
+        <!-- Enable Caches -->
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="tabler:database" class="w-6 h-6 text-primary" />
+            <h3 class="text-lg font-bold dark:text-white">Enable Caches</h3>
+          </div>
+          <p class="text-muted mb-4">Ensure all caches are enabled for optimal performance.</p>
+          <pre
+            class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`bin/magento cache:enable
+bin/magento cache:status`}</code></pre>
+        </div>
+
+        <!-- Sample Data -->
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <Icon name="tabler:box" class="w-6 h-6 text-primary" />
+            <h3 class="text-lg font-bold dark:text-white">Install Sample Data</h3>
+            <span class="text-xs text-muted">(Optional)</span>
+          </div>
+          <p class="text-muted mb-4">For testing or demonstration purposes.</p>
+          <pre
+            class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`bin/magento sampledata:deploy
+bin/magento setup:upgrade
+bin/magento cache:flush`}</code></pre>
+        </div>
+      </div>
+
+      <!-- Redis Configuration -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm mt-6">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="tabler:bolt" class="w-6 h-6 text-red-500" />
+          <h3 class="text-lg font-bold dark:text-white">Configure Redis</h3>
+          <VersionBadge status="recommended" />
+        </div>
+        <p class="text-muted mb-4">
+          Redis significantly improves cache and session performance. Install Redis first, then configure in
+          <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">app/etc/env.php</code>:
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <h4 class="font-medium mb-2 dark:text-white">Install Redis</h4>
+            <pre
+              class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`# Ubuntu/Debian
+sudo apt install redis-server
+sudo systemctl enable --now redis-server
+
+# Verify Redis is running
+redis-cli ping
+# Should return: PONG`}</code></pre>
+          </div>
+          <div>
+            <h4 class="font-medium mb-2 dark:text-white">Configure env.php</h4>
+            <pre
+              class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`'cache' => [
+    'frontend' => [
+        'default' => [
+            'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
+            'backend_options' => [
+                'server' => '127.0.0.1',
+                'port' => '6379',
+                'database' => '0'
+            ]
+        ]
+    ]
+]`}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Troubleshooting -->
+  <section id="troubleshooting" class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Headline title="Troubleshooting" subtitle="Solutions for common installation issues" />
+
+    <div class="space-y-4">
+      <Callout type="tip" title="Permission denied errors">
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mt-2"><code>{`sudo chown -R www-data:www-data /var/www/mageos
+sudo chmod -R 755 /var/www/mageos
+sudo chmod -R 775 var generated pub/static pub/media`}</code></pre>
+      </Callout>
+
+      <Callout type="tip" title="Memory limit exceeded">
+        <p class="mb-2">Run with increased memory limit:</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>php -d memory_limit=4G bin/magento setup:di:compile</code></pre>
+        <p class="mt-2 text-sm">
+          Or add <code class="bg-yellow-100 dark:bg-yellow-900 px-1 rounded">memory_limit = 4G</code> to php.ini
+        </p>
+      </Callout>
+
+      <Callout type="tip" title="Static content deployment fails">
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mt-2"><code>{`# Use parallel jobs and force mode
+bin/magento setup:static-content:deploy -f --jobs=4
+
+# For specific locales
+bin/magento setup:static-content:deploy -f en_US en_GB --jobs=4`}</code></pre>
+      </Callout>
+
+      <Callout type="tip" title="OpenSearch/Elasticsearch connection failed">
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mt-2"><code>{`# Check if OpenSearch is running
+curl http://localhost:9200
+
+# Check service status
+sudo systemctl status opensearch
+
+# Restart if needed
+sudo systemctl restart opensearch`}</code></pre>
+      </Callout>
+
+      <Callout type="tip" title="Admin URL forgotten">
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto mt-2"><code>{`# Get current admin URI
+bin/magento info:adminuri
+
+# Or check env.php
+grep -A2 "backend" app/etc/env.php`}</code></pre>
+      </Callout>
+
+      <Callout type="warning" title="Clear all caches and regenerate">
+        <p class="mb-2">Nuclear option for persistent issues:</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`rm -rf var/cache/* var/page_cache/* var/view_preprocessed/* generated/*
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento setup:static-content:deploy -f
+bin/magento cache:flush`}</code></pre>
+      </Callout>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+      <Headline title="Next Steps" subtitle="Continue your Mage-OS journey" />
+
+      <ItemGrid
+        columns={4}
+        items={[
+          {
+            title: 'System Requirements',
+            description: 'Verify your setup meets all requirements',
+            icon: 'tabler:checklist',
+            callToAction: {
+              text: 'View Requirements',
+              href: '/get-started/system-requirements',
+            },
+          },
+          {
+            title: 'Migration Guide',
+            description: 'Migrate from Magento Open Source',
+            icon: 'tabler:refresh',
+            callToAction: {
+              text: 'Start Migration',
+              href: '/get-started/migration-guide',
+            },
+          },
+          {
+            title: 'Quick Start Guide',
+            description: 'Quick setup overview',
+            icon: 'tabler:rocket',
+            callToAction: {
+              text: 'Quick Start',
+              href: '/get-started/quick-start',
+            },
+          },
+          {
+            title: 'Developer Docs',
+            description: 'Full developer documentation',
+            icon: 'tabler:book',
+            callToAction: {
+              text: 'Read DevDocs',
+              href: 'https://devdocs.mage-os.org',
+              target: '_blank',
+            },
+          },
+        ]}
+      />
+    </div>
+  </section>
+</Layout>
