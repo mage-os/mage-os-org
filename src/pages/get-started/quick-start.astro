@@ -1,6 +1,10 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import PageHero from '~/components/widgets/PageHero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Callout from '~/components/ui/Callout.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Quick Start Guide',
@@ -21,15 +25,16 @@ const metadata = {
   </PageHero>
 
   <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <p class="text-xl text-muted mb-8">
+      <strong>Total time:</strong> 20-30 minutes | <strong>Difficulty:</strong> Beginner-friendly
+    </p>
+
+    <hr class="border-gray-200 dark:border-gray-700 my-8" />
+
+    <!-- Before You Begin Section -->
     <div
       class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900"
     >
-      <p class="text-xl text-muted not-prose mb-8">
-        <strong>Total time:</strong> 20-30 minutes | <strong>Difficulty:</strong> Beginner-friendly
-      </p>
-
-      <hr class="my-8" />
-
       <h2>Before You Begin</h2>
 
       <h3>System Requirements</h3>
@@ -72,7 +77,9 @@ const metadata = {
       <h3>Choose Your Environment</h3>
 
       <p>
-        <strong>Already have a development environment?</strong> Skip to <a href="#step-1-create-project">Step 1</a>.
+        <strong>Already have a development environment?</strong> Skip to <a href="#installation-steps"
+          >Installation Steps</a
+        >.
       </p>
 
       <p><strong>Need an environment?</strong> We recommend these Docker-based options:</p>
@@ -109,12 +116,67 @@ const metadata = {
           >Installation Guide</a
         >.
       </p>
+    </div>
+  </section>
 
-      <hr class="my-8" />
+  <!-- Visual Timeline Overview -->
+  <Steps
+    id="installation-steps"
+    title="Installation Steps"
+    subtitle="Follow these six steps to get your Mage-OS store up and running"
+    items={[
+      {
+        title:
+          'Step 1: <span class="font-medium">Create Project</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">3-5 min</span>',
+        description: 'Use Composer to download Mage-OS and all dependencies into your project directory.',
+        icon: 'tabler:package',
+      },
+      {
+        title:
+          'Step 2: <span class="font-medium">Create Database</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">1 min</span>',
+        description: 'Set up a MySQL or MariaDB database and user for your installation.',
+        icon: 'tabler:database',
+      },
+      {
+        title:
+          'Step 3: <span class="font-medium">Run Installation</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">5-10 min</span>',
+        description: 'Execute the setup installer to configure your store, admin account, and services.',
+        icon: 'tabler:settings',
+      },
+      {
+        title:
+          'Step 4: <span class="font-medium">Set Permissions & Deploy</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">5-10 min</span>',
+        description: 'Configure file permissions, compile dependency injection, and deploy static assets.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title:
+          'Step 5: <span class="font-medium">Set Deploy Mode</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">1 min</span>',
+        description: 'Choose developer mode for local work or production mode for live stores.',
+        icon: 'tabler:toggle-right',
+      },
+      {
+        title:
+          'Step 6: <span class="font-medium">Access Your Store</span> <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Done!</span>',
+        description: 'Open your storefront and admin panel to verify everything is working.',
+        icon: 'tabler:check',
+      },
+    ]}
+  />
 
-      <h2 id="step-1-create-project">Step 1: Create Project</h2>
-
-      <p><strong>Time:</strong> 3-5 minutes</p>
+  <!-- Detailed Step Instructions -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900"
+    >
+      <h2 id="step-1" class="flex items-center gap-3">
+        <Icon name="tabler:package" class="w-8 h-8 text-primary" />
+        Step 1: Create Project
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+          >3-5 min</span
+        >
+      </h2>
 
       <p>Navigate to your web server's document root and create a new project:</p>
 
@@ -130,9 +192,14 @@ const metadata = {
 
       <hr class="my-8" />
 
-      <h2>Step 2: Create Database</h2>
-
-      <p><strong>Time:</strong> 1 minute</p>
+      <h2 id="step-2" class="flex items-center gap-3">
+        <Icon name="tabler:database" class="w-8 h-8 text-primary" />
+        Step 2: Create Database
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+          >1 min</span
+        >
+      </h2>
 
       <p>Create an empty database for your Mage-OS installation:</p>
 
@@ -140,17 +207,26 @@ const metadata = {
 mysql -u root -p -e "CREATE USER 'mage_os_user'@'localhost' IDENTIFIED BY 'secure_password';"
 mysql -u root -p -e "GRANT ALL PRIVILEGES ON mage_os.* TO 'mage_os_user'@'localhost';"
 mysql -u root -p -e "FLUSH PRIVILEGES;"`}</code></pre>
+    </div>
 
-      <blockquote>
-        <strong>Security note:</strong> Replace <code>secure_password</code> with a strong, unique password for production
-        environments.
-      </blockquote>
+    <Callout type="warning" title="Security Note">
+      Replace <code class="bg-yellow-100 dark:bg-yellow-900 px-1 rounded">secure_password</code> with a strong, unique password
+      for production environments. Never use default or weak passwords.
+    </Callout>
 
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-gray-900 mt-8"
+    >
       <hr class="my-8" />
 
-      <h2>Step 3: Run Installation</h2>
-
-      <p><strong>Time:</strong> 5-10 minutes</p>
+      <h2 id="step-3" class="flex items-center gap-3">
+        <Icon name="tabler:settings" class="w-8 h-8 text-primary" />
+        Step 3: Run Installation
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+          >5-10 min</span
+        >
+      </h2>
 
       <p>Run the setup installer with your configuration:</p>
 
@@ -224,9 +300,14 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}</code></pre>
 
       <hr class="my-8" />
 
-      <h2>Step 4: Set Permissions and Deploy</h2>
-
-      <p><strong>Time:</strong> 5-10 minutes</p>
+      <h2 id="step-4" class="flex items-center gap-3">
+        <Icon name="tabler:shield-check" class="w-8 h-8 text-primary" />
+        Step 4: Set Permissions and Deploy
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+          >5-10 min</span
+        >
+      </h2>
 
       <p>After installation completes, set permissions and deploy assets:</p>
 
@@ -246,7 +327,14 @@ bin/magento cache:flush`}</code></pre>
 
       <hr class="my-8" />
 
-      <h2>Step 5: Set Deploy Mode</h2>
+      <h2 id="step-5" class="flex items-center gap-3">
+        <Icon name="tabler:toggle-right" class="w-8 h-8 text-primary" />
+        Step 5: Set Deploy Mode
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+          >1 min</span
+        >
+      </h2>
 
       <p><strong>For local development:</strong></p>
 
@@ -262,7 +350,14 @@ bin/magento cache:flush`}</code></pre>
 
       <hr class="my-8" />
 
-      <h2>Step 6: Access Your Store</h2>
+      <h2 id="step-6" class="flex items-center gap-3">
+        <Icon name="tabler:check" class="w-8 h-8 text-primary" />
+        Step 6: Access Your Store
+        <span
+          class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+          >Done!</span
+        >
+      </h2>
 
       <h3>Storefront</h3>
 
@@ -290,181 +385,230 @@ bin/magento cache:flush`}</code></pre>
           <code>Admin123!</code> (or your custom value)
         </li>
       </ul>
+    </div>
+  </section>
 
-      <hr class="my-8" />
+  <!-- Success Section with Green Background -->
+  <section class="bg-green-50 dark:bg-green-950/30 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <div class="flex items-center gap-4 mb-6">
+        <div
+          class="flex-shrink-0 w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center"
+        >
+          <Icon name="tabler:confetti" class="w-8 h-8 text-green-600 dark:text-green-400" />
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold font-heading text-green-800 dark:text-green-200">
+            Success! Your Store is Live
+          </h2>
+          <p class="text-green-700 dark:text-green-300">
+            Congratulations! You now have a working Mage-OS installation.
+          </p>
+        </div>
+      </div>
 
-      <h2>Success! Your Store is Live</h2>
+      <div
+        class="prose prose-lg max-w-none dark:prose-invert prose-headings:text-green-800 dark:prose-headings:text-green-200 prose-a:text-green-700 dark:prose-a:text-green-300"
+      >
+        <h3>Essential Configuration</h3>
 
-      <p>Congratulations! You now have a working Mage-OS installation. Here is what to do next:</p>
+        <p>Access <strong>Admin &gt; Stores &gt; Configuration</strong> to configure:</p>
 
-      <h3>Essential Configuration</h3>
+        <table class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden">
+          <thead class="bg-green-100 dark:bg-green-900">
+            <tr>
+              <th class="text-green-800 dark:text-green-200">Setting</th>
+              <th class="text-green-800 dark:text-green-200">Location</th>
+              <th class="text-green-800 dark:text-green-200">Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Store Information</td>
+              <td>General &gt; General</td>
+              <td>Store name, address, contact</td>
+            </tr>
+            <tr>
+              <td>Base URLs</td>
+              <td>General &gt; Web</td>
+              <td>Secure URLs for production</td>
+            </tr>
+            <tr>
+              <td>Payment Methods</td>
+              <td>Sales &gt; Payment Methods</td>
+              <td>Enable payment gateways</td>
+            </tr>
+            <tr>
+              <td>Shipping Methods</td>
+              <td>Sales &gt; Shipping Methods</td>
+              <td>Configure shipping options</td>
+            </tr>
+            <tr>
+              <td>Tax Rules</td>
+              <td>Sales &gt; Tax</td>
+              <td>Set up tax calculations</td>
+            </tr>
+          </tbody>
+        </table>
 
-      <p>Access <strong>Admin &gt; Stores &gt; Configuration</strong> to configure:</p>
+        <h3>Set Up Cron Jobs</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Setting</th>
-            <th>Location</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Store Information</td>
-            <td>General &gt; General</td>
-            <td>Store name, address, contact</td>
-          </tr>
-          <tr>
-            <td>Base URLs</td>
-            <td>General &gt; Web</td>
-            <td>Secure URLs for production</td>
-          </tr>
-          <tr>
-            <td>Payment Methods</td>
-            <td>Sales &gt; Payment Methods</td>
-            <td>Enable payment gateways</td>
-          </tr>
-          <tr>
-            <td>Shipping Methods</td>
-            <td>Sales &gt; Shipping Methods</td>
-            <td>Configure shipping options</td>
-          </tr>
-          <tr>
-            <td>Tax Rules</td>
-            <td>Sales &gt; Tax</td>
-            <td>Set up tax calculations</td>
-          </tr>
-        </tbody>
-      </table>
+        <p>
+          Mage-OS requires cron for scheduled tasks (indexing, emails, etc.). Use the built-in command to configure cron
+          automatically:
+        </p>
 
-      <h3>Set Up Cron Jobs</h3>
+        <pre class="bg-gray-900"><code>bin/magento cron:install</code></pre>
 
-      <p>
-        Mage-OS requires cron for scheduled tasks (indexing, emails, etc.). Use the built-in command to configure cron
-        automatically:
-      </p>
+        <p>Verify the installation:</p>
 
-      <pre><code>bin/magento cron:install</code></pre>
+        <pre class="bg-gray-900"><code>bin/magento cron:status</code></pre>
+      </div>
+    </div>
+  </section>
 
-      <p>Verify the installation:</p>
+  <!-- Troubleshooting Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <h2 class="text-3xl font-bold font-heading mb-8 dark:text-white">Troubleshooting</h2>
 
-      <pre><code>bin/magento cron:status</code></pre>
-
-      <hr class="my-8" />
-
-      <h2>Troubleshooting</h2>
-
-      <h3>Blank Page After Installation</h3>
-
-      <p><strong>Cause:</strong> Usually a cache or compilation issue.</p>
-
-      <pre><code>{`rm -rf var/cache/* var/page_cache/* generated/*
+    <div class="space-y-6">
+      <Callout type="tip" title="Blank Page After Installation">
+        <p class="mb-2"><strong>Cause:</strong> Usually a cache or compilation issue.</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>{`rm -rf var/cache/* var/page_cache/* generated/*
 bin/magento setup:upgrade
 bin/magento cache:flush`}</code></pre>
+      </Callout>
 
-      <h3>404 Errors on Storefront Pages</h3>
-
-      <p><strong>Cause:</strong> Apache mod_rewrite not enabled.</p>
-
-      <pre><code>{`sudo a2enmod rewrite
+      <Callout type="tip" title="404 Errors on Storefront Pages">
+        <p class="mb-2"><strong>Cause:</strong> Apache mod_rewrite not enabled.</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>{`sudo a2enmod rewrite
 sudo systemctl restart apache2`}</code></pre>
+        <p class="mt-2">
+          For Nginx, ensure your configuration includes the rewrite rules. See the <a
+            href="/get-started/installation#nginx-configuration"
+            class="underline">Installation Guide</a
+          >.
+        </p>
+      </Callout>
 
-      <p>
-        For Nginx, ensure your configuration includes the rewrite rules. See the <a
-          href="/get-started/installation#nginx-configuration">Installation Guide</a
-        >.
-      </p>
+      <Callout type="tip" title="Composer Memory Limit Errors">
+        <p class="mb-2"><strong>Cause:</strong> PHP memory limit too low for Composer.</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>php -d memory_limit=1G /usr/local/bin/composer create-project ...</code></pre>
+      </Callout>
 
-      <h3>Composer Memory Limit Errors</h3>
+      <Callout type="tip" title="OpenSearch Connection Failed">
+        <p class="mb-2"><strong>Cause:</strong> OpenSearch service not running.</p>
+        <p class="mb-2">Verify OpenSearch is running:</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>curl http://localhost:9200</code></pre>
+        <p class="mt-2">You should see a JSON response with cluster information. If not, start OpenSearch:</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto mt-2"><code>sudo systemctl start opensearch</code></pre>
+      </Callout>
 
-      <p><strong>Cause:</strong> PHP memory limit too low for Composer.</p>
-
-      <pre><code>php -d memory_limit=1G /usr/local/bin/composer create-project ...</code></pre>
-
-      <h3>OpenSearch Connection Failed</h3>
-
-      <p><strong>Cause:</strong> OpenSearch service not running.</p>
-
-      <p>Verify OpenSearch is running:</p>
-
-      <pre><code>curl http://localhost:9200</code></pre>
-
-      <p>You should see a JSON response with cluster information. If not, start OpenSearch:</p>
-
-      <pre><code>sudo systemctl start opensearch</code></pre>
-
-      <h3>Admin Login Not Working</h3>
-
-      <p><strong>Cause:</strong> Two-factor authentication is enabled by default.</p>
-
-      <p>
-        Install the <a href="https://github.com/markshust/magento2-module-disabletwofactorauth"
-          >DisableTwoFactorAuth module</a
-        > which automatically disables 2FA in developer mode while keeping it enabled in production:
-      </p>
-
-      <pre><code>{`composer require --dev markshust/magento2-module-disabletwofactorauth
+      <Callout type="tip" title="Admin Login Not Working">
+        <p class="mb-2"><strong>Cause:</strong> Two-factor authentication is enabled by default.</p>
+        <p class="mb-2">
+          Install the <a href="https://github.com/markshust/magento2-module-disabletwofactorauth" class="underline"
+            >DisableTwoFactorAuth module</a
+          > which automatically disables 2FA in developer mode while keeping it enabled in production:
+        </p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>{`composer require --dev markshust/magento2-module-disabletwofactorauth
 bin/magento module:enable MarkShust_DisableTwoFactorAuth
 bin/magento setup:upgrade`}</code></pre>
+      </Callout>
 
-      <h3>Static Content Not Loading (CSS/JS Missing)</h3>
-
-      <p><strong>Cause:</strong> Static content not deployed or permissions issue.</p>
-
-      <pre><code>{`bin/magento setup:static-content:deploy -f
+      <Callout type="tip" title="Static Content Not Loading (CSS/JS Missing)">
+        <p class="mb-2"><strong>Cause:</strong> Static content not deployed or permissions issue.</p>
+        <pre
+          class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>{`bin/magento setup:static-content:deploy -f
 bin/magento cache:clean`}</code></pre>
+      </Callout>
+    </div>
+  </section>
 
-      <hr class="my-8" />
+  <!-- Next Steps with ItemGrid -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-5xl bg-gray-50 dark:bg-slate-800/50">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold font-heading mb-4 dark:text-white">Next Steps</h2>
+      <p class="text-xl text-muted">Now that your store is running, explore these resources:</p>
+    </div>
 
-      <h2>Next Steps</h2>
+    <ItemGrid
+      columns={2}
+      items={[
+        {
+          title: 'Full Installation Guide',
+          description: 'Detailed installation instructions for Docker, cloud hosting, and custom environments.',
+          icon: 'tabler:server',
+          callToAction: {
+            text: 'View Guide',
+            href: '/get-started/installation',
+          },
+        },
+        {
+          title: 'Migration Guide',
+          description: 'Step-by-step instructions for migrating from Magento Open Source to Mage-OS.',
+          icon: 'tabler:refresh',
+          callToAction: {
+            text: 'Start Migration',
+            href: '/get-started/migration-guide',
+          },
+        },
+        {
+          title: 'System Requirements',
+          description: 'Complete technical specifications for PHP, databases, search engines, and more.',
+          icon: 'tabler:checklist',
+          callToAction: {
+            text: 'View Requirements',
+            href: '/get-started/system-requirements',
+          },
+        },
+        {
+          title: 'Developer Documentation',
+          description: 'Full developer documentation with API references, tutorials, and best practices.',
+          icon: 'tabler:book',
+          callToAction: {
+            text: 'Read DevDocs',
+            href: 'https://devdocs.mage-os.org',
+            target: '_blank',
+          },
+        },
+      ]}
+    />
 
-      <p>Now that your store is running, explore these resources:</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="/get-started/installation">Full Installation Guide</a></td>
-            <td>Detailed installation for custom environments</td>
-          </tr>
-          <tr>
-            <td><a href="/get-started/migration-guide">Migration Guide</a></td>
-            <td>Migrating from Magento Open Source</td>
-          </tr>
-          <tr>
-            <td><a href="/get-started/system-requirements">System Requirements</a></td>
-            <td>Detailed technical specifications</td>
-          </tr>
-          <tr>
-            <td><a href="https://devdocs.mage-os.org">Developer Documentation</a></td>
-            <td>Full developer documentation</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Join the Community</h3>
-
-      <ul>
-        <li>
-          <strong>Discord:</strong> Get real-time help from the community
-        </li>
-        <li>
-          <strong>GitHub:</strong> Report issues and contribute code
-        </li>
-        <li>
-          <strong>Forums:</strong> Discuss best practices and solutions
-        </li>
-      </ul>
-
-      <p>
-        Visit <a href="/community">mage-os.org/community</a> to get connected.
-      </p>
+    <div class="mt-12 text-center">
+      <h3 class="text-xl font-bold mb-4 dark:text-white">Join the Community</h3>
+      <p class="text-muted mb-6">Get help, share ideas, and connect with other Mage-OS developers and merchants.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/discord-channel"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+        >
+          <Icon name="tabler:brand-discord" class="w-5 h-5" />
+          Join Discord
+        </a>
+        <a
+          href="https://github.com/mage-os"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+        >
+          <Icon name="tabler:brand-github" class="w-5 h-5" />
+          GitHub
+        </a>
+        <a
+          href="/community"
+          class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        >
+          <Icon name="tabler:users" class="w-5 h-5" />
+          Community Hub
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
