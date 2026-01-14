@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+export interface Props {
+  checked?: boolean;
+  class?: string;
+}
+
+const { checked = false, class: className } = Astro.props;
+
+const iconName = checked ? 'tabler:square-check' : 'tabler:square';
+const iconClass = checked
+  ? 'text-primary dark:text-primary'
+  : 'text-gray-400 dark:text-gray-500';
+const textClass = checked
+  ? 'text-gray-900 dark:text-white'
+  : 'text-gray-500 dark:text-gray-400';
+---
+
+<div
+  class={twMerge('flex items-start gap-3 py-1', className)}
+  role="listitem"
+>
+  <Icon
+    name={iconName}
+    class={twMerge('h-5 w-5 flex-shrink-0 mt-0.5', iconClass)}
+    aria-hidden="true"
+  />
+  <span class={twMerge('text-sm', textClass)}>
+    <slot />
+  </span>
+</div>
