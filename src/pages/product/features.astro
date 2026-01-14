@@ -5,7 +5,6 @@ import PageHero from '~/components/widgets/PageHero.astro';
 import Note from '~/components/widgets/Note.astro';
 import FeaturesWidget from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -145,160 +144,228 @@ const metadata = {
     ]}
   />
 
-  <!-- Content Widget: Comparison **************** -->
+  <!-- Platform Comparison Section **************** -->
 
-  <Content id="comparison" tagline="Comparison" title="Choose the Right Platform for Your Business" isReversed>
-    <Fragment slot="content">
-      <p class="mb-4 text-muted">
-        See how Mage-OS compares to Magento Open Source and Adobe Commerce across key capabilities.
-      </p>
+  <section id="comparison" class="relative py-16 md:py-20">
+    <div class="absolute inset-0 bg-white dark:bg-slate-900"></div>
+    <div class="relative px-4 sm:px-6 mx-auto lg:px-8 max-w-6xl">
+      <div class="text-center mb-10">
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase mb-2">Comparison</p>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading dark:text-gray-200">
+          Platform Comparison
+        </h2>
+        <p class="max-w-3xl mx-auto text-xl text-muted dark:text-slate-400">
+          An honest comparison of Mage-OS, Magento Open Source, and Adobe Commerce to help you choose the right
+          platform.
+        </p>
+      </div>
+
       <div class="relative overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
         <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
           <thead class="text-xs uppercase bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
             <tr>
-              <th scope="col" class="px-6 py-4 font-semibold">Capability</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-center">Mage-OS</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-center">Magento OS</th>
-              <th scope="col" class="px-6 py-4 font-semibold text-center">Adobe Commerce</th>
+              <th scope="col" class="px-4 py-4 font-semibold">Capability</th>
+              <th scope="col" class="px-4 py-4 font-semibold text-center">Mage-OS</th>
+              <th scope="col" class="px-4 py-4 font-semibold text-center">Magento Open Source</th>
+              <th scope="col" class="px-4 py-4 font-semibold text-center">Adobe Commerce</th>
             </tr>
           </thead>
           <tbody>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Performance Optimization</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Enhanced</span
+            <!-- Licensing & Cost -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Licensing & Cost</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">License</td>
+              <td class="px-4 py-3 text-center">OSL 3.0 (Open Source)</td>
+              <td class="px-4 py-3 text-center">OSL 3.0 (Open Source)</td>
+              <td class="px-4 py-3 text-center">Proprietary</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Cost</td>
+              <td class="px-4 py-3 text-center">Free</td>
+              <td class="px-4 py-3 text-center">Free</td>
+              <td class="px-4 py-3 text-center">$22k–$125k+/year</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Hosting</td>
+              <td class="px-4 py-3 text-center">Self-hosted / Any provider</td>
+              <td class="px-4 py-3 text-center">Self-hosted / Any provider</td>
+              <td class="px-4 py-3 text-center">Self-hosted or Adobe Cloud</td>
+            </tr>
+
+            <!-- Core Features -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Core E-commerce Features</td
+              >
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">B2C Commerce</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">B2B Features</td>
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (Company accounts, quotes, requisition lists)</td
+              >
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Page Builder</td>
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Built-in drag-and-drop</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Content Staging & Preview</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Schedule campaigns in advance</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Customer Segmentation</td>
+              <td class="px-4 py-3 text-center text-gray-500">Basic (customer groups)</td>
+              <td class="px-4 py-3 text-center text-gray-500">Basic (customer groups)</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Advanced rule-based</td>
+            </tr>
+
+            <!-- Development & Extensibility -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white"
+                >Development & Extensibility</td
+              >
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Extension Compatibility</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full Magento 2 compatibility</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Full + Commerce extensions</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">API Access</td>
+              <td class="px-4 py-3 text-center">REST + GraphQL</td>
+              <td class="px-4 py-3 text-center">REST + GraphQL</td>
+              <td class="px-4 py-3 text-center">REST + GraphQL + App Builder</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Repo Access</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ No account required</td>
+              <td class="px-4 py-3 text-center text-gray-500">Adobe account required</td>
+              <td class="px-4 py-3 text-center text-gray-500">License + Adobe account</td>
+            </tr>
+
+            <!-- Governance & Community -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Governance & Community</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Governance Model</td>
+              <td class="px-4 py-3 text-center">Non-profit association, open membership</td>
+              <td class="px-4 py-3 text-center">Adobe-led, community input</td>
+              <td class="px-4 py-3 text-center">Adobe-led</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Contribution Process</td>
+              <td class="px-4 py-3 text-center">GitHub PRs, community review</td>
+              <td class="px-4 py-3 text-center">GitHub PRs, Adobe review</td>
+              <td class="px-4 py-3 text-center">Not open source</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Roadmap Visibility</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Fully public</td>
+              <td class="px-4 py-3 text-center text-gray-500">Partially public</td>
+              <td class="px-4 py-3 text-center text-gray-500">Limited</td>
+            </tr>
+
+            <!-- Security & Updates -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Security & Updates</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Security Patch Delivery</td>
+              <td class="px-4 py-3 text-center">As validated by community</td>
+              <td class="px-4 py-3 text-center">Adobe quarterly schedule</td>
+              <td class="px-4 py-3 text-center">Adobe quarterly schedule</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Current Base Version</td>
+              <td class="px-4 py-3 text-center">2.4.8-p3</td>
+              <td class="px-4 py-3 text-center">2.4.8-p3</td>
+              <td class="px-4 py-3 text-center">2.4.8-p3</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">PHP Version Support</td>
+              <td class="px-4 py-3 text-center">8.3, 8.4</td>
+              <td class="px-4 py-3 text-center">8.3, 8.4</td>
+              <td class="px-4 py-3 text-center">8.3, 8.4</td>
+            </tr>
+
+            <!-- Support -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Support</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Official Support</td>
+              <td class="px-4 py-3 text-center">Community (Discord, GitHub)</td>
+              <td class="px-4 py-3 text-center">Community only</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ 24/7 Adobe Support + SLA</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Documentation</td>
+              <td class="px-4 py-3 text-center"
+                ><a href="https://devdocs.mage-os.org" class="text-primary hover:underline" target="_blank"
+                  >devdocs.mage-os.org</a
                 ></td
               >
-              <td class="px-6 py-4 text-center">Standard</td>
-              <td class="px-6 py-4 text-center">Enterprise</td>
-            </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Security Patches</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Community-accelerated</span
+              <td class="px-4 py-3 text-center"
+                ><a href="https://developer.adobe.com/commerce/" class="text-primary hover:underline" target="_blank"
+                  >Adobe DevDocs</a
                 ></td
               >
-              <td class="px-6 py-4 text-center">Adobe schedule</td>
-              <td class="px-6 py-4 text-center">Adobe schedule</td>
-            </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">PCI DSS 4.0 Features</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Included</span
+              <td class="px-4 py-3 text-center"
+                ><a href="https://experienceleague.adobe.com/" class="text-primary hover:underline" target="_blank"
+                  >Experience League</a
                 ></td
               >
-              <td class="px-6 py-4 text-center">Partial</td>
-              <td class="px-6 py-4 text-center">Included</td>
             </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Open Governance</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >100% transparent</span
-                ></td
+
+            <!-- Mage-OS Additions -->
+            <tr class="bg-gray-50 dark:bg-gray-800/50">
+              <td colspan="4" class="px-4 py-2 font-semibold text-gray-900 dark:text-white">Mage-OS Additions</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Community Enhancements</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Merged community PRs, performance patches</td
               >
-              <td class="px-6 py-4 text-center">Adobe-controlled</td>
-              <td class="px-6 py-4 text-center">Adobe-controlled</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
             </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Extension Compatibility</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Full</span
-                ></td
-              >
-              <td class="px-6 py-4 text-center">Full</td>
-              <td class="px-6 py-4 text-center">Full</td>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">AI Translation Module</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Available via Mage-OS Lab</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
             </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">API Access</td>
-              <td class="px-6 py-4 text-center">REST, GraphQL</td>
-              <td class="px-6 py-4 text-center">REST, GraphQL</td>
-              <td class="px-6 py-4 text-center">REST, GraphQL</td>
-            </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">AI-Powered Translation</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Built-in</span
-                ></td
-              >
-              <td class="px-6 py-4 text-center">Third-party</td>
-              <td class="px-6 py-4 text-center">Third-party</td>
-            </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Community Contribution</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >Open to all</span
-                ></td
-              >
-              <td class="px-6 py-4 text-center">Limited</td>
-              <td class="px-6 py-4 text-center">Closed</td>
-            </tr>
-            <tr
-              class="odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900 dark:even:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-            >
-              <td class="px-6 py-4">Vendor Lock-in</td>
-              <td class="px-6 py-4 text-center"
-                ><span
-                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300"
-                  >None</span
-                ></td
-              >
-              <td class="px-6 py-4 text-center">None</td>
-              <td class="px-6 py-4 text-center">Adobe ecosystem</td>
-            </tr>
-            <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-              <td class="px-6 py-4 font-semibold">Cost</td>
-              <td class="px-6 py-4 text-center"
-                ><span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-primary text-white"
-                  >Free</span
-                ></td
-              >
-              <td class="px-6 py-4 text-center font-medium">Free</td>
-              <td class="px-6 py-4 text-center font-medium">Enterprise pricing</td>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Nightly Builds</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Available</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p class="mt-4 text-sm text-muted">
-        Want to understand the full value proposition? <a href="/product" class="text-primary hover:underline"
-          >Learn more about Mage-OS</a
-        >.
-      </p>
-    </Fragment>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+      <p class="mt-6 text-sm text-muted text-center">
+        <strong>Note:</strong> Mage-OS is built on Magento Open Source and maintains full compatibility. The best choice depends
+        on your specific needs: budget, required features, support expectations, and governance preferences.
+      </p>
+    </div>
+  </section>
 
   <!-- Features2 Widget: Developer Experience ************** -->
 
