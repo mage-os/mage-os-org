@@ -72,7 +72,7 @@ export default defineConfig({
 
   image: {
     domains: [
-      'images.unsplash.com', // TODO: Remove when Unsplash placeholders are replaced
+      'images.unsplash.com',
       'opencollective-production.s3.us-west-1.amazonaws.com', // Open Collective partner logos
       'images.opencollective.com', // Open Collective CDN
     ],

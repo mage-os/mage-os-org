@@ -271,13 +271,12 @@ sudo systemctl start opensearch
 
 **Cause:** Two-factor authentication is enabled by default.
 
-@TODO: Suggest disable-2fa module for dev instead
-
-Disable 2FA temporarily for development:
+Install the [DisableTwoFactorAuth module](https://github.com/markshust/magento2-module-disabletwofactorauth) which automatically disables 2FA in developer mode while keeping it enabled in production:
 
 ```bash
-bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
-bin/magento cache:flush
+composer require --dev markshust/magento2-module-disabletwofactorauth
+bin/magento module:enable MarkShust_DisableTwoFactorAuth
+bin/magento setup:upgrade
 ```
 
 ### Static Content Not Loading (CSS/JS Missing)

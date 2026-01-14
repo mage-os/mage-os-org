@@ -241,10 +241,10 @@ These are baseline requirements. Actual needs depend on catalog size, traffic vo
 | Mage-OS Version | PHP     | MySQL | OpenSearch | Magento Base | Release Date   |
 | --------------- | ------- | ----- | ---------- | ------------ | -------------- |
 | 2.0             | 8.3-8.4 | 8.0+  | 2.5+       | 2.4.8-p3     | October 2025   |
-| 1.3             | 8.2-8.3 | 8.0+  | 2.5+       | 2.4.7-p3     | August 2025    |
-| 1.2             | 8.2-8.3 | 8.0+  | 2.5+       | 2.4.7-p2     | June 2025      |
-| 1.1             | 8.1-8.2 | 8.0+  | 2.5+       | 2.4.6-p4     | April 2025     |
-@TODO: Those base versions aren't right
+| 1.3             | 8.2-8.3 | 8.0+  | 2.5+       | 2.4.8-p2     | August 2025    |
+| 1.2             | 8.2-8.3 | 8.0+  | 2.5+       | 2.4.8-p1     | June 2025      |
+| 1.1             | 8.1-8.2 | 8.0+  | 2.5+       | 2.4.8        | April 2025     |
+
 For the latest version information, see the [Releases](/product/releases) page.
 
 ---
@@ -253,27 +253,16 @@ For the latest version information, see the [Releases](/product/releases) page.
 
 ### Managed Magento Hosting
 
-These providers offer pre-configured environments optimized for Mage-OS and Magento:
+For production stores, managed Magento hosting is strongly recommended. These specialized providers offer pre-configured environments optimized for Mage-OS and Magento, with expert support, automatic updates, and performance tuning included.
 
-| Provider    | Type                     | Notes                                   |
-| ----------- | ------------------------ | --------------------------------------- |
-| Hypernode   | Managed Magento hosting  | Purpose-built for Magento/Mage-OS       |
-| Nexcess     | Managed Magento hosting  | Auto-scaling, managed infrastructure    |
-| Cloudways   | Managed cloud platform   | Multiple cloud backends available       |
+When selecting a hosting provider, consider:
 
-@TODO: Cover, or not? Providers vary greatly by region, quality, price
+- **Regional availability** — Choose providers with data centers near your primary customer base
+- **Mage-OS/Magento expertise** — Look for providers with proven experience in the platform
+- **Community reputation** — Check reviews, case studies, and ask for recommendations in the [Mage-OS Discord](/discord-channel) or community forums
+- **Service level agreements** — Ensure uptime guarantees and support response times meet your business needs
 
-### Cloud Providers (Self-Managed)
-
-For teams with DevOps expertise, these cloud providers offer flexible infrastructure:
-
-| Provider      | Recommended Instance     | vCPUs | RAM  | Notes                      |
-| ------------- | ------------------------ | ----- | ---- | -------------------------- |
-| AWS EC2       | t3.large or larger       | 2+    | 8GB+ | Most popular choice        |
-| Google Cloud  | n2-standard-2 or larger  | 2+    | 8GB+ | Strong global network      |
-| Azure         | Standard_D2s_v3          | 2+    | 8GB+ | Enterprise integration     |
-| DigitalOcean  | Premium Droplets 4GB+    | 2+    | 4GB+ | Cost-effective option      |
-| Hetzner       | CPX31 or larger          | 4+    | 8GB+ | European data centers      |
+Visit our [Partners](/partners) page to find hosting providers who actively support the Mage-OS ecosystem.
 
 ### Development Environments
 
