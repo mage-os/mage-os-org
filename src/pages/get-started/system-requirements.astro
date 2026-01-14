@@ -1,0 +1,756 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import Headline from '~/components/ui/Headline.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Callout from '~/components/ui/Callout.astro';
+import VersionBadge from '~/components/ui/VersionBadge.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'System Requirements',
+  description:
+    'Complete technical requirements for Mage-OS including PHP versions, database specifications, and server configuration.',
+  openGraph: {
+    images: [{ url: '/og/page/system-requirements.png', width: 1200, height: 630 }],
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Get Started" variant="default">
+    <Fragment slot="title">System Requirements</Fragment>
+    <Fragment slot="subtitle">
+      Complete technical requirements for running Mage-OS in development and production environments. Verify your server
+      meets these specifications before beginning installation.
+    </Fragment>
+  </PageHero>
+
+  <!-- Quick Reference with ItemGrid -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-6xl">
+    <Headline title="Quick Reference" subtitle="Essential components for Mage-OS 2.0 at a glance" tagline="Overview" />
+
+    <ItemGrid
+      columns={4}
+      items={[
+        {
+          title: 'PHP',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 8.3 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 8.4</span>',
+          icon: 'tabler:brand-php',
+        },
+        {
+          title: 'Composer',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 2.7 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 2.9</span>',
+          icon: 'tabler:package',
+        },
+        {
+          title: 'OpenSearch',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 2.5 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 2.19</span>',
+          icon: 'tabler:search',
+        },
+        {
+          title: 'MySQL / MariaDB',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 8.0 / 10.6 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 8.4 / 11.4</span>',
+          icon: 'tabler:database',
+        },
+        {
+          title: 'Redis / Valkey',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 7.0 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: Valkey 8</span>',
+          icon: 'tabler:bolt',
+        },
+        {
+          title: 'RabbitMQ',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 3.12 <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 4.0</span>',
+          icon: 'tabler:message-bolt',
+        },
+        {
+          title: 'Varnish',
+          description:
+            '<span class="text-gray-500 dark:text-gray-400">Min:</span> 7.x <span class="mx-1">|</span> <span class="text-green-600 dark:text-green-400 font-medium">Rec: 7.6</span>',
+          icon: 'tabler:rocket',
+        },
+        {
+          title: 'Web Server',
+          description:
+            'Apache 2.4+ or nginx 1.24+ <span class="text-green-600 dark:text-green-400 font-medium">(1.26 rec)</span>',
+          icon: 'tabler:server',
+        },
+      ]}
+    />
+
+    <p class="text-center text-muted mt-8">
+      <strong>Minimum</strong> versions are the oldest supported. <strong>Recommended</strong> versions provide optimal performance
+      and security.
+    </p>
+  </section>
+
+  <!-- Operating System Section -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Headline title="Operating System" subtitle="Supported platforms for development and production" />
+
+      <Callout type="warning" title="Production Requires Linux">
+        Production deployments require Linux. macOS and Windows (via WSL2) are suitable for local development only.
+      </Callout>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-8">
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+            <Icon name="tabler:server" class="w-6 h-6 text-primary" />
+            Production (Linux Only)
+          </h3>
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b dark:border-gray-700">
+                <th class="text-left py-2 font-medium">Distribution</th>
+                <th class="text-left py-2 font-medium">Min Version</th>
+              </tr>
+            </thead>
+            <tbody class="text-muted">
+              <tr class="border-b dark:border-gray-700">
+                <td class="py-2">Ubuntu LTS</td>
+                <td class="py-2">22.04 <VersionBadge status="recommended" class="ml-2" /></td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="py-2">Debian</td>
+                <td class="py-2">12 <VersionBadge status="supported" class="ml-2" /></td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="py-2">Rocky Linux</td>
+                <td class="py-2">9 <VersionBadge status="supported" class="ml-2" /></td>
+              </tr>
+              <tr>
+                <td class="py-2">AlmaLinux</td>
+                <td class="py-2">9 <VersionBadge status="supported" class="ml-2" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+            <Icon name="tabler:device-laptop" class="w-6 h-6 text-primary" />
+            Development
+          </h3>
+          <ul class="space-y-3 text-muted">
+            <li class="flex items-center gap-2">
+              <Icon name="tabler:brand-apple" class="w-5 h-5" />
+              <span><strong>macOS:</strong> 13+ (Ventura or later)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <Icon name="tabler:brand-windows" class="w-5 h-5" />
+              <span><strong>Windows:</strong> 10/11 via WSL2</span>
+            </li>
+          </ul>
+          <p class="mt-4 text-sm text-muted">
+            For consistent environments, we recommend Docker-based tools like DDEV, Warden, or docker-magento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Server Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Headline title="Web Server" subtitle="Choose Apache or nginx based on your needs" />
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="border dark:border-gray-700 rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:feather" class="w-6 h-6 text-primary" />
+          Apache
+        </h3>
+        <table class="w-full text-sm">
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2 font-medium">Version</td>
+              <td class="py-2">2.4+ <VersionBadge status="supported" class="ml-2" /></td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2 font-medium">Required Modules</td>
+              <td class="py-2"><code class="bg-gray-100 dark:bg-gray-800 px-1 rounded">mod_rewrite</code></td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Configuration</td>
+              <td class="py-2">.htaccess support enabled</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm text-muted">Easier configuration via .htaccess files.</p>
+      </div>
+
+      <div class="border dark:border-gray-700 rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:brand-docker" class="w-6 h-6 text-primary" />
+          nginx
+        </h3>
+        <table class="w-full text-sm">
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2 font-medium">Version</td>
+              <td class="py-2">
+                1.24+ <VersionBadge status="minimum" text="1.24" class="ml-2" />
+                <VersionBadge status="recommended" text="1.26" class="ml-1" />
+              </td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Configuration</td>
+              <td class="py-2">Custom rewrite rules required</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm text-muted">Better performance at scale for high-traffic stores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHP Requirements Section -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Headline title="PHP Requirements" subtitle="Supported versions and required extensions" />
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm mb-8">
+        <h3 class="text-lg font-bold mb-4 dark:text-white">Supported Versions</h3>
+        <div class="flex flex-wrap gap-4">
+          <div class="flex items-center gap-3 bg-green-50 dark:bg-green-900/20 rounded-lg px-4 py-3">
+            <Icon name="tabler:brand-php" class="w-8 h-8 text-green-600 dark:text-green-400" />
+            <div>
+              <span class="text-2xl font-bold text-green-700 dark:text-green-300">PHP 8.4</span>
+              <VersionBadge status="recommended" class="ml-2" />
+            </div>
+          </div>
+          <div class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg px-4 py-3">
+            <Icon name="tabler:brand-php" class="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            <div>
+              <span class="text-2xl font-bold text-blue-700 dark:text-blue-300">PHP 8.3</span>
+              <VersionBadge status="supported" class="ml-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+        <h3 class="text-lg font-bold mb-4 dark:text-white">Required Extensions</h3>
+        <div class="flex flex-wrap gap-2">
+          {
+            [
+              'bcmath',
+              'ctype',
+              'curl',
+              'dom',
+              'fileinfo',
+              'gd',
+              'hash',
+              'iconv',
+              'intl',
+              'json',
+              'libxml',
+              'mbstring',
+              'openssl',
+              'pcre',
+              'pdo_mysql',
+              'simplexml',
+              'soap',
+              'sockets',
+              'sodium',
+              'xml',
+              'xsl',
+              'zip',
+              'zlib',
+            ].map((ext) => <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm">{ext}</code>)
+          }
+        </div>
+        <p class="mt-4 text-sm text-muted">
+          Verify extensions with: <code class="bg-gray-100 dark:bg-gray-800 px-1 rounded"
+            >php -m | grep -i &lt;extension_name&gt;</code
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Database Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Headline title="Database" subtitle="MySQL, MariaDB, or Percona Server" />
+
+    <div class="overflow-x-auto mb-8">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 dark:border-gray-700">
+            <th class="text-left py-3 font-bold">Database</th>
+            <th class="text-left py-3 font-bold">Minimum</th>
+            <th class="text-left py-3 font-bold">Recommended</th>
+            <th class="text-left py-3 font-bold">Notes</th>
+          </tr>
+        </thead>
+        <tbody class="text-muted">
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">MySQL</td>
+            <td class="py-3">8.0 <VersionBadge status="minimum" class="ml-2" /></td>
+            <td class="py-3">8.4 <VersionBadge status="recommended" class="ml-2" /></td>
+            <td class="py-3">Oracle's official distribution</td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">MariaDB</td>
+            <td class="py-3">10.6 <VersionBadge status="minimum" class="ml-2" /></td>
+            <td class="py-3">11.4 <VersionBadge status="recommended" class="ml-2" /></td>
+            <td class="py-3">Popular MySQL alternative</td>
+          </tr>
+          <tr>
+            <td class="py-3 font-medium">Percona</td>
+            <td class="py-3">8.0 <VersionBadge status="minimum" class="ml-2" /></td>
+            <td class="py-3">8.0 <VersionBadge status="supported" class="ml-2" /></td>
+            <td class="py-3">Enterprise MySQL variant</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <Callout type="tip" title="Database Configuration">
+      <p class="mb-2">
+        Recommended <code class="bg-green-100 dark:bg-green-900 px-1 rounded">my.cnf</code> settings for production:
+      </p>
+      <pre
+        class="bg-gray-900 text-gray-100 p-3 rounded text-xs overflow-x-auto"><code>{`[mysqld]
+innodb_buffer_pool_size = 1G    # 50-70% of RAM for dedicated DB servers
+innodb_log_file_size = 256M     # Larger values improve write performance
+max_allowed_packet = 64M        # Required for large imports
+tmp_table_size = 64M            # Prevents disk-based temp tables
+max_heap_table_size = 64M
+max_connections = 150`}</code></pre>
+    </Callout>
+  </section>
+
+  <!-- Search Engine Section -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Headline title="Search Engine" subtitle="Required for catalog search and layered navigation" />
+
+      <Callout type="info" title="Search Engine Required">
+        A search engine is <strong>required</strong> for Mage-OS. It powers catalog search, layered navigation, and admin
+        grids.
+      </Callout>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-8">
+        <div
+          class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm border-2 border-green-200 dark:border-green-800"
+        >
+          <div class="flex items-center gap-2 mb-4">
+            <Icon name="tabler:search" class="w-6 h-6 text-green-600 dark:text-green-400" />
+            <h3 class="text-xl font-bold dark:text-white">OpenSearch</h3>
+            <VersionBadge status="recommended" />
+          </div>
+          <p class="text-muted mb-4">Open source, community-maintained fork. Recommended for new installations.</p>
+          <div class="text-sm">
+            <span class="text-gray-500">Min:</span> 2.5 <span class="mx-2">|</span>
+            <span class="text-green-600 dark:text-green-400 font-medium">Recommended: 2.19</span>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+          <div class="flex items-center gap-2 mb-4">
+            <Icon name="tabler:search" class="w-6 h-6 text-primary" />
+            <h3 class="text-xl font-bold dark:text-white">Elasticsearch</h3>
+            <VersionBadge status="supported" />
+          </div>
+          <p class="text-muted mb-4">Requires license for some features. Legacy option.</p>
+          <div class="text-sm">
+            <span class="text-gray-500">Min:</span> 7.17 <span class="mx-2">|</span>
+            <span class="text-blue-600 dark:text-blue-400 font-medium">Supported: 8.x</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm mt-8">
+        <h4 class="font-bold mb-4 dark:text-white">Memory Requirements</h4>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b dark:border-gray-700">
+              <th class="text-left py-2 font-medium">Environment</th>
+              <th class="text-left py-2 font-medium">Heap Size</th>
+              <th class="text-left py-2 font-medium">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2">Development</td>
+              <td class="py-2">1GB</td>
+              <td class="py-2">Suitable for small catalogs</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2">Staging</td>
+              <td class="py-2">2GB</td>
+              <td class="py-2">Mirrors production</td>
+            </tr>
+            <tr>
+              <td class="py-2">Production</td>
+              <td class="py-2">4GB+</td>
+              <td class="py-2">Scale based on catalog size</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cache and Sessions Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Headline title="Cache and Sessions" subtitle="Redis, Valkey, and Varnish for optimal performance" />
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="border dark:border-gray-700 rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:bolt" class="w-6 h-6 text-primary" />
+          Redis / Valkey
+        </h3>
+        <p class="text-muted mb-4">High-performance caching for sessions, page cache, and application cache.</p>
+        <table class="w-full text-sm">
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2 font-medium">Valkey</td>
+              <td class="py-2">7.0+ <VersionBadge status="recommended" text="8.0" class="ml-2" /></td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Redis</td>
+              <td class="py-2">7.0+ <VersionBadge status="supported" text="7.2+" class="ml-2" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm text-muted">Valkey is recommended as an open source Redis alternative.</p>
+      </div>
+
+      <div class="border dark:border-gray-700 rounded-lg p-6">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:rocket" class="w-6 h-6 text-primary" />
+          Varnish (Production)
+        </h3>
+        <p class="text-muted mb-4">Full-page cache for dramatically improved frontend performance.</p>
+        <table class="w-full text-sm">
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-2 font-medium">Version</td>
+              <td class="py-2">7.x <VersionBadge status="recommended" text="7.6" class="ml-2" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-sm text-muted">Optional for development, but highly recommended for production stores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Message Queue Section -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <Headline title="Message Queue" subtitle="Asynchronous processing for bulk operations" />
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <Icon name="tabler:message-bolt" class="w-8 h-8 text-primary" />
+          <div>
+            <h3 class="text-xl font-bold dark:text-white">RabbitMQ</h3>
+            <span class="text-sm text-muted">(Optional)</span>
+          </div>
+        </div>
+        <p class="text-muted mb-4">
+          Enables asynchronous processing of bulk operations, inventory updates, and order processing. Optional for
+          small stores but recommended for high-traffic sites.
+        </p>
+        <div class="flex items-center gap-4">
+          <span>
+            <span class="text-gray-500">Min:</span> 3.12
+            <VersionBadge status="minimum" class="ml-2" />
+          </span>
+          <span>
+            <span class="text-gray-500">Recommended:</span> 4.0
+            <VersionBadge status="recommended" class="ml-2" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server Hardware & Disk Space Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+    <Headline title="Server Hardware" subtitle="Minimum and recommended specifications" />
+
+    <div class="overflow-x-auto mb-12">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 dark:border-gray-700">
+            <th class="text-left py-3 font-bold">Resource</th>
+            <th class="text-left py-3 font-bold">Development</th>
+            <th class="text-left py-3 font-bold">Production (Small)</th>
+            <th class="text-left py-3 font-bold">Production (Large)</th>
+          </tr>
+        </thead>
+        <tbody class="text-muted">
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">CPU</td>
+            <td class="py-3">2 cores</td>
+            <td class="py-3">4 cores</td>
+            <td class="py-3">8+ cores</td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">RAM</td>
+            <td class="py-3">4GB</td>
+            <td class="py-3">8GB</td>
+            <td class="py-3">16GB+</td>
+          </tr>
+          <tr>
+            <td class="py-3 font-medium">Storage</td>
+            <td class="py-3">30GB SSD</td>
+            <td class="py-3">50GB SSD</td>
+            <td class="py-3">100GB+ NVMe</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="text-xl font-bold mb-4 dark:text-white">Disk Space Breakdown</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b-2 dark:border-gray-700">
+            <th class="text-left py-3 font-bold">Purpose</th>
+            <th class="text-left py-3 font-bold">Minimum</th>
+            <th class="text-left py-3 font-bold">Recommended</th>
+            <th class="text-left py-3 font-bold">Notes</th>
+          </tr>
+        </thead>
+        <tbody class="text-muted">
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">Application</td>
+            <td class="py-3">5GB</td>
+            <td class="py-3">10GB</td>
+            <td class="py-3">Includes vendor directory</td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">Database</td>
+            <td class="py-3">10GB</td>
+            <td class="py-3">50GB+</td>
+            <td class="py-3">Scales with catalog and orders</td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">Media files</td>
+            <td class="py-3">Varies</td>
+            <td class="py-3">Varies</td>
+            <td class="py-3">Product images, PDFs, downloads</td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td class="py-3 font-medium">Logs</td>
+            <td class="py-3">5GB</td>
+            <td class="py-3">10GB</td>
+            <td class="py-3">Rotate logs to manage disk usage</td>
+          </tr>
+          <tr class="bg-gray-50 dark:bg-gray-800">
+            <td class="py-3 font-bold">Total Server</td>
+            <td class="py-3 font-bold">30GB</td>
+            <td class="py-3 font-bold">80GB+</td>
+            <td class="py-3">SSD storage recommended</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <Callout type="tip" title="Storage Tip" class="mt-6">
+      Use SSD storage for optimal performance. NVMe drives provide the best results for database and search engine
+      workloads.
+    </Callout>
+  </section>
+
+  <!-- Compatibility Matrix Section -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+      <Headline title="Compatibility Matrix" subtitle="Mage-OS version requirements at a glance" />
+
+      <div class="overflow-x-auto bg-white dark:bg-slate-900 rounded-lg shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+              <th class="text-left py-3 px-4 font-bold">Mage-OS</th>
+              <th class="text-left py-3 px-4 font-bold">PHP</th>
+              <th class="text-left py-3 px-4 font-bold">MySQL</th>
+              <th class="text-left py-3 px-4 font-bold">OpenSearch</th>
+              <th class="text-left py-3 px-4 font-bold">Magento Base</th>
+              <th class="text-left py-3 px-4 font-bold">Release</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b dark:border-gray-700 bg-green-50 dark:bg-green-900/20">
+              <td class="py-3 px-4 font-bold">2.0 <VersionBadge status="recommended" class="ml-2" /></td>
+              <td class="py-3 px-4">8.3-8.4</td>
+              <td class="py-3 px-4">8.0+</td>
+              <td class="py-3 px-4">2.5+</td>
+              <td class="py-3 px-4">2.4.8-p3</td>
+              <td class="py-3 px-4">October 2025</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-3 px-4 font-medium">1.3</td>
+              <td class="py-3 px-4">8.2-8.3</td>
+              <td class="py-3 px-4">8.0+</td>
+              <td class="py-3 px-4">2.5+</td>
+              <td class="py-3 px-4">2.4.8-p2</td>
+              <td class="py-3 px-4">August 2025</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td class="py-3 px-4 font-medium">1.2</td>
+              <td class="py-3 px-4">8.2-8.3</td>
+              <td class="py-3 px-4">8.0+</td>
+              <td class="py-3 px-4">2.5+</td>
+              <td class="py-3 px-4">2.4.8-p1</td>
+              <td class="py-3 px-4">June 2025</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-medium">1.1</td>
+              <td class="py-3 px-4">8.1-8.2</td>
+              <td class="py-3 px-4">8.0+</td>
+              <td class="py-3 px-4">2.5+</td>
+              <td class="py-3 px-4">2.4.8</td>
+              <td class="py-3 px-4">April 2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-center text-muted mt-6">
+        For the latest version information, see the <a href="/product/releases" class="text-primary hover:underline"
+          >Releases</a
+        > page.
+      </p>
+    </div>
+  </section>
+
+  <!-- Development Environments Section -->
+  <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+    <Headline
+      title="Recommended Hosting & Development"
+      subtitle="Options for production hosting and local development"
+    />
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:cloud" class="w-6 h-6 text-primary" />
+          Managed Magento Hosting
+        </h3>
+        <p class="text-muted mb-4">
+          For production stores, managed Magento hosting is strongly recommended. These specialized providers offer
+          pre-configured environments optimized for Mage-OS and Magento.
+        </p>
+        <ul class="space-y-2 text-muted text-sm">
+          <li class="flex items-start gap-2">
+            <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+            <span>Regional availability near your customers</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+            <span>Proven Mage-OS/Magento expertise</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+            <span>Strong community reputation</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+            <span>Uptime SLAs that meet your needs</span>
+          </li>
+        </ul>
+        <a
+          href="/community/partners"
+          class="inline-flex items-center gap-2 mt-4 text-primary hover:underline font-medium"
+        >
+          Find hosting partners
+          <Icon name="tabler:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+          <Icon name="tabler:brand-docker" class="w-6 h-6 text-primary" />
+          Development Environments
+        </h3>
+        <p class="text-muted mb-4">
+          Docker-based local development environments provide consistent, reproducible setups:
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div>
+              <span class="font-medium dark:text-white">DDEV</span>
+              <span class="text-sm text-muted ml-2">Beginners, quick setup</span>
+            </div>
+            <VersionBadge status="recommended" />
+          </div>
+          <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div>
+              <span class="font-medium dark:text-white">Warden</span>
+              <span class="text-sm text-muted ml-2">Magento-specific workflows</span>
+            </div>
+            <VersionBadge status="supported" />
+          </div>
+          <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div>
+              <span class="font-medium dark:text-white">docker-magento</span>
+              <span class="text-sm text-muted ml-2">Production-like setup</span>
+            </div>
+            <VersionBadge status="supported" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps with ItemGrid -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+      <Headline title="Next Steps" subtitle="Ready to install Mage-OS?" />
+
+      <ItemGrid
+        columns={2}
+        items={[
+          {
+            title: 'Quick Start Guide',
+            description: 'Install Mage-OS in 30 minutes with our streamlined guide.',
+            icon: 'tabler:rocket',
+            callToAction: {
+              text: 'Get Started',
+              href: '/get-started/quick-start',
+            },
+          },
+          {
+            title: 'Installation Guide',
+            description: 'Detailed installation instructions for all environments.',
+            icon: 'tabler:server',
+            callToAction: {
+              text: 'View Guide',
+              href: '/get-started/installation',
+            },
+          },
+          {
+            title: 'Migration Guide',
+            description: 'Switch from Magento Open Source to Mage-OS.',
+            icon: 'tabler:refresh',
+            callToAction: {
+              text: 'Start Migration',
+              href: '/get-started/migration-guide',
+            },
+          },
+          {
+            title: 'Releases',
+            description: 'Download the latest Mage-OS version.',
+            icon: 'tabler:download',
+            callToAction: {
+              text: 'View Releases',
+              href: '/product/releases',
+            },
+          },
+        ]}
+      />
+    </div>
+  </section>
+</Layout>
