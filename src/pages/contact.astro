@@ -190,12 +190,10 @@ const metadata = {
         subtitle: 'text-xl text-muted dark:text-slate-400',
       }}
     />
-    <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-      <form
-        action="https://submit-form.com/UTjOJJ3Ey"
-        method="POST"
-        aria-label="Contact form"
-      >
+    <div
+      class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full"
+    >
+      <form action="https://submit-form.com/UTjOJJ3Ey" method="POST" aria-label="Contact form">
         <!-- Honeypot field for spam protection -->
         <input type="checkbox" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
 
@@ -236,9 +234,7 @@ const metadata = {
         </div>
 
         <div class="mb-6">
-          <label for="subject" class="block text-sm font-medium">
-            Subject
-          </label>
+          <label for="subject" class="block text-sm font-medium"> Subject </label>
           <select
             id="subject"
             name="subject"
@@ -265,16 +261,19 @@ const metadata = {
             required
             aria-required="true"
             class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-            placeholder="How can we help?"
-          ></textarea>
+            placeholder="How can we help?"></textarea>
         </div>
 
         <!-- GDPR Notice -->
         <div class="mb-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
           <p>
             By submitting this form, you agree that we may process your information in accordance with our
-            <a href="/privacy-policy" class="text-primary hover:underline">Privacy Policy</a>.
-            We use <a href="https://formspark.io/legal/privacy-policy/" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">Formspark</a>
+            <a href="/privacy-policy" class="text-primary hover:underline">Privacy Policy</a>. We use <a
+              href="https://formspark.io/legal/privacy-policy/"
+              class="text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer">Formspark</a
+            >
             to process form submissions. Your data is stored in the EU.
           </p>
         </div>
@@ -285,13 +284,13 @@ const metadata = {
         </div>
 
         <div class="grid">
-          <Button variant="primary" type="submit">
-            Send Message
-          </Button>
+          <Button variant="primary" type="submit"> Send Message </Button>
         </div>
       </form>
     </div>
-    <p class="text-sm text-muted text-center mt-6">We typically respond to form submissions within 2-3 business days.</p>
+    <p class="text-sm text-muted text-center mt-6">
+      We typically respond to form submissions within 2-3 business days.
+    </p>
   </WidgetWrapper>
 
   <!-- Cloudflare Turnstile Script (loaded once for the page) -->
