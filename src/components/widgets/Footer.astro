@@ -22,9 +22,10 @@ export interface Props {
   socialLinks: Array<Link>;
   footNote?: string;
   theme?: string;
+  editUrl?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light', editUrl } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -84,26 +85,41 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         <Fragment set:html={footNote} />
       </div>
 
-      {
-        socialLinks?.length ? (
-          <ul class="flex -ml-2 rtl:ml-0 rtl:-mr-2">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
-                  <Fragment set:html={text} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
+      <div class="flex items-center gap-2">
+        {
+          editUrl && (
+            <a
+              href={editUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              aria-label="Edit this page on GitHub"
+            >
+              <Icon name="tabler:pencil" class="w-5 h-5" />
+            </a>
+          )
+        }
+        {
+          socialLinks?.length ? (
+            <ul class="flex -ml-2 rtl:ml-0 rtl:-mr-2">
+              {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+                <li>
+                  <a
+                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                    aria-label={ariaLabel}
+                    href={href}
+                  >
+                    {icon && <Icon name={icon} class="w-5 h-5" />}
+                    <Fragment set:html={text} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            ''
+          )
+        }
+      </div>
     </div>
     <div class="py-4 border-t border-gray-200 dark:border-slate-700">
       <p class="text-xs text-gray-500 dark:text-slate-500 text-center">

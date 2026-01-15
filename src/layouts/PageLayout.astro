@@ -4,6 +4,7 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
 import PartnersMarquee from '~/components/widgets/PartnersMarquee.astro';
+import { trimSlash } from '~/utils/permalinks';
 
 import { headerData, footerData } from '~/navigation';
 
@@ -11,9 +12,52 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  editFile?: string;
 }
 
-const { metadata } = Astro.props;
+const { metadata, editFile } = Astro.props;
+
+// Construct GitHub edit URL
+const GITHUB_REPO = 'https://github.com/mage-os-lab/mage-os.org/tree/main';
+
+function getEditUrl(): string | undefined {
+  // If explicit editFile is provided (for blog posts, etc.), use it
+  if (editFile) {
+    return `${GITHUB_REPO}/${editFile}`;
+  }
+
+  // For static pages, construct from URL pathname
+  const pathname = trimSlash(new URL(Astro.url).pathname);
+
+  // Skip edit link for dynamic routes (blog posts, etc.)
+  if (pathname.includes('[') || pathname.includes(']')) {
+    return undefined;
+  }
+
+  // Construct the file path
+  let filePath: string;
+  if (pathname === '' || pathname === '/') {
+    filePath = 'src/pages/index.astro';
+  } else {
+    // Check if this looks like a page in a directory (e.g., /about -> /about/index.astro)
+    // or a direct page (e.g., /faq -> /faq.astro)
+    // We'll default to directory/index.astro for section roots, direct .astro otherwise
+    const segments = pathname.split('/');
+    const lastSegment = segments[segments.length - 1];
+
+    // Common section roots that use index.astro
+    const sectionRoots = ['about', 'community', 'product', 'get-started', 'events'];
+    if (sectionRoots.includes(lastSegment) && segments.length === 1) {
+      filePath = `src/pages/${pathname}/index.astro`;
+    } else {
+      filePath = `src/pages/${pathname}.astro`;
+    }
+  }
+
+  return `${GITHUB_REPO}/${filePath}`;
+}
+
+const editUrl = getEditUrl();
 ---
 
 <Layout metadata={metadata}>
@@ -28,6 +72,6 @@ const { metadata } = Astro.props;
   </main>
   <PartnersMarquee />
   <slot name="footer">
-    <Footer {...footerData} />
+    <Footer {...footerData} editUrl={editUrl} />
   </slot>
 </Layout>

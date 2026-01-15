@@ -9,6 +9,7 @@ export interface Props {
     description?: string;
     tagline?: string;
     ogImage?: string;
+    editFile?: string;
   };
 }
 
@@ -21,7 +22,7 @@ const metadata: MetaData = {
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} editFile={frontmatter?.editFile}>
   <section class="px-4 py-16 sm:px-6 mx-auto lg:px-8 lg:py-20 max-w-4xl">
     {
       frontmatter.tagline && (

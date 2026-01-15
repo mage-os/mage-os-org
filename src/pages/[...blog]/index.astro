@@ -46,9 +46,12 @@ const metadata = merge(
   },
   { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
 ) as MetaData;
+
+// Construct edit file path for blog posts
+const editFile = `src/data/post/${post.id}.md`;
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} editFile={editFile}>
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
