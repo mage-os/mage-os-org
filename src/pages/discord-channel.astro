@@ -22,7 +22,7 @@ const discordInviteUrl = 'https://discord.gg/nvZDVA2NdC';
     </Fragment>
   </Hero>
 
-  <section class="px-4 py-8 sm:px-6 mx-auto lg:px-8 lg:py-12 max-w-4xl">
+  <section class="px-4 py-8 sm:px-6 mx-auto lg:px-8 lg:py-12 max-w-6xl">
     <div class="text-center mb-8">
       <p class="text-lg text-gray-600 dark:text-slate-400 mb-6">
         Before joining, please review our <a
@@ -51,9 +51,9 @@ const discordInviteUrl = 'https://discord.gg/nvZDVA2NdC';
         .discord-embed {
           width: 100%;
           /* keeps a nice shape on desktop while being fluid */
-          aspect-ratio: 16 / 10;
-          max-height: 80vh; /* never taller than viewport */
-          min-height: 420px; /* reasonable minimum */
+          aspect-ratio: 16 / 9;
+          max-height: 85vh; /* never taller than viewport */
+          min-height: 600px; /* reasonable minimum */
         }
 
         /* Make the widget/iframe fill the wrapper */
@@ -68,8 +68,8 @@ const discordInviteUrl = 'https://discord.gg/nvZDVA2NdC';
         @media (max-width: 768px) {
           .discord-embed {
             aspect-ratio: 9 / 16; /* taller on phones */
-            max-height: 75vh;
-            min-height: 380px;
+            max-height: 80vh;
+            min-height: 500px;
           }
         }
       </style>
