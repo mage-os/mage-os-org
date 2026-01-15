@@ -46,11 +46,14 @@ import { UI } from 'astrowind:config';
 
     // Add copy buttons to code blocks
     document.querySelectorAll('pre.astro-code').forEach((pre) => {
-      // Skip if already has a copy button
-      if (pre.querySelector('.code-copy-btn')) return;
+      // Skip if already wrapped
+      if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
 
-      // Make pre relative for button positioning
-      pre.style.position = 'relative';
+      // Create wrapper for fixed button positioning
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
 
       const button = document.createElement('button');
       button.className = 'code-copy-btn';
@@ -73,7 +76,7 @@ import { UI } from 'astrowind:config';
         }
       });
 
-      pre.appendChild(button);
+      wrapper.appendChild(button);
     });
 
     // Mobile dropdown toggle functionality
