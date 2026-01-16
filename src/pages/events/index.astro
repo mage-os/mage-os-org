@@ -30,13 +30,21 @@ const sortedEvents = allEvents.sort(
   (a, b) => new Date(b.data.eventDate).getTime() - new Date(a.data.eventDate).getTime()
 );
 
-// Upcoming events sorted chronologically (soonest first)
+// Upcoming events: hasn't ended yet (future or currently ongoing), sorted chronologically
 const upcomingEvents = sortedEvents
-  .filter((event) => new Date(event.data.eventDate) >= now)
+  .filter((event) => {
+    const endDate = event.data.endDate ? new Date(event.data.endDate) : new Date(event.data.eventDate);
+    return endDate >= now;
+  })
   .sort((a, b) => new Date(a.data.eventDate).getTime() - new Date(b.data.eventDate).getTime());
 
-// Past events sorted by most recent first, limited to 12
-const pastEvents = sortedEvents.filter((event) => new Date(event.data.eventDate) < now).slice(0, 12);
+// Past events: already ended, sorted by most recent first, limited to 12
+const pastEvents = sortedEvents
+  .filter((event) => {
+    const endDate = event.data.endDate ? new Date(event.data.endDate) : new Date(event.data.eventDate);
+    return endDate < now;
+  })
+  .slice(0, 12);
 
 // Get latest 4 blog posts from Events category
 const allPosts = await fetchPosts();
