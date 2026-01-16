@@ -131,9 +131,7 @@ const eventTypes = [
           </h2>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {upcomingEvents.map((event) => (
-              <article
-                class="group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700 overflow-hidden"
-              >
+              <article class="group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700 overflow-hidden">
                 {event.data.image && (
                   <div class="h-40 overflow-hidden">
                     <img
@@ -400,9 +398,7 @@ const eventTypes = [
           </h2>
           <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {pastEvents.map((event) => (
-              <article
-                class="bg-gray-50 dark:bg-slate-800/50 rounded-lg p-5 border border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 transition-colors"
-              >
+              <article class="bg-gray-50 dark:bg-slate-800/50 rounded-lg p-5 border border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 transition-colors">
                 <div class="flex items-center gap-2 text-xs text-gray-600 dark:text-slate-400 font-medium mb-2">
                   <Icon name="tabler:calendar" class="w-4 h-4" />
                   {formatDate(event.data.eventDate)}
