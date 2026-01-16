@@ -200,12 +200,12 @@ const contributionSteps = [
   <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-6xl bg-indigo-50 dark:bg-slate-800/50">
     <div class="mb-8">
       <div class="flex flex-wrap items-center gap-3 mb-3">
-        <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900 flex items-center justify-center">
-          <Icon name="tabler:code" class="w-6 h-6 text-primary-600 dark:text-primary-400" />
+        <div class="w-12 h-12 rounded-lg bg-icon flex items-center justify-center">
+          <Icon name="tabler:code" class="w-6 h-6 text-white" />
         </div>
         <div>
           <h2 class="text-2xl font-bold tracking-tight">Technical Working Group</h2>
-          <p class="text-sm text-primary-600 dark:text-primary-400">Core Development Team</p>
+          <p class="text-sm text-primary dark:text-orange-400">Core Development Team</p>
         </div>
       </div>
       <p class="text-muted mb-4 max-w-3xl">
@@ -216,7 +216,7 @@ const contributionSteps = [
         <a
           href="https://github.com/mage-os"
           target="_blank"
-          class="inline-flex items-center gap-2 text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
+          class="inline-flex items-center gap-2 text-sm font-medium text-primary dark:text-orange-400 hover:underline"
         >
           <Icon name="tabler:brand-github" class="w-4 h-4" />
           View on GitHub
@@ -239,17 +239,17 @@ const contributionSteps = [
             class:list={[
               'flex items-center gap-3 rounded-lg p-4 border transition-shadow hover:shadow-md',
               member.role === 'Lead'
-                ? 'bg-primary-50 dark:bg-primary-900/20 border-primary-200 dark:border-primary-800'
+                ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800'
                 : 'bg-white dark:bg-slate-900 border-gray-200 dark:border-gray-700',
             ]}
           >
             <div
               class:list={[
                 'w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0',
-                member.role === 'Lead' ? 'bg-primary-200 dark:bg-primary-800' : 'bg-primary-100 dark:bg-primary-900',
+                member.role === 'Lead' ? 'bg-orange-200 dark:bg-orange-800' : 'bg-orange-100 dark:bg-orange-900',
               ]}
             >
-              <span class="text-primary-600 dark:text-primary-400 font-bold">
+              <span class="text-orange-600 dark:text-orange-400 font-bold">
                 {member.name
                   .split(' ')
                   .map((n) => n[0])
@@ -260,7 +260,7 @@ const contributionSteps = [
               <div class="flex items-center gap-2">
                 <p class="font-medium text-gray-900 dark:text-white truncate">{member.name}</p>
                 {member.role === 'Lead' && (
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200">
                     Lead
                   </span>
                 )}
@@ -477,7 +477,7 @@ const contributionSteps = [
     class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-6xl bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900"
   >
     <div class="text-center mb-10">
-      <p class="text-sm font-semibold tracking-wide text-primary-600 dark:text-primary-400 uppercase mb-2">
+      <p class="text-sm font-semibold tracking-wide text-primary dark:text-orange-400 uppercase mb-2">
         Contribution Areas
       </p>
       <h2 class="text-3xl font-bold tracking-tight mb-4">Many Ways to Contribute</h2>
@@ -489,10 +489,8 @@ const contributionSteps = [
       <div
         class="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 text-center hover:shadow-lg transition-shadow"
       >
-        <div
-          class="w-14 h-14 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center mx-auto mb-4"
-        >
-          <Icon name="tabler:code" class="w-7 h-7 text-primary-600 dark:text-primary-400" />
+        <div class="w-14 h-14 rounded-full bg-icon flex items-center justify-center mx-auto mb-4">
+          <Icon name="tabler:code" class="w-7 h-7 text-white" />
         </div>
         <h3 class="font-bold text-lg mb-2">Code</h3>
         <p class="text-sm text-muted">Fix bugs, add features, and improve the core distribution</p>

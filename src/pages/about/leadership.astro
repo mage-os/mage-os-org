@@ -182,7 +182,7 @@ const governancePrinciples = [
         boardMembers
           .filter((m) => m.isOfficer)
           .map((member) => (
-            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 border-2 border-primary-200 dark:border-primary-800 hover:shadow-xl transition-shadow">
+            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 border-2 border-orange-200 dark:border-orange-800 hover:shadow-xl transition-shadow">
               <div class="flex items-start gap-4 mb-4">
                 {member.image ? (
                   <Image
@@ -190,11 +190,11 @@ const governancePrinciples = [
                     alt={member.name}
                     width={64}
                     height={64}
-                    class="w-16 h-16 rounded-full object-cover flex-shrink-0 ring-2 ring-primary-300 dark:ring-primary-700 shadow-md"
+                    class="w-16 h-16 rounded-full object-cover flex-shrink-0 ring-2 ring-orange-300 dark:ring-orange-700 shadow-md"
                   />
                 ) : (
-                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900 dark:to-primary-800 flex items-center justify-center flex-shrink-0 ring-2 ring-primary-300 dark:ring-primary-700 shadow-md">
-                    <span class="text-primary-700 dark:text-primary-300 font-bold text-xl">
+                  <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900 dark:to-orange-800 flex items-center justify-center flex-shrink-0 ring-2 ring-orange-300 dark:ring-orange-700 shadow-md">
+                    <span class="text-orange-700 dark:text-orange-300 font-bold text-xl">
                       {member.name
                         .split(' ')
                         .map((n) => n[0])
@@ -204,7 +204,7 @@ const governancePrinciples = [
                 )}
                 <div class="flex-1">
                   <h3 class="font-bold text-xl text-gray-900 dark:text-white">{member.name}</h3>
-                  <span class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full mt-1">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full mt-1">
                     <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fill-rule="evenodd"
@@ -217,8 +217,8 @@ const governancePrinciples = [
                 </div>
               </div>
               {roleDescriptions[member.role] && (
-                <div class="bg-primary-50 dark:bg-slate-800 rounded-lg p-3 mb-4">
-                  <p class="text-sm text-primary-700 dark:text-primary-300 flex items-start gap-2">
+                <div class="bg-orange-50 dark:bg-slate-800 rounded-lg p-3 mb-4">
+                  <p class="text-sm text-orange-700 dark:text-orange-300 flex items-start gap-2">
                     <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         stroke-linecap="round"
@@ -550,17 +550,13 @@ const governancePrinciples = [
     <div class="grid md:grid-cols-2 gap-6">
       <a
         href="/about/statutes"
-        class="group bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:border-primary-300 dark:hover:border-primary-700 transition-all"
+        class="group bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:border-orange-300 dark:hover:border-orange-700 transition-all"
       >
         <div class="flex items-center gap-4">
           <div
-            class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors"
+            class="w-12 h-12 bg-icon rounded-lg flex items-center justify-center group-hover:opacity-80 transition-opacity"
           >
-            <svg
-              class="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
               ><path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -570,15 +566,13 @@ const governancePrinciples = [
             >
           </div>
           <div>
-            <h4
-              class="font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
-            >
+            <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
               Association Statutes
             </h4>
             <p class="text-sm text-gray-600 dark:text-gray-400">Read our founding documents and governance rules</p>
           </div>
           <svg
-            class="w-5 h-5 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors ml-auto"
+            class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors ml-auto"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -588,17 +582,13 @@ const governancePrinciples = [
       </a>
       <a
         href="/blog"
-        class="group bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:border-primary-300 dark:hover:border-primary-700 transition-all"
+        class="group bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg hover:border-orange-300 dark:hover:border-orange-700 transition-all"
       >
         <div class="flex items-center gap-4">
           <div
-            class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors"
+            class="w-12 h-12 bg-icon rounded-lg flex items-center justify-center group-hover:opacity-80 transition-opacity"
           >
-            <svg
-              class="w-6 h-6 text-primary-600 dark:text-primary-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
               ><path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -608,9 +598,7 @@ const governancePrinciples = [
             >
           </div>
           <div>
-            <h4
-              class="font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
-            >
+            <h4 class="font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
               News and Updates
             </h4>
             <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -618,7 +606,7 @@ const governancePrinciples = [
             </p>
           </div>
           <svg
-            class="w-5 h-5 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors ml-auto"
+            class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors ml-auto"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
