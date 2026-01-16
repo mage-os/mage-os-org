@@ -116,10 +116,13 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       />
                     </button>
                   </div>
-                  {/* Desktop: hover-based dropdown */}
-                  <button
-                    type="button"
-                    class="hidden lg:flex hover:text-link dark:hover:text-white px-4 py-3 items-center whitespace-nowrap"
+                  {/* Desktop: hover-based dropdown with clickable parent link */}
+                  <a
+                    class:list={[
+                      'hidden lg:flex hover:text-link dark:hover:text-white px-4 py-3 items-center whitespace-nowrap',
+                      { 'aw-link-active': href === currentPath },
+                    ]}
+                    href={href}
                     aria-expanded="false"
                     aria-haspopup="menu"
                     data-aw-desktop-dropdown
@@ -130,7 +133,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                       class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 transition-transform duration-200"
                       aria-hidden="true"
                     />
-                  </button>
+                  </a>
                   <ul
                     class="dropdown-menu lg:backdrop-blur-md dark:lg:bg-slate-800 dark:lg:border dark:lg:border-slate-600 rounded lg:absolute pl-6 lg:pl-0 font-medium lg:bg-white/90 lg:min-w-[200px] drop-shadow-xl bg-gray-50/50 dark:bg-slate-800/50 hidden lg:hidden"
                     role="menu"

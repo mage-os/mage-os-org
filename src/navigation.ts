@@ -6,7 +6,6 @@ export const headerData = {
       text: 'Product',
       href: getPermalink('/product'),
       links: [
-        { text: 'Overview', href: getPermalink('/product') },
         { text: 'Features', href: getPermalink('/product/features') },
         { text: 'Roadmap', href: getPermalink('/product/roadmap') },
         { text: 'Releases', href: getPermalink('/product/releases') },
@@ -17,7 +16,6 @@ export const headerData = {
       text: 'Get Started',
       href: getPermalink('/get-started'),
       links: [
-        { text: 'Overview', href: getPermalink('/get-started') },
         { text: 'Quick Start', href: getPermalink('/get-started/quick-start') },
         { text: 'Installation', href: getPermalink('/get-started/installation') },
         { text: 'Migration Guide', href: getPermalink('/get-started/migration-guide') },
@@ -26,7 +24,7 @@ export const headerData = {
     },
     {
       text: 'Learn',
-      href: 'https://devdocs.mage-os.org',
+      href: getBlogPermalink(),
       links: [
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'FAQ', href: getPermalink('/faq') },
@@ -39,7 +37,6 @@ export const headerData = {
       text: 'Community',
       href: getPermalink('/community'),
       links: [
-        { text: 'Overview', href: getPermalink('/community') },
         { text: 'Get Involved', href: getPermalink('/community#get-involved') },
         { text: 'Partners', href: getPermalink('/community/partners') },
         { text: 'Events', href: getPermalink('/events') },
@@ -51,7 +48,6 @@ export const headerData = {
       text: 'About',
       href: getPermalink('/about'),
       links: [
-        { text: 'About Mage-OS', href: getPermalink('/about') },
         { text: 'Leadership', href: getPermalink('/about/leadership') },
         { text: 'Ambassadors', href: getPermalink('/about/brand-ambassadors') },
         { text: 'Contributors', href: getPermalink('/about/contributors') },
