@@ -244,11 +244,11 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
   --db-name=mage_os \\
   --db-user=mage_os_user \\
   --db-password=secure_password \\
-  --admin-firstname=Admin \\
-  --admin-lastname=User \\
-  --admin-email=admin@example.com \\
-  --admin-user=admin \\
-  --admin-password=Admin123! \\
+  --admin-firstname=<your-firstname> \\
+  --admin-lastname=<your-lastname> \\
+  --admin-email=<your-email@example.com> \\
+  --admin-user=<your-username> \\
+  --admin-password=<your-secure-password> \\
   --language=en_US \\
   --currency=USD \\
   --timezone=America/New_York \\
@@ -391,11 +391,11 @@ bin/magento cache:flush`}
       <ul>
         <li>
           <strong>Username:</strong>
-          <code>admin</code> (or your custom value)
+          The value you specified for <code>--admin-user</code>
         </li>
         <li>
           <strong>Password:</strong>
-          <code>Admin123!</code> (or your custom value)
+          The value you specified for <code>--admin-password</code>
         </li>
       </ul>
     </div>
