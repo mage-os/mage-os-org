@@ -31,12 +31,19 @@ This guide documents development patterns, components, and conventions for AI to
 | Tabbed interface | `TabbedContent` with data-tab divs |
 | Feature checklist | `ChecklistItem` components |
 | FAQ section | `AccordionFAQ` with items array |
+| Version badges | `VersionBadge` with status: recommended, supported, minimum, deprecated |
+| Timeline/steps | `Timeline` with items array |
 | Page hero | `PageHero` widget (variants: default, split, gradient) |
 | Full-screen hero | `Hero2` widget |
 | Feature grid | `Features` or `Features2` widgets |
 | Content + image | `Content` widget with isReversed option |
 | Statistics | `Stats` widget |
 | Call-to-action | `CallToAction` widget or `Button` component |
+| Latest blog posts | `BlogLatestPosts` widget |
+| Release posts grid | `ReleasePostsGrid` widget |
+| Newsletter signup | `Newsletter` widget |
+| Partner logos | `PartnersMarquee` widget (auto-scrolling) |
+| Announcement bar | `Announcement` widget (header bar with latest release) |
 
 ### Import Aliases
 
@@ -320,6 +327,64 @@ import Button from '~/components/ui/Button.astro';
 
 ---
 
+### VersionBadge
+
+**Purpose**: Status badges for version/software compatibility display.
+
+**Location**: `src/components/ui/VersionBadge.astro`
+
+**Props**:
+- `status`: `'recommended'` | `'supported'` | `'minimum'` | `'deprecated'` (required)
+- `text`: Optional override text (defaults to status label)
+- `class`: Additional CSS classes
+
+**Usage**:
+```astro
+import VersionBadge from '~/components/ui/VersionBadge.astro';
+
+<VersionBadge status="recommended" />
+<VersionBadge status="supported" text="8.3" />
+<VersionBadge status="minimum" />
+<VersionBadge status="deprecated" text="PHP 8.1" />
+```
+
+**Status Styling**:
+| Status | Color | Use Case |
+|--------|-------|----------|
+| recommended | Green | Latest/preferred versions |
+| supported | Blue | Fully supported versions |
+| minimum | Gray | Minimum required versions |
+| deprecated | Red (strikethrough) | Versions being phased out |
+
+---
+
+### Timeline
+
+**Purpose**: Vertical timeline for displaying process steps or historical events.
+
+**Location**: `src/components/ui/Timeline.astro`
+
+**Props**:
+- `items`: Array of `{ title, description, icon, classes }`
+- `defaultIcon`: Fallback icon for items without icons
+- `classes`: Object with container, panel, title, description, icon class overrides
+
+**Usage**:
+```astro
+import Timeline from '~/components/ui/Timeline.astro';
+
+<Timeline
+  items={[
+    { title: 'Step 1', description: 'First step details', icon: 'tabler:circle-1' },
+    { title: 'Step 2', description: 'Second step details', icon: 'tabler:circle-2' },
+    { title: 'Step 3', description: 'Final step details', icon: 'tabler:circle-3' },
+  ]}
+  defaultIcon="tabler:point"
+/>
+```
+
+---
+
 ## Widget Components
 
 Widgets are full-width page sections. Use them to compose pages.
@@ -409,6 +474,123 @@ import PageHero from '~/components/widgets/PageHero.astro';
 
 **Props**:
 - `stats`: Array of `{ amount, title, icon }`
+
+---
+
+### Announcement
+
+**Purpose**: Header announcement bar displaying latest release with GitHub stars.
+
+**Location**: `src/components/widgets/Announcement.astro`
+
+**Props**: None (automatically fetches latest release post)
+
+**Usage**:
+```astro
+import Announcement from '~/components/widgets/Announcement.astro';
+
+<Announcement />
+```
+
+**Note**: Displays only on medium screens and up (hidden on mobile).
+
+---
+
+### BlogLatestPosts
+
+**Purpose**: Grid of latest blog posts with optional "View all" link.
+
+**Location**: `src/components/widgets/BlogLatestPosts.astro`
+
+**Props**:
+- `title`: Section heading
+- `linkText`: Link text (default: "View all posts")
+- `linkUrl`: Link URL (default: blog permalink)
+- `information`: Additional description text
+- `count`: Number of posts to display (default: 4)
+
+**Usage**:
+```astro
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+<BlogLatestPosts
+  title="Latest News"
+  count={3}
+  linkText="Read more posts"
+/>
+```
+
+---
+
+### ReleasePostsGrid
+
+**Purpose**: Grid specifically for release-category blog posts.
+
+**Location**: `src/components/widgets/ReleasePostsGrid.astro`
+
+**Props**:
+- `posts`: Array of Post objects (required)
+- `title`: Section heading (default: "Recent Releases")
+- `count`: Number of posts to display (default: 3)
+- `linkText`: Link text (default: "View all releases")
+- `linkUrl`: Link URL (default: "/category/releases")
+
+**Usage**:
+```astro
+import ReleasePostsGrid from '~/components/widgets/ReleasePostsGrid.astro';
+
+<ReleasePostsGrid
+  posts={releasePosts}
+  title="Distribution Releases"
+  count={4}
+/>
+```
+
+---
+
+### Newsletter
+
+**Purpose**: MailerLite newsletter signup form.
+
+**Location**: `src/components/widgets/Newsletter.astro`
+
+**Props**:
+- `title`: Section heading
+- `subtitle`: Supporting text
+- `tagline`: Small label above title
+- Standard widget props (id, isDark, classes, bg)
+
+**Usage**:
+```astro
+import Newsletter from '~/components/widgets/Newsletter.astro';
+
+<Newsletter
+  tagline="Stay Updated"
+  title="Subscribe to Our Newsletter"
+  subtitle="Get the latest Mage-OS news delivered to your inbox."
+/>
+```
+
+---
+
+### PartnersMarquee
+
+**Purpose**: Auto-scrolling marquee of partner logos from Open Collective.
+
+**Location**: `src/components/widgets/PartnersMarquee.astro`
+
+**Props**:
+- `speed`: Animation duration in seconds (default: 40)
+- `pauseOnHover`: Pause animation on hover (default: true)
+
+**Usage**:
+```astro
+import PartnersMarquee from '~/components/widgets/PartnersMarquee.astro';
+
+<PartnersMarquee speed={30} pauseOnHover={true} />
+```
+
+**Accessibility**: Respects `prefers-reduced-motion` by displaying as a static wrapped grid.
 
 ---
 

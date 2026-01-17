@@ -26,7 +26,7 @@ The official Mage-OS website built with Astro, featuring a product-focused desig
 | Documentation | `/documentation` |
 | Community | `/community` |
 | Events | `/events` |
-| About | `/about`, `/about/leadership`, `/about/contributors`, `/about/statutes` |
+| About | `/about`, `/about/leadership`, `/about/ambassadors`, `/about/contributors`, `/about/statutes` |
 | FAQ | `/faq` |
 | Legal | `/privacy`, `/terms`, `/code-of-conduct`, `/imprint` |
 | Blog | `/blog` |
@@ -45,7 +45,7 @@ The official Mage-OS website built with Astro, featuring a product-focused desig
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18.x or higher recommended)
+- [Node.js](https://nodejs.org/) (v18.17.1+, v20.3.0+, or v21.0.0+)
 - npm or yarn package manager
 
 ### Installation
@@ -138,18 +138,18 @@ The site includes Sveltia CMS for non-technical content editing at `/admin`.
 **New Blog Post:**
 ```bash
 # Create a new post file
-touch src/data/post/2025-01-15-my-new-post.md
+touch src/data/post/2026-01-15-my-new-post.md
 ```
 
 ```markdown
 ---
 title: My New Post
-publishDate: 2025-01-15
+publishDate: 2026-01-15
 author: Your Name
 category: news
 tags:
   - announcement
-image: ~/assets/images/blog/2025/my-image.jpg
+image: ~/assets/images/blog/2026/my-image.jpg
 excerpt: A brief description of the post.
 ---
 
@@ -160,9 +160,9 @@ Your content here...
 ```markdown
 ---
 title: Mage-OS Community Meetup
-publishDate: 2025-01-20
-startDate: 2025-02-15T18:00:00
-endDate: 2025-02-15T21:00:00
+publishDate: 2026-01-20
+startDate: 2026-02-15T18:00:00
+endDate: 2026-02-15T21:00:00
 location: Online
 image: ~/assets/images/events/meetup.jpg
 excerpt: Join us for our monthly community meetup.

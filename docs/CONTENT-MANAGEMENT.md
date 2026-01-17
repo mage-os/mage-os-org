@@ -58,9 +58,9 @@ YYYY-MM-DD-slug-title.md
 ```
 
 **Examples:**
-- `2025-06-18-mage-os-1-2-0.md`
-- `2025-07-01-mage-os-june-update.md`
-- `2024-11-06-release-mage-os-distribution-1-0-5.md`
+- `2026-01-18-mage-os-1-3-0.md`
+- `2026-02-01-mage-os-january-update.md`
+- `2025-11-06-release-mage-os-distribution-1-2-0.md`
 
 ### Frontmatter Schema
 
@@ -152,8 +152,8 @@ YYYY-MM-DD-event-slug.md
 ```
 
 **Examples:**
-- `2025-08-26-meet-magento-poland-2025.md`
-- `2025-04-14-meet-magento-new-york-2025.md`
+- `2026-08-26-meet-magento-poland-2026.md`
+- `2026-04-14-meet-magento-new-york-2026.md`
 
 ### Frontmatter Schema
 
@@ -181,8 +181,8 @@ draft: false                          # Optional
 
 ```yaml
 ---
-title: 'Meet Magento Netherlands 2025'
-date: '2025-04-14T00:00:00.000Z'
+title: 'Meet Magento Netherlands 2026'
+date: '2026-04-14T00:00:00.000Z'
 location: 'Amsterdam, Netherlands'
 venue: 'RAI Amsterdam'
 url: 'https://meetmagento.nl'
