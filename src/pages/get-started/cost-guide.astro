@@ -1,0 +1,366 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import Callout from '~/components/ui/Callout.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+
+const metadata = {
+  title: 'Cost of Ownership Guide | Mage-OS Total Cost Analysis',
+  description:
+    'Understand the real costs of running a Mage-OS store. Complete guide to hosting, development, maintenance, and total cost of ownership for e-commerce.',
+  openGraph: {
+    images: [{ url: '/og/page/cost-guide.png', width: 1200, height: 630 }],
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Get Started" variant="default">
+    <Fragment slot="title">Cost of Ownership Guide</Fragment>
+    <Fragment slot="subtitle">
+      Mage-OS is free to download, but running a successful online store involves real costs. This guide helps you plan
+      and budget for a Mage-OS implementation.
+    </Fragment>
+  </PageHero>
+
+  <!-- The Mage-OS Advantage -->
+  <Features
+    id="advantage"
+    tagline="The Basics"
+    title="The Mage-OS Cost Advantage"
+    subtitle="What you don't pay for—and what you do"
+    columns={3}
+    items={[
+      {
+        title: '$0 Licensing',
+        description:
+          'Mage-OS is free and open source forever. No per-seat fees, no GMV percentage, no licensing costs at any scale.',
+        icon: 'tabler:gift',
+      },
+      {
+        title: 'You Control Costs',
+        description:
+          'Choose your own hosting, developers, and service providers. Scale costs up or down based on your needs.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: 'No Vendor Lock-in',
+        description:
+          'Own your code and data. Switch hosting providers or agencies without platform restrictions.',
+        icon: 'tabler:lock-open',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <!-- Cost Components -->
+  <Steps
+    id="cost-breakdown"
+    title="What You'll Pay For"
+    subtitle="The main cost categories for running a Mage-OS store"
+    tagline="Cost Breakdown"
+    items={[
+      {
+        title: '<span class="font-medium">Hosting Infrastructure</span>',
+        description:
+          'Web servers, databases, caching, CDN, SSL certificates. Range: $50-$500+/month for small-medium stores, $500-$5,000+/month for high-traffic enterprise.',
+        icon: 'tabler:server',
+      },
+      {
+        title: '<span class="font-medium">Initial Development</span>',
+        description:
+          'Design, theme development, custom functionality, integrations, data migration. Range: $10,000-$100,000+ depending on complexity.',
+        icon: 'tabler:hammer',
+      },
+      {
+        title: '<span class="font-medium">Ongoing Maintenance</span>',
+        description:
+          'Security patches, core updates, bug fixes, performance monitoring, backups. Range: $500-$3,000+/month.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: '<span class="font-medium">Extensions & Integrations</span>',
+        description:
+          'Third-party modules, payment gateways, shipping providers, ERP connections. Range: $0-$10,000+ depending on needs.',
+        icon: 'tabler:puzzle',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2011&q=80',
+      alt: 'Financial planning and budgeting',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-orange-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps>
+
+  <!-- Budget Scenarios -->
+  <Features2
+    title="Typical Budget Ranges"
+    subtitle="What stores at different scales typically invest"
+    tagline="Real-World Examples"
+    columns={3}
+    items={[
+      {
+        title: 'Small Store',
+        description: 'Setup: $10K-$25K | Monthly: $500-$1,000 | First Year Total: $16K-$37K',
+        icon: 'tabler:shopping-bag',
+      },
+      {
+        title: 'Mid-Market',
+        description: 'Setup: $25K-$75K | Monthly: $1,000-$3,000 | First Year Total: $37K-$111K',
+        icon: 'tabler:building-store',
+      },
+      {
+        title: 'Enterprise',
+        description: 'Setup: $75K-$250K+ | Monthly: $3,000-$10,000+ | First Year Total: $111K-$370K+',
+        icon: 'tabler:building',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Comparison Table -->
+  <section class="px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-base text-secondary dark:text-indigo-200 font-bold tracking-wide uppercase mb-2">Comparison</p>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 dark:text-white">
+          How Does Mage-OS Compare on Cost?
+        </h2>
+        <p class="text-xl text-muted max-w-3xl mx-auto">
+          A simplified comparison of typical costs across different e-commerce platforms
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b-2 border-gray-200 dark:border-gray-700">
+              <th class="text-left py-4 pr-4 font-bold text-gray-900 dark:text-white">Cost Factor</th>
+              <th class="text-center py-4 px-4 font-bold text-primary">Mage-OS</th>
+              <th class="text-center py-4 px-4 font-bold text-gray-900 dark:text-white">Shopify Plus</th>
+              <th class="text-center py-4 px-4 font-bold text-gray-900 dark:text-white">Adobe Commerce</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Annual License</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400 font-semibold">$0</td>
+              <td class="py-4 px-4 text-center">$24,000-$200,000+</td>
+              <td class="py-4 px-4 text-center">$22,000-$125,000+</td>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Transaction Fees</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400">None (you choose payment provider)</td>
+              <td class="py-4 px-4 text-center">0.15-0.30%</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400">None</td>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Hosting</td>
+              <td class="py-4 px-4 text-center">$600-$60,000+/yr</td>
+              <td class="py-4 px-4 text-center">Included</td>
+              <td class="py-4 px-4 text-center">$6,000-$120,000+/yr</td>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Dev Cost (similar build)</td>
+              <td class="py-4 px-4 text-center">$25,000-$150,000</td>
+              <td class="py-4 px-4 text-center">$15,000-$100,000</td>
+              <td class="py-4 px-4 text-center">$30,000-$200,000</td>
+            </tr>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Customization</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400">Unlimited</td>
+              <td class="py-4 px-4 text-center">Limited by platform</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="py-4 pr-4 font-medium text-gray-900 dark:text-white">Scale Without License Increase</td>
+              <td class="py-4 px-4 text-center text-green-600 dark:text-green-400">Yes</td>
+              <td class="py-4 px-4 text-center">No (GMV-based)</td>
+              <td class="py-4 px-4 text-center">No (GMV-based)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <Callout type="warning" title="Important Note" class="mt-8">
+        <p>
+          These are approximate ranges based on typical implementations. Your actual costs depend on store complexity,
+          traffic volume, customization needs, and partner selection. Get quotes from multiple providers for accurate
+          estimates.
+        </p>
+      </Callout>
+    </div>
+  </section>
+
+  <!-- Cost Saving Tips -->
+  <Content
+    isReversed
+    tagline="Optimization"
+    title="Ways to Reduce Costs"
+    items={[
+      {
+        title: 'Start with community extensions',
+        description:
+          'Thousands of free and low-cost extensions exist. Only invest in premium when free options don't meet your needs.',
+      },
+      {
+        title: 'Right-size your hosting',
+        description:
+          'Start smaller and scale up as traffic grows. Don't pay for enterprise hosting before you need it.',
+      },
+      {
+        title: 'Leverage community support',
+        description:
+          'Discord, forums, and Stack Exchange can solve many issues for free before you call an agency.',
+      },
+      {
+        title: 'Invest in training',
+        description:
+          'Training your team to handle routine tasks reduces ongoing agency costs significantly.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Strategic planning and cost optimization',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Spend Smart, Not Big</h3>
+      The most successful Mage-OS stores invest strategically in what matters for their business, not in features they
+      don't need yet.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-slate-50 dark:bg-slate-800/50"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Hidden Costs -->
+  <section class="px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">Hidden Costs to Plan For</h2>
+      <p class="text-muted text-center mb-8">Don't get caught off guard—budget for these often-overlooked expenses</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700">
+          <h3 class="font-bold text-gray-900 dark:text-white mb-4">One-Time Costs</h3>
+          <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Data migration:</strong> Moving products, customers, and orders from your current platform</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Training:</strong> Teaching your team to use the new admin panel and workflows</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>SEO transition:</strong> Redirect mapping and search ranking recovery period</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Integration setup:</strong> Connecting ERP, CRM, email marketing, and other systems</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700">
+          <h3 class="font-bold text-gray-900 dark:text-white mb-4">Recurring Costs</h3>
+          <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>SSL certificates:</strong> If not included with hosting ($100-$500/year)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Email services:</strong> Transactional email providers ($20-$500/month)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Extension renewals:</strong> Annual support/update fees for premium modules</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-primary mt-1">•</span>
+              <span><strong>Staging environment:</strong> Test server for updates before going live</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When Mage-OS Saves Money -->
+  <Callout type="tip" title="When Mage-OS Saves the Most Money" class="mx-auto max-w-4xl px-4 mb-8">
+    <p class="mb-4">Mage-OS cost advantages are most significant when:</p>
+    <ul class="list-disc pl-6 space-y-1">
+      <li><strong>High GMV:</strong> No percentage fees means massive savings at scale</li>
+      <li><strong>Long-term:</strong> Zero licensing adds up year after year</li>
+      <li><strong>Heavy customization:</strong> No platform limits to work around</li>
+      <li><strong>Multi-store:</strong> One codebase, no per-store fees</li>
+    </ul>
+  </Callout>
+
+  <!-- Next Steps -->
+  <section class="px-4 py-16 sm:px-6 lg:px-8 bg-indigo-50 dark:bg-slate-800/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 dark:text-white">Ready to Plan Your Project?</h2>
+        <p class="text-xl text-muted max-w-3xl mx-auto">Take the next step toward your Mage-OS implementation</p>
+      </div>
+
+      <ItemGrid
+        columns={3}
+        items={[
+          {
+            title: 'Get Quotes',
+            description: 'Connect with agencies for detailed project estimates tailored to your requirements',
+            icon: 'tabler:receipt',
+            callToAction: {
+              text: 'Find Partners',
+              href: '/community/partners',
+            },
+          },
+          {
+            title: 'Check Requirements',
+            description: 'Review system requirements to plan your hosting infrastructure',
+            icon: 'tabler:checklist',
+            callToAction: {
+              text: 'System Requirements',
+              href: '/get-started/system-requirements',
+            },
+          },
+          {
+            title: 'Try It First',
+            description: 'Install Mage-OS locally to evaluate before committing to a full project',
+            icon: 'tabler:rocket',
+            callToAction: {
+              text: 'Quick Start',
+              href: '/get-started/quick-start',
+            },
+          },
+        ]}
+        classes={{
+          container: 'gap-6',
+          panel:
+            'bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-shadow',
+          title: 'text-lg font-bold',
+          description: 'text-sm text-muted',
+          icon: 'text-primary',
+        }}
+      />
+    </div>
+  </section>
+</Layout>
