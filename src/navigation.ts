@@ -20,6 +20,7 @@ export const headerData = {
         { text: 'Installation', href: getPermalink('/get-started/installation') },
         { text: 'Migration Guide', href: getPermalink('/get-started/migration-guide') },
         { text: 'System Requirements', href: getPermalink('/get-started/system-requirements') },
+        { text: 'Cost Guide', href: getPermalink('/get-started/cost-guide') },
       ],
     },
     {
@@ -77,7 +78,7 @@ export const footerData = {
         { text: 'Quick Start', href: getPermalink('/get-started/quick-start') },
         { text: 'Installation', href: getPermalink('/get-started/installation') },
         { text: 'Migration Guide', href: getPermalink('/get-started/migration-guide') },
-        { text: 'Documentation', href: 'https://devdocs.mage-os.org' },
+        { text: 'Cost Guide', href: getPermalink('/get-started/cost-guide') },
       ],
     },
     {

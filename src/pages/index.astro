@@ -244,7 +244,7 @@ const metadata = {
     title="Need Expert Help?"
     subtitle="Our network of certified partners provides implementation, consulting, and support services for businesses of all sizes"
     tagline="Find a Partner"
-    columns={3}
+    columns={4}
     items={[
       {
         title: 'Implementation',
@@ -260,12 +260,21 @@ const metadata = {
         title: 'Ongoing Support',
         description: 'Maintenance, security updates, and troubleshooting from dedicated support teams.',
         icon: 'tabler:headset',
+      },
+      {
+        title: 'Cost Planning',
+        description: 'Understand the real costs of hosting, development, and maintenance before you start.',
+        icon: 'tabler:calculator',
         callToAction: {
-          text: 'Browse Partners',
-          href: '/community/partners',
+          text: 'View Cost Guide',
+          href: '/get-started/cost-guide',
         },
       },
     ]}
+    callToAction={{
+      text: 'Browse Partners',
+      href: '/community/partners',
+    }}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-slate-50 dark:bg-slate-800/50"></div>

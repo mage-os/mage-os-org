@@ -61,7 +61,7 @@ const metadata = {
     tagline="Choose Your Path"
     title="How Would You Like to Start?"
     subtitle="Select the guide that best matches your situation. Each path is designed to get you to a working Mage-OS installation as quickly as possible."
-    columns={4}
+    columns={3}
     items={[
       {
         title: 'Quick Start',
@@ -81,6 +81,16 @@ const metadata = {
         callToAction: {
           text: 'Migration Guide',
           href: '/get-started/migration-guide',
+        },
+      },
+      {
+        title: 'Cost of Ownership',
+        description:
+          'Understand the real costs of running a Mage-OS store. Covers hosting, development, maintenance, and total cost of ownership with realistic budget ranges.',
+        icon: 'tabler:calculator',
+        callToAction: {
+          text: 'View Cost Guide',
+          href: '/get-started/cost-guide',
         },
       },
       {
