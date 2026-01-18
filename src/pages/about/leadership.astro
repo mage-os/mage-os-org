@@ -4,6 +4,7 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 
 // Team member photos
 import vinaiKopp from '~/assets/images/team/vinai-kopp.png';
@@ -23,6 +24,23 @@ const metadata = {
     'Meet the Mage-OS Board of Directors and Business Control Committee members who guide our community-driven open source project through transparent, democratic governance.',
 };
 
+// Type for social links
+interface SocialLinks {
+  linkedin?: string;
+  twitter?: string;
+  github?: string;
+}
+
+interface BoardMember {
+  name: string;
+  role: string;
+  isOfficer: boolean;
+  bio: string;
+  country: string;
+  image: ImageMetadata;
+  socialLinks?: SocialLinks;
+}
+
 // Role descriptions for officer positions
 const roleDescriptions: Record<string, string> = {
   President: 'Chairs board meetings, represents the Association externally, and provides strategic leadership.',
@@ -31,7 +49,7 @@ const roleDescriptions: Record<string, string> = {
   Actuary: 'Manages risk assessment, long-term planning, and organizational sustainability.',
 };
 
-const boardMembers = [
+const boardMembers: BoardMember[] = [
   {
     name: 'Vinai Kopp',
     role: 'President',
@@ -39,6 +57,11 @@ const boardMembers = [
     bio: 'Vinai has been a developer for nearly 25 years. He delivered Magento training for over a decade through the official Magento U program and was awarded Magento Master three times. Today he serves as Partner, CTO, and CIO at Hyva. Known as a calm and kind leader who achieves incredible things through his following in the Magento ecosystem.',
     country: 'Germany',
     image: vinaiKopp,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/vinaikopp/',
+      twitter: 'https://x.com/VinaiKopp',
+      github: 'https://github.com/Vinai',
+    },
   },
   {
     name: 'David Lambauer',
@@ -47,6 +70,11 @@ const boardMembers = [
     bio: 'Founder and CEO of run_as_root GmbH, specializing in high-quality Magento 2, Hyva, and Shopware development. Adobe Certified Master Architect, long-time open-source contributor, creator of the Mage-OS DevDocs, and frequent speaker at industry events. Brings strategic focus on quality, community collaboration, and long-term sustainability.',
     country: 'Germany',
     image: davidLambauer,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/davidlambauer/',
+      twitter: 'https://x.com/DavidLambauer',
+      github: 'https://github.com/davidlambauer',
+    },
   },
   {
     name: 'Cezary Kożon',
@@ -55,6 +83,9 @@ const boardMembers = [
     bio: 'With over ten years of eCommerce experience, Cezary is head of Spyrosoft eCommerce. He helps businesses translate their strategic vision into eCommerce operations, viewing eCommerce as a fundamental component impacting everything from brand perception to logistics. His career goals: inspire businesses to innovate and help his team work uninterrupted.',
     country: 'Poland',
     image: cezaryKozon,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/cezary-kozon/',
+    },
   },
   {
     name: 'John Prendergast',
@@ -63,6 +94,9 @@ const boardMembers = [
     bio: "Over 30 years of experience leading web technology businesses, delivering projects for global brands including Apple, Calvin Klein, HP, and Lidl. Co-founder and director of Aonach.com, a specialist Magento Open Source agency based in Ireland. A long-time advocate for open source power and community strength, committed to the Magento ecosystem's growth and sustainability.",
     country: 'Ireland',
     image: johnPrendergast,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/johnprendergast/',
+    },
   },
   {
     name: 'Ryan Hoerr',
@@ -71,6 +105,10 @@ const boardMembers = [
     bio: "Software developer at ParadoxLabs since 2008, working extensively on payment services, subscriptions, and security. His Magento extensions process billions of dollars in transactions each year. Previously community manager for one of the internet's largest forums under Curse LLC (acquired by Amazon). Holds a degree in Electrical Engineering.",
     country: 'USA',
     image: ryanHoerr,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/ryanhoerr/',
+      github: 'https://github.com/rhoerr',
+    },
   },
   {
     name: 'Ruggero Landolina',
@@ -79,6 +117,9 @@ const boardMembers = [
     bio: '20 years of experience in e-commerce development, specializing in scalable and high-performance solutions on Magento 2, Laravel, and WordPress. As an e-commerce consultant, provides targeted strategies to optimize online presence and increase revenue. Actively contributes to the Mage-OS community, supporting innovation in open-source e-commerce.',
     country: 'Italy',
     image: ruggeroLandolina,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/ruggerolandolina/',
+    },
   },
   {
     name: 'Michiel Gerritsen',
@@ -87,6 +128,11 @@ const boardMembers = [
     bio: 'Founder of Control Alt Delete and MageDispatch.com. Over a decade of Magento experience, including projects for Mollie and PostNL, specializing in checkout flows and automated testing. Active open source contributor and frequent speaker in the Magento community.',
     country: 'Netherlands',
     image: michielGerritsen,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/michielgerritsen/',
+      twitter: 'https://x.com/MichielGerritsen',
+      github: 'https://github.com/michielgerritsen',
+    },
   },
   {
     name: 'Maciej Kalkowski',
@@ -95,6 +141,9 @@ const boardMembers = [
     bio: 'CEO and founder of Centuria (managed service provider), active in the IT industry for 20 years. Holds a PhD in computer science and is an assistant professor at AMU in Poznan. Speaker at many retail and Meet Magento conferences worldwide. Extensive experience designing IT infrastructure for large and medium-sized e-commerce, evangelizing business continuity and growth readiness.',
     country: 'Poland',
     image: maciejKalkowski,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/mkalkowski/',
+    },
   },
 ];
 
@@ -232,25 +281,64 @@ const governancePrinciples = [
                 </div>
               )}
               <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{member.bio}</p>
-              <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </>
-                </svg>
-                {member.country}
-              </p>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </>
+                  </svg>
+                  {member.country}
+                </p>
+                {member.socialLinks && (
+                  <div class="flex items-center gap-3">
+                    {member.socialLinks.linkedin && (
+                      <a
+                        href={member.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-[#0A66C2] dark:hover:text-[#0A66C2] transition-colors"
+                        title={`${member.name} on LinkedIn`}
+                      >
+                        <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
+                      </a>
+                    )}
+                    {member.socialLinks.twitter && (
+                      <a
+                        href={member.socialLinks.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                        title={`${member.name} on X`}
+                      >
+                        <Icon name="tabler:brand-x" class="w-5 h-5" />
+                      </a>
+                    )}
+                    {member.socialLinks.github && (
+                      <a
+                        href={member.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                        title={`${member.name} on GitHub`}
+                      >
+                        <Icon name="tabler:brand-github" class="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           ))
       }
@@ -315,7 +403,44 @@ const governancePrinciples = [
                     </p>
                   </div>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">{member.bio}</p>
+                {member.socialLinks && (
+                  <div class="flex items-center gap-3 pt-2 border-t border-gray-100 dark:border-gray-700">
+                    {member.socialLinks.linkedin && (
+                      <a
+                        href={member.socialLinks.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-[#0A66C2] dark:hover:text-[#0A66C2] transition-colors"
+                        title={`${member.name} on LinkedIn`}
+                      >
+                        <Icon name="tabler:brand-linkedin" class="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.socialLinks.twitter && (
+                      <a
+                        href={member.socialLinks.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                        title={`${member.name} on X`}
+                      >
+                        <Icon name="tabler:brand-x" class="w-4 h-4" />
+                      </a>
+                    )}
+                    {member.socialLinks.github && (
+                      <a
+                        href={member.socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                        title={`${member.name} on GitHub`}
+                      >
+                        <Icon name="tabler:brand-github" class="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             ))
         }
