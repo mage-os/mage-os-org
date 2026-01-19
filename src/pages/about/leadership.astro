@@ -28,7 +28,6 @@ const metadata = {
 // Type for social links
 interface SocialLinks {
   linkedin?: string;
-  twitter?: string;
   github?: string;
 }
 
@@ -59,8 +58,7 @@ const boardMembers: BoardMember[] = [
     country: 'Germany',
     image: vinaiKopp,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/vinaikopp/',
-      twitter: 'https://x.com/VinaiKopp',
+      linkedin: 'https://www.linkedin.com/in/vinai/',
       github: 'https://github.com/Vinai',
     },
   },
@@ -72,9 +70,8 @@ const boardMembers: BoardMember[] = [
     country: 'Germany',
     image: davidLambauer,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/davidlambauer/',
-      twitter: 'https://x.com/DavidLambauer',
-      github: 'https://github.com/davidlambauer',
+      linkedin: 'https://www.linkedin.com/in/david-lambauer/',
+      github: 'https://github.com/DavidLambauer',
     },
   },
   {
@@ -85,7 +82,7 @@ const boardMembers: BoardMember[] = [
     country: 'Poland',
     image: cezaryKozon,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/cezary-kozon/',
+      linkedin: 'https://www.linkedin.com/in/cezarykozon/',
     },
   },
   {
@@ -96,7 +93,7 @@ const boardMembers: BoardMember[] = [
     country: 'Ireland',
     image: johnPrendergast,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/johnprendergast/',
+      linkedin: 'https://www.linkedin.com/in/prendergastjohn/',
     },
   },
   {
@@ -107,7 +104,7 @@ const boardMembers: BoardMember[] = [
     country: 'USA',
     image: ryanHoerr,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/ryanhoerr/',
+      linkedin: 'https://www.linkedin.com/in/rhoerr/',
       github: 'https://github.com/rhoerr',
     },
   },
@@ -131,7 +128,6 @@ const boardMembers: BoardMember[] = [
     image: michielGerritsen,
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/michielgerritsen/',
-      twitter: 'https://x.com/MichielGerritsen',
       github: 'https://github.com/michielgerritsen',
     },
   },
@@ -143,7 +139,7 @@ const boardMembers: BoardMember[] = [
     country: 'Poland',
     image: maciejKalkowski,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/mkalkowski/',
+      linkedin: 'https://www.linkedin.com/in/kalkos/',
     },
   },
 ];
@@ -155,6 +151,10 @@ const bccMembers = [
     bio: 'Working with Magento since 2010 as a freelancer. Instructor for Adobe (formerly Magento U) since 2017, teaching the fundamentals of Magento 2 development.',
     country: 'USA',
     image: lauraFolco,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/laurafolco/',
+      github: 'https://github.com/lfolco',
+    },
   },
   {
     name: 'Francis Michael Gallagher',
@@ -162,6 +162,10 @@ const bccMembers = [
     bio: "One of Akoova's leading Ecommerce Architects, in the Magento community since 2012. Strong passion for helping others and recognizing positive impacts.",
     country: 'UK',
     image: francisGallagher,
+    socialLinks: {
+      linkedin: 'https://www.linkedin.com/in/francismgallagher/',
+      github: 'https://github.com/furan917',
+    },
   },
 ];
 
@@ -315,17 +319,6 @@ const governancePrinciples = [
                         <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
                       </a>
                     )}
-                    {member.socialLinks.twitter && (
-                      <a
-                        href={member.socialLinks.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-                        title={`${member.name} on X`}
-                      >
-                        <Icon name="tabler:brand-x" class="w-5 h-5" />
-                      </a>
-                    )}
                     {member.socialLinks.github && (
                       <a
                         href={member.socialLinks.github}
@@ -416,17 +409,6 @@ const governancePrinciples = [
                         title={`${member.name} on LinkedIn`}
                       >
                         <Icon name="tabler:brand-linkedin" class="w-4 h-4" />
-                      </a>
-                    )}
-                    {member.socialLinks.twitter && (
-                      <a
-                        href={member.socialLinks.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
-                        title={`${member.name} on X`}
-                      >
-                        <Icon name="tabler:brand-x" class="w-4 h-4" />
                       </a>
                     )}
                     {member.socialLinks.github && (
@@ -566,25 +548,53 @@ const governancePrinciples = [
               </div>
             </div>
             <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{member.bio}</p>
-            <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </>
-              </svg>
-              {member.country}
-            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <p class="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </>
+                </svg>
+                {member.country}
+              </p>
+              {member.socialLinks && (
+                <div class="flex items-center gap-3">
+                  {member.socialLinks.linkedin && (
+                    <a
+                      href={member.socialLinks.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-gray-400 hover:text-[#0A66C2] dark:hover:text-[#0A66C2] transition-colors"
+                      title={`${member.name} on LinkedIn`}
+                    >
+                      <Icon name="tabler:brand-linkedin" class="w-5 h-5" />
+                    </a>
+                  )}
+                  {member.socialLinks.github && (
+                    <a
+                      href={member.socialLinks.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                      title={`${member.name} on GitHub`}
+                    >
+                      <Icon name="tabler:brand-github" class="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         ))
       }
