@@ -20,7 +20,7 @@ const stats = await getCommunityStats();
 const metadata = {
   title: 'About the Mage-OS Association',
   description:
-    'Learn about the Mage-OS Association, our mission, governance, and the people behind the project. A non-profit formed by 1,641 community members to ensure the future of Magento.',
+    'Learn about the Mage-OS Association, our mission, governance, and the people behind the project. A non-profit formed by community leaders to ensure the future of Magento.',
   openGraph: {
     images: [{ url: '/og/page/about.png', width: 1200, height: 630 }],
   },
@@ -58,23 +58,23 @@ const metadata = {
   <Content
     id="origin"
     tagline="Our Origin"
-    title="Born from an Open Letter"
+    title="Built by the Community"
     isReversed
     items={[
       {
-        title: '1,641 Signatories',
+        title: 'Global Movement',
         description:
-          'The Open Letter about the future of Magento was signed by merchants, developers, agencies, and stakeholders who depend on Magento for their livelihood.',
+          'Merchants, developers, agencies, and stakeholders from over 30 countries came together to ensure the Magento ecosystem has an independent voice.',
       },
       {
         title: 'Community Action',
         description:
-          'What started as a call for transparency and collaboration evolved into a movement that established the Mage-OS Association as a permanent home for community-driven development.',
+          'What started as a grassroots movement evolved into a formal organization—the Mage-OS Association—as a permanent home for community-driven development.',
       },
       {
         title: 'A New Chapter',
         description:
-          'In 2022, the Mage-OS Association was formally incorporated, bringing the vision of the Open Letter to life and ensuring the Magento ecosystem has a voice of its own.',
+          'In 2022, the Mage-OS Association was formally incorporated in Poland, ensuring the Magento ecosystem has an independent organization championing its interests.',
       },
     ]}
     image={{
@@ -84,9 +84,8 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">From Vision to Reality</h3>
-      In 2021, concerns about the future direction of Magento Open Source led community members to draft an Open Letter. That
-      letter sparked a global conversation and united thousands who believed the ecosystem deserved an independent, community-owned
-      organization to champion its interests.
+      In 2021, community leaders came together around a shared concern: the Magento ecosystem needed an independent, community-owned
+      organization to champion its interests and ensure its long-term success.
     </Fragment>
 
     <Fragment slot="bg">
@@ -101,10 +100,10 @@ const metadata = {
     tagline="Key Milestones"
     items={[
       {
-        title: '2021: <span class="font-normal">The Open Letter</span>',
+        title: '2021: <span class="font-normal">Community Mobilizes</span>',
         description:
-          "Concerns about Magento Open Source's future led 18 founding signatories to publish an open letter that ultimately gathered 1,641 signatures from merchants, developers, and agencies worldwide.",
-        icon: 'tabler:mail',
+          "Concerns about Magento Open Source's future united community leaders from around the world who began organizing to create an independent, community-owned organization.",
+        icon: 'tabler:users-group',
       },
       {
         title: '2022: <span class="font-normal">Association Founded</span>',
@@ -185,8 +184,8 @@ const metadata = {
     title="The Association in Numbers"
     subtitle="From a grassroots movement to a thriving global organization"
     stats={[
-      { title: 'Open Letter Signatories', amount: '1,641', icon: 'tabler:signature' },
       { title: 'Countries Represented', amount: '30+', icon: 'tabler:world' },
+      { title: 'Years of Development', amount: '3+', icon: 'tabler:calendar' },
       { title: 'Financial Contributors', amount: `${stats.totalContributors}+`, icon: 'tabler:heart' },
       {
         title: 'Total Contributions',
@@ -355,8 +354,8 @@ const metadata = {
       {
         testimonial:
           'We truly believe we can not only keep Magento alive, we can give it a bright future by putting the focus on merchants, big AND small. This is only the beginning. Magento has a bright future ahead.',
-        name: 'Founding Signatories',
-        job: 'The Open Letter, 2021',
+        name: 'Mage-OS Founders',
+        job: 'Founding Statement, 2021',
       },
       {
         testimonial:
