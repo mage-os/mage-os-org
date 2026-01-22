@@ -4,7 +4,7 @@ publishDate: "2023-08-21T00:00:00.000Z"
 category: "Case Studies"
 author: "Mage-OS Team"
 draft: false
-excerpt: "![](images/Screen-2-1024x768.png) A popular US-based provider of PC cooling components, Titan Rig, helps thousands of customers keep their technical equipment..."
+excerpt: "A popular US-based provider of PC cooling components, Titan Rig, helps thousands of customers keep their technical equipment at maximum performance with minimum risks via their Magento Open Source store."
 image: "~/assets/images/blog/2023/Screen-2.png"
 ---
 

@@ -42,8 +42,6 @@ Surveillance equipment is used by most people these days, whether that be a non-
 
 It is, therefore, not surprising that a provider of such equipment should also make sure that the user experience in the store is as positive as possible. Having this in mind, Online Spy Shop implemented plenty of improvements and optimizations over time to ensure a great customer experience.
 
-![](~/assets/images/blog/2023/KsI1zdISpJsLHCBs2otsUHcD-I3ZhmhMLhe0yHgoU0kIM6bWOcCok6EHUgXk-llDG26Bevga3jl8zYYLeQuvIOw6hMztg9_6dgcWAsq75mBRFn49lhK7ROPSaBhwlNZm5E_HCTtfmDQkWDgGXTnpa9U)
-
 The first thing customer will notice (and fall in love with) is the significantly improved top navigation bar. Not only did Online Spy Shop include a variety of trust elements such as the delivery time, positive reviews and an easily accessible phone support, but also a focus on “Made in UK”-products and UK-based support.
 
 And to help find the customer’s love interest more easily, Online Spy Shop highlights its bestseller products and offers a mega menu, including a ton of important information. Once you decided on a product, you’ll find more specifications on the according product page. But if you want to win over the customer, you’ll need to offer more – and that’s what Online Spy Shop is doing: On the dedicated product page, not only find the exact delivery date and the possibility of social sharing (and who doesn’t want to share one’s new love with the world) together with express payment options. 
@@ -65,8 +63,6 @@ Once the customer has found the perfect piece, Online Spy Shop offers an easy-to
 For those who don’t want any strings attached, even without a registration or a required login. Email, address and phone number validation is self-evident, but the check-out also offers additional features such as address lookup and autofill.
 
 “We implemented OneStepCheckout in the beginning and are still more than happy with that decision”, says Steve. “What we can clearly see in the various iterations of the checkout design is that the business made sure customers are focused on completing checkout and not tempted to click away from this page.” The iterations include the removal of navigation bars and various icons, but also the replacement of Sage Pay with Stripe so that the customers can stay on the same page to pay.  
-
-![](~/assets/images/blog/2023/jkYizenG4xbgyRLZnvRlj8IQaym22GP_UNIbrPSDuOT5xmMErktgx8rcslkEgHH8qY1zByC-y4tnDgIoqP22oOC_SkDKYo7ACsT_h0XJRrTyvW8BjmEZXIMObBLjwqJV5tU9pZC8-i01hZuMnVIi-2o)
 
 Although these efforts are certainly made to maximize the checkout conversion, it adds to the flawless user experience on the site. Store owners who want an equally good user experience can find [more information here](/?page_id=129).
 

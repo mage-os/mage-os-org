@@ -4,7 +4,7 @@ publishDate: "2022-12-02T00:00:00.000Z"
 category: "Updates"
 author: "Mage-OS Team"
 draft: false
-excerpt: "![](images/2022-12-02-meetcommerce-mage-os-talk-bannner-1024x628.jpeg) Meet Commerce Spain\_is taking place on Tuesday 13th December, in Madrid, Spain. For a..."
+excerpt: "Meet Commerce Spain is taking place on Tuesday 13th December, in Madrid, Spain. For a couple of months, the team at Mage-OS has been preparing for this event with much enthusiasm and excitement."
 image: "~/assets/images/blog/2022/Meet-you-soon-in-Madrid.png"
 ---
 
