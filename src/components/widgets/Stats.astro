@@ -15,26 +15,147 @@ const {
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+// Parse numeric value from amount string (e.g., "150+" -> 150, "$50K" -> 50000)
+function parseNumericValue(amount: string): { value: number; prefix: string; suffix: string } {
+  const match = amount.match(/^([^\d]*)(\d[\d,]*\.?\d*)(.*)$/);
+  if (!match) return { value: 0, prefix: '', suffix: amount };
+
+  const prefix = match[1] || '';
+  const numStr = match[2].replace(/,/g, '');
+  let value = parseFloat(numStr);
+  let suffix = match[3] || '';
+
+  // Handle K/M suffixes
+  if (suffix.toLowerCase().startsWith('k')) {
+    value *= 1000;
+    suffix = suffix.slice(1);
+  } else if (suffix.toLowerCase().startsWith('m')) {
+    value *= 1000000;
+    suffix = suffix.slice(1);
+  }
+
+  return { value, prefix, suffix };
+}
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" data-stats-container>
     {
       stats &&
-        stats.map(({ amount, title, icon }) => (
-          <div class="flex flex-col items-center p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            {icon && (
-              <div class="flex items-center justify-center w-12 h-12 mb-3 rounded-full bg-amber-100 dark:bg-amber-900/30 text-link">
-                <Icon name={icon} class="w-6 h-6" />
-              </div>
-            )}
-            {amount && (
-              <div class="font-heading text-3xl font-bold text-gray-900 dark:text-white lg:text-4xl">{amount}</div>
-            )}
-            {title && <div class="mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 text-center">{title}</div>}
-          </div>
-        ))
+        stats.map(({ amount, title, icon }) => {
+          const parsed = parseNumericValue(String(amount));
+          return (
+            <div class="group flex flex-col items-center p-6 md:p-8 bg-white dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700/50 rounded-xl shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+              {icon && (
+                <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-orange-100 to-amber-100 dark:from-orange-900/30 dark:to-amber-900/30 text-primary group-hover:scale-110 transition-transform duration-300">
+                  <Icon name={icon} class="w-6 h-6" />
+                </div>
+              )}
+              {amount && (
+                <div
+                  class="stat-number font-heading text-4xl md:text-5xl font-extrabold text-primary"
+                  data-stat-value={parsed.value}
+                  data-stat-prefix={parsed.prefix}
+                  data-stat-suffix={parsed.suffix}
+                  data-stat-original={amount}
+                >
+                  {amount}
+                </div>
+              )}
+              {title && <div class="mt-2 text-sm font-medium text-muted dark:text-slate-400 text-center">{title}</div>}
+            </div>
+          );
+        })
     }
   </div>
 </WidgetWrapper>
+
+<script>
+  function initStatsAnimation() {
+    const container = document.querySelector('[data-stats-container]');
+    if (!container) return;
+
+    const statElements = container.querySelectorAll('[data-stat-value]');
+    let hasAnimated = false;
+
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animateValue(el: Element, start: number, end: number, duration: number) {
+      const prefix = el.getAttribute('data-stat-prefix') || '';
+      const suffix = el.getAttribute('data-stat-suffix') || '';
+      const original = el.getAttribute('data-stat-original') || '';
+
+      // If reduced motion, just show final value
+      if (prefersReducedMotion) {
+        el.textContent = original;
+        return;
+      }
+
+      const startTime = performance.now();
+      const isLargeNumber = end >= 1000;
+
+      function formatNumber(num: number): string {
+        if (isLargeNumber && num >= 1000) {
+          // Format as K or M
+          if (num >= 1000000) {
+            return (num / 1000000).toFixed(num % 1000000 === 0 ? 0 : 1) + 'M';
+          }
+          return (num / 1000).toFixed(num % 1000 === 0 ? 0 : 1) + 'K';
+        }
+        return Math.round(num).toLocaleString();
+      }
+
+      function update(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = start + (end - start) * eased;
+
+        el.textContent = prefix + formatNumber(current) + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          // Ensure final value matches original
+          el.textContent = original;
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+
+            statElements.forEach((el, index) => {
+              const value = parseFloat(el.getAttribute('data-stat-value') || '0');
+              // Stagger the animations slightly
+              setTimeout(() => {
+                animateValue(el, 0, value, 1500);
+              }, index * 100);
+            });
+
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(container);
+  }
+
+  // Run on page load
+  initStatsAnimation();
+
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:page-load', initStatsAnimation);
+</script>
