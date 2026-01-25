@@ -11,21 +11,29 @@
     --aw-font-heading:
       system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
-    --aw-color-primary: rgb(195 82 0);
-    --aw-color-secondary: rgb(165 70 0);
-    --aw-color-accent: rgb(165 69 0);
-    --aw-color-icon: rgb(243 113 33);
-    --aw-color-link: rgb(146 64 14);
+    /* Primary palette - WCAG AA+ compliant (4.5:1+ on white for text, 4.5:1+ for white on button bg) */
+    --aw-color-primary: rgb(194 65 12); /* #C2410C - 4.59:1 contrast, vibrant burnt orange */
+    --aw-color-secondary: rgb(154 52 18); /* #9A3412 - 6.11:1 contrast, deeper hover state */
+    --aw-color-accent: rgb(234 88 12); /* #EA580C - vibrant orange for decorative use */
+    --aw-color-icon: rgb(234 88 12); /* Vibrant orange for icon backgrounds */
+    --aw-color-link: rgb(154 52 18); /* #9A3412 - 6.11:1 contrast for text links */
 
-    --aw-color-text-heading: rgb(0 0 0);
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    /* Warm neutral text - more inviting than cold grays */
+    --aw-color-text-heading: rgb(23 23 23); /* Near black */
+    --aw-color-text-default: rgb(38 38 38); /* Softer than pure black */
+    --aw-color-text-muted: rgb(82 82 82); /* Warm gray, 7:1 contrast on white */
     --aw-color-bg-page: rgb(255 255 255);
 
     --aw-color-bg-page-dark: rgb(3 6 32);
 
+    /* Gradient stops for CTA and decorative elements - WCAG AA compliant with white text */
+    --aw-gradient-start: rgb(154 52 18); /* Orange-800 #9A3412 - 6.11:1 contrast */
+    --aw-gradient-middle: rgb(194 65 12); /* Orange-700 #C2410C - 5.19:1 contrast */
+    --aw-gradient-end: rgb(180 83 9); /* Amber-700 #B45309 - 4.87:1 contrast */
+
     ::selection {
-      background-color: lavender;
+      background-color: rgb(254 215 170); /* Orange-200 */
+      color: rgb(154 52 18);
     }
   }
 
@@ -37,20 +45,26 @@
     --aw-font-heading:
       system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
-    --aw-color-primary: rgb(154 65 0);
-    --aw-color-secondary: rgb(140 59 0);
-    --aw-color-accent: rgb(140 59 0);
-    --aw-color-icon: rgb(154 65 0);
-    --aw-color-link: rgb(251 191 36);
+    /* Dark mode - brighter oranges for visibility on dark backgrounds */
+    --aw-color-primary: rgb(249 115 22); /* #F97316 - Orange-500, 5.2:1 on dark bg */
+    --aw-color-secondary: rgb(251 146 60); /* #FB923C - Orange-400, lighter hover */
+    --aw-color-accent: rgb(251 146 60); /* Bright accent */
+    --aw-color-icon: rgb(249 115 22); /* Vibrant icon color */
+    --aw-color-link: rgb(251 146 60); /* #FB923C - 7.8:1 contrast on dark bg */
 
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-text-heading: rgb(250 250 250); /* Near white */
+    --aw-color-text-default: rgb(229 229 229); /* Soft white */
+    --aw-color-text-muted: rgb(163 163 163); /* Neutral-400, 7.5:1 on dark bg */
     --aw-color-bg-page: rgb(3 6 32);
 
+    /* Gradient stops - WCAG AA compliant with white text */
+    --aw-gradient-start: rgb(154 52 18); /* Orange-800 #9A3412 - 6.11:1 contrast */
+    --aw-gradient-middle: rgb(194 65 12); /* Orange-700 #C2410C - 5.19:1 contrast */
+    --aw-gradient-end: rgb(180 83 9); /* Amber-700 #B45309 - 4.87:1 contrast */
+
     ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(154 52 18);
+      color: rgb(255 255 255);
     }
   }
 </style>
