@@ -858,7 +858,7 @@ redis-cli ping
     <Headline title="Troubleshooting" subtitle="Solutions for common installation issues" />
 
     <div class="space-y-4">
-      <Callout type="tip" title="Permission denied errors">
+      <Callout type="warning" title="Permission denied errors">
         <CodeBlock
           code={`sudo chown -R www-data:www-data /var/www/mageos
 sudo chmod -R 755 /var/www/mageos
@@ -867,7 +867,7 @@ sudo chmod -R 775 var generated pub/static pub/media`}
         />
       </Callout>
 
-      <Callout type="tip" title="Memory limit exceeded">
+      <Callout type="warning" title="Memory limit exceeded">
         <p class="mb-2">Run with increased memory limit:</p>
         <CodeBlock code="php -d memory_limit=4G bin/magento setup:di:compile" lang="bash" />
         <p class="mt-2 text-sm">
@@ -875,7 +875,7 @@ sudo chmod -R 775 var generated pub/static pub/media`}
         </p>
       </Callout>
 
-      <Callout type="tip" title="Static content deployment fails">
+      <Callout type="warning" title="Static content deployment fails">
         <CodeBlock
           code={`# Use parallel jobs and force mode
 bin/magento setup:static-content:deploy -f --jobs=4
@@ -886,7 +886,7 @@ bin/magento setup:static-content:deploy -f en_US en_GB --jobs=4`}
         />
       </Callout>
 
-      <Callout type="tip" title="OpenSearch/Elasticsearch connection failed">
+      <Callout type="warning" title="OpenSearch/Elasticsearch connection failed">
         <CodeBlock
           code={`# Check if OpenSearch is running
 curl http://localhost:9200
@@ -900,7 +900,7 @@ sudo systemctl restart opensearch`}
         />
       </Callout>
 
-      <Callout type="tip" title="Admin URL forgotten">
+      <Callout type="warning" title="Admin URL forgotten">
         <CodeBlock
           code={`# Get current admin URI
 bin/magento info:adminuri

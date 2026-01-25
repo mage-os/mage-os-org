@@ -4,6 +4,7 @@ import PageHero from '~/components/widgets/PageHero.astro';
 import AccordionFAQ from '~/components/ui/AccordionFAQ.astro';
 import Callout from '~/components/ui/Callout.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Icon } from 'astro-icon/components';
 
 const metadata = {
@@ -949,37 +950,30 @@ const compatibilityItems = [
     </div>
   </section>
 
-  <!-- More Questions Section -->
-  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
-    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl text-center">
-      <h2 class="text-3xl font-bold font-heading mb-4 dark:text-white">More Questions?</h2>
-      <p class="text-xl text-muted mb-8">
-        If you don't find your answer here, we're here to help. We welcome feedback on this FAQ!
-      </p>
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Discord',
+        href: '/discord-channel',
+        icon: 'tabler:brand-discord',
+      },
+      {
+        text: 'Email Us',
+        href: 'mailto:info@mage-os.org',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Contact Form',
+        href: '/contact',
+        icon: 'tabler:message',
+      },
+    ]}
+  >
+    <Fragment slot="title">More Questions?</Fragment>
 
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="/discord-channel"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
-        >
-          <Icon name="tabler:brand-discord" class="w-5 h-5" />
-          Join Discord
-        </a>
-        <a
-          href="mailto:info@mage-os.org"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium"
-        >
-          <Icon name="tabler:mail" class="w-5 h-5" />
-          Email Us
-        </a>
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors font-medium"
-        >
-          <Icon name="tabler:message" class="w-5 h-5" />
-          Contact Form
-        </a>
-      </div>
-    </div>
-  </section>
+    <Fragment slot="subtitle">
+      If you don't find your answer here, we're here to help. We welcome feedback on this FAQ!
+    </Fragment>
+  </CallToAction>
 </Layout>

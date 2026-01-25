@@ -235,7 +235,9 @@ const contributionSteps = [
   />
 
   <!-- Technical Working Group -->
-  <section class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-6xl bg-indigo-50 dark:bg-slate-800/50">
+  <section
+    class="px-4 py-12 sm:px-6 mx-auto lg:px-8 max-w-6xl bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+  >
     <div class="mb-8">
       <div class="flex flex-wrap items-center gap-3 mb-3">
         <div class="w-12 h-12 rounded-lg bg-icon flex items-center justify-center">
@@ -511,7 +513,10 @@ const contributionSteps = [
     items={contributionSteps}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+      >
+      </div>
     </Fragment>
   </Steps>
 

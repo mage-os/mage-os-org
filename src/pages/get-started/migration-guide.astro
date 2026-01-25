@@ -494,12 +494,12 @@ bin/magento setup:upgrade`}
     <Headline title="Troubleshooting" subtitle="Solutions for common migration issues" />
 
     <div class="space-y-4">
-      <Callout type="tip" title="Composer Conflicts">
+      <Callout type="warning" title="Composer Conflicts">
         <p class="mb-2">If you encounter dependency conflicts:</p>
         <CodeBlock code="composer update --with-all-dependencies" lang="bash" />
       </Callout>
 
-      <Callout type="tip" title="Module Version Mismatches">
+      <Callout type="warning" title="Module Version Mismatches">
         <CodeBlock
           code={`bin/magento setup:upgrade
 bin/magento module:status`}
@@ -507,7 +507,7 @@ bin/magento module:status`}
         />
       </Callout>
 
-      <Callout type="tip" title="Static Content Issues">
+      <Callout type="warning" title="Static Content Issues">
         <CodeBlock
           code={`rm -rf pub/static/* var/view_preprocessed/*
 bin/magento setup:static-content:deploy -f`}

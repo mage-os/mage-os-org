@@ -4,6 +4,7 @@ import PageHero from '~/components/widgets/PageHero.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Callout from '~/components/ui/Callout.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Icon } from 'astro-icon/components';
 import CodeBlock from '~/components/ui/CodeBlock.astro';
 
@@ -485,7 +486,7 @@ bin/magento cache:flush`}
     <h2 class="text-3xl font-bold font-heading mb-8 dark:text-white">Troubleshooting</h2>
 
     <div class="space-y-6">
-      <Callout type="tip" title="Blank Page After Installation">
+      <Callout type="warning" title="Blank Page After Installation">
         <p class="mb-2"><strong>Cause:</strong> Usually a cache or compilation issue.</p>
         <pre
           class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-bash">rm -rf var/cache/* var/page_cache/* generated/*
@@ -493,7 +494,7 @@ bin/magento setup:upgrade
 bin/magento cache:flush</code></pre>
       </Callout>
 
-      <Callout type="tip" title="404 Errors on Storefront Pages">
+      <Callout type="warning" title="404 Errors on Storefront Pages">
         <p class="mb-2"><strong>Cause:</strong> Apache mod_rewrite not enabled.</p>
         <pre
           class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-bash">sudo a2enmod rewrite
@@ -506,13 +507,13 @@ sudo systemctl restart apache2</code></pre>
         </p>
       </Callout>
 
-      <Callout type="tip" title="Composer Memory Limit Errors">
+      <Callout type="warning" title="Composer Memory Limit Errors">
         <p class="mb-2"><strong>Cause:</strong> PHP memory limit too low for Composer.</p>
         <pre
           class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code>php -d memory_limit=1G /usr/local/bin/composer create-project ...</code></pre>
       </Callout>
 
-      <Callout type="tip" title="OpenSearch Connection Failed">
+      <Callout type="warning" title="OpenSearch Connection Failed">
         <p class="mb-2"><strong>Cause:</strong> OpenSearch service not running.</p>
         <p class="mb-2">Verify OpenSearch is running:</p>
         <pre
@@ -522,7 +523,7 @@ sudo systemctl restart apache2</code></pre>
           class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto mt-2"><code>sudo systemctl start opensearch</code></pre>
       </Callout>
 
-      <Callout type="tip" title="Admin Login Not Working">
+      <Callout type="warning" title="Admin Login Not Working">
         <p class="mb-2"><strong>Cause:</strong> Two-factor authentication is enabled by default.</p>
         <p class="mb-2">
           Install the <a href="https://github.com/markshust/magento2-module-disabletwofactorauth" class="underline"
@@ -535,7 +536,7 @@ bin/magento module:enable MarkShust_DisableTwoFactorAuth
 bin/magento setup:upgrade</code></pre>
       </Callout>
 
-      <Callout type="tip" title="Static Content Not Loading (CSS/JS Missing)">
+      <Callout type="warning" title="Static Content Not Loading (CSS/JS Missing)">
         <p class="mb-2"><strong>Cause:</strong> Static content not deployed or permissions issue.</p>
         <pre
           class="bg-gray-900 text-gray-100 p-3 rounded text-sm overflow-x-auto"><code class="language-bash">bin/magento setup:static-content:deploy -f
@@ -594,34 +595,33 @@ bin/magento cache:clean</code></pre>
       ]}
     />
 
-    <div class="mt-12 text-center">
-      <h3 class="text-xl font-bold mb-4 dark:text-white">Join the Community</h3>
-      <p class="text-muted mb-6">Get help, share ideas, and connect with other Mage-OS developers and merchants.</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a
-          href="/discord-channel"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-        >
-          <Icon name="tabler:brand-discord" class="w-5 h-5" />
-          Join Discord
-        </a>
-        <a
-          href="https://github.com/mage-os"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
-        >
-          <Icon name="tabler:brand-github" class="w-5 h-5" />
-          GitHub
-        </a>
-        <a
-          href="/community"
-          class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-        >
-          <Icon name="tabler:users" class="w-5 h-5" />
-          Community Hub
-        </a>
-      </div>
-    </div>
   </section>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Discord',
+        href: '/discord-channel',
+        icon: 'tabler:brand-discord',
+      },
+      {
+        text: 'GitHub',
+        href: 'https://github.com/mage-os',
+        target: '_blank',
+        icon: 'tabler:brand-github',
+      },
+      {
+        text: 'Community Hub',
+        href: '/community',
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="title">Join the Community</Fragment>
+
+    <Fragment slot="subtitle">
+      Get help, share ideas, and connect with other Mage-OS developers and merchants.
+    </Fragment>
+  </CallToAction>
 </Layout>

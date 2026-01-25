@@ -310,7 +310,7 @@ const eventTypes = [
   <!-- Recent Event Highlights from Blog -->
   {
     eventPostsWithImages.length > 0 && (
-      <section class="bg-indigo-50 dark:bg-slate-800/50 not-prose">
+      <section class="bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30 not-prose">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
           <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4 text-center">
             Recent Event Highlights
@@ -489,7 +489,10 @@ const eventTypes = [
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-indigo-50 dark:bg-transparent"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+      >
+      </div>
     </Fragment>
   </CallToAction>
 
