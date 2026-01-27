@@ -154,17 +154,44 @@ function parseMageOSVersion(constraint: string): string {
 
 /**
  * Build component specs from GitHub data and config overrides
+ *
+ * Config values always take precedence. For components not in GitHub data
+ * (mariadb, valkey, apache), config values are required.
  */
 function buildComponentSpecs(entry: GitHubVersionEntry, config: ConfigData | null): ComponentSpecs {
+  /**
+   * Get version spec for a component, preferring config over extracted GitHub data
+   */
   const getVersion = (component: string, githubValue: string | undefined): ComponentVersion => {
     const extracted = extractVersion(githubValue);
     const configComponent = config?.components[component];
 
+    // Config values take precedence, fall back to extracted GitHub value
     return {
       minimum: configComponent?.minimum || extracted,
       recommended: configComponent?.recommended || extracted,
     };
   };
+
+  /**
+   * Get version spec for components not in GitHub data (config-only)
+   * These components must have values defined in the config file
+   */
+  const getConfigOnlyVersion = (component: string): ComponentVersion => {
+    const configComponent = config?.components[component];
+    if (!configComponent) {
+      console.warn(`[SystemSpecs] Missing config for ${component}, using empty values`);
+      return { minimum: '', recommended: '' };
+    }
+    return {
+      minimum: configComponent.minimum,
+      recommended: configComponent.recommended || configComponent.minimum,
+    };
+  };
+
+  // Extract RabbitMQ major version from GitHub data (e.g., "rabbitmq:4.0" -> "4")
+  const rabbitmqExtracted = extractVersion(entry.rabbitmq);
+  const rabbitmqMajor = rabbitmqExtracted ? rabbitmqExtracted.split('.')[0] : '';
 
   return {
     php: {
@@ -176,32 +203,22 @@ function buildComponentSpecs(entry: GitHubVersionEntry, config: ConfigData | nul
       recommended: config?.components.composer?.recommended || entry.composer,
     },
     mysql: getVersion('mysql', entry.mysql),
-    mariadb: {
-      minimum: config?.components.mariadb?.minimum || '10.6',
-      recommended: config?.components.mariadb?.recommended || '11.4',
-    },
+    mariadb: getConfigOnlyVersion('mariadb'),
     opensearch: getVersion('opensearch', entry.opensearch),
     elasticsearch: entry.elasticsearch
       ? {
-          minimum: config?.components.elasticsearch?.minimum || '7.17',
-          recommended: config?.components.elasticsearch?.supported || '8.x',
+          minimum: config?.components.elasticsearch?.minimum || extractVersion(entry.elasticsearch),
+          recommended: config?.components.elasticsearch?.supported || extractVersion(entry.elasticsearch),
         }
       : undefined,
     redis: getVersion('redis', entry.redis),
-    valkey: {
-      minimum: config?.components.valkey?.minimum || '7.0',
-      recommended: config?.components.valkey?.recommended || '8.0',
-    },
+    valkey: getConfigOnlyVersion('valkey'),
     varnish: getVersion('varnish', entry.varnish),
     nginx: getVersion('nginx', entry.nginx),
-    apache: {
-      minimum: config?.components.apache?.minimum || '2.4',
-      recommended: config?.components.apache?.recommended || '2.4',
-    },
+    apache: getConfigOnlyVersion('apache'),
     rabbitmq: {
-      minimum: config?.components.rabbitmq?.minimum || extractVersion(entry.rabbitmq)?.split('.')[0] || '3.12',
-      recommended:
-        config?.components.rabbitmq?.recommended || extractVersion(entry.rabbitmq)?.split('.')[0] + '.0' || '4.0',
+      minimum: config?.components.rabbitmq?.minimum || rabbitmqMajor || '',
+      recommended: config?.components.rabbitmq?.recommended || (rabbitmqMajor ? `${rabbitmqMajor}.0` : ''),
     },
   };
 }
