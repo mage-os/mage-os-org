@@ -12,7 +12,7 @@ image: "~/assets/images/blog/2025/mage-os-may-blog-2.jpg"
 
 Conference season is right around the corner! The first stop is [**Meet Magento Ukraine on September 4**](https://ua.meet-magento.com/en/), an excellent chance to connect with fellow Mage-OS contributors, merchants, and community members. We’d love to see you there.
 
-And this is just the beginning, **more community events are scheduled in the coming weeks**. Take a look at our [events calendar](/?page_id=2587), join in, share your insights, and be part of strengthening the Mage-OS ecosystem.
+And this is just the beginning, **more community events are scheduled in the coming weeks**. Take a look at our [events calendar](/events), join in, share your insights, and be part of strengthening the Mage-OS ecosystem.
 
 ## **Technical Progress**
 

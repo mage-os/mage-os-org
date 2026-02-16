@@ -15,7 +15,7 @@ image: "~/assets/images/blog/2024/mageos_blog_september-2024-update.jpg"
     
     - Michiel Gerritsen - professional member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!  
+- You too can become a Mage-OS member and [join](/community/partners) our vibrant community, starting from just €10 per year!  
     
 
 **Our first Release Manager**
@@ -88,6 +88,6 @@ Stay updated with the latest events and gatherings in the worldwide Magento comm
 - [Meet Magento NL](https://nl.meet-magento.com/) – 31 October 2024, in Amsterdam  
     
 
-Check out our [events page](/?page_id=2587).
+Check out our [events page](/events).
 
 Stay tuned for more updates and announcements from Mage-OS!

@@ -9,7 +9,7 @@ excerpt: Join us for our 2024 annual assembly! This is the time when we review o
 
 
 
-<p>This meeting is open to members and partners of Mage-OS only. If you want to join, please <a href="/?page_id=384">Join Mage-OS</a>. Please note our voter roll closes 30 days prior to the event.</p>
+<p>This meeting is open to members and partners of Mage-OS only. If you want to join, please <a href="/community/partners">Join Mage-OS</a>. Please note our voter roll closes 30 days prior to the event.</p>
 
 
 

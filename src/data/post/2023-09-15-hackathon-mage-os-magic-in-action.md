@@ -109,6 +109,6 @@ Typesense: [https://github.com/torhoehn/module-typesense-mageos](https://github.
 
 ## Get Involved
 
-Want to get involved with learning more and contributing to our package and distribution process? Join our [weekly tech calls](/?page_id=331) to find out more.
+Want to get involved with learning more and contributing to our package and distribution process? Join our [weekly tech calls](/community/contributing) to find out more.
 
-[Get Involved](/?page_id=331)
+[Get Involved](/community/contributing)

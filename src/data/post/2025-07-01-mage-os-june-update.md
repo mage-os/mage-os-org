@@ -27,7 +27,7 @@ image: "~/assets/images/blog/2025/mage-os-may-blog.jpg"
     
     - Gianluca Porta – community member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
+- You too can become a Mage-OS member and [join](/community/partners) our vibrant community, starting from just €10 per year!
 
 As summer gets into full swing, the Mage-OS project has continued to grow and evolve. Over the past month, we’ve seen progress on technical improvements, community projects, website updates, and leadership changes. Here’s a look at everything that happened recently.
 
@@ -61,7 +61,7 @@ The Business Control Committee shared the 2024 financial report, showing that Ma
 
 ### Website and Performance
 
-- A new page called the “[Community Modules Directory](/?page_id=4532)” was added to the Mage-OS website. It highlights useful extensions made by the community, organized into different categories, and invites feedback.
+- A new page called the “[Community Modules Directory](/community)” was added to the Mage-OS website. It highlights useful extensions made by the community, organized into different categories, and invites feedback.
 
 - Website performance improved thanks to a new caching plugin, making the site faster for visitors.
 

@@ -47,7 +47,7 @@ In our journey to cultivate and grow Mage-OS, memebrships and partnerships are p
 
 Please head to our membership page to get more information:
 
-[Support Mage-OS](/?page_id=384)
+[Support Mage-OS](/community/partners)
 
 Company partnerships are not just welcome, but are an integral part of the Mage-OS ecosystem. Your support amplifies our efforts, fuels innovation, and fosters a collaborative environment.
 

@@ -15,7 +15,7 @@ image: "~/assets/images/blog/2025/mageos_blog_jan-2025-update.jpg"
     
     - David Nimorwicz  – professional member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
+- You too can become a Mage-OS member and [join](/community/partners) our vibrant community, starting from just €10 per year!
 
 ## **Content and Community Initiatives**
 

@@ -44,7 +44,7 @@ The **Board of Directors** drives the heart of Mage-OS. Board members are deeply
 
 We’re looking for hands-on leaders — people who don’t just believe in open source, but who are ready to help build a better one.
 
-Get to know the [Mage-OS Leadership Team](/?page_id=804) to see who's currently serving and get inspired to take part.
+Get to know the [Mage-OS Leadership Team](/about/leadership) to see who's currently serving and get inspired to take part.
 
 ## What About the BCC?
 

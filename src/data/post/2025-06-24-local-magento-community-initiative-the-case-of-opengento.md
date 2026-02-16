@@ -201,4 +201,4 @@ And this is just the visible tip of the iceberg.
 
 In short, the more the merrier. From super localised initiatives just like all the regional meet ups like in [Magento Meet-up Austria](https://www.meetup.com/magento-meetup-austria/), or  [Magento Stammtisch Rhein Main](https://www.meetup.com/de-DE/magento-stammtisch-rhein-main/) who recently celebrated their 50th edition to giant gathering at eCommerce expo like Webwinkelvakdagen or at Adobe Summit, every occasion to meet sparks passion, ideas, innovation and strengthen friendship, which the core and heart of our Magento Community.
 
-No local chapter? [Contact us](/?page_id=388) to help you set one up.
+No local chapter? [Contact us](/community) to help you set one up.

@@ -15,7 +15,7 @@ image: "~/assets/images/blog/2025/mage-os-may-blog.jpg"
     
     - Ruthger Idema – community member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
+- You too can become a Mage-OS member and [join](/community/partners) our vibrant community, starting from just €10 per year!
 
 ## Mage-OS Elections, Assembly & Community Feedback
 

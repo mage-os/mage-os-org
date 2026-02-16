@@ -23,7 +23,7 @@ Thank you [integer\_net](https://www.integer-net.com/) for becoming a Bronze spo
 
 If you, too, want to help us shape the future of the Magento ecosystem, join us!
 
-[Join Mage-OS](/?page_id=384)
+[Join Mage-OS](/community/partners)
 
 ## Magento Meetup Aachen
 
@@ -135,7 +135,7 @@ Warsaw is where the Mage-OS Association was legally founded. It sure is a specia
 
 Don’t want to get FOMO on all the Magento events?
 
-[Bookmark our Events Calendar](/?page_id=368)
+[Bookmark our Events Calendar](/events)
 
 * * *
 

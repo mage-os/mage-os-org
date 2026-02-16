@@ -130,4 +130,4 @@ The Webwinkel Vakdagen will take place on 23rd and 24th of January 2024, with mo
 
 Want to meet the [Dutch Magento community](https://discord.gg/SAeHwfJF)? You got plenty of opportunities!
 
-Want to know where you can hang out with Mage-OS globally? Visit our [Events Calendar](/?page_id=368).
+Want to know where you can hang out with Mage-OS globally? Visit our [Events Calendar](/events).

@@ -158,6 +158,6 @@ The Magento community is huge in India, with over 1,000 attendees to the event a
 
 [Visit MM24IN](https://www.meetmagento.in/)
 
-Find all about upcoming Magento events in our [Events Calendar](/?page_id=368).
+Find all about upcoming Magento events in our [Events Calendar](/events).
 
 That's all for this edition, but we'll be back in the new year with even more updates! The Mage-OS team.

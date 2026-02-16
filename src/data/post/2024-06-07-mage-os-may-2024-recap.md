@@ -42,7 +42,7 @@ image: "~/assets/images/blog/2024/mage-os-may-blog.jpg"
           
         
 
-- You too can become a Mage-OS member, starting from 10 EUR/year! [Join Mage-OS](/?page_id=384), and show the world this is something worth supporting.  
+- You too can become a Mage-OS member, starting from 10 EUR/year! [Join Mage-OS](/community/partners), and show the world this is something worth supporting.  
       
     
 
@@ -115,6 +115,6 @@ Mage-OS Association
 **Join us for the General Assembly:**  
 Date: June 19th  
 Time: 3:00 to 4:00 p.m. (CET)  
-Not a member yet? Join now for €10/year to participate! [Become a member](/?page_id=384).
+Not a member yet? Join now for €10/year to participate! [Become a member](/community/partners).
 
 Follow us on LinkedIn: [Mage-OS Association](https://www.linkedin.com/company/mage-os/)

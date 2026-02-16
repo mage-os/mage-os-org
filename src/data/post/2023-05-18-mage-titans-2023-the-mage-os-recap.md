@@ -34,7 +34,7 @@ Mage Titans Dev Exchange
 
 On the Friday evening before the event, around 30 community members gathered together for a small event to catch up and discuss topics suggested by the attendees. Given this was the return of Mage Titans after such a long time, the majority of the event ended up being people catching up with old acquaintances over a beer, but one topic hit a nerve and provided engaging discussion for over an hour. You guessed it… Mage-OS!
 
-The chat ranged from [what Mage-OS has achieved so far](/?page_id=336), why certain things have taken longer than planned (in some people’s opinion), what Mage-OS should focus on next, what developers and agencies want and need from Mage-OS, and what would help Mage-OS move faster (spoiler alert: more contributors and funds!).
+The chat ranged from [what Mage-OS has achieved so far](/about), why certain things have taken longer than planned (in some people’s opinion), what Mage-OS should focus on next, what developers and agencies want and need from Mage-OS, and what would help Mage-OS move faster (spoiler alert: more contributors and funds!).
 
 While the debate and opinions did get a little heated at times, everyone involved was on board with the overall mission that Mage-OS has set out to achieve - to ensure a successful future for the Magento platform. Furthermore, it highlighted the passion that remains in the Magento ecosystem, along with the desire to nurture and grow this community we all love.
 
@@ -108,7 +108,7 @@ The Future of Magento Panel
 
 The panel were presented with a variety of questions that were proposed by community members and event attendees before and during the panel, which included questions around the future of the frontend of the default frontend of Magento (Luma), what the community needs most from Adobe (to listen/transparency), what’s happening with the Magento Association, and of course, the future plans for Mage-OS!
 
-As a quick aside, our plans at Mage-OS remain consistent for the time being: continue building out our tooling so we can get to a point where we can offer [our own standalone distribution](/?page_id=326) and accept code contributions from the community and begin innovating on new features, improve the content on Magento Open Source and Mage-OS on this site, and finalise the founding of our association so we can open up membership and begin to take funds to accelerate the above further, along with trying to recruit more contributors to help our cause!
+As a quick aside, our plans at Mage-OS remain consistent for the time being: continue building out our tooling so we can get to a point where we can offer [our own standalone distribution](/get-started/installation) and accept code contributions from the community and begin innovating on new features, improve the content on Magento Open Source and Mage-OS on this site, and finalise the founding of our association so we can open up membership and begin to take funds to accelerate the above further, along with trying to recruit more contributors to help our cause!
 
 The most poignant takeaway from the panel, however, came when the topic of current community engagement was raised (via a [poll about whether people felt more, less or the same amount of engagement with the community than in the past, or are newcomers to the ecosystem](https://app.sli.do/event/9b9UFa5mJPGMzh2qtgUsmN/live/polls)). This led the discussion to move on to how we get new generations to join the ecosystem and become excited and engaged with the platform, which prompted Willem to issue a rallying cry to existing community members, especially those in prominent positions, to stop posting negative content (even if partly in jest) and focus on promoting a positive image that accurately portrays the joy and passion we all have for the community and platform.
 
@@ -154,6 +154,6 @@ Our key takeaways from the event are:
 
 - We need to continue promoting our openness and desire for collaboration; we recruited a few new folks to our weekly tech and content meetings off the back of the event, and we hope to continue to grow these committees moving forward
 
-On that note, if you’d like to get more involved, whether by simply joining the discussion on our Discord Server or by joining one of our committees, please visit our [Get Involved page](/?page_id=331). And, if you want to feel the passion of the community first-hand, then check out our [events page](https://mage-os.org/community/events/) for what is upcoming next.
+On that note, if you’d like to get more involved, whether by simply joining the discussion on our Discord Server or by joining one of our committees, please visit our [Get Involved page](/community/contributing). And, if you want to feel the passion of the community first-hand, then check out our [events page](https://mage-os.org/community/events/) for what is upcoming next.
 
 Finally, we’d like to express our thanks to Gareth, Rob, Molly, Jon and the rest of the Space 48 team for bringing back Mage Titans and putting on an incredible event. We look forward to the next edition!

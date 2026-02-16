@@ -84,7 +84,7 @@ We received many good quality applications in just one week, and want to sincere
 
 ## Events
 
-- We have an updated [events page](/?page_id=2587)! It’s now easier than ever to find all the events and gatherings in the worldwide Magento community. Please let us know if you have or know of an event that isn’t listed. Huge thanks to Marek Kubacak for making this happen.  
+- We have an updated [events page](/events)! It’s now easier than ever to find all the events and gatherings in the worldwide Magento community. Please let us know if you have or know of an event that isn’t listed. Huge thanks to Marek Kubacak for making this happen.  
       
     
 

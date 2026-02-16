@@ -244,7 +244,7 @@ If you want to help contribute to Asnyc Events or anything else Mage-OS related 
 
 [Join Discord](http://chat.mage-os.org/)
 
-[Get Involved](/?page_id=331)
+[Get Involved](/community/contributing)
 
 ###### References
 

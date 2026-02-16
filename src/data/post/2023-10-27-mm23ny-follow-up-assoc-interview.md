@@ -12,7 +12,7 @@ Thank you to all that turned out to Meet Magento 2023 in New York! It was great 
 
 We got a lot of questions from people during the conference, and maybe you've thought them too. Here are our answers, if so!
 
-Have more questions? Check out our [FAQ](/?page_id=320), or ask away at [chat.mage-os.org](http://chat.mage-os.org)! We’re an open book.
+Have more questions? Check out our [FAQ](/faq), or ask away at [chat.mage-os.org](http://chat.mage-os.org)! We’re an open book.
 
 Why should I recommend Mage-OS over Magento?
 

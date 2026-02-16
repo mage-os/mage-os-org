@@ -20,7 +20,7 @@ However, with this release, we now have a completely standalone distribution. Wh
 
 While the initial version only includes a handful of changes, including refreshed admin panel branding, we plan to roll out further (and more impactful) changes over time, as they are contributed from the open source community.
 
-[Want To Contribute? Get Involved](/?page_id=331)
+[Want To Contribute? Get Involved](/community/contributing)
 
 While we are now forging our own path, we will maintain compatibility with Magento Open Source, ensuring that all your existing extensions and integrations are supported. We also aim to ensure compatibility updates are rolled out as swiftly as possible, which is highlighted by our adding support for the 2.4.6-p3 patch release, which was released within 24 hours of our initial launch, meaning we released 1.0.1 already!
 
@@ -36,9 +36,9 @@ When we launched, we supported credit/debit card payments only, but we’ve now 
 
 This initial rollout has given us some insight into the quirks around the platform we use to manage contributions (Open Collective), and as such, we’re working on a detailed guide to help simplify the process of signing up and clarify intricacies, like the tip system that benefits Open Collective (not Mage-OS).
 
-If you want a reminder on our different membership (individual) and partner (business) tiers, then head over to our [Membership](/?page_id=384) page to find out more.
+If you want a reminder on our different membership (individual) and partner (business) tiers, then head over to our [Membership](/community/partners) page to find out more.
 
-[Support Mage-OS](/?page_id=384)
+[Support Mage-OS](/community/partners)
 
 ## Community Feedback
 
@@ -72,7 +72,7 @@ If you want to learn more, then see our [recap article](/?p=3049) (another shout
 
 ![](~/assets/images/blog/2023/Event-page-Mage-OS.png)
 
-Events are an essential part of our community. As such, we feel it is important to provide the go-to place to find all the upcoming Magento events happening around the world. Check out our [Magento events calendar page](/?page_id=368), which is run manually by Mage-OS volunteers and enriched with recaps after each event. Plus, look out for a refreshed events page/system coming soon!
+Events are an essential part of our community. As such, we feel it is important to provide the go-to place to find all the upcoming Magento events happening around the world. Check out our [Magento events calendar page](/events), which is run manually by Mage-OS volunteers and enriched with recaps after each event. Plus, look out for a refreshed events page/system coming soon!
 
 Big thank you to John Prendergast, David Lambauer, and others for this effort.
 
@@ -80,7 +80,7 @@ Big thank you to John Prendergast, David Lambauer, and others for this effort.
 
 ![Meet Magento NL Banner](~/assets/images/blog/2023/Art-block.png)
 
-Meet Magento Netherlands is back for 2023 after a 4-year hiatus, and takes place in Amsterdam on November 2nd. This is our last big event for 2023, and we couldn’t be more proud of our Dutch local chapter, [Mage-OS Nederlands](/?page_id=388), for organizing such a successful event before it even takes place! The initial ticket allocation sold out two weeks prior, and further tickets that were made available (thanks to additional sponsors) have now sold out, too. All this means an attendance of over 300 community enthusiasts, which is incredible!
+Meet Magento Netherlands is back for 2023 after a 4-year hiatus, and takes place in Amsterdam on November 2nd. This is our last big event for 2023, and we couldn’t be more proud of our Dutch local chapter, [Mage-OS Nederlands](/community), for organizing such a successful event before it even takes place! The initial ticket allocation sold out two weeks prior, and further tickets that were made available (thanks to additional sponsors) have now sold out, too. All this means an attendance of over 300 community enthusiasts, which is incredible!
 
 Not only that, but the [lineup of speakers](https://nl.meet-magento.com/programme/) is diverse and features many high-profile merchants and community experts. We’re also very excited about the afterparty, where a live band has been hired to get the dance floor on fire! 
 
@@ -108,6 +108,6 @@ Finally, if you’re looking to wear Mage-OS, we have lots of options for you to
 
 Until next time! The Mage-OS team.
 
-[Join Us](/?page_id=384)
+[Join Us](/community/partners)
 
-[Contribute](/?page_id=331)
+[Contribute](/community/contributing)

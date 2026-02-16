@@ -14,7 +14,7 @@ As you may know, one of the main ways we plan for Mage-OS to be funded is throug
 
 We’re proud to announce Mage-OS membership is now open!
 
-[Join Now](/?page_id=384)
+[Join Now](/community/partners)
 
 ## Why should you back the Mage-OS Association?
 
@@ -46,7 +46,7 @@ Funds will be spent on:
 
 - Nurturing the entire community and ecosystem
 
-As a legally registered organization, we are bound by [our statutes](/?page_id=339), which include multiple approvals for all spending; audits by our Business Control Committee; and an annual budget and financials approved by the members (which could mean you).
+As a legally registered organization, we are bound by [our statutes](/about), which include multiple approvals for all spending; audits by our Business Control Committee; and an annual budget and financials approved by the members (which could mean you).
 
 ## What are the options for joining?
 
@@ -68,10 +68,10 @@ As Niek Verkolen and Tjitse Efdé co-founder of Dutch agency [Vendic](https://ww
 > 
 > Vendic, [Silver Partner of Mage-OS since November 2023](https://opencollective.com/vendic)
 
-[Contact us](/?page_id=717) if you're interested in a bigger contribution or support role. We don't do pay-for-access, we won't sell data, but we are open to ideas. This includes the ability to sponsor development of a specific feature or improvement.
+[Contact us](/contact) if you're interested in a bigger contribution or support role. We don't do pay-for-access, we won't sell data, but we are open to ideas. This includes the ability to sponsor development of a specific feature or improvement.
 
 If you are from a low-cost-of-living country, we offer purchasing power parity based on the '[Big Mac Index](https://opencollective.com/redirect?url=https%3A%2F%2Fwww.economist.com%2Fbig-mac-index)' for individuals and non-multinational companies. If you would like a discount, join at your chosen level, and then contact us for reimbursement, or contact us to discuss further.
 
 After you join, let the world know, and you should find your picture on the mage-os.org homepage!
 
-[Join Mage-OS](/?page_id=384)
+[Join Mage-OS](/community/partners)

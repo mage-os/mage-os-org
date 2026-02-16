@@ -64,7 +64,7 @@ For those who don’t want any strings attached, even without a registration or 
 
 “We implemented OneStepCheckout in the beginning and are still more than happy with that decision”, says Steve. “What we can clearly see in the various iterations of the checkout design is that the business made sure customers are focused on completing checkout and not tempted to click away from this page.” The iterations include the removal of navigation bars and various icons, but also the replacement of Sage Pay with Stripe so that the customers can stay on the same page to pay.  
 
-Although these efforts are certainly made to maximize the checkout conversion, it adds to the flawless user experience on the site. Store owners who want an equally good user experience can find [more information here](/?page_id=129).
+Although these efforts are certainly made to maximize the checkout conversion, it adds to the flawless user experience on the site. Store owners who want an equally good user experience can find [more information here](/product/features).
 
 ## Bright future
 
@@ -76,4 +76,4 @@ He also found a great agency - [Foundation Commerce](https://foundationcommerce.
 
 Perfect match with technology and people leads to the customer’s trust, which is the base of a longtime relationship and the “happily ever after”.
 
-For those who need a bit of support finding the way to the customers’ heart, please, check out the [various features Magento offers](/?page_id=557) you.
+For those who need a bit of support finding the way to the customers’ heart, please, check out the [various features Magento offers](/product/features) you.

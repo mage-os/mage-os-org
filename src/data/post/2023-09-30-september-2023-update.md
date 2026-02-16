@@ -132,7 +132,7 @@ Trust us to be there in large numbers, with our Mage-OS swag on, and wear anythi
 
 The British are coming, and they’ve [set up their own channel on Discord](https://discord.gg/UTjDmsTD) with the Irish. There's a lot of excitement brewing in the community, and we can’t wait to see what’s in store!
 
-Check our [Local Chapters page](/?page_id=388) to join your regional group. There are currently groups open for France, India, Italy, Netherlands, Germany, Poland, Ukraine, UK and Ireland, and USA. Connect with people from your area, speak ecommerce at them, and maybe talk them into arranging a meetup!
+Check our [Local Chapters page](/community) to join your regional group. There are currently groups open for France, India, Italy, Netherlands, Germany, Poland, Ukraine, UK and Ireland, and USA. Connect with people from your area, speak ecommerce at them, and maybe talk them into arranging a meetup!
 
 Want to start organizing your own local Magento community? Let us know, get your local ecommerce friends and coworkers to join you, and run with it.
 

@@ -25,11 +25,11 @@ image: "~/assets/images/blog/2024/mageos_blog_november-2024-update.jpg"
     
     - Jim Gilbert - community member
 
-- You too can become a Mage-OS member and [join](/?page_id=384) our vibrant community, starting from just €10 per year!
+- You too can become a Mage-OS member and [join](/community/partners) our vibrant community, starting from just €10 per year!
 
 ## **Content and Community Initiatives**
 
-A [**Compatibility Badge** information page](/?page_id=4217) was successfully created this month, making it easier for the community to understand and adopt the badge. This initiative is seen as a step forward in creating clarity around compatibility with Mage-OS. Members are encouraged to spread the word to ensure broader awareness and adoption.
+A [**Compatibility Badge** information page](/community) was successfully created this month, making it easier for the community to understand and adopt the badge. This initiative is seen as a step forward in creating clarity around compatibility with Mage-OS. Members are encouraged to spread the word to ensure broader awareness and adoption.
 
 A **case studies directory** is in the works, aiming to centralize short-form studies categorized by verticals, business size, and region. Agencies could also link to their detailed studies, boosting visibility for their contributions.
 
@@ -77,7 +77,7 @@ Efforts to raise awareness about Mage-OS included plans for an ambassador progra
 
 ### **Branding and Compatibility Badge**
 
-Steps were taken to modernize Magento Open Source branding and align it with current standards. Work on the MageOS Compatibility Badge finished, with documentation and a dedicated [info page](/?page_id=4217) in development to provide clarity on compatibility standards.
+Steps were taken to modernize Magento Open Source branding and align it with current standards. Work on the MageOS Compatibility Badge finished, with documentation and a dedicated [info page](/community) in development to provide clarity on compatibility standards.
 
 This month showcased remarkable progress across development, AI initiatives, community building, and security, setting a strong foundation for the months ahead.
 

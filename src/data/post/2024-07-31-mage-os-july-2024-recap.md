@@ -29,7 +29,7 @@ _If you can, please consider sponsoring — together we will make a significant 
 
 - Bob - Community member
 
-- You too can become a Mage-OS member and [join our vibrant community](/?page_id=384), starting from just €10 per year!
+- You too can become a Mage-OS member and [join our vibrant community](/community/partners), starting from just €10 per year!
 
 ### **July Events**
 
@@ -124,6 +124,6 @@ Stay updated with the latest events and gatherings in the worldwide Magento comm
 
 - [Meet Commerce ES](https://meetcommerce.es/) - 12 November 2024, Barcelona
 
-Get the full list on our [Events Calendar](/?page_id=2587)
+Get the full list on our [Events Calendar](/events)
 
 Stay tuned for more updates and announcements from Mage-OS!

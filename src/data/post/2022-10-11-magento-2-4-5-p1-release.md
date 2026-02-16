@@ -15,6 +15,6 @@ Those same updates are now also available if you’re using our Magento mirror c
 
 Thanks to Vinai Kopp and Damien Retzinger for managing the release process.
 
-If you’re not yet using the Mage-OS Magento mirror, you can do that today by swapping `repo.magento.com` to `mirror.mage-os.org` in your composer.json (unless you require any Magento Marketplace packages). This is a public repository, built by our independent open source build process from the Magento 2 source code. For more info on the Mage-OS nightly and mirror repositories, see: [https://mage-os.org/distribution](/?page_id=326)
+If you’re not yet using the Mage-OS Magento mirror, you can do that today by swapping `repo.magento.com` to `mirror.mage-os.org` in your composer.json (unless you require any Magento Marketplace packages). This is a public repository, built by our independent open source build process from the Magento 2 source code. For more info on the Mage-OS nightly and mirror repositories, see: [https://mage-os.org/distribution](/get-started/installation)
 
 We have plans to launch the Mage-OS Distribution and start accepting pull requests by the end of this year. Stay tuned for more!
