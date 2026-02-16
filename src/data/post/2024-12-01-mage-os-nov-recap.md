@@ -65,7 +65,7 @@ Work began on features allowing the export and import of page builder templates,
 
 ### **Security and Updates**
 
-The team focused on improving responsiveness to security patches. Discussions centered on streamlining processes to address vulnerabilities more quickly. Additionally, [Mage-OS 1.0.5](/?p=4203) was released, achieving parity with Magento Open Source 2.4.7-p3 and addressing issues like search autocomplete and TinyMCE bugs.
+The team focused on improving responsiveness to security patches. Discussions centered on streamlining processes to address vulnerabilities more quickly. Additionally, [Mage-OS 1.0.5](/releases/2024-11-06-release-mage-os-distribution-1-0-5) was released, achieving parity with Magento Open Source 2.4.7-p3 and addressing issues like search autocomplete and TinyMCE bugs.
 
 ### **AI Models and Shared Configurations**
 

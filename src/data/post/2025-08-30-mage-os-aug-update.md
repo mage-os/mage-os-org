@@ -33,7 +33,7 @@ Highlights of this release:
 
 A big thank you goes to all contributors: Artem Kozynets, Bhushan Kumar, Fabrizio Balliano, Lucas van Staden, Ryan Hoerr, Simon Humeau (Antadis), Vinai Kopp, Vova Yatsyuk, and many others for making this release happen. 
 
-Read the full release notes [here](/?p=4796).
+Read the full release notes [here](/releases/2025-08-15-mage-os-1-3-0-is-out-now).
 
 ## **Project Archiving**
 

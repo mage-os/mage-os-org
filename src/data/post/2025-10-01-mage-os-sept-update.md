@@ -28,7 +28,7 @@ The demo repository is now public: [mage-os-lab/demo.mage-os.org](https://github
 
 ## **Releases and Repository Management**
 
-[Mage-OS 1.3.1](/?p=4884) was released earlier this month. Some issues with missing historical JSON data in the build process were quickly resolved.
+[Mage-OS 1.3.1](/releases/2025-09-09-mage-os-1-3-1-is-out) was released earlier this month. Some issues with missing historical JSON data in the build process were quickly resolved.
 
 The work on Mage-OS 2.0 continues. Review of bundled community modules shows that most adjustments are minor and fixes are in progress. The release process refactor, including improved version management, is ready pending final approval. Preview builds are recommended before merging into production.
 

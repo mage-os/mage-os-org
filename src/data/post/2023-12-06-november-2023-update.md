@@ -22,7 +22,7 @@ For many, it’s about **giving back to the ecosystem** that has carried your bu
 
 We need your membership and support to demonstrate the seriousness of our mission and community, and to help fund our efforts to take this to the next level.
 
-[Read our Membership announcement](/?p=3203) for more details on our purpose, long term and short terms plans and options for joining.
+[Read our Membership announcement](/updates/2023-11-29-mage-os-membership-now-open) for more details on our purpose, long term and short terms plans and options for joining.
 
 ### Mage-OS Partners: Early adopters shout out
 
@@ -61,7 +61,7 @@ Image credits: [https://berbephotography.pixieset.com/hypernodebasiswegamsterdam
 
 </figure>
 
-On 2nd November 2023, our Dutch Chapter Mage-OS Netherlands organized the fantastic Meet Magento Netherlands event. It was sold out two weeks ahead, with over 300 enthusiasts participating. [Read the MM23NL recap](/?p=3117) written by Jisse Reitsma, part of the organizing team.
+On 2nd November 2023, our Dutch Chapter Mage-OS Netherlands organized the fantastic Meet Magento Netherlands event. It was sold out two weeks ahead, with over 300 enthusiasts participating. [Read the MM23NL recap](/updates/2023-11-14-meet-magento-nl-2023-recap-the-dutch-are-back) written by Jisse Reitsma, part of the organizing team.
 
 Despite the weather, the vibe was truly amazing and people within the Community were so happy to connect again. In his LinkedIn article titled “[Magento: Time for a Renaissance](https://www.linkedin.com/pulse/time-magento-renaissance-jakub-winkler-ce2xf)”, Jakub Winkler expresses the positive energy that he felt again after many dark years and what he thinks contributed to it.
 
@@ -75,9 +75,9 @@ Hot off the press, you can now see the professional photos and recap video from 
 
 ![Mathias and Vinai](~/assets/images/blog/2023/Mathias-and-Vinai-1024x768.jpg)
 
-In the last few months, Mage-OS participated in many Meet Magento events and got the opportunity to collect [feedback and questions](/?p=3013). Many of you have asked for clarity on how we relate to Magento Association, and what it all means for this ecosystem.
+In the last few months, Mage-OS participated in many Meet Magento events and got the opportunity to collect [feedback and questions](/updates/2023-10-27-mm23ny-follow-up-assoc-interview). Many of you have asked for clarity on how we relate to Magento Association, and what it all means for this ecosystem.
 
-On the Monday after Meet Magento Netherlands, Vinai and Mathias Schreiber met to discuss goals alignment and opportunities for collaboration. [Here is the recap co-written by Vinai and Mathias](/?p=3231) on what came out of this first meeting.
+On the Monday after Meet Magento Netherlands, Vinai and Mathias Schreiber met to discuss goals alignment and opportunities for collaboration. [Here is the recap co-written by Vinai and Mathias](/updates/2023-11-30-magento-association-mage-os-collaboration) on what came out of this first meeting.
 
 To strengthen our focus and not dilute the energy of volunteers who contribute actively to our working groups, we felt it was important to look at current roles and responsibilities between Mage-OS and the Magento Association and how we can best collaborate. 
 

@@ -45,7 +45,7 @@ Thanks to the hard work of **Artem Kozynets**, one of the members of our communi
 
 This is not just a quick style, it's a complete design system inspired by Material Design 3. The design system is [available for you to preview and use on Figma](https://www.figma.com/community/file/1486802857979032188/m137-design-system-and-ui-kit). We would like to extend a huge thank you to Artem for all of his effort and dedication here.
 
-This is such a big change that we've dedicated [a full blog post to it](/?p=4400)!
+This is such a big change that we've dedicated [a full blog post to it](/updates/2025-04-10-m137-admin-theme)!
 
 ## Major performance improvements
 

@@ -24,7 +24,7 @@ You can install Mage-OS 2.0 right now:
 composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition .
 ```
 
-📄 [Release Notes](/?p=4914)  
+📄 [Release Notes](/releases/2025-10-16-mage-os-2-0-innovation-takes-flight)  
 💬 [LinkedIn Announcement](https://www.linkedin.com/feed/update/urn:li:activity:7384595764854951937/)
 
 The release includes a wide range of enhancements, from streamlined frontend tooling to more robust CI workflows and new module capabilities. Community contributors across the world, developers, maintainers, and testers alike, made this milestone possible.

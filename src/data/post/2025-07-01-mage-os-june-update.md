@@ -49,7 +49,7 @@ Mage-OS held its second-ever General Assembly, where members came together to vo
 
 - Francis Michael Gallagher joined the Business Control Committee
 
-The community also thanked the outgoing board members for their time and dedication. Read more about the General Assembly [here](/?p=4597).
+The community also thanked the outgoing board members for their time and dedication. Read more about the General Assembly [here](/updates/2025-06-19-mage-os-2nd-general-assembly-a-big-thank-you-to-the-community).
 
 ### Finances and Transparency
 
@@ -71,7 +71,7 @@ The Business Control Committee shared the 2024 financial report, showing that Ma
 
 - The team is experimenting with ways to run builds in parallel, but some limitations still exist due to tooling and infrastructure.
 
-- [Version 1.2](/?p=4590) was released recently, and early feedback has been very positive. The new admin theme received praise, and no major issues were reported.
+- [Version 1.2](/releases/2025-06-18-mage-os-1-2-0) was released recently, and early feedback has been very positive. The new admin theme received praise, and no major issues were reported.
 
 ## Frontend and Checkout Compliance
 

@@ -12,11 +12,11 @@ image: "~/assets/images/blog/2023/mageos_blog_september-update.jpg"
 
 ### Mage-OS Distribution
 
-A big step was made thanks to our first-ever [Mage-OS Hackathon](/?p=2633)! Huge thanks to David Lambauer and the Run As Root team for putting that on, and for everyone that participated!
+A big step was made thanks to our first-ever [Mage-OS Hackathon](/updates/2023-09-15-hackathon-mage-os-magic-in-action)! Huge thanks to David Lambauer and the Run As Root team for putting that on, and for everyone that participated!
 
 We are in the final stages of preparing for a release of our very own Mage-OS Distribution! Recently that includes:
 
-- Changes to the [package generation process](/?p=2570);
+- Changes to the [package generation process](/updates/2023-09-12-mirror-package-checksum-changes);
 
 - Finalizing a GitHub Action for baseline coding standards testing of pull requests;
 
@@ -120,7 +120,7 @@ We would like to extend a huge thank you to Above The Fray for their generosity 
 
 We are also organizing a morning-after Get Together for anyone that wants to hang out with us and chat Mage-OS!
 
-[Read about everything Mage-OS has going on at MM23NYC](/?p=2711)
+[Read about everything Mage-OS has going on at MM23NYC](/updates/2023-09-19-meet-us-in-new-york)
 
 #### Meet Magento Netherlands 2023 - Nov 2nd
 

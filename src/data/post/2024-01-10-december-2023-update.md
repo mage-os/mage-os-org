@@ -39,7 +39,7 @@ Recently a talk at Meet Magento Netherlands 2023 called “7 ways to be an ally 
 
 On the other side of the Atlantic, [Parul Sinha](https://www.linkedin.com/in/parul-sinha-87965240/) (who is looking after the Open Source Community at Adobe) is the Austin site lead for Women at Adobe. That program is very mature and includes career highlights, sessions on women’s health, as well as a platform to facilitate networking and support on any topic from relationship and parenting advice to soft and hard skills like crafting slides or improving communication.
 
-For Magento and Mage-OS, where [diversity and inclusion have always been part of our Community culture and values](/?p=305), the purpose of this initiative is huge as it will help both grow the Magento Community and skill up each business in the ecosystem. Here’s how:
+For Magento and Mage-OS, where [diversity and inclusion have always been part of our Community culture and values](/updates/2022-09-20-diversity-and-inclusion), the purpose of this initiative is huge as it will help both grow the Magento Community and skill up each business in the ecosystem. Here’s how:
 
 - By attracting more women to the Magento ecosystem, we get a bigger talent pool of more diverse people
 

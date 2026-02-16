@@ -39,7 +39,7 @@ _If you can, please consider sponsoring — together we will make a significant 
 
 ### **New Releases and Community Updates**
 
-- [**Mage-OS Distribution 1.0.3**](/?p=3987): The latest release aligns with Magento Open Source 2.4.7-p1, along with improvements in testing suites. Check out the full release notes and join the conversation on LinkedIn.  
+- [**Mage-OS Distribution 1.0.3**](/releases/2024-07-25-release-mage-os-distribution-1-0-3): The latest release aligns with Magento Open Source 2.4.7-p1, along with improvements in testing suites. Check out the full release notes and join the conversation on LinkedIn.  
     
 
 - **Crypt Key Rotation:** Gene Commerce has released a package to help encryption key rotation for the recent security patch. Check it out: [Gene\_EncryptionKeyManager](https://github.com/genecommerce/module-encryption-key-manager)

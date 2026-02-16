@@ -42,7 +42,7 @@ Yet another long-term Mage-OS tech contributor and one of the original Magento c
 
 The day reached its zenith with a fireside (panel) chat about the current state of the Magento ecosystem and the synergy between Mage-OS and the Magento Association. Kudos to our Board Member Ryan Hoerr for representing Mage-OS. Not to forget, Matthias Schreiber, Executive Director at the Magento Association, who painted a promising picture of the association’s future too.
 
-There were also many burning (and some controversial) questions submitted from the audience (and farther afield) that weren't answered on the day due to time constraints. However, we felt these were important to respond to, which is why we spent time collectively reviewing these questions, which culminated in us recently publishing a [follow up article](/?p=3013) to outline our responses.
+There were also many burning (and some controversial) questions submitted from the audience (and farther afield) that weren't answered on the day due to time constraints. However, we felt these were important to respond to, which is why we spent time collectively reviewing these questions, which culminated in us recently publishing a [follow up article](/updates/2023-10-27-mm23ny-follow-up-assoc-interview) to outline our responses.
 
 ![](~/assets/images/blog/2023/whats-Up-Magento-1-1024x768.jpg)
 
@@ -78,6 +78,6 @@ Thursday, though signaling the end, was far from a winding down. The Perfect Pin
 
 Firstly, a big thank you to Marsha Naidoo and the team at Above the Fray, not just for being incredible event hosts and organizers, but for supporting our presence on every level and allowing us to make a real splash in the US market. The event was an undeniable success for all involved and everyone deserves recognition, from the talented speakers, the sponsors who make these events possible, the organizers who made it a reality, to each and every one of the attendees - as there would not be events without you!
 
-Secondly, the event was incredibly insightful for us and we had many stimulating, and even at times some heated (but all good-natured), debates that have helped us learn and reflect on our mission and goals and we’ve come away with a renewed purpose and a focus on positivity and better collaboration within the ecosystem (such as with the Magento Association and Adobe), while not inhibiting our desire for rapid change and improvement with our recently released [Mage-OS Distribution](/?p=2838).
+Secondly, the event was incredibly insightful for us and we had many stimulating, and even at times some heated (but all good-natured), debates that have helped us learn and reflect on our mission and goals and we’ve come away with a renewed purpose and a focus on positivity and better collaboration within the ecosystem (such as with the Magento Association and Adobe), while not inhibiting our desire for rapid change and improvement with our recently released [Mage-OS Distribution](/releases/2023-10-09-introducing-the-mage-os-distribution).
 
 Until the next event! The Mage-OS team
