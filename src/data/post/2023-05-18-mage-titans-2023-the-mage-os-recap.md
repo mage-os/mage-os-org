@@ -1,7 +1,7 @@
 ---
 title: "Mage Titans 2023 - The Mage-OS Recap"
 publishDate: "2023-05-18T00:00:00.000Z"
-category: "Updates"
+category: "Events"
 author: "john-hughes"
 draft: false
 excerpt: "Mage Titans returned to Manchester, UK, on April 22nd 2023, for the first time in nearly 4 and half years, and what a comeback it was! Over 150 passionate..."

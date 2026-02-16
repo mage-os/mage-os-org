@@ -1,7 +1,7 @@
 ---
 title: "Mage-OS Magic in Action"
 publishDate: "2023-09-15T00:00:00.000Z"
-category: "Updates"
+category: "Events"
 author: "david-lambauer"
 draft: false
 excerpt: "Hallo everyone! I have much excitement to share about our latest adventure in the world of coding and camaraderie. Our team came together for a hackathon that..."

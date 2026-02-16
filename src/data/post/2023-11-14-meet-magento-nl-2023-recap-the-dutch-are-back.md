@@ -1,7 +1,7 @@
 ---
 title: "Meet Magento NL 2023 Recap - The Dutch are back"
 publishDate: "2023-11-14T00:00:00.000Z"
-category: "Updates"
+category: "Events"
 author: "mage-os-team"
 draft: false
 excerpt: "> This post was written and submitted by Jisse Reitsma, Chair of Mage-OS Nederland, in conjunction with our global marketing working group. Thursday, November..."

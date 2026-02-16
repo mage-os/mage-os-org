@@ -1,7 +1,7 @@
 ---
 title: "Magento Community Events September: Highlights and Insights"
 publishDate: "2024-10-27T00:00:00.000Z"
-category: "Updates"
+category: "Events"
 author: "anita-miller"
 draft: false
 excerpt: "The Magento community has had an exciting month filled with key events that showcased innovation, collaboration, and the drive to keep Magento Open Source at..."
