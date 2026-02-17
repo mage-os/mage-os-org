@@ -18,7 +18,7 @@ export interface Props {
 const { metadata, editFile } = Astro.props;
 
 // Construct GitHub edit URL
-const GITHUB_REPO = 'https://github.com/mage-os-lab/mage-os.org/tree/main';
+const GITHUB_REPO = 'https://github.com/mage-os/mage-os-org/tree/main';
 
 function getEditUrl(): string | undefined {
   // If explicit editFile is provided (for blog posts, etc.), use it
