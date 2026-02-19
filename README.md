@@ -52,8 +52,8 @@ The official Mage-OS website built with Astro, featuring a product-focused desig
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/mage-os/mage-os.org.git
-   cd mage-os.org
+   git clone https://github.com/mage-os/mage-os-org.git
+   cd mage-os-org
    ```
 
 2. Install dependencies:

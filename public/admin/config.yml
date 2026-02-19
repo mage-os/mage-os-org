@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: mage-os/mage-os.org
+  repo: mage-os/mage-os-org
   branch: main
   base_url: https://sveltia-cms-auth.tiny-butterfly-a8c1.workers.dev
 
