@@ -12,7 +12,7 @@ February was an active month for Mage-OS, with important progress in development
 
 ### New Release Manager
 
-We officially welcomed [**Marcel Martinez**](https://www.linkedin.com/in/marcelmart/) as our new Release Manager. Marcel will coordinate releases, improve processes, and help ensure stability and consistency across future Mage-OS versions. This is an important step toward a more structured and predictable release cycle.
+Please welcome [**Marcel Martinez**](https://www.linkedin.com/in/marcelmart/) as our new Release Manager. Marcel will coordinate releases, improve processes, and help ensure stability and consistency across future Mage-OS versions. This is an important step toward a more structured and predictable release cycle.
 
 ### New Website
 
@@ -83,6 +83,8 @@ We are proud to collaborate with industry leaders who believe in open source and
 </div>
 
 <div>
+
+[![Vendic](~/assets/images/blog/2026/image-5-1024x1008.png)](https://opencollective.com/vendic)
 
 </div>
 
