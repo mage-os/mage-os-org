@@ -53,6 +53,7 @@ Thank you to [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) and [@marcelmtz](
 
 This release was also made possible by the contributions of:
 
+- [@artKozynets](https://github.com/artKozynets) (Artem Kozynets)
 - [@furan917](https://github.com/furan917) (Francis Gallagher)
 - [@aligent-lturner](https://github.com/aligent-lturner) (Lachlan Turner, [Aligent](https://github.com/aligent))
 
