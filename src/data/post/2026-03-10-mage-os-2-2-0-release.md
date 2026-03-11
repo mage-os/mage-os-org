@@ -9,7 +9,7 @@ imageAlt: ''
 author: mage-os-team
 ---
 
-We are excited to announce the release of **Mage-OS Distribution 2.2.0**, incorporating important security patches from upstream along with bug fixes and UI improvements. We strongly recommend updating as soon as possible.
+We are excited to announce the release of **Mage-OS Distribution 2.2.0**, incorporating important security patches from upstream, along with bug fixes and UI improvements. We strongly recommend updating as soon as possible.
 
 ### Our foundation
 
