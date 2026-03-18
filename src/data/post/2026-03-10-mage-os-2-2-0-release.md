@@ -9,6 +9,8 @@ imageAlt: ''
 author: mage-os-team
 ---
 
+> **Update:** Mage-OS 2.2.1 is now available with important security and stability fixes. [Read the 2.2.1 release post](/releases/2026-03-18-mage-os-2-2-1-release).
+
 We are excited to announce the release of **Mage-OS Distribution 2.2.0**, incorporating important security patches from upstream, along with bug fixes and UI improvements. We strongly recommend updating as soon as possible.
 
 ### Our foundation

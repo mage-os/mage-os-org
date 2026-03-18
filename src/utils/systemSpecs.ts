@@ -281,7 +281,7 @@ function transformData(
   const latestSpecs: VersionSpecs = latestComposite
     ? {
         ...buildComponentSpecs(latestComposite, config),
-        mageosVersion: latestVersion || '2.2',
+        mageosVersion: latestVersion || '2.2.1',
         magentoBase: latestComposite.upstream || versions[latestVersion]?.magentoBase || '2.4.8-p4',
         releaseDate: latestComposite.release,
         eolDate: latestComposite.eol,
