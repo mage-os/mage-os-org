@@ -4,7 +4,7 @@ publishDate: "2026-04-01T00:00:00.000Z"
 category: "Updates"
 author: "mage-os-team"
 draft: false
-excerpt: "March was a focused and productive month for Mage-OS, marked by the release of versions 2.2 and 2.2.1 with important security updates and fixes, alongside steady progress toward Mage-OS 3.0. Improvements to testing, CI, and installer tooling continue to strengthen the platform’s reliability, while new initiatives such as the Magento LSP server and AI-based features highlight ongoing innovation. At the same time, the community is actively addressing real-world challenges, from bug investigations to infrastructure stability, and opening discussions about the broader impact of AI on the ecosystem."
+excerpt: "March was a focused and productive month for Mage-OS, marked by the release of versions 2.2 and 2.2.1..."
 image: "~/assets/images/blog/2026/mage-os-may-blog-2.jpg"
 ---
 
