@@ -5,7 +5,7 @@ category: "Updates"
 author: "mage-os-team"
 draft: false
 excerpt: "March was a focused and productive month for Mage-OS, marked by the release of versions 2.2 and 2.2.1..."
-image: "~/assets/images/blog/2026/mage-os-may-blog-2.jpg"
+image: "~/assets/images/blog/2026/mage-os-march-blog-2.jpg"
 ---
 
 March was a productive month for Mage-OS, with a focus on releases, infrastructure improvements, and continued ecosystem growth.
@@ -117,7 +117,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div class="not-prose" style="max-width: 140px;">
 
-[![MDOQ](/_astro/partners/mdoq.png)](https://opencollective.com/mdoq)
+[![MDOQ](https://mage-os.org/_astro/image-1-1024x1024.NIMfNPuV_nB3oK.webp)](https://opencollective.com/mdoq)
 
 </div>
 
@@ -127,25 +127,25 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![ParadoxLabs](/_astro/blog/2026/image-2.png)](https://opencollective.com/paradoxlabs)
+[![ParadoxLabs](https://mage-os.org/_astro/image-2.D_u1eXG2_Z2rJvmm.webp)](https://opencollective.com/paradoxlabs)
 
 </div>
 
 <div>
 
-[![Vendic](/_astro/partners/vendic.jpg)](https://opencollective.com/vendic)
+[![Vendic](~/assets/images/blog/2026/image-5-1024x1008.png)](https://opencollective.com/vendic)
 
 </div>
 
 <div>
 
-[![Hyvä](/_astro/partners/hyva.png)](https://opencollective.com/hyva-themes)
+[![Hyvä](https://mage-os.org/_astro/image-6.Dx4acMHc_ZxUYjO.webp)](https://opencollective.com/hyva-themes)
 
 </div>
 
 <div>
 
-[![Inchoo](/_astro/blog/2025/image-7.png)](https://opencollective.com/inchoo)
+[![Inchoo](https://mage-os.org/_astro/image-7-1024x1024.NaJD7DMt_12hOM7.webp)](https://opencollective.com/inchoo)
 
 </div>
 
@@ -157,31 +157,31 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![Jetrails](/_astro/blog/2025/image-8.png)](https://opencollective.com/jetrails)
+[![JetRails](https://mage-os.org/_astro/image-8.D6K3zNZg_Z1PONGI.webp)](https://opencollective.com/jetrails)
 
 </div>
 
 <div>
 
-[![Develo](/_astro/blog/2026/image-9.png)](https://opencollective.com/develo)
+[![Develo](https://mage-os.org/_astro/image-9.CXJtEzF__1tlU8r.webp)](https://opencollective.com/develo)
 
 </div>
 
 <div>
 
-[![FindCanary](/_astro/blog/2023/BIrd%20Copy-BIrd.png)](https://opencollective.com/canary)
+[![FindCanary](https://mage-os.org/_astro/image-10.B-7DFoGZ_UsgfC.webp)](https://opencollective.com/canary)
 
 </div>
 
 <div>
 
-[![Integer_net](/_astro/blog/2025/image-11.png)](https://opencollective.com/integer_net)
+[![integer_net](https://mage-os.org/_astro/image-11.uDHWm4v9_Z2jQqIt.webp)](https://opencollective.com/integer_net)
 
 </div>
 
 <div>
 
-[![JH](/_astro/blog/2026/image-12.png)](https://opencollective.com/wearejh)
+[![JH](https://mage-os.org/_astro/image-12.C71asHZQ_14DMgh.webp)](https://opencollective.com/wearejh)
 
 </div>
 
