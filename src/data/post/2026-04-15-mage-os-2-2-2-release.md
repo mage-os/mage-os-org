@@ -11,7 +11,12 @@ author: mage-os-team
 
 **Mage-OS Distribution 2.2.2** is now available. This release brings bug fixes and compatibility improvements across several Mage-OS modules. We recommend updating at your convenience.
 
+Note that it is no longer possible to install the previous version due to a security advisory on `webonyx/graphql-php`. This update allows the latest versions of that package to fix it.
+
 ### What's changed
+
+- **GraphQL dependency constraint refined**
+  Updated `webonyx/graphql-php` constraint from `<15.31.0` to `!=15.31.0 !=15.31.1`, allowing future 15.31.2+ releases while continuing to block the two known-broken versions. ([#218](https://github.com/mage-os/mageos-magento2/pull/218)) by [@rhoerr](https://github.com/rhoerr)
 
 - **Automatic Translation module updated to 2.1.0**
   - PHP 8.2 compatibility: removed typed constants that caused errors on PHP 8.2+ ([#56](https://github.com/mage-os/module-automatic-translation/pull/56)) by [@SamueleMartini](https://github.com/SamueleMartini)
@@ -20,12 +25,6 @@ author: mage-os-team
 
 - **Inventory Reservations Grid: admin OutOfRangeException fixed**
   Added `Magento_InventoryAdminUi` to the module sequence to resolve an `OutOfRangeException` in the admin panel. ([#16](https://github.com/mage-os/module-inventory-reservations-grid/pull/16)) by [@proxiblue](https://github.com/proxiblue)
-
-- **GraphQL dependency constraint refined**
-  Updated `webonyx/graphql-php` constraint from `<15.31.0` to `!=15.31.0 !=15.31.1`, allowing future 15.31.2+ releases while continuing to block the two known-broken versions. ([#218](https://github.com/mage-os/mageos-magento2/pull/218)) by [@rhoerr](https://github.com/rhoerr)
-
-- **Page Builder: removed outdated gene/bluefoot conflict**
-  Cleaned up a long-irrelevant `gene/bluefoot` conflict entry from the Page Builder package. ([#9](https://github.com/mage-os/mageos-magento2-page-builder/pull/9)) by [@rhoerr](https://github.com/rhoerr)
 
 ### Our foundation
 
