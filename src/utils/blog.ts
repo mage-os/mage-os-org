@@ -104,9 +104,14 @@ const load = async function (): Promise<Array<Post>> {
   const posts = await getCollection('post');
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
+  // Include posts dated today or tomorrow so the nightly rebuild publishes
+  // next-day posts (e.g. the 4/22→4/23 overnight build surfaces 4/23 posts).
+  const now = new Date();
+  const cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2);
+
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
-    .filter((post) => !post.draft);
+    .filter((post) => !post.draft && post.publishDate.valueOf() < cutoff.valueOf());
 
   return results;
 };
