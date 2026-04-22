@@ -1,11 +1,14 @@
 ---
 title: "MageOS WidgetKit 1.3.0: A More Mature Page Builder Experience"
-publishDate: "2026-04-07T00:00:00.000Z"
+publishDate: "2026-04-23T00:00:00.000Z"
 category: "Updates"
-author: "mage-os-team"
+author: "davide-lunardon"
 draft: false
 excerpt: "MageOS WidgetKit 1.3.0 introduces a more refined and reliable page builder experience, delivering improved stability, enhanced flexibility, and new features that streamline content creation for developers and store owners alike."
 image: "~/assets/images/blog/2026/New-Mage-OS-Website.png"
+tags:
+  - "Community"
+  - "Page Builder"
 ---
 
 The MageOS community is introducing [**MageOS_WidgetKit 1.3.0**](https://www.linkedin.com/posts/davide-lunardon-b78813a1_community-mageos-magento-activity-7436680455027998720-c--e/), a release that can reasonably be considered the first stable and production ready version of the module. This milestone is the result of the work led by [Davide Lunardon](https://www.linkedin.com/in/davide-lunardon-b78813a1?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABWn28wBoeCdysd3NwSi8RMpNTWJxKTofjg&lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BqtqgMhoiSVK2xVUmX2u3CA%3D%3D), with valuable contributions from [Samuele Martini](https://www.linkedin.com/in/samuele-martini-02820795/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BqtqgMhoiSVK2xVUmX2u3CA%3D%3D), [Yuriy Boyko](https://www.linkedin.com/in/yuriy-boyko-2463a6115/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BqtqgMhoiSVK2xVUmX2u3CA%3D%3D), and [Luca Fuser](https://www.linkedin.com/in/luca-alessio-fuser/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BqtqgMhoiSVK2xVUmX2u3CA%3D%3D), and ongoing support from the broader community.
@@ -14,7 +17,7 @@ This update reflects several months of iterative work driven by real world needs
 
 ## **A practical evolution of Page Builder**
 
-Magento’s Page Builder has always been a powerful tool, but extending it often required significant effort, especially when building custom components or trying to achieve accurate previews.
+Magento's Page Builder has always been a powerful tool, but extending it often required significant effort, especially when building custom components or trying to achieve accurate previews.
 
 WidgetKit changes that dynamic. With this version, widgets can be developed with previews that are directly tied to the frontend output. What you see during editing is much closer to what users will actually experience. This reduces guesswork and removes the need for duplicated logic between backend previews and frontend rendering.
 
@@ -28,11 +31,7 @@ This has a direct impact on how content teams work. Instead of requesting freque
 
 ## **Moving content between environments**
 
-One of the recurring challenges in Magento projects is moving Page Builder content between environments. This release addresses that through integration with the module
-module-pagebuilder-template-import-export
-
-You can explore the repository here:
-[https://github.com/mage-os/module-pagebuilder-template-import-export](https://github.com/mage-os/module-pagebuilder-template-import-export)
+One of the recurring challenges in Magento projects is moving Page Builder content between environments. This release addresses that through integration with the [`module-pagebuilder-template-import-export`](https://github.com/mage-os/module-pagebuilder-template-import-export) module.
 
 With import and export capabilities for templates and CMS blocks, teams can move content from development to staging and production in a controlled and predictable way. This reduces friction in deployment workflows and improves consistency across environments.
 
@@ -66,6 +65,4 @@ The result is not just a feature set, but a shared baseline the community can no
 MageOS_WidgetKit 1.3.0 represents a shift toward a more usable and maintainable Page Builder experience. It simplifies development, improves editorial workflows, and introduces tools that make content more portable.
 
 The project remains fully open source. Feedback, contributions, and real world usage will continue to guide its direction.
-
-
 
