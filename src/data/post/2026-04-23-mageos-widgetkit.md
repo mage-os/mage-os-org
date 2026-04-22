@@ -1,17 +1,17 @@
 ---
-title: "MageOS WidgetKit: A More Mature Page Builder Experience"
+title: "Mage-OS WidgetKit: A More Mature Page Builder Experience"
 publishDate: "2026-04-23T00:00:00.000Z"
 category: "Updates"
 author: "davide-lunardon"
 draft: false
-excerpt: "MageOS WidgetKit delivers a more refined and reliable Page Builder experience, with prebuilt Hyvä-compatible widgets, accurate live previews, and tighter integration with the wider Page Builder suite."
+excerpt: "Mage-OS WidgetKit delivers a more refined and reliable Page Builder experience, with prebuilt Hyvä-compatible widgets, accurate live previews, and tighter integration with the wider Page Builder suite."
 image: "~/assets/images/blog/2026/New-Mage-OS-Website.png"
 tags:
   - "Community"
   - "Page Builder"
 ---
 
-[**MageOS_WidgetKit**](https://github.com/mage-os-lab/module-widgetkit) is a suite of ready-to-use CMS widgets for Magento's Page Builder, built from the ground up to work with the [Hyvä](https://www.hyva.io/) frontend theme. After more than a year of steady development, it has grown into a mature toolkit for building and managing Page Builder content.
+[**Mage-OS WidgetKit**](https://github.com/mage-os-lab/module-widgetkit) is a suite of ready-to-use CMS widgets for Magento's Page Builder, built from the ground up to work with the [Hyvä](https://www.hyva.io/) frontend theme. After more than a year of steady development, it has grown into a mature toolkit for building and managing Page Builder content.
 
 This is the result of work led by [Davide Lunardon](https://github.com/dadolun95), with valuable contributions from Samuele Martini, Yuriy Boyko, and Luca Fuser, and ongoing support from the broader community. It reflects months of iterative development driven by real-world needs — the goal has been consistent from the beginning: to improve how content is created and managed in Magento without increasing complexity for developers or editors.
 
@@ -25,7 +25,7 @@ The development process becomes more straightforward as a result. Instead of bui
 
 ## More flexibility where it matters
 
-Another area of improvement is configuration. Through the companion [MageOS_AdvancedWidget](https://github.com/mage-os-lab/module-advanced-widget) module, widgets are no longer constrained to simple inputs. Teams can define structured and reusable configurations, including repeatable fields, media inputs, and product selections.
+Another area of improvement is configuration. Through the companion [Mage-OS AdvancedWidget](https://github.com/mage-os-lab/module-advanced-widget) module, widgets are no longer constrained to simple inputs. Teams can define structured and reusable configurations, including repeatable fields, media inputs, and product selections.
 
 This has a direct impact on how content teams work. Instead of requesting frequent developer intervention, editors can compose richer layouts and reuse them across pages with greater autonomy.
 
@@ -70,12 +70,12 @@ The documentation is automatically generated and will continue to improve with c
 
 The suite reflects a focused effort led by Davide Lunardon, who not only initiated the project but also shaped its direction around real developer and merchant needs — a system that prioritizes usability, extensibility, and alignment with modern frontend workflows.
 
-Contributions from Samuele Martini, Yuriy Boyko, and Luca Fuser played a key role in refining implementation details, improving reliability, and validating the approach across different use cases. The broader MageOS community has ensured quality through code reviews, feedback loops, and structured release management.
+Contributions from Samuele Martini, Yuriy Boyko, and Luca Fuser played a key role in refining implementation details, improving reliability, and validating the approach across different use cases. The broader Mage-OS community has ensured quality through code reviews, feedback loops, and structured release management.
 
 The result is not just a feature set, but a shared baseline the community can build upon.
 
 ## Closing thoughts
 
-MageOS WidgetKit represents a shift toward a more usable and maintainable Page Builder experience. It simplifies development, improves editorial workflows, and introduces tools that make content more portable.
+Mage-OS WidgetKit represents a shift toward a more usable and maintainable Page Builder experience. It simplifies development, improves editorial workflows, and introduces tools that make content more portable.
 
 The project remains fully open source. Feedback, contributions, and real-world usage will continue to guide its direction.
