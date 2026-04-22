@@ -1,14 +1,11 @@
 ---
 title: "Mage-OS WidgetKit: A More Mature Page Builder Experience"
 publishDate: "2026-04-23T00:00:00.000Z"
-category: "Updates"
+category: "Initiatives"
 author: "davide-lunardon"
 draft: false
 excerpt: "Mage-OS WidgetKit delivers a more refined and reliable Page Builder experience, with prebuilt Hyvä-compatible widgets, accurate live previews, and tighter integration with the wider Page Builder suite."
 image: "~/assets/images/blog/2026/New-Mage-OS-Website.png"
-tags:
-  - "Community"
-  - "Page Builder"
 ---
 
 [**Mage-OS WidgetKit**](https://github.com/mage-os-lab/module-widgetkit) is a suite of ready-to-use CMS widgets for Magento's Page Builder, built from the ground up to work with the [Hyvä](https://www.hyva.io/) frontend theme. After more than a year of steady development, it has grown into a mature toolkit for building and managing Page Builder content.
