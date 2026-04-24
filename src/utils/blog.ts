@@ -104,10 +104,11 @@ const load = async function (): Promise<Array<Post>> {
   const posts = await getCollection('post');
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
-  // Include posts dated today or tomorrow so the nightly rebuild publishes
-  // next-day posts (e.g. the 4/22→4/23 overnight build surfaces 4/23 posts).
+  // Hide posts dated 2+ days in the future; the build on the eve of a post's
+  // date surfaces it. Cutoff uses UTC to match the UTC frontmatter dates, so
+  // behavior is identical in CI and local preview regardless of timezone.
   const now = new Date();
-  const cutoff = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2);
+  const cutoff = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 2));
 
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
