@@ -10,8 +10,8 @@ tags:
   - "Hyva"
   - "Benchmark"
   - "Mage-OS"
-image: "~/assets/images/blog/2026/benchmark-grafana-results.png"
-imageAlt: "Grafana dashboard showing p95 response time comparison: Luma at 8,000ms vs Hyva at 3,680ms under 250 concurrent users"
+image: "~/assets/images/blog/2026/benchmark-grafana-top.png"
+imageAlt: "Grafana dashboard showing p95 response time overlay (Luma vs Hyva), p50 median, throughput, and HTTP status codes for the 250 VU benchmark"
 ---
 
 During a recent client pitch, a question came up that vendor benchmarks couldn't answer cleanly: how much faster is Mage-OS with Hyva than Magento with Luma under real concurrency?
@@ -48,9 +48,9 @@ The 42% throughput gap is the capacity planning number. Same infrastructure, sam
 
 Neither stack hit a CPU or memory ceiling. Peak CPU on both was around 20-25%. The bottleneck is PHP-FPM worker concurrency, not compute.
 
-![Grafana dashboard showing p95 and p50 response time comparison between Luma and Hyva stacks](~/assets/images/blog/2026/benchmark-grafana-results.png)
+![Grafana dashboard showing p95 response time overlay, p50 median, throughput, and HTTP status codes — Luma (blue) vs Hyva (green)](~/assets/images/blog/2026/benchmark-grafana-top.png)
 
-![Infrastructure and throughput metrics during the benchmark run](~/assets/images/blog/2026/benchmark-grafana-top.png)
+![Grafana dashboard showing TTFB p95, response time by page type, and VU ramp — Luma vs Hyva](~/assets/images/blog/2026/benchmark-grafana-bottom.png)
 
 ## Per-page breakdown
 
