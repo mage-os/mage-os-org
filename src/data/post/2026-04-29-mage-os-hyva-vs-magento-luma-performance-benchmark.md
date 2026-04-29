@@ -16,7 +16,7 @@ imageAlt: "Grafana dashboard showing p95 response time overlay (Luma vs Hyva), p
 
 During a recent client pitch, a question came up that vendor benchmarks couldn't answer cleanly: how much faster is Mage-OS with Hyva than Magento with Luma under real concurrency?
 
-David Lambauer from run_as_root GmbH decided to find out properly. That meant identical AWS infrastructure for both stacks, a controlled k6 load test, and Full Page Cache deliberately disabled so PHP actually renders every request.
+[David Lambauer](https://www.davidlambauer.de) from [run_as_root](https://www.run-as-root.de) GmbH decided to find out properly. That meant identical AWS infrastructure for both stacks, a controlled k6 load test, and Full Page Cache deliberately disabled so PHP actually renders every request.
 
 The full methodology, Terraform configurations, Helm charts, and k6 scripts are published openly so you can reproduce this on your own infrastructure.
 
@@ -83,4 +83,4 @@ The full benchmark is published at [github.com/mage-os/mage-os-comparison](https
 
 Running the full benchmark costs around $3.07/hour on AWS. Tear it down with `terraform destroy` when you're done.
 
-Benchmarked on 2026-04-12 by David Lambauer using Claude Code for infrastructure automation and analysis.
+Benchmarked on 2026-04-12 by [David Lambauer](https://www.davidlambauer.de) using Claude Code for infrastructure automation and analysis.

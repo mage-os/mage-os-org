@@ -16,7 +16,7 @@ The marketing department had just taken over responsibility for the online shop.
 
 Their reasoning wasn't irrational. The existing Magento installation was several years behind on upgrades. No Hyva. None of the modern features that had shipped since. When a competing integrator demoed a Business Central connection they'd stood up in 50 minutes, the pitch looked even more compelling.
 
-David Lambauer, CEO of run_as_root GmbH and VP of the Mage-OS Association, walked into that pitch with something different from a features list.
+[David Lambauer](https://www.davidlambauer.de), CEO of [run_as_root](https://www.run-as-root.de) GmbH and VP of the Mage-OS Association, walked into that pitch with something different from a features list.
 
 ## Stop comparing today
 
