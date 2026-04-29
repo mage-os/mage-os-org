@@ -42,7 +42,7 @@ He showed an agentic admin proof-of-concept built by the Mage-OS team. The idea:
 
 The room's reaction was immediate. Marketing people don't care how the plumbing works. They care about getting from "we have new Easter products" to "we have a live landing page" without a two-week agency sprint.
 
-The second demo was product data enrichment. A common pain: every new product needs a name, description, short description, SEO description, and schema markup. That's the same content in four different formats. The AI enrichment feature takes a raw input and fills the rest automatically.
+The second demo was product data enrichment. A common pain: every new product needs a name, description, short description, SEO description, and schema markup. The AI enrichment feature takes a raw input and fills the rest automatically.
 
 The third was reporting. Forget opening a reports tab, exporting an Excel file, and pivoting a table. The pitch showed a chat interface inside the admin: ask a natural language question, get an answer. "What were the top five bestselling categories over the last three months?" is a question you type, not a dashboard you configure.
 
@@ -54,7 +54,7 @@ There's always someone who cares about data privacy. The answer: Mage-OS runs on
 
 There's usually someone who asks about sustainability. Hetzner and many managed cloud providers power their infrastructure with green energy. Covered.
 
-And then there's the quiet "but is this thing actually backed by anyone?" anxiety that SaaS platforms benefit from without earning. David used the Linux distribution analogy. Adobe Commerce is Red Hat: enterprise-grade, expensive, built for a specific bracket. Mage-OS is closer to Ubuntu: community-driven, SMB-focused, and moving fast. The Hyva and Mollie partnerships add credibility for a European merchant audience.
+And then there's the quiet "but is this thing actually backed by anyone?" anxiety that SaaS platforms benefit from without earning. David used the Linux distribution analogy. Adobe Commerce is Red Hat: enterprise-grade, expensive, built for a specific bracket. Mage-OS is closer to Ubuntu: community-driven, SMB-focused, and moving fast. The Hyva and Mollie integrations add credibility for a European merchant audience.
 
 None of these objections derailed the meeting.
 
