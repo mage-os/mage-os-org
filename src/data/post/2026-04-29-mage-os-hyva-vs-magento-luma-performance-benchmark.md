@@ -40,7 +40,6 @@ Both stacks had Full Page Cache and Varnish disabled. With FPC on, both serve ca
 | p90 | 6,610 ms | 3,580 ms | 1.8x faster |
 | p95 | 8,000 ms | 3,680 ms | 2.2x faster |
 | Throughput | 36 req/s | 51 req/s | +42% |
-| Error rate | 0% | 0% | Both clean |
 
 The median is the number that matters most for most users. At p50, Hyva responded in 201 ms while Luma took 1,040 ms. Five times faster, same hardware.
 
