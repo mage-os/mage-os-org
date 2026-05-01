@@ -1,0 +1,53 @@
+---
+title: Streamlining eCommerce Returns with Mage-OS RMA
+excerpt: The new Mage-OS RMA module brings transparent, flexible returns to merchants and customers alike — with structured workflows, live communication, and room to extend.
+publishDate: 2026-05-05T18:00:00
+draft: false
+category: Initiatives
+image: ~/assets/images/blog/2026/mageos-rma-form.png
+imageAlt: ''
+author: mage-os-team
+---
+
+At Mage-OS, progress is built collaboratively. The new RMA (Return Merchandise Authorization) module is a clear example of that approach in action — designed, refined, and stabilized through focused effort and thoughtful contributions from the community.
+
+A significant part of this work has been driven by Samuele Martini, whose attention to detail, refactoring efforts, and careful code reviews helped bring the module to a stable and production-ready state. This release reflects not just functionality, but maturity.
+
+### What the Module Delivers
+
+The RMA module is designed to make returns more transparent and manageable for both customers and merchants, without adding unnecessary complexity.
+
+Customers can initiate return requests directly from their order summary page or through a dedicated "Returns" section in their account. For guest users, the process is equally accessible via Magento's native guest order lookup.
+
+Once a return is created, the experience becomes more interactive and structured:
+
+- Customers can define the reason for the return, item condition, and preferred outcome (refund, exchange, etc.)
+- A built-in comment thread works like a live chat, enabling direct communication with the merchant
+- File attachments (images and videos) can be added at any stage, helping document item condition or logistics like shipping labels
+
+Communication is handled proactively. Customers and administrators receive notifications when returns are created or updated, ensuring visibility across the process.
+
+![The Mage-OS RMA details page](~/assets/images/blog/2026/mageos-rma-view.png)
+
+On the administrative side, flexibility is a key strength. Merchants can configure:
+
+- Return statuses and workflows
+- Resolution types and return reasons
+- Item condition states
+- Email notification templates
+
+Returns can be managed centrally, including full access to the conversation history with customers.
+
+### Built for Extension
+
+From a technical perspective, the module is intentionally extensible. It exposes events that allow developers to integrate additional workflows such as store credit refunds or automated courier pickups. This makes it adaptable to a wide range of operational needs without requiring core modifications.
+
+### Learn More
+
+For a complete overview, implementation details, and technical documentation, refer to the [official README](https://github.com/mage-os-lab/module-rma/blob/main/README.md).
+
+### Recognition
+
+This release would not be possible without the contributions of the Mage-OS community. Special recognition goes to Sam for the work on this module.
+
+The RMA module represents a practical, extensible solution shaped by real-world needs — and a reminder of what focused collaboration can achieve within the Mage-OS ecosystem.
