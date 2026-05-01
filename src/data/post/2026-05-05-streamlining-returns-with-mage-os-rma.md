@@ -4,7 +4,7 @@ excerpt: The new Mage-OS RMA module brings transparent, flexible returns to merc
 publishDate: 2026-05-05T18:00:00
 draft: false
 category: Initiatives
-image: ~/assets/images/blog/2026/New-Mage-OS-Website.png
+image: ~/assets/images/blog/2026/mageos-rma-form.png
 imageAlt: ''
 author: mage-os-team
 ---
@@ -26,6 +26,8 @@ Once a return is created, the experience becomes more interactive and structured
 - File attachments (images and videos) can be added at any stage, helping document item condition or logistics like shipping labels
 
 Communication is handled proactively. Customers and administrators receive notifications when returns are created or updated, ensuring visibility across the process.
+
+![The Mage-OS RMA details page](~/assets/images/blog/2026/mageos-rma-view.png)
 
 On the administrative side, flexibility is a key strength. Merchants can configure:
 
