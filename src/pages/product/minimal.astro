@@ -5,12 +5,20 @@ import CodeBlock from '~/components/ui/CodeBlock.astro';
 import Callout from '~/components/ui/Callout.astro';
 import minimalCorePackages from '~/data/minimal-core-packages.json';
 
+// TODO: Confirm the final URL for the Minimal Edition composer repository
+// and update MINIMAL_REPO_URL + the install command in the page below.
+const MINIMAL_REPO_URL = 'https://minimal.mage-os.org/';
+
+// TODO: Once the minimal repo is live, replace the static minimal-core-packages.json
+// with a build-time fetch from the metapackage dependencies, the same way we fetch
+// the full package list from repo.mage-os.org below:
+//   const minimalMeta = await fetch(`${MINIMAL_REPO_URL}p2/mage-os/product-minimal-edition.json`).then(r => r.json());
+//   const minimalPkg = Object.values(minimalMeta.packages['mage-os/product-minimal-edition'])[0];
+//   const minimalSet = new Set(Object.keys(minimalPkg.require).filter(k => k.startsWith('mage-os/')));
+
 // Fetch full package list from repo.mage-os.org at build time.
 // 1. packages.json tells us the current include file hash.
 // 2. include/all$hash.json has every package with type + description.
-// Once minimal.mage-os.org is live, the minimal set can be fetched from
-// https://minimal.mage-os.org/p2/mage-os/product-minimal-edition.json
-// (require keys starting with mage-os/) instead of the static JSON.
 interface PkgEntry {
   name: string;
   type: string;
@@ -98,7 +106,7 @@ const filterGroups = [
         for production.
       </Callout>
       <CodeBlock
-        code="composer create-project --repository-url=https://minimal.mage-os.org/ mage-os/project-minimal-edition:@alpha ."
+        code={`composer create-project --repository-url=${MINIMAL_REPO_URL} mage-os/project-minimal-edition:@alpha .`}
         lang="bash"
       />
 
@@ -119,6 +127,8 @@ composer require mage-os/module-page-builder`}
   </section>
 
   <!-- Package Browser -->
+  <!-- TODO: Search is currently a simple client-side name filter. Consider adding
+       fuzzy matching or description search if the package list grows significantly. -->
   <section class="px-4 pb-16 sm:px-6 mx-auto lg:px-8 max-w-6xl">
     <div class="mb-6">
       <h2 class="text-2xl font-bold font-heading dark:text-white mb-1">Package Browser</h2>
