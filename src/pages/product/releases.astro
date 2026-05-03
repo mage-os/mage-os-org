@@ -187,6 +187,57 @@ bin/magento cache:flush`}
         </tbody>
       </table>
 
+      <h3>Nightly Builds</h3>
+      <p>
+        Nightly builds are auto-generated every night from the latest development branches. They are intended for
+        developers who want to test against upcoming changes — <strong>not for production use</strong>.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Build</th>
+            <th>Composer Repository</th>
+            <th>Tracks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mage-OS Nightly</strong></td>
+            <td><a href="https://nightly.mage-os.org/">nightly.mage-os.org</a></td>
+            <td>Latest development state of Mage-OS Distribution</td>
+          </tr>
+          <tr>
+            <td><strong>Upstream Nightly</strong></td>
+            <td><a href="https://upstream-nightly.mage-os.org/">upstream-nightly.mage-os.org</a></td>
+            <td>Latest development state of upstream Magento Open Source</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Mage-OS Nightly</strong> is useful for:</p>
+      <ul>
+        <li>Extension authors testing compatibility with in-flight Mage-OS changes</li>
+        <li>QA contributors verifying open pull requests</li>
+        <li>Community members who want early access to upcoming features</li>
+      </ul>
+      <p><strong>Upstream Nightly</strong> is useful for:</p>
+      <ul>
+        <li>Developers tracking what Adobe is building before it ships</li>
+        <li>Forward-compatibility testing of extensions against the next Magento release</li>
+      </ul>
+      <Callout type="warning" title="Not for production">
+        Nightly builds are unstable and may contain breaking changes, incomplete features, or untested code. Use them
+        only in isolated development or testing environments.
+      </Callout>
+      <p>Install via Composer:</p>
+      <CodeBlock
+        code={`# Mage-OS Nightly
+composer create-project --repository-url=https://nightly.mage-os.org/ mage-os/project-community-edition:@alpha .
+
+# Upstream Nightly
+composer create-project --repository-url=https://upstream-nightly.mage-os.org/ magento/project-community-edition:@alpha .`}
+        lang="bash"
+      />
+
       <h3>Magento Mirrors</h3>
       <p>
         Mage-OS provides public Magento Open Source mirrors for installing Magento without Adobe Marketplace
