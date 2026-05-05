@@ -69,4 +69,4 @@ Both stacks shared the same RDS MySQL 8.0 instance with separate schemas. Hyvä 
 
 The RDS instance stayed well below its limits throughout. Threads running peaked at 8-10, slow queries were near zero.
 
-I ran this benchmark on 2026-04-12, using [Mappia](https://www.mappia.io/) for Kubernetes deployment and Claude Code for infrastructure automation and analysis.
+I ran this benchmark on 2026-04-12, using [Mappia](https://www.mappia.io/) for Kubernetes deployment.
