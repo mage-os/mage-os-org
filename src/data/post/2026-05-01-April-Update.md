@@ -4,13 +4,13 @@ publishDate: "2026-05-01T00:00:00.000Z"
 category: "Updates"
 author: "mage-os-team"
 draft: false
-excerpt: "April was shaped by growing adoption of AI in Magento and MageOS development, alongside steady progress toward the MageOS 3.0 release. The community focused on balancing productivity gains with security, stability, and maintainability."
+excerpt: "April was shaped by growing adoption of AI in Magento and Mage-OS development, alongside steady progress toward the Mage-OS 3.0 release. The community focused on balancing productivity gains with security, stability, and maintainability."
 image: "~/assets/images/blog/2026/mage-os-april-blog.jpg"
 ---
 
-## MageOS April Update
+## Mage-OS April Update
 
-April’s main highlight was the recent AI session, which led to a broad and practical discussion about how artificial intelligence is influencing Magento and MageOS development.
+April’s main highlight was the recent AI session, which led to a broad and practical discussion about how artificial intelligence is influencing Magento and Mage-OS development.
 
 The session confirmed that AI tools are becoming part of everyday development workflows. They help developers generate code faster, explore unfamiliar areas of the codebase, and automate routine tasks. At the same time, the role of developers is shifting more toward reviewing and validating output rather than writing everything manually.
 
@@ -34,15 +34,15 @@ Other modules are nearing production readiness. The Admin Activity Log (2.0 RC1)
 
 Some areas still need attention. The Catalog Data AI module is currently unmaintained and requires contributors to review and organize existing pull requests.
 
-### MageOS 3.0 Release
+### Mage-OS 3.0 Release
 
-The MageOS 3.0 release is approaching and is expected within the next few weeks. It will be based on Magento 2.4.9 and require PHP 8.3 or higher.
+The Mage-OS 3.0 release is approaching and is expected within the next few weeks. It will be based on Magento 2.4.9 (expected 2026-05-12) and require PHP 8.3 or higher.
 
-The focus of this release is on compatibility, stability, and maintenance rather than introducing major new features. A separate security update (MageOS 2.3) is also planned alongside it.
+The focus of this release is on compatibility, stability, and maintenance rather than introducing major new features. A separate security update (Mage-OS 2.3) is also planned alongside it.
 
 ### Performance and Benchmarking
 
-Performance testing is an active topic. Initial benchmarking comparing Magento and MageOS shows promising results, especially for uncached performance.
+Performance testing is an active topic. Initial benchmarking comparing Magento and Mage-OS shows promising results, especially for uncached performance.
 
 However, there is currently no standardized approach to performance testing. The next step is to define shared testing standards and potentially provide benchmarking tools for the community.
 
@@ -52,19 +52,11 @@ The minimal package effort continues, with the system now reduced to around 150 
 
 ### Installer Project
 
-The MageOS installer is nearly complete and ready for broader testing. Feedback is especially requested from users working with Warden setups. This will help ensure stability and usability before the official release.
+The Mage-OS installer is nearly complete and ready for broader testing. Feedback is especially requested from users working with Warden setups. This will help ensure stability and usability before the official release.
 
 ### Powered by Strong Partnerships
 
 We are proud to collaborate with industry leaders who believe in open source and help accelerate the Mage-OS ecosystem.
-
-#### Gold Partners
-
-<div class="not-prose" style="max-width: 140px;">
-
-[![MDOQ](https://mage-os.org/_astro/image-1-1024x1024.NIMfNPuV_nB3oK.webp)](https://opencollective.com/mdoq)
-
-</div>
 
 #### Silver Partners
 
