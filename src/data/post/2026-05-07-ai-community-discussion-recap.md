@@ -1,6 +1,6 @@
 ---
 title: "AI and Magento: A Community Discussion Recap"
-publishDate: "2026-04-28T00:00:00.000Z"
+publishDate: "2026-05-07T00:00:00.000Z"
 category: "eCommerce Insights"
 author: "mage-os-team"
 draft: false
@@ -8,7 +8,7 @@ excerpt: "Recap of our recent community discussion on how AI is reshaping Magent
 image: "~/assets/images/blog/2026/ai-community-discussion.jpg"
 ---
 
-Last Friday we hosted an open community discussion about AI and what it means for Magento developers, agencies, and merchants. The conversation was wide-ranging, candid, and at times uncomfortably honest about how quickly day-to-day work is changing. The full recording is available on [YouTube](https://www.youtube.com/watch?v=oie5ZibcEGY); below is a recap of the themes that came up.
+Recently we hosted an open community discussion about AI and what it means for Magento developers, agencies, and merchants. The conversation was wide-ranging, candid, and at times uncomfortably honest about how quickly day-to-day work is changing. The full recording is available on [YouTube](https://www.youtube.com/watch?v=oie5ZibcEGY); below is a recap of the themes that came up.
 
 ## The role shift: from developer to reviewer
 
