@@ -1,0 +1,108 @@
+---
+title: Mage-OS 2.3.0 – Maintenance & Security
+excerpt: Mage-OS 2.3.0 incorporates the Magento Open Source 2.4.8-p5 security patches, adds PHP 8.4 and 8.5 compatibility across add-on modules, and tightens template import security in Page Builder.
+publishDate: 2026-05-13T18:00:00
+draft: false
+category: Releases
+image: ~/assets/images/blog/2026/New-Mage-OS-Website.png
+imageAlt: ''
+author: mage-os-team
+---
+
+import Callout from '~/components/ui/Callout.astro';
+
+We are pleased to announce the release of **Mage-OS Distribution 2.3.0**, a security-driven release that absorbs Adobe's latest Magento Open Source patch into the Mage-OS core, inventory, and Page Builder packages. It also rolls out PHP 8.4 and 8.5 compatibility across our add-on module suite. We strongly recommend updating as soon as possible.
+
+<Callout type="warning" title="Final 2.x release">
+  Mage-OS 2.3.0 is the last planned release on the 2.x branch. **Mage-OS 3.0**, based on Magento Open Source 2.4.9, will follow soon.
+</Callout>
+
+### Our foundation
+
+The majority of changes in this release come directly from upstream. Mage-OS 2.3.0 is built on **Magento Open Source 2.4.8-p5**, which delivers a broad set of security improvements including GraphQL hardening (query complexity, nesting depth, request body size, malicious-code filtering), file upload hardening, database charset/collation handling, and URL rewrite storage refinements.
+
+For full details on what's included from upstream, see the [Magento Open Source 2.4.8-p5 security patch notes](https://experienceleague.adobe.com/en/docs/commerce-operations/release/notes/security-patches/2-4-8-patches#p5) and the [2.4.8 release notes](https://experienceleague.adobe.com/en/docs/commerce-operations/release/notes/magento-open-source/2-4-8).
+
+| Software | Version |
+| --- | --- |
+| Composer | 2.9 |
+| OpenSearch | 3.x (or Elasticsearch 8.x) |
+| MariaDB | 11.4 |
+| MySQL | 8.4 |
+| nginx | 1.28 |
+| PHP | 8.3, 8.4 |
+| RabbitMQ | 4.1 |
+| Redis | Valkey 8 (or Redis 7.2+) |
+| Varnish | 7.7 |
+
+### What's changed
+
+#### Core security import
+
+- **Magento 2.4.8-p5 security patches imported**
+  All upstream 2.4.8-p5 security fixes are now incorporated into Mage-OS core, including GraphQL hardening, file upload protections, and DB initialization improvements.
+
+#### Mage-OS Add-on module updates
+
+- **Page Builder Template Import/Export updated to 1.8.0**
+  - Added a security check on external files referenced through template imports ([@dadolun95](https://github.com/dadolun95))
+  - Refined admin warning and success messaging ([@rhoerr](https://github.com/rhoerr))
+  - PHP 8.4 and 8.5 compatibility, including `SearchResult` signature fixes on `setAggregations` / `setTotalCount` ([@SamueleMartini](https://github.com/SamueleMartini))
+
+- **Theme Optimization updated to 2.3.0**
+  - Improved bfcache eligibility on native Full Page Cache hits ([#25](https://github.com/mage-os/module-theme-optimization/pull/25)) by [@rhoerr](https://github.com/rhoerr)
+  - PHP 8.4 and 8.5 compatibility with type hardening ([#26](https://github.com/mage-os/module-theme-optimization/pull/26), [#27](https://github.com/mage-os/module-theme-optimization/pull/27))
+
+- **Automatic Translation updated to 2.1.2**
+  PHP 8.4 and 8.5 compatibility. ([#62](https://github.com/mage-os/module-automatic-translation/pull/62)) by [@SamueleMartini](https://github.com/SamueleMartini)
+
+- **Inventory Reservations Grid updated to 1.0.5**
+  PHP 8.4 and 8.5 compatibility. ([#17](https://github.com/mage-os/module-inventory-reservations-grid/pull/17), [#18](https://github.com/mage-os/module-inventory-reservations-grid/pull/18)) by [@SamueleMartini](https://github.com/SamueleMartini)
+
+- **Meta Robots Tag updated to 1.2.1**
+  PHP 8.5 compatibility. ([#7](https://github.com/mage-os/module-meta-robots-tag/pull/7)) by [@SamueleMartini](https://github.com/SamueleMartini)
+
+- **Page Builder Widget updated to 1.4.1**
+  PHP 8.4 compatibility. ([#19](https://github.com/mage-os/module-page-builder-widget/pull/19)) by [@SamueleMartini](https://github.com/SamueleMartini)
+
+### Mirror updates
+
+The latest Magento versions, including 2.4.8-p5, are also available from our public Magento mirror at [mirror.mage-os.org](https://mirror.mage-os.org). This mirror is a drop-in replacement for `repo.magento.com` (except Magento Marketplace), allowing you to install Magento without any login credentials.
+
+### Thanks to everyone who contributed!
+
+This release was made possible by:
+
+- [@marcelmtz](https://github.com/marcelmtz) (Marcel Martinez) — Merged the core 2.4.8-p5 security changes
+- [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — Co-authored the core p5 import (USPS, MariaDB regex, system.xml conflict resolution), FPC cacheability fix and PHP 8.5 type hardening in Theme Optimization
+- [@SamueleMartini](https://github.com/SamueleMartini) (Samuele Martini) — PHP 8.4 and 8.5 compatibility across six add-on modules
+- [@dadolun95](https://github.com/dadolun95) (Luca Visciola) — Security check for external files imported through Page Builder templates
+
+### Want to participate?
+
+Mage-OS is a community-driven project, and we welcome contributions of all kinds. Whether you're fixing bugs, adding features, improving documentation, or helping with testing, your contributions make a difference.
+
+- [Mage-OS GitHub](https://github.com/mage-os)
+- [Mage-OS Discord](/discord-channel)
+
+### Installation
+
+#### New installations
+
+```bash
+composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition=2.3.0 <install-directory-name>
+```
+
+#### Upgrading from an older Mage-OS version
+
+```bash
+composer require mage-os/product-community-edition=^2.3 --no-update
+composer update
+bin/magento setup:upgrade
+```
+
+#### Migrating from Adobe Commerce or Magento Open Source
+
+See our [migration guide](/get-started/migration-guide) for detailed instructions on switching to Mage-OS.
+
+We hope you enjoy Mage-OS 2.3.0. As always, please report any issues on [GitHub](https://github.com/mage-os/mageos-magento2/issues) and join the conversation on [Discord](/discord-channel).
