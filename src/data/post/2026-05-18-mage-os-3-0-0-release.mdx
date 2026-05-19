@@ -1,44 +1,45 @@
 ---
-title: Mage-OS 3.0 is here
-excerpt: Mage-OS 3.0.0 lands on Magento Open Source 2.4.9 with a brand-new interactive installer (`bin/magento install`), PHP 8.5 support, Symfony 7.4 LTS, removal of Adobe's analytics modules, RMA and Admin Activity Log in Community Edition, a bundled developer toolkit, and an opt-in Minimal Distribution.
+title: Mage-OS 3.0 — our first major release
+excerpt: Mage-OS 3.0.0 — our first major version — lands on Magento Open Source 2.4.9 with a brand-new interactive installer, RMA and Admin Activity Log in Community Edition, and a bundled developer toolkit. PHP 8.5 support, Symfony 7.4 LTS, and a new Minimal Distribution round it out.
 publishDate: 2026-05-18T18:00:00
 draft: false
 category: Releases
 image: ~/assets/images/blog/2026/New-Mage-OS-Website.png
-imageAlt: ''
+imageAlt: 'Mage-OS website banner'
 author: mage-os-team
 ---
 
 import Callout from '~/components/ui/Callout.astro';
 
-We are excited to announce the release of **Mage-OS Distribution 3.0.0**, our first major version. 3.0 introduces a brand-new **interactive installer** that takes the pain out of standing up a Mage-OS store, rebases the distribution onto **Magento Open Source 2.4.9**, raises the platform baseline to PHP 8.3+, removes Adobe's analytics phone-home stack, brings RMA and Admin Activity Log into Community Edition, ships a bundled developer toolkit out of the box, and adds a new **Minimal Distribution** option for teams that want to compose their own stack.
+We're excited to announce **Mage-OS Distribution 3.0.0**, our first major version. 3.0 rebases on **Magento Open Source 2.4.9**, ships a brand-new interactive installer, brings Return Merchandise Authorization (RMA) and Admin Activity Log into Community Edition, and introduces a Minimal Distribution for teams composing their own stack.
 
 <Callout type="info" title="What's new in 3.0">
 
 - **New interactive installer**: `bin/magento install` — a guided wizard with service auto-detection and resume-on-failure
 - Built on Magento Open Source 2.4.9
 - PHP 8.5 support added (PHP 8.2 dropped)
-- Symfony 7.4 LTS across the suite
+- Symfony 7.4 long-term support (LTS) across the suite
 - Adobe analytics modules removed
 - RMA and Admin Activity Log now in Community Edition
 - New developer toolkit bundled by default: magerun2, Ignition, Varnish Extended, Custom Admin Logo
 - New **Minimal Distribution** for lean, hand-composed installs
-- PHP 8.4 lazy-ghost object loading wired into core DI for faster cold-start performance
+- PHP 8.4 lazy-ghost object loading wired into core dependency injection (DI) for faster cold-start performance
 
 </Callout>
 
 <Callout type="warning" title="Breaking changes — please read before upgrading">
-- **PHP 8.2 is no longer supported.** Minimum is now PHP 8.3 (8.4 recommended).
-- **Symfony 6.4 → 7.4 LTS.** Extensions that type-hint Symfony 6.x classes will need to be updated.
-- **Adobe analytics modules are gone.** Any extension or script referencing `module-analytics`, `module-catalog-analytics`, `module-customer-analytics`, `module-marketplace`, `module-quote-analytics`, `module-review-analytics`, `module-sales-analytics`, or `module-wishlist-analytics` will fail to autoload.
-- **JWT framework 3 → 4.** Review any custom JWT integrations.
-- **Composer floor raised to ^2.2.** Composer 2.0/2.1 installs will be blocked.
 
-See the [Compatibility & upgrade notes](#compatibility--upgrade-notes) section below for full details.
+- **PHP 8.2 is no longer supported.** Minimum is now PHP 8.3 (8.4 recommended).
+- **Symfony 6.4 → 7.4 LTS.** Extensions that type-hint Symfony 6.x classes will need updates.
+- **Adobe analytics modules removed.** Extensions referencing them will fail to autoload.
+- **JSON Web Token (JWT) framework 3 → 4.** Review any custom JWT integrations.
+- **Composer floor raised to `^2.2`.** Older Composer installs will be blocked.
+
+See the [Compatibility & upgrade notes](#compatibility--upgrade-notes) for the full list.
 
 </Callout>
 
-### Our foundation
+## Our foundation
 
 Mage-OS 3.0.0 is built on **Magento Open Source 2.4.9**, the first minor-version bump in the 2.4.x line since 2.4.8 shipped. The upstream brings broad improvements across GraphQL, B2B, infrastructure, and accessibility, on top of which Mage-OS layers its release engineering, security work, and bundled extensions.
 
@@ -56,55 +57,55 @@ For the full upstream changelog, see the [Magento Open Source 2.4.9 release note
 | Redis      | Valkey 8 (or Redis 7.2+)   |
 | Varnish    | 7.7                        |
 
-### What's new in Mage-OS 3.0
+## What's new in Mage-OS 3.0
 
-#### Interactive installer: `bin/magento install`
+### Interactive installer: `bin/magento install`
 
-The single biggest quality-of-life improvement in 3.0 is a brand-new interactive installer that replaces the old, error-prone `setup:install` workflow — the one that required twenty-plus command-line arguments and a working knowledge of every option. Run one command:
+The biggest quality-of-life improvement in 3.0 is a new interactive installer. Run one command:
 
 ```bash
 bin/magento install
 ```
 
-…and a friendly guided wizard walks you through 21 configuration stages: environment type, database connection, admin account, store URL and locale, backend admin path, search engine, Redis, RabbitMQ, logging, sample data, theme selection, and more. Along the way it:
+…and a guided wizard walks you through configuration: environment type, database connection, admin account, store URL and locale, backend admin path, search engine, Redis, RabbitMQ, logging, sample data, theme selection, and more. Along the way it:
 
 - **Auto-detects services** — MySQL/MariaDB, Redis, OpenSearch/Elasticsearch, and RabbitMQ on common ports, so you usually just confirm what it found.
 - **Validates input in real time** — typos and bad values get caught before they reach the database.
 - **Resumes on failure** — if the install fails partway through, your configuration is saved and the next run picks up where you left off (passwords are re-prompted for security).
 - **Protects production** — explicit confirmations before backing up `env.php` or running destructive operations; warnings if it suspects it's running against a production environment.
-- **Handles post-install configuration** — applies the chosen theme, sets indexers to schedule mode, manages 2FA (offered as opt-out in developer mode, kept on in production), extends the dev-mode admin session, and flushes the relevant caches.
+- **Handles post-install configuration** — applies the chosen theme, sets indexers to schedule mode, manages two-factor authentication (2FA) (offered as opt-out in developer mode, kept on in production), extends the dev-mode admin session, and flushes the relevant caches.
 
-The original `setup:install` command is unchanged and still works, so existing automation isn't affected.
+The original `setup:install` command is unchanged, so existing automation isn't affected.
 
-This is contributed by [@DavidLambauer](https://github.com/DavidLambauer) (David Lambauer) — a substantial Mage-OS-original feature shipping with 410 unit tests and 834 assertions ([#191](https://github.com/mage-os/mageos-magento2/pull/191)).
+This is contributed by [@DavidLambauer](https://github.com/DavidLambauer) (David Lambauer) — a substantial Mage-OS-original feature shipping with 410 unit tests ([#191](https://github.com/mage-os/mageos-magento2/pull/191)).
 
 {/* SCREENSHOT: bin/magento install interactive wizard showing service auto-detection or a stage prompt */}
 
-#### PHP 8.5 ready, with faster cold starts on 8.4
+### PHP 8.5 ready, with faster cold starts on 8.4
 
-Mage-OS 3.0 supports PHP 8.5 alongside 8.3 and 8.4. As part of this release, we wired **PHP 8.4 lazy-ghost object loading** into the compiled DI factory, with `#[NonLazy]` markers on always-realized core classes. The result is meaningfully faster object graph construction on cold requests, with no behavioral change for extension authors.
+Mage-OS 3.0 supports PHP 8.5 alongside 8.3 and 8.4. As part of this release, we wired **PHP 8.4 lazy-ghost object loading** into the compiled DI factory, with `#[NonLazy]` markers on always-realized core classes. The result is noticeably faster object graph construction on cold requests, with no behavioral change for extension authors.
 
-#### Symfony 7.4 LTS across the board
+### Symfony 7.4 LTS across the board
 
 Symfony Console, Intl, Mailer, Mime, Process, and String have all moved from `^6.4` to `^7.4`. This is a coordinated bump to Symfony's current LTS release, giving us a long support window and access to the latest framework improvements.
 
-#### Adobe analytics modules removed
+### Adobe analytics modules removed
 
-In line with the Mage-OS project's commitment to keeping merchant data on the merchant's server, **every Adobe `*-analytics` module and `module-marketplace` has been removed** from the dependency tree. There is no functional loss for stores: these modules existed to send usage telemetry to Adobe. Their removal also trims the install footprint and eliminates an entire surface of phone-home traffic.
+In line with the Mage-OS project's commitment to keeping merchant data on the merchant's server, **every Adobe `*-analytics` module and `module-marketplace` has been removed** from the dependency tree. There is no functional loss for stores: these modules existed to send usage telemetry to Adobe. Their removal also trims the install footprint and eliminates an entire surface of outbound telemetry.
 
-#### RMA in Community Edition
+### RMA in Community Edition
 
-`mage-os/module-rma` is now part of the Community Edition distribution. Customers can request product returns from their account, and merchants get the admin workflow to approve, ship, and refund them — a feature previously gated to Adobe Commerce.
+`mage-os/module-rma` is now part of the Community Edition distribution. Customers can request product returns from their account, and merchants get the admin workflow to approve, ship, and refund them — previously available only in Adobe Commerce.
 
 {/* SCREENSHOT: customer-facing RMA request screen OR admin RMA grid */}
 
-#### Admin Activity Log in Community Edition
+### Admin Activity Log in Community Edition
 
-`mage-os/module-admin-activity-log` brings admin action logging into CE, giving you a built-in audit trail for who changed what, when. This unlocks compliance and forensic use cases that previously required either a custom module or an Adobe Commerce license.
+`mage-os/module-admin-activity-log` brings admin action logging into Community Edition, giving you a built-in audit trail for who changed what, when. This unlocks compliance and forensic use cases that previously required either a custom module or an Adobe Commerce license.
 
 {/* SCREENSHOT: admin grid showing logged actions */}
 
-#### New: Minimal Distribution
+### New: Minimal Distribution
 
 Alongside the full distribution, Mage-OS 3.0 introduces `mage-os/product-minimal-edition` — a lean install that ships only the ~98 core packages required for a functional store. Modules, themes, and language packs are available as individual Composer packages from the Mage-OS repository, so you only install what you actually use.
 
@@ -114,33 +115,33 @@ Browse the included packages, and the full set of available add-ons, in the new 
 
 {/* SCREENSHOT: /product/minimal Package Browser UI with search and filter pills */}
 
-### New developer toolkit, bundled by default
+## New developer toolkit, bundled by default
 
-Mage-OS 3.0 ships several well-loved community tools out of the box. These have been part of many Magento developers' workflows for years; bundling them lowers the friction of standing up a productive environment.
+Mage-OS 3.0 ships several long-standing community tools out of the box. These have been part of many Magento developers' workflows for years; bundling them lowers the friction of standing up a productive environment.
 
-#### n98-magerun2
+### n98-magerun2
 
-The de-facto Magento CLI swiss-army knife now ships in every new Mage-OS project. From `sys:info` and `cache:flush` to `db:console`, `dev:console`, and dozens of inspection commands, magerun2 is the tool most Magento developers reach for first.
+The de-facto Magento command-line interface (CLI) now ships in every new Mage-OS project. From `sys:info` and `cache:flush` to `db:console`, `dev:console`, and dozens of inspection commands, magerun2 is the tool most Magento developers reach for first.
 
 {/* SCREENSHOT: terminal showing magerun2 sys:info or dev:console output */}
 
 Maintained by **[netz98 GmbH](https://github.com/netz98)** — Christian Münch ([@cmuench](https://github.com/cmuench)), Tom Klingenberg ([@kissifrot](https://github.com/kissifrot)) and the n98-magerun2 contributors.
 
-#### Ignition for Magento
+### Ignition for Magento
 
-A beautiful, contextual error page for developer mode — stack traces, request context, environment details, and editor-jump links right where you need them. Safely disabled in production, so it can't leak internals.
+A contextual error page for developer mode — stack traces, request context, environment details, and editor-jump links right where you need them. Safely disabled in production, so it can't leak internals.
 
 {/* SCREENSHOT: Ignition styled error page in developer mode */}
 
 Maintained by **[Swissup Labs](https://github.com/swissup)**.
 
-#### Varnish Extended
+### Varnish Extended
 
 Extended Varnish helpers for Mage-OS: richer cache controls and operational tooling for teams running Varnish in production.
 
 Maintained by **[Elgentos](https://github.com/elgentos)** — Peter Jaap Blaakmeer and the Elgentos team.
 
-#### Custom Admin Logo
+### Custom Admin Logo
 
 A lightweight module for replacing the admin panel and login-screen logo without touching a theme. A small but frequently-requested branding touch, now built in.
 
@@ -148,7 +149,7 @@ A lightweight module for replacing the admin panel and login-screen logo without
 
 Maintained by **[element119](https://github.com/element119)** — Kiel Pykett ([@kpykett](https://github.com/kpykett)).
 
-### Add-on module updates
+## Add-on module updates
 
 Beyond the new bundled modules, our independently-versioned add-ons see two updates:
 
@@ -161,32 +162,35 @@ Beyond the new bundled modules, our independently-versioned add-ons see two upda
 
 All other independently-versioned add-ons (Automatic Translation, Inventory Reservations Grid, Meta Robots Tag, Theme Optimization, and the m137 admin theme) are unchanged since 2.3.0.
 
-### Compatibility & upgrade notes
+## Compatibility & upgrade notes
 
 Before upgrading, please review the following:
 
 - **PHP 8.3 minimum.** Composer will refuse to resolve `mage-os/product-community-edition=3.0.0` on PHP 8.2 or earlier. PHP 8.4 is recommended for the lazy-ghost performance benefits; PHP 8.5 is also supported.
 - **Symfony 6 → 7.** Any extension that type-hints classes from `symfony/console`, `symfony/intl`, `symfony/mailer`, `symfony/mime`, `symfony/process`, or `symfony/string` with the 6.x signature will need an update.
-- **Adobe analytics removal.** If you have custom code that depends on any of the `*-analytics` modules or `module-marketplace`, remove the references before upgrading.
+- **Adobe analytics removal.** If you have custom code that depends on `module-analytics`, `module-catalog-analytics`, `module-customer-analytics`, `module-marketplace`, `module-quote-analytics`, `module-review-analytics`, `module-sales-analytics`, or `module-wishlist-analytics`, remove the references before upgrading.
 - **Transactional email rendering.** `pelago/emogrifier` jumped 7 → 8. Heavily-customized transactional templates should be tested for visual regressions.
 - **JWT.** `web-token/jwt-framework` 3 → 4. Custom JWT integrations should be reviewed.
 - **Composer 2.2+.** If you're on Composer 2.0 or 2.1, upgrade Composer first.
+- **`ext-ftp` no longer required.** The PHP FTP extension has been dropped from the `require` list. Hosting providers and container images can stop installing it.
+- **`Magento_Backup` module removed.** The legacy in-application backup module (and its `bin/magento setup:backup` command) is gone. Use filesystem and database backup tooling appropriate for your environment.
+- **Shipping rate trimming reverted.** A 2.x change that trimmed shipping address fields before rate collection was rolled back in [#251](https://github.com/mage-os/mageos-magento2/pull/251). Behavior is the pre-trim default; a fixed version may land in 3.0.1.
 
-### Mirror updates
+## Mirror updates
 
 The latest Magento versions, including 2.4.9, are also available from our public Magento mirror at [mirror.mage-os.org](https://mirror.mage-os.org). The mirror is a drop-in replacement for `repo.magento.com` (except Magento Marketplace), allowing you to install Magento without any login credentials.
 
-### Thanks to everyone who contributed!
+## Thanks to everyone who contributed!
 
 This release was made possible by:
 
 - [@DavidLambauer](https://github.com/DavidLambauer) (David Lambauer) — The new interactive installer (`bin/magento install`) and its 410-test suite ([#191](https://github.com/mage-os/mageos-magento2/pull/191))
 - [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — Bulk of the release engineering: upstream 2.4.9 merge, PHP 8.4 DI lazy-ghost support, PHPUnit 12 fixes, DHL / HashResolver / composer.lock fixes, analytics module removal, and page-builder / security / inventory release prep
-- Lucas van Staden — Shipping rate fixes ([#236](https://github.com/mage-os/mageos-magento2/pull/236), [#237](https://github.com/mage-os/mageos-magento2/pull/237))
+- Lucas van Staden — Shipping rate fix ([#236](https://github.com/mage-os/mageos-magento2/pull/236)); a follow-up ([#237](https://github.com/mage-os/mageos-magento2/pull/237)) was reverted in [#251](https://github.com/mage-os/mageos-magento2/pull/251) after causing fallout and may return in 3.0.1
 - [@SamueleMartini](https://github.com/SamueleMartini) (Samuele Martini) — Page Builder Widget PHP 8.5 compatibility and input sanitization
 - [@dadolun95](https://github.com/dadolun95) (Davide Lunardon) — Page Builder Widget `previewTemplates` XML node merge fix
 
-#### Newly bundled packages
+### Newly bundled packages
 
 A huge thanks to the maintainers of the community projects we now ship by default:
 
@@ -204,16 +208,16 @@ And for the PHP libraries pulled in alongside the upstream framework bumps:
 - **[Nicolas Grekas](https://github.com/nicolas-grekas)** and the Symfony Community — symfony/cache
 - The **[PHP-DB project](https://php-db.dev)** — phpdb
 
-### Want to participate?
+## Want to participate?
 
-Mage-OS is a community-driven project, and we welcome contributions of all kinds. Whether you're fixing bugs, adding features, improving documentation, or helping with testing, your contributions make a difference.
+Help us shape the 3.x roadmap. Mage-OS is a community-driven project, and we welcome contributions of all kinds — fixing bugs, adding features, improving documentation, testing. Your contributions make a difference.
 
 - [Mage-OS GitHub](https://github.com/mage-os)
 - [Mage-OS Discord](/discord-channel)
 
-### Installation
+## Installation
 
-#### New installations
+### New installations
 
 Create the project, then run the new interactive installer:
 
@@ -227,7 +231,7 @@ The wizard will detect your local services, walk you through configuration, and 
 
 To try the new lean install instead, see the [Minimal Distribution](/product/minimal) page.
 
-#### Upgrading from Mage-OS 2.3.x
+### Upgrading from Mage-OS 2.3.x
 
 <Callout type="warning" title="Confirm PHP 8.3+ before upgrading">
   Composer will refuse to resolve 3.0.0 on PHP 8.2 or earlier. Upgrade your runtime first.
@@ -239,7 +243,7 @@ composer update
 bin/magento setup:upgrade
 ```
 
-#### Upgrading from an older Mage-OS version
+### Upgrading from an older Mage-OS version
 
 ```bash
 composer require mage-os/product-community-edition=^3.0 --no-update
@@ -247,7 +251,7 @@ composer update
 bin/magento setup:upgrade
 ```
 
-#### Migrating from Adobe Commerce or Magento Open Source
+### Migrating from Adobe Commerce or Magento Open Source
 
 See our [migration guide](/get-started/migration-guide) for detailed instructions on switching to Mage-OS.
 
