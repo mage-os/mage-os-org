@@ -97,6 +97,18 @@ const metadata = {
           'Intelligently preloads links before users click them for perceived instant navigation and smoother UX.',
         icon: 'tabler:link',
       },
+      {
+        title: 'PHP 8.4 Lazy Object Loading',
+        description:
+          'Built-in dependency injection support for PHP 8.4+ lazy objects reduces cold-start overhead for faster response times.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Optimized Varnish VCL',
+        description:
+          'Updated VCL configuration plus the bundled Varnish Extended module deliver richer cache controls and production-tuned defaults.',
+        icon: 'tabler:server',
+      },
     ]}
   />
 
@@ -237,6 +249,20 @@ const metadata = {
               <td class="px-4 py-3 text-center text-gray-500">Basic (customer groups)</td>
               <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Advanced rule-based</td>
             </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Returns Management (RMA)</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (customer requests, admin approval)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Built-in</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Admin Activity Log</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Built-in audit trail</td>
+              <td class="px-4 py-3 text-center text-gray-500">Via extensions</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ Built-in</td>
+            </tr>
 
             <!-- Development & Extensibility -->
             <tr class="bg-gray-50 dark:bg-gray-800/50">
@@ -261,6 +287,22 @@ const metadata = {
               <td class="px-4 py-3 text-center text-green-600 dark:text-green-400">✓ No account required</td>
               <td class="px-4 py-3 text-center text-gray-500">Adobe account required</td>
               <td class="px-4 py-3 text-center text-gray-500">License + Adobe account</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Interactive Installer</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ <code>bin/magento install</code> wizard with service auto-detection</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500"><code>setup:install</code> CLI only</td>
+              <td class="px-4 py-3 text-center text-gray-500"><code>setup:install</code> CLI only</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Minimal Distribution Option</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ <a href="/product/minimal" class="text-primary hover:underline">~98-package lean install</a></td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
             </tr>
 
             <!-- Governance & Community -->
@@ -403,6 +445,30 @@ const metadata = {
               <td class="px-4 py-3 text-center text-gray-500">—</td>
               <td class="px-4 py-3 text-center text-gray-500">—</td>
             </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Admin Update Available Indicator</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (background composer check)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Bundled Developer Toolkit</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ n98-magerun2, Ignition, Varnish Extended</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Custom Admin Logo</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (no theme changes needed)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Theme override required</td>
+              <td class="px-4 py-3 text-center text-gray-500">Theme override required</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -422,12 +488,35 @@ const metadata = {
     columns={4}
     items={[
       {
-        title: 'Simplified Setup',
-        description: 'Single-command installation and migration reduce setup time from hours to minutes.',
+        title: 'Interactive Installer',
+        description:
+          'bin/magento install walks through database, services, and theme selection with auto-detection and resume-on-failure.',
         icon: 'tabler:terminal-2',
         callToAction: {
           text: 'Quick Start Guide',
           href: '/get-started/quick-start',
+        },
+      },
+      {
+        title: 'Bundled Dev Toolkit',
+        description:
+          'n98-magerun2, Ignition error pages, Varnish Extended, and Custom Admin Logo ship by default — no extra setup.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Ignition Error Pages',
+        description:
+          'Developer-mode exceptions render with stack traces, request context, environment details, and editor-jump links — auto-disabled in production.',
+        icon: 'tabler:bug',
+      },
+      {
+        title: 'Minimal Distribution',
+        description:
+          'Opt into a lean ~98-package install and compose your own stack from individually-versioned add-on packages.',
+        icon: 'tabler:package',
+        callToAction: {
+          text: 'Browse Packages',
+          href: '/product/minimal',
         },
       },
       {
@@ -481,6 +570,24 @@ const metadata = {
         icon: 'tabler:dashboard',
       },
       {
+        title: 'Returns Management (RMA)',
+        description:
+          'Customers request returns from their account; admins review, approve, and communicate — built in, no extension needed.',
+        icon: 'tabler:package-export',
+      },
+      {
+        title: 'Admin Activity Log',
+        description:
+          'Built-in audit trail of who changed what and when, for compliance reviews and accountability across your team.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Update Available Indicator',
+        description:
+          'The admin footer surfaces new releases automatically via a background composer check, so you always know when to patch.',
+        icon: 'tabler:refresh-alert',
+      },
+      {
         title: 'Multi-Store Management',
         description:
           'Manage multiple brands, languages, and currencies from a single installation with shared inventory.',
@@ -495,6 +602,11 @@ const metadata = {
         title: 'Flexible Pricing',
         description: 'Tier pricing, customer groups, catalog rules, cart promotions, and coupon management built-in.',
         icon: 'tabler:tag',
+      },
+      {
+        title: 'Custom Admin Logo',
+        description: 'Replace the admin login and header logo without touching a theme — a quick branding touch.',
+        icon: 'tabler:photo',
       },
     ]}
   />

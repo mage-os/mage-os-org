@@ -71,6 +71,7 @@ A guided wizard walks you through database, admin account, store config, service
 - **Auto-detects services** — MySQL/MariaDB, Redis, OpenSearch/Elasticsearch, and RabbitMQ on common ports.
 - **Resumes on failure** — config is saved; the next run picks up where you left off (passwords are re-prompted).
 - **Protects production** — explicit confirmations before destructive operations; warns if it suspects production.
+- **Installs Hyvä Theme out of the box** — pick Hyvä during the theme step and the installer adds the Composer packages and applies the theme for you, no extra setup required.
 - **Handles post-install setup** — applies the chosen theme, sets indexers to schedule mode, manages two-factor authentication (2FA), and flushes caches.
 
 The original `setup:install` is unchanged, so automation isn't affected. Contributed by [@DavidLambauer](https://github.com/DavidLambauer), with 410 unit tests ([#191](https://github.com/mage-os/mageos-magento2/pull/191)).
