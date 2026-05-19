@@ -167,6 +167,36 @@ bin/magento cache:flush`}
         </tbody>
       </table>
 
+      <h3>Minimal Distribution</h3>
+      <p>
+        The Minimal Distribution is a metapackage (<code>mage-os/project-minimal-edition</code>) that requires only the
+        core packages needed for a functional store. It is served from the same <code>repo.mage-os.org</code> repository as
+        the main distribution — you add additional modules via Composer as your store needs them. See the{' '}
+        <a href="/product/minimal">Minimal Distribution page</a> to browse all available packages.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Resource</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Composer Repository</strong></td>
+            <td><code>https://repo.mage-os.org/</code></td>
+          </tr>
+          <tr>
+            <td><strong>Package Browser</strong></td>
+            <td><a href="/product/minimal">mage-os.org/product/minimal</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <CodeBlock
+        code="composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-minimal-edition ."
+        lang="bash"
+      />
+
       <h3>Mage-OS Lab</h3>
       <p>
         Experimental features and community innovations are developed in Mage-OS Lab before being included in the main
