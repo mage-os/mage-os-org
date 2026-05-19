@@ -167,11 +167,12 @@ bin/magento cache:flush`}
         </tbody>
       </table>
 
-      <h3>Minimal Edition</h3>
+      <h3>Minimal Distribution</h3>
       <p>
-        The Minimal Edition ships only the ~98 core packages needed for a functional store. You add additional modules
-        via Composer as your store needs them. See the{' '}
-        <a href="/product/minimal">Minimal Edition page</a> to browse all available packages.
+        The Minimal Distribution is a metapackage (<code>mage-os/project-minimal-edition</code>) that requires only the
+        core packages needed for a functional store. It is served from the same <code>repo.mage-os.org</code> repository as
+        the main distribution — you add additional modules via Composer as your store needs them. See the{' '}
+        <a href="/product/minimal">Minimal Distribution page</a> to browse all available packages.
       </p>
       <table>
         <thead>
@@ -183,7 +184,7 @@ bin/magento cache:flush`}
         <tbody>
           <tr>
             <td><strong>Composer Repository</strong></td>
-            <td><a href="https://minimal.mage-os.org/">minimal.mage-os.org</a></td>
+            <td><code>https://repo.mage-os.org/</code></td>
           </tr>
           <tr>
             <td><strong>Package Browser</strong></td>
@@ -192,7 +193,7 @@ bin/magento cache:flush`}
         </tbody>
       </table>
       <CodeBlock
-        code="composer create-project --repository-url=https://minimal.mage-os.org/ mage-os/project-minimal-edition:@alpha ."
+        code="composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-minimal-edition ."
         lang="bash"
       />
 

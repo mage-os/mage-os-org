@@ -5,20 +5,18 @@ import CodeBlock from '~/components/ui/CodeBlock.astro';
 import Callout from '~/components/ui/Callout.astro';
 import minimalCorePackages from '~/data/minimal-core-packages.json';
 
-// TODO: Confirm the final URL for the Minimal Edition composer repository
-// and update MINIMAL_REPO_URL + the install command in the page below.
-const MINIMAL_REPO_URL = 'https://minimal.mage-os.org/';
+// The Minimal Distribution has no separate repository — it is the metapackage
+// mage-os/project-minimal-edition served from the same repo.mage-os.org used
+// by the regular Mage-OS release.
+const MINIMAL_REPO_URL = 'https://repo.mage-os.org/';
 
-// TODO: Once the minimal repo is live, replace the static minimal-core-packages.json
-// with a build-time fetch from the metapackage dependencies, the same way we fetch
-// the full package list from repo.mage-os.org below:
-//   const minimalMeta = await fetch(`${MINIMAL_REPO_URL}p2/mage-os/product-minimal-edition.json`).then(r => r.json());
-//   const minimalPkg = Object.values(minimalMeta.packages['mage-os/product-minimal-edition'])[0];
-//   const minimalSet = new Set(Object.keys(minimalPkg.require).filter(k => k.startsWith('mage-os/')));
+// mage-os/product-minimal-edition is not yet on production repo.mage-os.org
+// (it ships from release 3.0.0). It is already published on the preview repo,
+// so we derive the minimal set from there at build time. The static
+// minimal-core-packages.json is only used as a fallback if the fetch fails.
+// TODO: once 3.0.0 is on production, point this at MINIMAL_REPO_URL instead.
+const MINIMAL_METAPACKAGE_URL = 'https://preview-repo.mage-os.org/p2/mage-os/product-minimal-edition.json';
 
-// Fetch full package list from repo.mage-os.org at build time.
-// 1. packages.json tells us the current include file hash.
-// 2. include/all$hash.json has every package with type + description.
 interface PkgEntry {
   name: string;
   type: string;
@@ -26,13 +24,30 @@ interface PkgEntry {
   inMinimal: boolean;
 }
 
+// Resolve the minimal core set: prefer the published metapackage's require
+// list, fall back to the static JSON snapshot if the preview repo is down.
+let minimalSet = new Set<string>(minimalCorePackages);
+try {
+  const metaData = await fetch(MINIMAL_METAPACKAGE_URL).then((r) => r.json());
+  const versions = metaData.packages?.['mage-os/product-minimal-edition'] as Record<string, string>[] | undefined;
+  const require = versions?.[0]?.require as Record<string, string> | undefined;
+  if (require) {
+    const fromMeta = Object.keys(require).filter((k) => k.startsWith('mage-os/'));
+    if (fromMeta.length > 0) minimalSet = new Set<string>(fromMeta);
+  }
+} catch (e) {
+  console.warn('[minimal.astro] Failed to fetch minimal metapackage, using static fallback:', e);
+}
+
+// Fetch full package list from repo.mage-os.org at build time.
+// 1. packages.json tells us the current include file hash.
+// 2. include/all$hash.json has every package with type + description.
 let packages: PkgEntry[] = [];
 try {
   const repoIndex = await fetch('https://repo.mage-os.org/packages.json').then((r) => r.json());
   const includeKey = Object.keys(repoIndex.includes ?? {})[0];
   if (includeKey) {
     const includeData = await fetch(`https://repo.mage-os.org/${includeKey}`).then((r) => r.json());
-    const minimalSet = new Set<string>(minimalCorePackages);
     packages = Object.entries(includeData.packages as Record<string, object[]>)
       .filter(([name]) => name.startsWith('mage-os/'))
       .map(([name, versions]) => {
@@ -52,9 +67,9 @@ try {
 }
 
 const metadata = {
-  title: 'Mage-OS Minimal Edition | Start Lean, Add What You Need',
+  title: 'Mage-OS Minimal Distribution | Start Lean, Add What You Need',
   description:
-    'Mage-OS Minimal Edition installs only the essential modules for a functional store. Browse all 400+ available packages you can add via Composer.',
+    'Mage-OS Minimal Distribution installs only the essential modules for a functional store. Browse all 400+ available packages you can add via Composer.',
 };
 
 const typeCounts: Record<string, number> = {};
@@ -80,7 +95,7 @@ const filterGroups = [
 
 <Layout metadata={metadata}>
   <PageHero tagline="Mage-OS Distribution" variant="gradient">
-    <Fragment slot="title"> Minimal Edition </Fragment>
+    <Fragment slot="title"> Minimal Distribution </Fragment>
     <Fragment slot="subtitle">
       Start with a lean, fully functional store. Every Magento 2 module is available as an individual Composer package —
       install only what your store actually needs.
@@ -89,31 +104,36 @@ const filterGroups = [
 
   <section class="px-4 py-10 sm:px-6 mx-auto lg:px-8 max-w-5xl">
     <div class="prose dark:prose-invert prose-headings:font-heading prose-headings:font-bold max-w-none">
-      <h2>What is the Minimal Edition?</h2>
+      <h2>What is the Minimal Distribution?</h2>
       <p>
-        The standard Mage-OS Distribution ships with all modules bundled together. The <strong>Minimal Edition</strong>
-        takes a different approach: it includes only the ~98 core packages needed for a working storefront — catalog, checkout,
-        customers, CMS, tax, shipping, and the essential framework. Everything else is optional.
+        The standard Mage-OS Distribution ships with all modules bundled together. The <strong
+          >Minimal Distribution</strong
+        >
+        takes a different approach: it is a metapackage (<code>mage-os/project-minimal-edition</code>) that requires
+        only the core packages needed for a working storefront — catalog, checkout, customers, CMS, tax, shipping, and
+        the essential framework. Everything else is optional.
       </p>
       <p>
-        After installation, you add exactly the functionality your store requires via <code>composer require</code>.
-        This means smaller footprints, faster deploys, and no unused code in production.
+        It is published to the same <code>repo.mage-os.org</code> repository as the regular Mage-OS release — there is no
+        separate repository to configure. After installation, you add exactly the functionality your store requires via
+        <code>composer require</code>. This means smaller footprints, faster deploys, and no unused code in production.
       </p>
 
-      <h2>Install the Minimal Edition</h2>
-      <Callout type="warning" title="Currently in alpha">
-        The Minimal Edition is under active development. Use <code>:@alpha</code> to install the current build. Not recommended
-        for production.
+      <h2>Install the Minimal Distribution</h2>
+      <Callout type="info" title="Available from Mage-OS 3.0">
+        The Minimal Distribution ships with the Mage-OS 3.0 release as a stable Composer package (version 3.0.0 and
+        onward). It is still considered an experimental way to install Mage-OS — evaluate it carefully before relying on
+        it in production.
       </Callout>
       <CodeBlock
-        code={`composer create-project --repository-url=${MINIMAL_REPO_URL} mage-os/project-minimal-edition:@alpha .`}
+        code={`composer create-project --repository-url=${MINIMAL_REPO_URL} mage-os/project-minimal-edition .`}
         lang="bash"
       />
 
       <h2>Add packages after installation</h2>
       <p>
         Once your minimal store is running, require any additional package from the table below. All packages are
-        available from <code>minimal.mage-os.org</code>:
+        available from the same <code>repo.mage-os.org</code> repository:
       </p>
       <CodeBlock
         code={`# Example: add Elasticsearch support
