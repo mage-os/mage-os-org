@@ -23,6 +23,7 @@ We're excited to announce **Mage-OS Distribution 3.0.0**, our first major versio
 - RMA and Admin Activity Log now in Community Edition
 - New developer toolkit bundled by default: magerun2, Ignition, Varnish Extended, Custom Admin Logo
 - New **Minimal Distribution** for lean, hand-composed installs
+- "Update available" indicator in the admin footer
 - PHP 8.4 lazy-ghost object loading wired into core dependency injection (DI) for faster cold-start performance
 
 </Callout>
@@ -105,6 +106,21 @@ In line with the Mage-OS project's commitment to keeping merchant data on the me
 
 {/* SCREENSHOT: admin grid showing logged actions */}
 
+### "Update available" indicator in the admin footer
+
+The admin footer now shows an **"Update available: X.Y.Z"** link whenever a newer stable release of your installed distribution package is available in the project's configured Composer repositories. Major and minor version bumps are highlighted in red bold so they're hard to miss; patch releases appear in normal weight.
+
+The check is built to stay out of your way:
+
+- **Zero cost at page render** — the HTTP lookup runs in an hourly cron job; the footer only reads from cache.
+- **Fully fail-safe** — every failure path (no network, malformed response, unparseable version, broken Composer config) returns silently and logs at debug level. A broken version check will never break an admin page.
+- **Respects your repos** — repositories are discovered dynamically from your `composer.json`, so installs pointed at a private or internal mirror check against that mirror, not against `repo.mage-os.org`.
+- **Configurable** — toggle off via `system/version_check/enabled` if you'd rather track updates elsewhere; cache lifetime and the link target are also configurable.
+
+{/* SCREENSHOT: Mage-OS admin footer showing the 'Update available' notice */}
+
+Contributed by [@rhoerr](https://github.com/rhoerr) ([#207](https://github.com/mage-os/mageos-magento2/pull/207)).
+
 ### New: Minimal Distribution
 
 Alongside the full distribution, Mage-OS 3.0 introduces `mage-os/product-minimal-edition` — a lean install that ships only the ~98 core packages required for a functional store. Modules, themes, and language packs are available as individual Composer packages from the Mage-OS repository, so you only install what you actually use.
@@ -185,7 +201,7 @@ The latest Magento versions, including 2.4.9, are also available from our public
 This release was made possible by:
 
 - [@DavidLambauer](https://github.com/DavidLambauer) (David Lambauer) — The new interactive installer (`bin/magento install`) and its 410-test suite ([#191](https://github.com/mage-os/mageos-magento2/pull/191))
-- [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — Bulk of the release engineering: upstream 2.4.9 merge, PHP 8.4 DI lazy-ghost support, PHPUnit 12 fixes, DHL / HashResolver / composer.lock fixes, analytics module removal, and page-builder / security / inventory release prep
+- [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — Bulk of the release engineering: upstream 2.4.9 merge, PHP 8.4 DI lazy-ghost support, the admin footer update indicator ([#207](https://github.com/mage-os/mageos-magento2/pull/207)), PHPUnit 12 fixes, DHL / HashResolver / composer.lock fixes, analytics module removal, and page-builder / security / inventory release prep
 - Lucas van Staden — Shipping rate fix ([#236](https://github.com/mage-os/mageos-magento2/pull/236)); a follow-up ([#237](https://github.com/mage-os/mageos-magento2/pull/237)) was reverted in [#251](https://github.com/mage-os/mageos-magento2/pull/251) after causing fallout and may return in 3.0.1
 - [@SamueleMartini](https://github.com/SamueleMartini) (Samuele Martini) — Page Builder Widget PHP 8.5 compatibility and input sanitization
 - [@dadolun95](https://github.com/dadolun95) (Davide Lunardon) — Page Builder Widget `previewTemplates` XML node merge fix
