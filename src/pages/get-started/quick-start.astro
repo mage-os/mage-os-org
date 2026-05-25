@@ -247,7 +247,7 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
 
       <p>Run the installer with your configuration:</p>
 
-      <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
+      <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type" prose>
         <div data-tab="interactive">
           <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
           <CodeBlock code="bin/magento install" lang="bash" />
@@ -276,48 +276,48 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
             lang="bash"
           />
 
-          <p class="mt-4 mb-2 text-base font-normal"><strong>Customize these values:</strong></p>
-          <table class="w-full text-sm">
-            <thead class="border-b border-gray-200 dark:border-gray-700 [&_th]:text-left [&_th]:font-semibold [&_th]:pb-2 [&_th]:pr-6 [&_th]:text-gray-900 dark:[&_th]:text-white">
+          <p><strong>Customize these values:</strong></p>
+          <table>
+            <thead>
               <tr>
                 <th>Parameter</th>
                 <th>Description</th>
                 <th>Example</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-100 dark:divide-gray-800 text-gray-700 dark:text-gray-300 [&_td]:py-2 [&_td]:pr-6 [&_td:last-child]:pr-0">
+            <tbody>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--base-url</code></td>
+                <td><code>--base-url</code></td>
                 <td>Your store URL</td>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">http://mystore.local/</code></td>
+                <td><code>http://mystore.local/</code></td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--db-name</code></td>
+                <td><code>--db-name</code></td>
                 <td>Database name</td>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">mage_os</code></td>
+                <td><code>mage_os</code></td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--db-user</code></td>
+                <td><code>--db-user</code></td>
                 <td>Database username</td>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">mage_os_user</code></td>
+                <td><code>mage_os_user</code></td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--db-password</code></td>
+                <td><code>--db-password</code></td>
                 <td>Database password</td>
                 <td>Your secure password</td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--admin-email</code></td>
+                <td><code>--admin-email</code></td>
                 <td>Admin email address</td>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">you@example.com</code></td>
+                <td><code>you@example.com</code></td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--admin-user</code></td>
+                <td><code>--admin-user</code></td>
                 <td>Admin login username</td>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">admin</code></td>
+                <td><code>admin</code></td>
               </tr>
               <tr>
-                <td><code class="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">--admin-password</code></td>
+                <td><code>--admin-password</code></td>
                 <td>Admin login password</td>
                 <td>Min 7 chars, 1 letter, 1 number</td>
               </tr>

@@ -13,14 +13,15 @@ export interface Props {
   defaultTab?: string;
   class?: string;
   label?: string;
+  prose?: boolean;
 }
 
-const { tabs, defaultTab, class: className, label } = Astro.props;
+const { tabs, defaultTab, class: className, label, prose } = Astro.props;
 const activeTab = defaultTab || tabs[0]?.id;
 const uniqueId = `tabs-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<div class={twMerge('not-prose', className)} data-tabs={uniqueId} data-active-tab={activeTab}>
+<div class={twMerge(prose ? null : 'not-prose', className)} data-tabs={uniqueId} data-active-tab={activeTab}>
   <!-- Tab List -->
   <div
     role="tablist"
