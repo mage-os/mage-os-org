@@ -25,7 +25,7 @@ const uniqueId = `tabs-${Math.random().toString(36).slice(2, 9)}`;
   <!-- Tab List -->
   <div
     role="tablist"
-    aria-label={label || 'Content tabs'}
+    aria-label={label ?? 'Content tabs'}
     class="flex border-b border-gray-200 dark:border-gray-700 overflow-x-auto overflow-y-hidden"
   >
     {
