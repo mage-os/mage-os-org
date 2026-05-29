@@ -10,8 +10,8 @@ tags:
   - "Sales"
   - "AI"
   - "Hyvä"
-image: "~/assets/images/blog/2026/ChatGPT-Image-25.-Jan.-2026-09_36_59.png"
-imageAlt: "Mage-OS branded banner with a network and code motif, captioned 'the natural evolution of the Magento ecosystem'"
+image: "~/assets/images/blog/2026/mage-os-pitch-data-ownership.png"
+imageAlt: "Mage-OS branded banner on a dark gradient with the tagline 'Own your data. Own your future. — Beyond the feature war'"
 ---
 
 The marketing department had just taken over responsibility for the online shop. Within weeks, they had one request: Shopify.
