@@ -1,7 +1,7 @@
 ---
 title: "Mage-OS + Hyvä vs. Magento + Luma: Real Performance Numbers"
-publishDate: "2026-04-29T12:00:00.000Z"
-category: "Technical"
+publishDate: "2026-06-09T00:00:00.000Z"
+category: "eCommerce Insights"
 author: "david-lambauer"
 draft: false
 excerpt: "I ran a controlled 250-user load test on identical AWS infrastructure to find out how much faster Mage-OS + Hyvä is than Magento + Luma under real concurrency."
@@ -61,7 +61,7 @@ The improvement isn't isolated to one slow endpoint. Every page type shows the s
 | Product detail | 8,121 ms | 3,703 ms | 2.2x |
 | Add to cart (API) | 7,754 ms | 3,670 ms | 2.1x |
 
-Search shows the largest gap at 2.3x. Part of that is the [Typesense module](https://github.com/run-as-root/Typesense-Magento-2) returning results faster than OpenSearch for storefront queries. Typesense is also the foundation for the RAG-based AI features described in the [companion post about the Shopify pitch](/community/how-mage-os-beat-shopify-without-a-feature-war).
+Search shows the largest gap at 2.3x. Part of that is the [Typesense module](https://github.com/run-as-root/Typesense-Magento-2) returning results faster than OpenSearch for storefront queries. Typesense is also the foundation for the RAG-based AI features described in the [companion post about the Shopify pitch](/case-studies/2026-06-02-how-mage-os-beat-shopify-without-a-feature-war).
 
 ## What the database data shows
 

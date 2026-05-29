@@ -1,7 +1,7 @@
 ---
 title: "How a Mage-OS Pitch Beat Shopify Without a Feature War"
-publishDate: "2026-04-29T00:00:00.000Z"
-category: "Community"
+publishDate: "2026-06-02T00:00:00.000Z"
+category: "Case Studies"
 author: "david-lambauer"
 draft: false
 excerpt: "A 900-person German publisher was ready to sign with Shopify. I walked in without a feature checklist and walked out with the contract."
@@ -10,6 +10,8 @@ tags:
   - "Sales"
   - "AI"
   - "Hyvä"
+image: "~/assets/images/blog/2026/ChatGPT-Image-25.-Jan.-2026-09_36_59.png"
+imageAlt: "Mage-OS branded banner with a network and code motif, captioned 'the natural evolution of the Magento ecosystem'"
 ---
 
 The marketing department had just taken over responsibility for the online shop. Within weeks, they had one request: Shopify.
@@ -34,11 +36,11 @@ The only thing that can't be copied is your data.
 
 The demo wasn't a 50-slide deck. I assembled it in roughly 20 minutes from things the Mage-OS community had already built.
 
-The first piece was the Hyvä Commerce admin. The page builder question came up early. My answer was direct: every platform needs CI work to match a brand's design. That's true whether you pick Shopify, Hyvä, or anything else. That's not a differentiator. The [performance gap](/technical/mage-os-hyva-vs-magento-luma-performance-benchmark) is.
+The first piece was the Hyvä Commerce admin. The page builder question came up early. My answer was direct: every platform needs CI work to match a brand's design. That's true whether you pick Shopify, Hyvä, or anything else. That's not a differentiator. The performance gap is.
 
 The differentiator was what came next.
 
-I showed an agentic admin proof-of-concept built by the Mage-OS team. The idea: type a prompt inside your e-commerce admin, and the system creates a landing page skeleton using content it already knows about your store. Products, categories, past purchase behavior, brand tone. You finish the last 20% in the [page builder](/initiatives/mageos-widgetkit).
+I showed an agentic admin proof-of-concept built by the Mage-OS team. The idea: type a prompt inside your e-commerce admin, and the system creates a landing page skeleton using content it already knows about your store. Products, categories, past purchase behavior, brand tone. You finish the last 20% in the [page builder](/initiatives/2026-04-23-mageos-widgetkit).
 
 The room's reaction was immediate. Marketing people don't care how the plumbing works. They care about getting from "we have new Easter products" to "we have a live landing page" without a two-week agency sprint.
 
