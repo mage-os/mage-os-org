@@ -193,11 +193,16 @@ EXIT;`}
 
               <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
                 <div data-tab="interactive">
-                  <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                  <p class="text-sm text-muted mb-3">
+                    Walks you through every setting interactively - no flags to memorize. Recommended for first-time
+                    setups.
+                  </p>
                   <CodeBlock code="bin/magento install" lang="bash" />
                 </div>
                 <div data-tab="cli">
-                  <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                  <p class="text-sm text-muted mb-3">
+                    Pass all options as flags in a single command. Useful for scripted or automated deployments.
+                  </p>
                   <CodeBlock
                     code={`bin/magento setup:install \\
   --base-url="http://your-domain.com/" \\
@@ -369,11 +374,16 @@ ddev composer create-project --repository-url=https://repo.mage-os.org/ \\
 
                 <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
                   <div data-tab="interactive">
-                    <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                    <p class="text-sm text-muted mb-3">
+                      Walks you through every setting interactively - no flags to memorize. Recommended for first-time
+                      setups.
+                    </p>
                     <CodeBlock code="ddev magento install" lang="bash" />
                   </div>
                   <div data-tab="cli">
-                    <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                    <p class="text-sm text-muted mb-3">
+                      Pass all options as flags in a single command. Useful for scripted or automated deployments.
+                    </p>
                     <CodeBlock
                       code={`ddev magento setup:install \\
   --base-url="https://mageos.ddev.site/" \\
@@ -514,11 +524,16 @@ composer create-project --repository-url=https://repo.mage-os.org/ \\
 
                 <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
                   <div data-tab="interactive">
-                    <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                    <p class="text-sm text-muted mb-3">
+                      Walks you through every setting interactively - no flags to memorize. Recommended for first-time
+                      setups.
+                    </p>
                     <CodeBlock code="bin/magento install" lang="bash" />
                   </div>
                   <div data-tab="cli">
-                    <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                    <p class="text-sm text-muted mb-3">
+                      Pass all options as flags in a single command. Useful for scripted or automated deployments.
+                    </p>
                     <CodeBlock
                       code={`bin/magento setup:install \\
   --base-url="https://app.mageos.test/" \\

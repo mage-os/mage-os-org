@@ -249,11 +249,15 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
 
       <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type" prose>
         <div data-tab="interactive">
-          <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+          <p class="text-sm text-muted mb-3">
+            Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.
+          </p>
           <CodeBlock code="bin/magento install" lang="bash" />
         </div>
         <div data-tab="cli">
-          <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+          <p class="text-sm text-muted mb-3">
+            Pass all options as flags in a single command. Useful for scripted or automated deployments.
+          </p>
           <CodeBlock
             code={`bin/magento setup:install \\
   --base-url=http://yourdomain.local/ \\
