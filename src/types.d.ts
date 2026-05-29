@@ -311,6 +311,15 @@ export interface VersionSpecs extends ComponentSpecs {
   releaseDate: string;
   eolDate: string;
   isLatest: boolean;
+  /**
+   * Per-release display strings sourced directly from the version feed (not the
+   * config overrides). Used by the compatibility matrix so each release row
+   * reflects the versions it actually shipped against.
+   */
+  phpDisplay?: string;
+  databaseDisplay?: string;
+  searchDisplay?: string;
+  cacheDisplay?: string;
 }
 
 export interface SystemSpecs {
