@@ -26,6 +26,11 @@ const installationTabs = [
   { id: 'docker', label: 'Docker', icon: 'tabler:brand-docker' },
   { id: 'cloud', label: 'Cloud', icon: 'tabler:cloud' },
 ];
+
+const installerTabs = [
+  { id: 'interactive', label: 'Interactive', icon: 'tabler:sparkles' },
+  { id: 'cli', label: 'Command-line', icon: 'tabler:terminal-2' },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -75,7 +80,7 @@ const installationTabs = [
   <!-- Tabbed Installation Methods -->
   <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
     <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-5xl">
-      <TabbedContent tabs={installationTabs} defaultTab="composer">
+      <TabbedContent tabs={installationTabs} defaultTab="composer" label="Installation method">
         <!-- Composer Tab -->
         <div data-tab="composer">
           <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
@@ -186,8 +191,15 @@ EXIT;`}
                 Run Installer
               </h4>
 
-              <CodeBlock
-                code={`bin/magento setup:install \\
+              <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
+                <div data-tab="interactive">
+                  <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                  <CodeBlock code="bin/magento install" lang="bash" />
+                </div>
+                <div data-tab="cli">
+                  <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                  <CodeBlock
+                    code={`bin/magento setup:install \\
   --base-url="http://your-domain.com/" \\
   --db-host="localhost" \\
   --db-name="mageos" \\
@@ -207,8 +219,10 @@ EXIT;`}
   --opensearch-port="9200" \\
   --opensearch-index-prefix="mageos" \\
   --opensearch-timeout="15"`}
-                lang="bash"
-              />
+                    lang="bash"
+                  />
+                </div>
+              </TabbedContent>
 
               <h4 id="composer-step-5" class="flex items-center gap-2">
                 <span
@@ -349,10 +363,19 @@ ddev start
 
 # Create Mage-OS project
 ddev composer create-project --repository-url=https://repo.mage-os.org/ \\
-  mage-os/project-community-edition .
+  mage-os/project-community-edition .`}
+                  lang="bash"
+                />
 
-# Run installer
-ddev magento setup:install \\
+                <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
+                  <div data-tab="interactive">
+                    <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                    <CodeBlock code="ddev magento install" lang="bash" />
+                  </div>
+                  <div data-tab="cli">
+                    <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                    <CodeBlock
+                      code={`ddev magento setup:install \\
   --base-url="https://mageos.ddev.site/" \\
   --db-host="db" \\
   --db-name="db" \\
@@ -365,9 +388,14 @@ ddev magento setup:install \\
   --admin-password="<your-secure-password>" \\
   --search-engine="opensearch" \\
   --opensearch-host="opensearch" \\
-  --opensearch-port="9200"
+  --opensearch-port="9200"`}
+                      lang="bash"
+                    />
+                  </div>
+                </TabbedContent>
 
-# Deploy
+                <CodeBlock
+                  code={`# Deploy
 ddev magento setup:di:compile
 ddev magento setup:static-content:deploy -f
 ddev magento cache:flush`}
@@ -480,10 +508,19 @@ warden env up
 # Enter shell and install Mage-OS
 warden shell
 composer create-project --repository-url=https://repo.mage-os.org/ \\
-  mage-os/project-community-edition .
+  mage-os/project-community-edition .`}
+                  lang="bash"
+                />
 
-# Run installer (inside warden shell)
-bin/magento setup:install \\
+                <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type">
+                  <div data-tab="interactive">
+                    <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+                    <CodeBlock code="bin/magento install" lang="bash" />
+                  </div>
+                  <div data-tab="cli">
+                    <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+                    <CodeBlock
+                      code={`bin/magento setup:install \\
   --base-url="https://app.mageos.test/" \\
   --db-host="db" \\
   --db-name="magento" \\
@@ -496,9 +533,14 @@ bin/magento setup:install \\
   --admin-password="<your-secure-password>" \\
   --search-engine="opensearch" \\
   --opensearch-host="opensearch" \\
-  --opensearch-port="9200"
+  --opensearch-port="9200"`}
+                      lang="bash"
+                    />
+                  </div>
+                </TabbedContent>
 
-# Deploy static content
+                <CodeBlock
+                  code={`# Deploy static content
 bin/magento setup:di:compile
 bin/magento setup:static-content:deploy -f
 bin/magento cache:flush`}

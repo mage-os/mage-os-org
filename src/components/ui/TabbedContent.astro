@@ -12,18 +12,20 @@ export interface Props {
   tabs: Tab[];
   defaultTab?: string;
   class?: string;
+  label?: string;
+  prose?: boolean;
 }
 
-const { tabs, defaultTab, class: className } = Astro.props;
+const { tabs, defaultTab, class: className, label, prose } = Astro.props;
 const activeTab = defaultTab || tabs[0]?.id;
 const uniqueId = `tabs-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<div class={twMerge('not-prose', className)} data-tabs={uniqueId} data-active-tab={activeTab}>
+<div class={twMerge(prose ? null : 'not-prose', className)} data-tabs={uniqueId} data-active-tab={activeTab}>
   <!-- Tab List -->
   <div
     role="tablist"
-    aria-label="Content tabs"
+    aria-label={label ?? 'Content tabs'}
     class="flex border-b border-gray-200 dark:border-gray-700 overflow-x-auto overflow-y-hidden"
   >
     {
@@ -61,12 +63,17 @@ const uniqueId = `tabs-${Math.random().toString(36).slice(2, 9)}`;
 <script>
   function initTabs() {
     document.querySelectorAll('[data-tabs]').forEach((container) => {
-      const tabs = container.querySelectorAll('[role="tab"]');
-      const panelsContainer = container.querySelector('.tab-panels');
+      if ((container as HTMLElement).dataset.tabsInit) return;
+
+      const tabList = container.querySelector(':scope > [role="tablist"]');
+      const tabs = tabList ? tabList.querySelectorAll('[role="tab"]') : [];
+      const panelsContainer = container.querySelector(':scope > .tab-panels');
       if (!panelsContainer) return;
 
-      // Find all tab panel elements (elements with data-tab attribute)
-      const panels = panelsContainer.querySelectorAll('[data-tab]');
+      (container as HTMLElement).dataset.tabsInit = 'true';
+
+      // Only direct children to avoid picking up nested TabbedContent panels
+      const panels = panelsContainer.querySelectorAll(':scope > [data-tab]');
       const activeTab = container.getAttribute('data-active-tab');
 
       // Initialize panel visibility based on activeTab

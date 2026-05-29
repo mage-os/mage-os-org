@@ -7,9 +7,15 @@ import ItemGrid from '~/components/ui/ItemGrid.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Icon } from 'astro-icon/components';
 import CodeBlock from '~/components/ui/CodeBlock.astro';
+import TabbedContent from '~/components/ui/TabbedContent.astro';
 import { getLatestSpecs } from '~/utils/systemSpecs';
 
 const specs = await getLatestSpecs();
+
+const installerTabs = [
+  { id: 'interactive', label: 'Interactive', icon: 'tabler:sparkles' },
+  { id: 'cli', label: 'Command-line', icon: 'tabler:terminal-2' },
+];
 
 const metadata = {
   title: 'Quick Start Guide',
@@ -239,10 +245,17 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
         >
       </h2>
 
-      <p>Run the setup installer with your configuration:</p>
+      <p>Run the installer with your configuration:</p>
 
-      <CodeBlock
-        code={`bin/magento setup:install \\
+      <TabbedContent tabs={installerTabs} defaultTab="interactive" label="Installer type" prose>
+        <div data-tab="interactive">
+          <p class="text-sm text-muted mb-3">Walks you through every setting interactively - no flags to memorize. Recommended for first-time setups.</p>
+          <CodeBlock code="bin/magento install" lang="bash" />
+        </div>
+        <div data-tab="cli">
+          <p class="text-sm text-muted mb-3">Pass all options as flags in a single command. Useful for scripted or automated deployments.</p>
+          <CodeBlock
+            code={`bin/magento setup:install \\
   --base-url=http://yourdomain.local/ \\
   --db-host=localhost \\
   --db-name=mage_os \\
@@ -260,57 +273,58 @@ mysql -u root -p -e "FLUSH PRIVILEGES;"`}
   --search-engine=opensearch \\
   --opensearch-host=localhost \\
   --opensearch-port=9200`}
-        lang="bash"
-      />
+            lang="bash"
+          />
 
-      <p><strong>Customize these values:</strong></p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Parameter</th>
-            <th>Description</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>--base-url</code></td>
-            <td>Your store URL</td>
-            <td><code>http://mystore.local/</code></td>
-          </tr>
-          <tr>
-            <td><code>--db-name</code></td>
-            <td>Database name</td>
-            <td><code>mage_os</code></td>
-          </tr>
-          <tr>
-            <td><code>--db-user</code></td>
-            <td>Database username</td>
-            <td><code>mage_os_user</code></td>
-          </tr>
-          <tr>
-            <td><code>--db-password</code></td>
-            <td>Database password</td>
-            <td>Your secure password</td>
-          </tr>
-          <tr>
-            <td><code>--admin-email</code></td>
-            <td>Admin email address</td>
-            <td><code>you@example.com</code></td>
-          </tr>
-          <tr>
-            <td><code>--admin-user</code></td>
-            <td>Admin login username</td>
-            <td><code>admin</code></td>
-          </tr>
-          <tr>
-            <td><code>--admin-password</code></td>
-            <td>Admin login password</td>
-            <td>Min 7 chars, 1 letter, 1 number</td>
-          </tr>
-        </tbody>
-      </table>
+          <p><strong>Customize these values:</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--base-url</code></td>
+                <td>Your store URL</td>
+                <td><code>http://mystore.local/</code></td>
+              </tr>
+              <tr>
+                <td><code>--db-name</code></td>
+                <td>Database name</td>
+                <td><code>mage_os</code></td>
+              </tr>
+              <tr>
+                <td><code>--db-user</code></td>
+                <td>Database username</td>
+                <td><code>mage_os_user</code></td>
+              </tr>
+              <tr>
+                <td><code>--db-password</code></td>
+                <td>Database password</td>
+                <td>Your secure password</td>
+              </tr>
+              <tr>
+                <td><code>--admin-email</code></td>
+                <td>Admin email address</td>
+                <td><code>you@example.com</code></td>
+              </tr>
+              <tr>
+                <td><code>--admin-user</code></td>
+                <td>Admin login username</td>
+                <td><code>admin</code></td>
+              </tr>
+              <tr>
+                <td><code>--admin-password</code></td>
+                <td>Admin login password</td>
+                <td>Min 7 chars, 1 letter, 1 number</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </TabbedContent>
 
       <hr class="my-8" />
 
