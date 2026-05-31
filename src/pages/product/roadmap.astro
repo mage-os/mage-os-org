@@ -64,7 +64,7 @@ const metadata = {
           </div>
           <div>
             <h3 class="text-lg font-bold dark:text-white">Minor</h3>
-            <span class="text-sm text-muted">2.#.0</span>
+            <span class="text-sm text-muted">#.#.0</span>
           </div>
         </div>
         <p class="text-muted mb-3">Security patches, compatibility updates.</p>
@@ -81,7 +81,7 @@ const metadata = {
           </div>
           <div>
             <h3 class="text-lg font-bold dark:text-white">Patch</h3>
-            <span class="text-sm text-muted">2.0.#</span>
+            <span class="text-sm text-muted">#.#.#</span>
           </div>
         </div>
         <p class="text-muted mb-3">Critical off-schedule fixes.</p>
@@ -108,9 +108,9 @@ const metadata = {
           <Icon name="tabler:star" class="w-8 h-8 text-green-600 dark:text-green-400" />
         </div>
         <div>
-          <h2 class="text-3xl font-bold font-heading text-green-800 dark:text-green-200">Current Release: Mage-OS 2</h2>
+          <h2 class="text-3xl font-bold font-heading text-green-800 dark:text-green-200">Current Release: Mage-OS 3</h2>
           <p class="text-green-700 dark:text-green-300">
-            Released in late 2025, our most feature-rich release to date.
+            Released May 2026 on Magento Open Source 2.4.9, our most feature-rich release to date.
           </p>
         </div>
       </div>
@@ -119,40 +119,36 @@ const metadata = {
         columns={2}
         items={[
           {
-            title: 'PCI DSS 4.0 Compliance',
+            title: 'Interactive Installer',
             description:
-              'Enhanced security policies including automatic account deactivation and strengthened authentication.',
-            icon: 'tabler:shield-lock',
+              'A guided <code>bin/magento install</code> wizard with service auto-detection, resume-on-failure, and optional Hyvä setup.',
+            icon: 'tabler:terminal-2',
           },
           {
-            title: 'AI-Powered Translation',
+            title: 'Returns (RMA)',
             description:
-              'Automatic translation via DeepL, OpenAI, or Google Gemini for products, categories, and CMS content.',
-            icon: 'tabler:language',
+              'Built-in Return Merchandise Authorization — customers request returns and merchants review, approve, and respond.',
+            icon: 'tabler:package-import',
           },
           {
-            title: 'Inventory Reservations Grid',
-            description: 'Direct visibility and management of stock reservations in the admin panel.',
-            icon: 'tabler:box',
+            title: 'Admin Activity Log',
+            description: 'A built-in audit trail of who changed what and when, for auditing and compliance.',
+            icon: 'tabler:history',
           },
           {
-            title: 'Meta Robots Control',
-            description: 'Fine-grained NOINDEX, NOFOLLOW, and NOARCHIVE settings per page for better SEO.',
-            icon: 'tabler:robot',
+            title: 'Minimal Distribution',
+            description:
+              'A lean install of ~98 core packages, with everything else available as individual Composer packages.',
+            icon: 'tabler:package',
           },
           {
-            title: 'PageBuilder Enhancements',
-            description: 'CMS Widget support with live previews and import/export capabilities.',
-            icon: 'tabler:layout-grid',
+            title: 'Bundled Developer Toolkit',
+            description: 'n98-magerun2 and other established community tools shipped by default.',
+            icon: 'tabler:tools',
           },
           {
-            title: 'Theme Optimization',
-            description: 'Back/forward cache support, speculative preloading, and smooth page transitions.',
-            icon: 'tabler:bolt',
-          },
-          {
-            title: 'PHP 8.4 Support',
-            description: 'Full compatibility with the latest PHP version for improved performance and features.',
+            title: 'PHP 8.5 Support',
+            description: 'Built on Magento Open Source 2.4.9, with PHP 8.5 support and faster compiled performance.',
             icon: 'tabler:brand-php',
           },
         ]}
@@ -168,7 +164,7 @@ const metadata = {
           class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
         >
           <Icon name="tabler:download" class="w-5 h-5" />
-          Get Started with Mage-OS 2
+          Get Started with Mage-OS 3
         </a>
       </div>
     </div>
@@ -184,13 +180,13 @@ const metadata = {
       {
         title: 'Q1 2026 <span class="text-sm font-normal text-muted ml-2">(January - March)</span>',
         description:
-          '<strong>Mage-OS 2.1-2.4</strong> - Minor releases incorporating upstream security patches. Plus continued Lab module evaluations, developer experience improvements, and documentation expansion.',
+          '<strong>Mage-OS 2.1-2.2</strong> - Minor releases incorporating upstream security patches. Plus continued Lab module evaluations, developer experience improvements, and documentation expansion.',
         icon: 'tabler:calendar-event',
       },
       {
         title: 'Q2 2026 <span class="text-sm font-normal text-muted ml-2">(April - June)</span>',
         description:
-          '<strong>Mage-OS 3.0</strong> - Next major release aligned with Magento feature release. New community-driven features from the Mage-OS Lab and system requirement updates as needed.',
+          '<strong>Mage-OS 2.3 &amp; 3.0</strong> - Mage-OS 3.0, our next major release, shipped in May on Magento Open Source 2.4.9 with PHP 8.5 support, new Mage-OS Lab features, and updated system requirements.',
         icon: 'tabler:rocket',
       },
       {
@@ -318,9 +314,25 @@ const metadata = {
     <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 mb-8">
       <h4 class="text-lg font-bold mb-4 flex items-center gap-2 text-green-800 dark:text-green-200">
         <Icon name="tabler:trophy" class="w-6 h-6" />
-        Recent Graduates (Now in Mage-OS 2)
+        Lab Graduates (Now in Mage-OS)
       </h4>
       <div class="grid sm:grid-cols-2 gap-3">
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Interactive installer (community-contributed)</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Returns (RMA) management</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Admin Activity Log audit trail</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Bundled developer toolkit (n98-magerun2 and more)</span>
+        </div>
         <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
           <Icon name="tabler:check" class="w-5 h-5" />
           <span>AI-Powered Translation module</span>
@@ -448,7 +460,7 @@ const metadata = {
           </li>
           <li class="flex items-start gap-2">
             <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-            <span>Mage-OS Distribution 1.0 and 2.0 releases</span>
+            <span>Mage-OS Distribution 1.0, 2.0, and 3.0 releases</span>
           </li>
           <li class="flex items-start gap-2">
             <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />

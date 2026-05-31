@@ -7,7 +7,7 @@
 components:
   php:
     minimum: '8.3'
-    recommended: '8.4'
+    recommended: '8.5'
 
   composer:
     minimum: '2.7'

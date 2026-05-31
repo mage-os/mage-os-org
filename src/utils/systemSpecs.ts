@@ -31,6 +31,7 @@ const GitHubVersionEntrySchema = z.object({
   elasticsearch: z.string().optional(),
   rabbitmq: z.string().optional(),
   redis: z.string().optional(),
+  valkey: z.string().optional(),
   varnish: z.string().optional(),
   nginx: z.string().optional(),
   os: z.string().optional(),
@@ -110,6 +111,45 @@ function extractVersion(imageString: string | undefined): string {
   if (!imageString) return '';
   const match = imageString.match(/:(\d+\.?\d*)/);
   return match ? match[1] : '';
+}
+
+/**
+ * Format a Docker image string into a human-friendly "Engine x.y" label.
+ * e.g. "mariadb:10.6" -> "MariaDB 10.6", "mysql:8.4" -> "MySQL 8.4"
+ */
+function formatImageLabel(imageString: string | undefined, labels: Record<string, string>): string {
+  if (!imageString) return '';
+  const name = imageString.split(':')[0].split('/').pop() || '';
+  const version = extractVersion(imageString);
+  const label = labels[name.toLowerCase()] || name;
+  return version ? `${label} ${version}` : label;
+}
+
+/**
+ * Build the per-release database label from the feed entry. The feed reuses the
+ * `mysql` field for MariaDB images, so the engine is derived from the image name.
+ */
+function formatDatabaseDisplay(entry: GitHubVersionEntry): string {
+  return formatImageLabel(entry.mysql, { mysql: 'MySQL', mariadb: 'MariaDB' });
+}
+
+/**
+ * Build the per-release search engine label, preferring OpenSearch over the
+ * legacy Elasticsearch field used by older releases.
+ */
+function formatSearchDisplay(entry: GitHubVersionEntry): string {
+  return formatImageLabel(entry.opensearch || entry.elasticsearch, {
+    opensearch: 'OpenSearch',
+    elasticsearch: 'Elasticsearch',
+  });
+}
+
+/**
+ * Build the per-release cache label, preferring Valkey (used by newer releases)
+ * over the Redis field used by earlier ones.
+ */
+function formatCacheDisplay(entry: GitHubVersionEntry): string {
+  return formatImageLabel(entry.valkey || entry.redis, { redis: 'Redis', valkey: 'Valkey' });
 }
 
 /**
@@ -260,6 +300,12 @@ function transformData(
       releaseDate: entry.release,
       eolDate: entry.eol,
       isLatest: false,
+      // Per-release values straight from the feed, so each matrix row reflects
+      // what that release actually shipped against (not the global config).
+      phpDisplay: String(entry.php),
+      databaseDisplay: formatDatabaseDisplay(entry),
+      searchDisplay: formatSearchDisplay(entry),
+      cacheDisplay: formatCacheDisplay(entry),
     };
   }
 

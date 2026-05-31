@@ -9,31 +9,41 @@ import VersionBadge from '~/components/ui/VersionBadge.astro';
 import { getSystemSpecs } from '~/utils/systemSpecs';
 
 interface Props {
-  /** Maximum number of versions to display */
+  /** Maximum number of versions to display. Omit to show every release. */
   limit?: number;
   /** Additional classes for the container */
   class?: string;
 }
 
-const { limit = 5, class: className } = Astro.props;
+const { limit, class: className } = Astro.props;
 
 const specs = await getSystemSpecs();
 
-// Sort versions by release date (newest first) and limit
-const sortedVersions = Object.entries(specs.versions)
-  .sort(([, a], [, b]) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime())
-  .slice(0, limit);
+// Extract major.minor from a version string (e.g. "2.2.2" -> "2.2")
+function getMajorMinor(version: string): string {
+  return version.split('.').slice(0, 2).join('.');
+}
+
+// One row per major.minor release line — patch updates are collapsed into their
+// line, represented by its most recent patch. Newest line first.
+const sortedVersions = (() => {
+  const all = Object.entries(specs.versions).sort(
+    ([, a], [, b]) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()
+  );
+  const seenLines = new Set<string>();
+  const majorMinorOnly = all.filter(([version]) => {
+    const line = getMajorMinor(version);
+    if (seenLines.has(line)) return false;
+    seenLines.add(line);
+    return true;
+  });
+  return typeof limit === 'number' ? majorMinorOnly.slice(0, limit) : majorMinorOnly;
+})();
 
 // Format date for display
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-}
-
-// Extract major.minor from version string
-function getMajorMinor(version: string): string {
-  const parts = version.split('.');
-  return parts.slice(0, 2).join('.');
 }
 ---
 
@@ -60,36 +70,16 @@ function getMajorMinor(version: string): string {
                 versionSpecs.isLatest ? 'bg-green-50 dark:bg-green-900/20' : '',
               ]}
             >
-              <td class="py-3 px-4 font-bold">
+              <td class="py-3 px-4 font-bold whitespace-nowrap">
                 {getMajorMinor(version)}
                 {versionSpecs.isLatest && <VersionBadge status="recommended" class="ml-2" />}
               </td>
-              <td class="py-3 px-4">
-                {versionSpecs.php.minimum === versionSpecs.php.recommended
-                  ? versionSpecs.php.recommended
-                  : `${versionSpecs.php.minimum}-${versionSpecs.php.recommended}`}
-              </td>
-              <td class="py-3 px-4">
-                <span title="MySQL">MySQL {versionSpecs.mysql.minimum}+</span>
-                <span class="text-gray-400 mx-1">/</span>
-                <span title="MariaDB">MariaDB {versionSpecs.mariadb.minimum}+</span>
-              </td>
-              <td class="py-3 px-4">
-                <span title="OpenSearch">OS {versionSpecs.opensearch.minimum}+</span>
-                {versionSpecs.elasticsearch && (
-                  <>
-                    <span class="text-gray-400 mx-1">/</span>
-                    <span title="Elasticsearch">ES {versionSpecs.elasticsearch.minimum}+</span>
-                  </>
-                )}
-              </td>
-              <td class="py-3 px-4">
-                <span title="Valkey">Valkey {versionSpecs.valkey.minimum}+</span>
-                <span class="text-gray-400 mx-1">/</span>
-                <span title="Redis">Redis {versionSpecs.redis.minimum}+</span>
-              </td>
-              <td class="py-3 px-4">{versionSpecs.magentoBase}</td>
-              <td class="py-3 px-4">{formatDate(versionSpecs.releaseDate)}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{versionSpecs.phpDisplay || versionSpecs.php.recommended}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{versionSpecs.databaseDisplay || '—'}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{versionSpecs.searchDisplay || '—'}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{versionSpecs.cacheDisplay || '—'}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{versionSpecs.magentoBase}</td>
+              <td class="py-3 px-4 whitespace-nowrap">{formatDate(versionSpecs.releaseDate)}</td>
             </tr>
           ))
         }
