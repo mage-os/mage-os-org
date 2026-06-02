@@ -106,7 +106,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![ParadoxLabs](https://mage-os.org/_astro/image-2.D_u1eXG2_Z2rJvmm.webp)](https://opencollective.com/paradoxlabs)
+[![ParadoxLabs](~/assets/images/blog/2026/image-2.png)](https://opencollective.com/paradoxlabs)
 
 </div>
 
@@ -118,13 +118,13 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![Hyvä](https://mage-os.org/_astro/image-6.Dx4acMHc_ZxUYjO.webp)](https://opencollective.com/hyva-themes)
+[![Hyvä](~/assets/images/blog/2026/image-6.png)](https://opencollective.com/hyva-themes)
 
 </div>
 
 <div>
 
-[![JH](https://mage-os.org/_astro/image-12.C71asHZQ_14DMgh.webp)](https://opencollective.com/wearejh)
+[![JH](~/assets/images/blog/2026/image-12.png)](https://opencollective.com/wearejh)
 
 </div>
 
@@ -136,31 +136,31 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![JetRails](https://mage-os.org/_astro/image-8.D6K3zNZg_Z1PONGI.webp)](https://opencollective.com/jetrails)
+[![JetRails](~/assets/images/blog/2026/image-8.png)](https://opencollective.com/jetrails)
 
 </div>
 
 <div>
 
-[![Develo](https://mage-os.org/_astro/image-9.CXJtEzF__1tlU8r.webp)](https://opencollective.com/develo)
+[![Develo](~/assets/images/blog/2026/image-9.png)](https://opencollective.com/develo)
 
 </div>
 
 <div>
 
-[![FindCanary](https://mage-os.org/_astro/image-10.B-7DFoGZ_UsgfC.webp)](https://opencollective.com/canary)
+[![FindCanary](~/assets/images/blog/2026/image-10.png)](https://opencollective.com/canary)
 
 </div>
 
 <div>
 
-[![integer_net](https://mage-os.org/_astro/image-11.uDHWm4v9_Z2jQqIt.webp)](https://opencollective.com/integer_net)
+[![integer_net](~/assets/images/blog/2026/image-11.png)](https://opencollective.com/integer_net)
 
 </div>
 
 <div>
 
-[![Inchoo](https://mage-os.org/_astro/image-7-1024x1024.NaJD7DMt_12hOM7.webp)](https://opencollective.com/inchoo)
+[![Inchoo](~/assets/images/blog/2026/image-7-1024x1024.png)](https://opencollective.com/inchoo)
 
 </div>
 
