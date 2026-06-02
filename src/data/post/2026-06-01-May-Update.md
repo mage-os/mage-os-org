@@ -124,7 +124,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![Inchoo](https://mage-os.org/_astro/image-7-1024x1024.NaJD7DMt_12hOM7.webp)](https://opencollective.com/inchoo)
+[![JH](https://mage-os.org/_astro/image-12.C71asHZQ_14DMgh.webp)](https://opencollective.com/wearejh)
 
 </div>
 
@@ -132,7 +132,7 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 #### Bronze Partners
 
-<div class="not-prose" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; align-items: center;">
+<div class="not-prose" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem; align-items: center;">
 
 <div>
 
@@ -160,7 +160,13 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 <div>
 
-[![JH](https://mage-os.org/_astro/image-12.C71asHZQ_14DMgh.webp)](https://opencollective.com/wearejh)
+[![Inchoo](https://mage-os.org/_astro/image-7-1024x1024.NaJD7DMt_12hOM7.webp)](https://opencollective.com/inchoo)
+
+</div>
+
+<div>
+
+[![Bulldog Media](~/assets/images/blog/2026/bulldog-media.jpg)](https://opencollective.com/bulldog-media)
 
 </div>
 
