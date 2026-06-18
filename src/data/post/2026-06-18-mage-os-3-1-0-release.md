@@ -14,7 +14,7 @@ author: mage-os-team
 ### What's changed
 
 - **Composer root-update plugin now supports Mage-OS package names**
-  `mage-os/composer-root-update-plugin` now correctly resolves Mage-OS package names in the `require-commerce` path, so root `composer.json` updates and upgrades work cleanly for Mage-OS-named distributions. ([#7](https://github.com/mage-os/mageos-composer-root-update-plugin/pull/7)) by [@marcelmtz](https://github.com/marcelmtz)
+  `mage-os/composer-root-update-plugin` now correctly resolves Mage-OS package names in the `require-commerce` path, so root `composer.json` updates and upgrades work cleanly for Mage-OS-named distributions. This resolves the `bin/magento setup:upgrade` failure some 3.0.0 upgrades hit (`Class "MageOS\Installer\Console\Command\InstallCommand" not found`) — see the recovery note below if you're affected. ([#7](https://github.com/mage-os/mageos-composer-root-update-plugin/pull/7)) by [@marcelmtz](https://github.com/marcelmtz)
 
 - **Sixteen core stability fixes**, all contributed by [@ddevallan](https://github.com/ddevallan), including:
   - Let `PaymentException` propagate from `savePaymentInformationAndPlaceOrder`, so checkout surfaces the real payment error ([#266](https://github.com/mage-os/mageos-magento2/pull/266))
@@ -68,6 +68,31 @@ composer require mage-os/product-community-edition=3.1.0 --no-update
 composer update
 bin/magento setup:upgrade
 ```
+
+> **Recovering a broken 3.0.0 upgrade (installer "class not found" error)**
+>
+> If you upgraded to 3.0.0 and `bin/magento setup:upgrade` failed with `Class "MageOS\Installer\Console\Command\InstallCommand" not found`, your project's root `composer.json` is missing the `MageOS\Installer\` autoload entry. The 3.0.0 root-update plugin didn't apply it for Mage-OS package names; 3.1.0 fixes the plugin. Recover in one of two ways, then re-run `bin/magento setup:upgrade`:
+>
+> **Option A — add the entry manually.** Merge this into the `autoload.psr-4` block of your root `composer.json`:
+>
+> ```json
+> "MageOS\\Installer\\": "setup/src/MageOS/Installer/"
+> ```
+>
+> then regenerate the autoloader:
+>
+> ```bash
+> composer dump-autoload
+> ```
+>
+> **Option B — let the fixed plugin reconcile it.** Update the root-update plugin to 3.1.0, then have it apply the root `composer.json` delta:
+>
+> ```bash
+> composer require mage-os/composer-root-update-plugin:3.1.0
+> composer require-commerce mage-os/product-community-edition:3.1.0
+> ```
+>
+> If your install originated from Magento Open Source and the source edition/version can't be detected from `composer.lock`, add `--base-project-edition "Open Source" --base-project-version <your-version>` to the `require-commerce` command.
 
 #### Upgrading from an older Mage-OS version
 
