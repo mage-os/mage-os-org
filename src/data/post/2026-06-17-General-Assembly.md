@@ -41,8 +41,6 @@ The future of Mage-OS looks bright, and we are excited to continue building it t
 
 For anyone who was unable to attend the General Assembly live, a recording of the session is available below:
 
-**Recording:** [https://us06web.zoom.us/rec/share/xO5Pym2gAqUPBoej6c2gUURLLhqJFfwnB85sim4xOl99XHQG9jI061iaBcZRxlOC.84A8ubmq_KsInFxp](https://us06web.zoom.us/rec/share/xO5Pym2gAqUPBoej6c2gUURLLhqJFfwnB85sim4xOl99XHQG9jI061iaBcZRxlOC.84A8ubmq_KsInFxp)
-
-**Passcode:** 9\*Ny2$9e
+**Recording:** : https://youtu.be/FwXP6-Ug5KE 
 
 The recording includes the annual review, financial report, Board elections, Business Control Committee report, and discussions about Mage-OS priorities and initiatives for the year ahead.
