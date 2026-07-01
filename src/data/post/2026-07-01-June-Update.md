@@ -7,9 +7,8 @@ draft: false
 excerpt: "June was a milestone month for the Mage-OS community, highlighted by our Annual General Assembly and the election of a new Board of Directors. Alongside community leadership changes, contributors continued to make progress on AI initiatives, developer tooling, testing, security, and new open-source modules. Read on for a recap of everything that happened across the Mage-OS community this month."
 image: "~/assets/images/blog/2026/mage-os-june-blog.jpg"
 ---
-# Mage-OS Monthly Newsletter – June 2026
 
-June was another busy month for the Mage-OS community, with progress across AI, developer tooling, testing, security, and community initiatives. The biggest event of the month was our Annual General Assembly, which has now become a regular part of the Mage-OS calendar.
+June was another busy month for the Mage-OS community, with progress across AI, developer tooling, testing, security, and community initiatives. The biggest event of the month was our annual General Assembly, which has now become a regular part of the Mage-OS calendar.
 
 ## Welcome to the New Board
 
