@@ -75,7 +75,7 @@ Mage-OS 3.1.0 reaches end of life with this release.
 
 This release was made possible by:
 
-- Volker Dusch ([@edorian](https://github.com/edorian)) and the [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) at The PHP Foundation — for responsibly reporting the installer `env.php` backup vulnerability
+- [@edorian](https://github.com/edorian) (Volker Dusch), [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) — responsibly reporting the installer `env.php` backup issue
 - [@marcelmtz](https://github.com/marcelmtz) (Marcel Martinez) — security patch porting, installer fixes and release engineering
 - [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — `GLOB_BRACE` fix and the PHP 8.5 fix in Automatic Translation
 - [@ddevallan](https://github.com/ddevallan) (Allan Fernandes) — multi-store URL cache fix
