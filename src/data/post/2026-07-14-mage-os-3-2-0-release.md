@@ -11,7 +11,7 @@ author: mage-os-team
 
 **Mage-OS Distribution 3.2.0** is now available. This is a **security release** and we recommend upgrading promptly.
 
-It ports Adobe's isolated security patch `249-2026-07-001` to source, and fixes a separate issue in the Mage-OS installer that left the encryption key and database password readable in a backup file. It is built on the same **Magento Open Source 2.4.9** base as 3.1.0, with no dependency additions or removals and no change to PHP support, so it remains a drop-in upgrade from 3.1.x.
+It ports Adobe's isolated security patch `249-2026-07-001` to source, and fixes a lower-severity issue in the interactive installer that could leave service credentials in a world-readable backup file. It is built on the same **Magento Open Source 2.4.9** base as 3.1.0, with no dependency additions or removals and no change to PHP support, so it remains a drop-in upgrade from 3.1.x.
 
 ### Security
 
@@ -32,11 +32,13 @@ The patch addresses several distinct issues:
 
 Adobe's patch also ships a `vendor/bin/patch-status` tool, which reports installed-patch state to Adobe's registry using `repo.magento.com` credentials. **This tool is deliberately not included in Mage-OS.** It is a Composer-generated binary with no source-tree equivalent, Mage-OS users have no `repo.magento.com` credentials, and none of the security fixes depend on it. If you diff Mage-OS against Adobe's patch and notice the file missing, this is why.
 
-#### Installer wrote a world-readable backup of env.php
+#### Interactive installer wrote a world-readable env.php backup
 
-The Mage-OS installer copied `app/etc/env.php` to a backup file that was world-readable and lacked a `.php` extension, meaning it could be served as plaintext. That backup contains the encryption key and the database password. The installer now preserves `0600` permissions on the backup and appends a `.php` extension so it can never be served as plaintext.
+When the **interactive installer** was re-run over an existing installation, it backed up `app/etc/env.php` to a world-readable file without a `.php` extension, potentially exposing service credentials. The backup is now written with owner-only (`0600`) permissions and keeps a `.php` extension, so it cannot be served as raw plaintext.
 
-Reported and fixed by [@marcelmtz](https://github.com/marcelmtz). See [GHSA-rcp4-m32j-8fhj](https://github.com/mage-os/mageos-magento2/security/advisories/GHSA-rcp4-m32j-8fhj) (CWE-276).
+This affects only the interactive installer's resume path, not `bin/magento setup:install`, and exposure additionally requires `app/etc` to sit inside the web root (the legacy root-as-docroot layout). Severity is low.
+
+Reported by Volker Dusch ([@edorian](https://github.com/edorian)) of the [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) at The PHP Foundation, and fixed by [@marcelmtz](https://github.com/marcelmtz). See [GHSA-rcp4-m32j-8fhj](https://github.com/mage-os/mageos-magento2/security/advisories/GHSA-rcp4-m32j-8fhj) (CWE-276).
 
 ### Other fixes
 
@@ -54,10 +56,10 @@ Reported and fixed by [@marcelmtz](https://github.com/marcelmtz). See [GHSA-rcp4
 ### Bundled add-on updates
 
 - **RMA module updated to 2.4.0**
-  Adds an `rma_commit_after` event and refines RMA email dispatch logic; guest-form RMAs are now linked to the customer when the order has one; RMA lookup labels are localized in the resolver and emails; and a `TypeError` in the RMA repositories' `getList()` caused by untyped SearchResults is fixed. by [@yuriy-boyko](https://github.com/yuriy-boyko) and Oreste Luppi, reviewed by [@SamueleMartini](https://github.com/SamueleMartini)
+  Adds an `rma_commit_after` event and refines RMA email dispatch logic ([#43](https://github.com/mage-os/module-rma/pull/43)); guest-form RMAs are now linked to the customer when the order has one, RMA lookup labels are localized in the resolver and emails, and a `TypeError` in the RMA repositories' `getList()` caused by untyped SearchResults is fixed ([#44](https://github.com/mage-os/module-rma/pull/44)). by [@yuriy-boyko](https://github.com/yuriy-boyko) and [@orilupo](https://github.com/orilupo), reviewed by [@SamueleMartini](https://github.com/SamueleMartini)
 
 - **Automatic Translation updated to 2.2.1**
-  Paginates per 100 items to avoid failures on large catalogs, fixes the cron expression, uses the DeepL `v2/languages` endpoint for target-language normalization, and fixes a PHP 8.5 `ErrorException` on a new product from a null `getById()`. by Rik Willems, [@dadolun95](https://github.com/dadolun95) and [@rhoerr](https://github.com/rhoerr)
+  Paginates per 100 items to avoid failures on large catalogs ([#66](https://github.com/mage-os/module-automatic-translation/pull/66)) and fixes the cron expression ([#67](https://github.com/mage-os/module-automatic-translation/pull/67)); uses the DeepL `v2/languages` endpoint for target-language normalization ([#69](https://github.com/mage-os/module-automatic-translation/pull/69)); and fixes a PHP 8.5 `ErrorException` on a new product from a null `getById()` ([#70](https://github.com/mage-os/module-automatic-translation/pull/70)). by [@rikwillems](https://github.com/rikwillems), [@dadolun95](https://github.com/dadolun95) and [@rhoerr](https://github.com/rhoerr)
 
 - **Ignition for Magento updated to 1.3.1** and **PCI 4 Compatibility updated to 1.4.2**
 
@@ -73,12 +75,13 @@ Mage-OS 3.1.0 reaches end of life with this release.
 
 This release was made possible by:
 
+- Volker Dusch ([@edorian](https://github.com/edorian)) and the [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) at The PHP Foundation — for responsibly reporting the installer `env.php` backup vulnerability
 - [@marcelmtz](https://github.com/marcelmtz) (Marcel Martinez) — security patch porting, installer fixes and release engineering
 - [@rhoerr](https://github.com/rhoerr) (Ryan Hoerr) — `GLOB_BRACE` fix and the PHP 8.5 fix in Automatic Translation
 - [@ddevallan](https://github.com/ddevallan) (Allan Fernandes) — multi-store URL cache fix
 - [@pingiun](https://github.com/pingiun) (Jelle Besseling) — Unix-socket support in integration tests
-- [@yuriy-boyko](https://github.com/yuriy-boyko) (Yuriy Boyko) and Oreste Luppi — RMA enhancements and fixes
-- Rik Willems and [@dadolun95](https://github.com/dadolun95) (Davide Lunardon) — Automatic Translation fixes
+- [@yuriy-boyko](https://github.com/yuriy-boyko) (Yuriy Boyko) and [@orilupo](https://github.com/orilupo) (Oreste Luppi) — RMA enhancements and fixes
+- [@rikwillems](https://github.com/rikwillems) (Rik Willems) and [@dadolun95](https://github.com/dadolun95) (Davide Lunardon) — Automatic Translation fixes
 - [@SamueleMartini](https://github.com/SamueleMartini) (Samuele Martini) — add-on review and maintainership
 
 And thanks to [Swissup Labs](https://github.com/swissup) for the bundled Ignition developer tool.
