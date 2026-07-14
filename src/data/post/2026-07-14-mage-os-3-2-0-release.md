@@ -1,6 +1,6 @@
 ---
 title: Mage-OS 3.2.0 – Security Release
-excerpt: Mage-OS 3.2.0 is a security release. It ports Adobe's isolated security patch 249-2026-07-001 to source, fixes a world-readable env.php backup written by the installer, and updates the bundled RMA and Automatic Translation modules. All 3.x users should upgrade.
+excerpt: With Magento security patch 249-2026-07-001, along with other fixes and improvements. All 3.x users should upgrade.
 publishDate: 2026-07-14T18:00:00
 draft: false
 category: Releases
@@ -30,7 +30,9 @@ The patch addresses several distinct issues:
 
 > **If you maintain your own nginx configuration** rather than using the shipped `nginx.conf.sample`, add the `/media/customer_address/` deny rule yourself. Upgrading will not modify your live web server config, so this is the one item that does not take effect automatically.
 
-Adobe's patch also ships a `vendor/bin/patch-status` tool, which reports installed-patch state to Adobe's registry using `repo.magento.com` credentials. **This tool is deliberately not included in Mage-OS.** It is a Composer-generated binary with no source-tree equivalent, Mage-OS users have no `repo.magento.com` credentials, and none of the security fixes depend on it. If you diff Mage-OS against Adobe's patch and notice the file missing, this is why.
+For more details, see Adobe's security bulletin APSB26-73: https://helpx.adobe.com/security/products/magento/apsb26-73.html
+
+Adobe's patch also ships a `vendor/bin/patch-status` tool, which reports installed-patch state to Adobe's registry using `repo.magento.com` credentials. **This tool is deliberately not included in Mage-OS**, because we distribute all security fixes as updates. If you diff Mage-OS against Adobe's patch and notice the file missing, this is why.
 
 #### Interactive installer wrote a world-readable env.php backup
 
@@ -38,7 +40,7 @@ When the **interactive installer** was re-run over an existing installation, it 
 
 This affects only the interactive installer's resume path, not `bin/magento setup:install`, and exposure additionally requires `app/etc` to sit inside the web root (the legacy root-as-docroot layout). Severity is low.
 
-Reported by Volker Dusch ([@edorian](https://github.com/edorian)) of the [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) at The PHP Foundation, and fixed by [@marcelmtz](https://github.com/marcelmtz). See [GHSA-rcp4-m32j-8fhj](https://github.com/mage-os/mageos-magento2/security/advisories/GHSA-rcp4-m32j-8fhj) (CWE-276).
+This was reported to us by Volker Dusch ([@edorian](https://github.com/edorian)) via the [PHP Ecosystem Security Team](https://thephp.foundation/blog/2026/05/18/announcing-ecosystem-security-team/) at The PHP Foundation, and fixed by [@marcelmtz](https://github.com/marcelmtz). See [GHSA-rcp4-m32j-8fhj](https://github.com/mage-os/mageos-magento2/security/advisories/GHSA-rcp4-m32j-8fhj) (CWE-276).
 
 ### Other fixes
 
@@ -61,7 +63,9 @@ Reported by Volker Dusch ([@edorian](https://github.com/edorian)) of the [PHP Ec
 - **Automatic Translation updated to 2.2.1**
   Paginates per 100 items to avoid failures on large catalogs ([#66](https://github.com/mage-os/module-automatic-translation/pull/66)) and fixes the cron expression ([#67](https://github.com/mage-os/module-automatic-translation/pull/67)); uses the DeepL `v2/languages` endpoint for target-language normalization ([#69](https://github.com/mage-os/module-automatic-translation/pull/69)); and fixes a PHP 8.5 `ErrorException` on a new product from a null `getById()` ([#70](https://github.com/mage-os/module-automatic-translation/pull/70)). by [@rikwillems](https://github.com/rikwillems), [@dadolun95](https://github.com/dadolun95) and [@rhoerr](https://github.com/rhoerr)
 
-- **Ignition for Magento updated to 1.3.1** and **PCI 4 Compatibility updated to 1.4.2**
+- **Ignition for Magento updated to 1.3.1**
+
+- **PCI 4 Compatibility updated to 1.4.2**
 
 ### Our foundation
 
