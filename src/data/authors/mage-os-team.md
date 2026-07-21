@@ -6,6 +6,5 @@ bio: The official Mage-OS project team.
 website: https://mage-os.org
 social:
   github: https://github.com/mage-os
-  twitter: https://twitter.com/maborak
-  discord: https://discord.gg/nvZDVA2NdC
+  discord: https://discord.gg/8ARDbfhqwG
 ---
