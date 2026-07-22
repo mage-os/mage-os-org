@@ -1,0 +1,213 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Callout from '~/components/ui/Callout.astro';
+import CodeBlock from '~/components/ui/CodeBlock.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Supporter Badges | Mage-OS',
+  description:
+    'Download your Mage-OS member and partner badges. Show your support for community-driven open-source commerce on your website, email signature, and profiles.',
+  openGraph: {
+    images: [{ url: '/og/page/supporter-badges.png', width: 1200, height: 630 }],
+  },
+};
+
+const memberBadges = [
+  {
+    name: 'Community Member',
+    tier: 'Community',
+    description: 'For individual supporters contributing €10/year.',
+    image: '/badges/Mage-OS-Community-Member.png',
+    download: '/badges/Mage-OS-Community-Member.zip',
+  },
+  {
+    name: 'Professional Member',
+    tier: 'Professional',
+    description: 'For Magento professionals contributing €100/year.',
+    image: '/badges/Mage-OS-Professional-Member.png',
+    download: '/badges/Mage-OS-Professional-Member.zip',
+  },
+];
+
+const partnerBadges = [
+  {
+    name: 'Bronze Partner',
+    tier: 'Bronze',
+    description: 'For businesses and agencies supporting Mage-OS at the Bronze tier.',
+    image: '/badges/Mage-OS-Bronze-Partner.png',
+    download: '/badges/Mage-OS-Bronze-Partner.zip',
+  },
+  {
+    name: 'Silver Partner',
+    tier: 'Silver',
+    description: 'For businesses and agencies supporting Mage-OS at the Silver tier.',
+    image: '/badges/Mage-OS-Silver-Partner.png',
+    download: '/badges/Mage-OS-Silver-Partner.zip',
+  },
+  {
+    name: 'Gold Partner',
+    tier: 'Gold',
+    description: 'For businesses and agencies supporting Mage-OS at the Gold tier.',
+    image: '/badges/Mage-OS-Gold-Partner.png',
+    download: '/badges/Mage-OS-Gold-Partner.zip',
+  },
+  {
+    name: 'Platinum Partner',
+    tier: 'Platinum',
+    description: 'For businesses and agencies supporting Mage-OS at the Platinum tier.',
+    image: '/badges/Mage-OS-Platinum-Partner.png',
+    download: '/badges/Mage-OS-Platinum-Partner.zip',
+  },
+];
+
+const embedSnippet = `<a href="https://mage-os.org">
+  <img src="{URL TO YOUR IMAGE}" alt="Mage-OS Professional Member" width="223" height="90">
+</a>`;
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Thank You for Your Support" variant="default">
+    <Fragment slot="title">Supporter Badges</Fragment>
+    <Fragment slot="subtitle">
+      Thank you for supporting Mage-OS! Download your member or partner badge below and show your commitment to
+      community-driven open-source commerce. Each download includes PNG, PNG @2x, and SVG formats.
+    </Fragment>
+  </PageHero>
+
+  <!-- Usage Guidance -->
+  <section class="px-4 pt-8 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <Callout type="info" title="Using Your Badge">
+        <p>
+          Your contribution grants you the right to use the associated badge for the duration of your annual membership.
+          Add it to your email signature, website, company documents, or anywhere else you see fit, as long as it's
+          respectful to Mage-OS and any other logos you include. We also encourage you to add your Mage-OS membership to
+          your LinkedIn profile. Please keep in mind that all contributions are public record on
+          <a
+            href="https://opencollective.com/mage-os"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline">Open Collective</a
+          >.
+        </p>
+      </Callout>
+    </div>
+  </section>
+
+  <!-- Member Badges -->
+  <section class="px-4 py-12 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <Headline
+        title="Member Badges"
+        subtitle="For individuals supporting Mage-OS as Community or Professional members"
+        tagline="Individual Members"
+      />
+
+      <div class="grid sm:grid-cols-2 gap-6 mt-8">
+        {
+          memberBadges.map((badge) => (
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700 flex flex-col">
+              <div class="flex items-center justify-center bg-gray-50 dark:bg-slate-800 rounded-lg p-6 mb-4">
+                <img src={badge.image} alt={badge.name} class="max-h-24 w-auto" loading="lazy" />
+              </div>
+              <h3 class="font-bold text-gray-900 dark:text-white">{badge.name}</h3>
+              <p class="text-sm text-muted mb-4 flex-grow">{badge.description}</p>
+              <a
+                href={badge.download}
+                download
+                class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm"
+              >
+                <Icon name="tabler:download" class="w-4 h-4" />
+                Download Badge
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Badges -->
+  <section
+    class="px-4 py-12 sm:px-6 lg:px-8 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+  >
+    <div class="max-w-5xl mx-auto">
+      <Headline
+        title="Partner Badges"
+        subtitle="For businesses and agencies partnering with Mage-OS"
+        tagline="Business Partners"
+      />
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {
+          partnerBadges.map((badge) => (
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700 flex flex-col">
+              <div class="flex items-center justify-center bg-gray-50 dark:bg-slate-800 rounded-lg p-6 mb-4">
+                <img src={badge.image} alt={badge.name} class="max-h-24 w-auto" loading="lazy" />
+              </div>
+              <h3 class="font-bold text-gray-900 dark:text-white">{badge.name}</h3>
+              <p class="text-sm text-muted mb-4 flex-grow">{badge.description}</p>
+              <a
+                href={badge.download}
+                download
+                class="inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium text-sm"
+              >
+                <Icon name="tabler:download" class="w-4 h-4" />
+                Download Badge
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Embed Instructions -->
+  <section class="px-4 py-12 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <Headline title="Embed Your Badge" subtitle="Link your badge back to Mage-OS on your website" tagline="How To" />
+
+      <p class="text-muted mt-6 mb-6">
+        Upload your badge image to your own hosting or CDN, then embed it with HTML like the snippet below. Update the
+        <code class="text-primary">alt</code> text to match your membership or partnership tier.
+      </p>
+
+      <CodeBlock code={embedSnippet} lang="html" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Become a Member',
+        href: '/community#partner-tiers',
+        icon: 'tabler:heart',
+      },
+      {
+        text: 'View Partners & Members',
+        href: '/community/partners',
+        icon: 'tabler:users',
+      },
+    ]}
+  >
+    <Fragment slot="title">Not a Supporter Yet?</Fragment>
+
+    <Fragment slot="subtitle">
+      Join the individuals and businesses funding the future of open-source commerce. Every membership and partnership
+      directly supports the development, security, and growth of Mage-OS.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+      >
+      </div>
+    </Fragment>
+  </CallToAction>
+</Layout>
