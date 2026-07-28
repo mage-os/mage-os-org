@@ -254,6 +254,10 @@ export const staticPagesMeta: Record<string, { title: string; description: strin
     title: 'Mage-OS Partners',
     description: 'Meet the companies and organizations supporting the Mage-OS ecosystem.',
   },
+  'supporter-badges': {
+    title: 'Supporter Badges',
+    description: 'Download your Mage-OS member and partner badges to show your support for open-source commerce.',
+  },
   blog: {
     title: 'Mage-OS Blog',
     description: 'News, updates, and insights from the Mage-OS community.',
