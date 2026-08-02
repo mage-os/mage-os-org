@@ -18,6 +18,9 @@ const modules = [...catalogue.modules].sort(
 const activeModules = modules.filter((module) => !module.archived);
 const defaultModules = activeModules.filter((module) => module.quality.label !== 'Incubating');
 const categories = [...new Set(activeModules.map((module) => module.category))].sort();
+const contributors = [
+  ...new Set(modules.flatMap((module) => module.contributors.map((contributor) => contributor.login))),
+].sort((first, second) => first.localeCompare(second, 'en', { sensitivity: 'base' }));
 const qualityLabels = ['Strong signals', 'Developing', 'Experimental', 'Incubating'];
 
 const categoryIcons: Record<string, string> = {
@@ -172,7 +175,7 @@ const formatDate = (value: string) =>
         class="mt-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:p-5"
       >
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-          <label class="lg:col-span-6">
+          <label class="lg:col-span-5">
             <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200" data-search-label
               >Search projects</span
             >
@@ -191,6 +194,17 @@ const formatDate = (value: string) =>
           </label>
 
           <label class="lg:col-span-3">
+            <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200">Contributor</span>
+            <select
+              class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+              data-filter-contributor
+            >
+              <option value="">All contributors</option>
+              {contributors.map((contributor) => <option value={contributor}>{contributor}</option>)}
+            </select>
+          </label>
+
+          <label class="lg:col-span-2">
             <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200">Project status</span>
             <select
               class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
@@ -202,7 +216,7 @@ const formatDate = (value: string) =>
             </select>
           </label>
 
-          <label class="lg:col-span-3">
+          <label class="lg:col-span-2">
             <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200">Sort</span>
             <select
               class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
@@ -247,6 +261,7 @@ const formatDate = (value: string) =>
               data-module-card
               data-slug={module.slug}
               data-category={module.category}
+              data-contributors={module.contributors.map((contributor) => contributor.login.toLowerCase()).join(',')}
               data-quality={module.quality.label}
               data-archived={String(module.archived)}
               data-updated={module.sourceUpdatedAt}
@@ -722,6 +737,7 @@ const formatDate = (value: string) =>
     const categoryButtons = [...page.querySelectorAll<HTMLButtonElement>('[data-filter-category-button]')];
     const favouritesCategory = page.querySelector<HTMLButtonElement>('[data-favourites-category]');
     const favouritesCount = page.querySelector<HTMLElement>('[data-favourites-count]');
+    const contributor = page.querySelector<HTMLSelectElement>('[data-filter-contributor]');
     const quality = page.querySelector<HTMLSelectElement>('[data-filter-quality]');
     const showIncubating = page.querySelector<HTMLInputElement>('[data-filter-incubating]');
     const sort = page.querySelector<HTMLSelectElement>('[data-filter-sort]');
@@ -739,6 +755,7 @@ const formatDate = (value: string) =>
       !categoryButtons.length ||
       !favouritesCategory ||
       !favouritesCount ||
+      !contributor ||
       !quality ||
       !showIncubating ||
       !sort ||
@@ -769,6 +786,7 @@ const formatDate = (value: string) =>
     if (!categoryButtons.some((button) => button.dataset.categoryValue === selectedCategory)) selectedCategory = '';
     if (selectedCategory === FAVOURITES_CATEGORY && favouriteSlugs.size === 0) selectedCategory = '';
     search.value = parameters.get('q') ?? '';
+    contributor.value = parameters.get('contributor') ?? '';
     quality.value = parameters.get('readiness') ?? '';
     showIncubating.checked = parameters.get('incubating') === '1';
     sort.value = parameters.get('sort') ?? 'updated';
@@ -840,12 +858,21 @@ const formatDate = (value: string) =>
           (selectedCategory === FAVOURITES_CATEGORY
             ? favouriteSlugs.has(card.dataset.slug ?? '')
             : card.dataset.category === selectedCategory);
+        const matchesContributor =
+          !contributor.value || (card.dataset.contributors ?? '').split(',').includes(contributor.value.toLowerCase());
         const matchesQuality = !quality.value || card.dataset.quality === quality.value;
         const matchesArchive =
           quality.value === 'Archived' ? card.dataset.archived === 'true' : card.dataset.archived !== 'true';
         const matchesIncubating =
           quality.value === 'Incubating' || showIncubating.checked || card.dataset.quality !== 'Incubating';
-        card.hidden = !(matchesSearch && matchesCategory && matchesQuality && matchesArchive && matchesIncubating);
+        card.hidden = !(
+          matchesSearch &&
+          matchesCategory &&
+          matchesContributor &&
+          matchesQuality &&
+          matchesArchive &&
+          matchesIncubating
+        );
         if (!card.hidden) visible += 1;
       }
 
@@ -865,9 +892,11 @@ const formatDate = (value: string) =>
       updateCategoryCopy();
 
       const nextParameters = new URLSearchParams(window.location.search);
-      for (const key of ['q', 'category', 'readiness', 'sort', 'archived', 'incubating']) nextParameters.delete(key);
+      for (const key of ['q', 'category', 'contributor', 'readiness', 'sort', 'archived', 'incubating'])
+        nextParameters.delete(key);
       if (search.value.trim()) nextParameters.set('q', search.value.trim());
       if (selectedCategory) nextParameters.set('category', selectedCategory);
+      if (contributor.value) nextParameters.set('contributor', contributor.value);
       if (quality.value) nextParameters.set('readiness', quality.value);
       if (showIncubating.checked) nextParameters.set('incubating', '1');
       if (sort.value !== 'updated') nextParameters.set('sort', sort.value);
@@ -1004,7 +1033,7 @@ const formatDate = (value: string) =>
       favourite?.addEventListener('click', () => toggleFavourite(card.dataset.slug ?? ''));
     }
 
-    for (const input of [search, sort]) {
+    for (const input of [search, contributor, sort]) {
       input.addEventListener(input === search ? 'input' : 'change', applyFilters);
     }
 
@@ -1029,6 +1058,7 @@ const formatDate = (value: string) =>
       for (const categoryButton of categoryButtons) {
         categoryButton.setAttribute('aria-pressed', String((categoryButton.dataset.categoryValue ?? '') === ''));
       }
+      contributor.value = '';
       quality.value = '';
       showIncubating.checked = false;
       sort.value = 'updated';
