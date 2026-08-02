@@ -11,6 +11,7 @@ export const headerData = {
         { text: 'Releases', href: getPermalink('/product/releases') },
       ],
     },
+    { text: 'Lab', href: getPermalink('/labs') },
     {
       text: 'Get Started',
       href: getPermalink('/get-started'),
@@ -66,6 +67,7 @@ export const footerData = {
         { text: 'Features', href: getPermalink('/product/features') },
         { text: 'Roadmap', href: getPermalink('/product/roadmap') },
         { text: 'Releases', href: getPermalink('/product/releases') },
+        { text: 'Lab Projects', href: getPermalink('/labs') },
       ],
     },
     {
