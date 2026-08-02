@@ -628,7 +628,43 @@ const formatDate = (value: string) =>
           </div>
         </dl>
 
+        <section
+          id="dialog-readme-panel"
+          class="hidden border-t border-gray-200 pt-5 dark:border-slate-700"
+          data-readme-panel
+          aria-labelledby="dialog-readme-title"
+        >
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <h3 id="dialog-readme-title" class="flex items-center gap-2 font-heading text-xl font-bold">
+              <Icon name="tabler:file-text" class="h-5 w-5 text-primary" /> README
+            </h3>
+            <a
+              class="text-sm font-bold text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-readme-source
+            >
+              Open on GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="mt-4 text-sm text-muted dark:text-slate-400" data-readme-status aria-live="polite"></p>
+          <article
+            class="prose prose-sm mt-5 hidden max-w-none overflow-hidden dark:prose-invert prose-headings:font-heading prose-a:text-primary prose-pre:overflow-x-auto prose-img:h-auto prose-img:max-w-full"
+            data-readme-content
+          >
+          </article>
+        </section>
+
         <div class="flex flex-col gap-3 border-t border-gray-200 pt-5 dark:border-slate-700 sm:flex-row sm:justify-end">
+          <button
+            type="button"
+            class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 font-bold transition hover:border-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 dark:border-slate-600"
+            data-dialog-readme
+            aria-expanded="false"
+            aria-controls="dialog-readme-panel"
+          >
+            <span data-dialog-readme-label>View README</span><Icon name="tabler:file-text" class="h-4 w-4" />
+          </button>
           <a
             class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 font-bold transition hover:border-primary hover:text-primary dark:border-slate-600"
             target="_blank"
@@ -743,6 +779,69 @@ const formatDate = (value: string) =>
     if (element) element.textContent = String(value);
   };
 
+  const sanitizeReadmeHtml = (html: string, module: LabModule) => {
+    const document = new DOMParser().parseFromString(html, 'text/html');
+    document
+      .querySelectorAll(
+        'script, style, iframe, object, embed, form, input, button, textarea, select, meta, link, base, svg, math'
+      )
+      .forEach((element) => element.remove());
+
+    const branch = module.defaultBranch || 'main';
+    const repositoryPath = module.repository
+      .split('/')
+      .map((part) => encodeURIComponent(part))
+      .join('/');
+    const branchPath = branch
+      .split('/')
+      .map((part) => encodeURIComponent(part))
+      .join('/');
+    const linkBase = `${module.url}/blob/${branchPath}/README.md`;
+    const imageBase = `https://raw.githubusercontent.com/mage-os-lab/${repositoryPath}/${branchPath}/`;
+
+    for (const element of document.querySelectorAll<HTMLElement>('*')) {
+      for (const attribute of [...element.attributes]) {
+        if (attribute.name.startsWith('on') || attribute.name === 'style' || attribute.name === 'srcdoc') {
+          element.removeAttribute(attribute.name);
+        }
+      }
+
+      if (element instanceof HTMLAnchorElement) {
+        const href = element.getAttribute('href');
+        if (href?.startsWith('#')) {
+          element.removeAttribute('target');
+          element.removeAttribute('rel');
+        } else if (href) {
+          try {
+            const url = new URL(href, linkBase);
+            if (!['http:', 'https:'].includes(url.protocol)) element.removeAttribute('href');
+            else element.href = url.href;
+          } catch {
+            element.removeAttribute('href');
+          }
+          element.target = '_blank';
+          element.rel = 'noopener noreferrer';
+        }
+      }
+
+      if (element instanceof HTMLImageElement) {
+        const src = element.getAttribute('src');
+        if (src) {
+          try {
+            const url = new URL(src, imageBase);
+            if (!['http:', 'https:'].includes(url.protocol)) element.removeAttribute('src');
+            else element.src = url.href;
+          } catch {
+            element.removeAttribute('src');
+          }
+        }
+        element.loading = 'lazy';
+      }
+    }
+
+    return document.body.innerHTML;
+  };
+
   function initLabsPage() {
     const page = document.querySelector<HTMLElement>('[data-labs-page]');
     const dialog = document.querySelector<HTMLDialogElement>('[data-quick-dialog]');
@@ -766,6 +865,12 @@ const formatDate = (value: string) =>
     const cards = [...page.querySelectorAll<HTMLElement>('[data-module-card]')];
     const favouriteButtons = [...page.querySelectorAll<HTMLButtonElement>('[data-favourite-toggle]')];
     const dialogFavourite = dialog.querySelector<HTMLButtonElement>('[data-dialog-favourite]');
+    const readmeButton = dialog.querySelector<HTMLButtonElement>('[data-dialog-readme]');
+    const readmeButtonLabel = dialog.querySelector<HTMLElement>('[data-dialog-readme-label]');
+    const readmePanel = dialog.querySelector<HTMLElement>('[data-readme-panel]');
+    const readmeStatus = dialog.querySelector<HTMLElement>('[data-readme-status]');
+    const readmeContent = dialog.querySelector<HTMLElement>('[data-readme-content]');
+    const readmeSource = dialog.querySelector<HTMLAnchorElement>('[data-readme-source]');
     if (
       !search ||
       !searchLabel ||
@@ -781,7 +886,13 @@ const formatDate = (value: string) =>
       !count ||
       !noResults ||
       !noResultsTitle ||
-      !dialogFavourite
+      !dialogFavourite ||
+      !readmeButton ||
+      !readmeButtonLabel ||
+      !readmePanel ||
+      !readmeStatus ||
+      !readmeContent ||
+      !readmeSource
     )
       return;
 
@@ -808,6 +919,28 @@ const formatDate = (value: string) =>
     showIncubating.checked = parameters.get('incubating') === '1';
     sort.value = parameters.get('sort') ?? 'updated';
     let activeDialogModule: LabModule | null = null;
+    const readmeCache = new Map<string, string | null>();
+    let readmeRequestId = 0;
+
+    const resetReadme = (module?: LabModule) => {
+      readmeRequestId += 1;
+      readmePanel.classList.add('hidden');
+      readmePanel.removeAttribute('aria-busy');
+      readmeContent.classList.add('hidden');
+      readmeContent.replaceChildren();
+      readmeStatus.textContent = '';
+      readmeButton.setAttribute('aria-expanded', 'false');
+      readmeButtonLabel.textContent = 'View README';
+      if (module) readmeSource.href = `${module.url}#readme`;
+    };
+
+    const showReadme = (html: string) => {
+      if (!activeDialogModule) return;
+      readmeContent.innerHTML = sanitizeReadmeHtml(html, activeDialogModule);
+      readmeContent.classList.remove('hidden');
+      readmePanel.removeAttribute('aria-busy');
+      readmeStatus.textContent = '';
+    };
 
     const updateCategoryButtons = () => {
       for (const categoryButton of categoryButtons) {
@@ -989,6 +1122,7 @@ const formatDate = (value: string) =>
 
     const openDialog = (module: LabModule) => {
       activeDialogModule = module;
+      resetReadme(module);
       setText(dialog, '[data-dialog-category]', module.category);
       setText(dialog, '[data-dialog-kind]', `· ${module.kind}`);
       setText(dialog, '[data-dialog-title]', module.title);
@@ -1123,6 +1257,74 @@ const formatDate = (value: string) =>
       if (activeDialogModule) toggleFavourite(activeDialogModule.slug);
     });
 
+    readmeButton.addEventListener('click', async () => {
+      if (!activeDialogModule) return;
+
+      const isExpanded = readmeButton.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        readmeRequestId += 1;
+        readmePanel.classList.add('hidden');
+        readmePanel.removeAttribute('aria-busy');
+        readmeButton.setAttribute('aria-expanded', 'false');
+        readmeButtonLabel.textContent = 'View README';
+        return;
+      }
+
+      const module = activeDialogModule;
+      readmePanel.classList.remove('hidden');
+      readmeButton.setAttribute('aria-expanded', 'true');
+      readmeButtonLabel.textContent = 'Hide README';
+
+      const cachedReadme = readmeCache.get(module.slug);
+      if (cachedReadme === null) {
+        readmeContent.classList.add('hidden');
+        readmeStatus.textContent = 'No README is available for this project.';
+        return;
+      }
+      if (cachedReadme) {
+        showReadme(cachedReadme);
+        readmePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      readmeContent.classList.add('hidden');
+      readmeStatus.textContent = 'Loading README…';
+      readmePanel.setAttribute('aria-busy', 'true');
+      const requestId = ++readmeRequestId;
+
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/mage-os-lab/${encodeURIComponent(module.repository)}/readme?ref=${encodeURIComponent(module.defaultBranch || 'main')}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github.html+json',
+              'X-GitHub-Api-Version': '2022-11-28',
+            },
+          }
+        );
+
+        if (requestId !== readmeRequestId || activeDialogModule?.slug !== module.slug) return;
+        if (response.status === 404) {
+          readmeCache.set(module.slug, null);
+          readmePanel.removeAttribute('aria-busy');
+          readmeStatus.textContent = 'No README is available for this project.';
+          return;
+        }
+        if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+
+        const html = await response.text();
+        readmeCache.set(module.slug, html);
+        readmePanel.removeAttribute('aria-busy');
+        showReadme(html);
+        readmePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch {
+        if (requestId === readmeRequestId && activeDialogModule?.slug === module.slug) {
+          readmePanel.removeAttribute('aria-busy');
+          readmeStatus.textContent = 'The README could not be loaded right now. Close this section and try again.';
+        }
+      }
+    });
+
     clear.addEventListener('click', () => {
       search.value = '';
       selectedCategory = '';
@@ -1139,6 +1341,7 @@ const formatDate = (value: string) =>
     });
 
     dialog.addEventListener('close', () => {
+      resetReadme();
       activeDialogModule = null;
       const nextParameters = new URLSearchParams(window.location.search);
       nextParameters.delete('project');
