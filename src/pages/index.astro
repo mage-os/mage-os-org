@@ -118,44 +118,34 @@ const metadata = {
           <Icon name="tabler:flask-2" class="h-4 w-4" /> Mage-OS Lab
         </div>
         <h2 class="mt-5 max-w-2xl font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-          Community ideas, visible progress, practical guidance.
+          Find useful modules for Mage-OS and Magento.
         </h2>
         <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
-          Browse the modules, themes, tools, and experiments growing in Mage-OS Lab. See what each project does, how to
-          try it, when it last changed, and which repository quality signals it has today.
+          Merchants can discover new store features. Developers can compare packages, installation steps, and recent
+          activity before choosing what to use or contribute to.
         </p>
-        <div class="mt-7 flex flex-wrap gap-3">
+        <div class="mt-7">
           <a
             href="/labs"
             class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-slate-950"
           >
-            Browse Lab projects <Icon name="tabler:arrow-right" class="h-4 w-4" />
-          </a>
-          <a
-            href="/labs#quality-scope"
-            class="inline-flex items-center gap-2 rounded-lg border border-white/20 px-5 py-3 font-bold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-950"
-          >
-            How readiness works
+            Browse modules <Icon name="tabler:arrow-right" class="h-4 w-4" />
           </a>
         </div>
       </div>
 
-      <dl class="grid grid-cols-2 gap-3">
+      <dl class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-          <dt class="text-sm text-slate-400">Active projects</dt>
+          <dt class="text-sm text-slate-400">Modules and tools</dt>
           <dd class="mt-2 text-3xl font-extrabold">{activeLabProjects.length}</dd>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-          <dt class="text-sm text-slate-400">With releases</dt>
+          <dt class="text-sm text-slate-400">Published releases</dt>
           <dd class="mt-2 text-3xl font-extrabold">{releasedLabProjects.length}</dd>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-          <dt class="text-sm text-slate-400">Active in 90 days</dt>
+          <dt class="text-sm text-slate-400">Updated in the last 90 days</dt>
           <dd class="mt-2 text-3xl font-extrabold">{recentlyActiveLabProjects.length}</dd>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
-          <dt class="text-sm text-slate-400">Quality signals</dt>
-          <dd class="mt-2 text-3xl font-extrabold">6</dd>
         </div>
       </dl>
     </div>
