@@ -864,31 +864,85 @@ const formatDate = (value: string) =>
       }
     };
 
+    const matchesSelectedCategory = (card: HTMLElement) =>
+      !selectedCategory ||
+      (selectedCategory === FAVOURITES_CATEGORY
+        ? favouriteSlugs.has(card.dataset.slug ?? '')
+        : card.dataset.category === selectedCategory);
+
+    const cardContributors = (card: HTMLElement) => (card.dataset.contributors ?? '').split(',').filter(Boolean);
+
+    const cardStatus = (card: HTMLElement) =>
+      card.dataset.archived === 'true' ? 'Archived' : (card.dataset.quality ?? '');
+
+    const matchesSelectedStatus = (card: HTMLElement) => {
+      if (quality.value === 'Archived') return card.dataset.archived === 'true';
+      if (card.dataset.archived === 'true') return false;
+      if (quality.value) return card.dataset.quality === quality.value;
+      return showIncubating.checked || card.dataset.quality !== 'Incubating';
+    };
+
+    const updateFacetOptions = () => {
+      const categoryCards = cards.filter(matchesSelectedCategory);
+
+      const getAvailableStatuses = () => {
+        const selectedContributor = contributor.value.toLowerCase();
+        return new Set(
+          categoryCards
+            .filter((card) => !selectedContributor || cardContributors(card).includes(selectedContributor))
+            .map(cardStatus)
+            .filter(Boolean)
+        );
+      };
+
+      const getAvailableContributors = () =>
+        new Set(categoryCards.filter(matchesSelectedStatus).flatMap(cardContributors));
+
+      for (let pass = 0; pass < 3; pass += 1) {
+        let selectionChanged = false;
+        const availableStatuses = getAvailableStatuses();
+        if (quality.value && !availableStatuses.has(quality.value)) {
+          quality.value = '';
+          selectionChanged = true;
+        }
+
+        const availableContributors = getAvailableContributors();
+        if (contributor.value && !availableContributors.has(contributor.value.toLowerCase())) {
+          contributor.value = '';
+          selectionChanged = true;
+        }
+        if (!selectionChanged) break;
+      }
+
+      const availableStatuses = getAvailableStatuses();
+      for (const option of [...quality.options].filter((item) => item.value)) {
+        const isAvailable = availableStatuses.has(option.value);
+        option.hidden = !isAvailable;
+        option.disabled = !isAvailable;
+      }
+
+      const availableContributors = getAvailableContributors();
+      for (const option of [...contributor.options].filter((item) => item.value)) {
+        const isAvailable = availableContributors.has(option.value.toLowerCase());
+        option.hidden = !isAvailable;
+        option.disabled = !isAvailable;
+      }
+    };
+
     const applyFilters = () => {
       const query = search.value.trim().toLowerCase();
       let visible = 0;
+      updateFacetOptions();
 
       for (const card of cards) {
         const matchesSearch = !query || card.dataset.search?.includes(query);
-        const matchesCategory =
-          !selectedCategory ||
-          (selectedCategory === FAVOURITES_CATEGORY
-            ? favouriteSlugs.has(card.dataset.slug ?? '')
-            : card.dataset.category === selectedCategory);
         const matchesContributor =
           !contributor.value || (card.dataset.contributors ?? '').split(',').includes(contributor.value.toLowerCase());
-        const matchesQuality = !quality.value || card.dataset.quality === quality.value;
-        const matchesArchive =
-          quality.value === 'Archived' ? card.dataset.archived === 'true' : card.dataset.archived !== 'true';
-        const matchesIncubating =
-          quality.value === 'Incubating' || showIncubating.checked || card.dataset.quality !== 'Incubating';
         card.hidden = !(
           matchesSearch &&
-          matchesCategory &&
+          matchesSelectedCategory(card) &&
           matchesContributor &&
-          matchesQuality &&
-          matchesArchive &&
-          matchesIncubating
+          matchesSelectedStatus(card)
         );
         if (!card.hidden) visible += 1;
       }
