@@ -14,6 +14,7 @@ const rootDirectory = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const outputPath = resolve(rootDirectory, 'src/data/lab-modules.json');
 const forceRefresh = process.argv.includes('--all');
 const dryRun = process.argv.includes('--dry-run');
+const contributorsOnly = process.argv.includes('--contributors-only');
 const checkedAt = new Date().toISOString();
 const recentCutoff = new Date(checkedAt);
 recentCutoff.setUTCDate(recentCutoff.getUTCDate() - 180);
@@ -463,6 +464,44 @@ function readRepositoryDetails(repository) {
     .repository;
 }
 
+function normaliseContributors(entries) {
+  return entries
+    .filter(
+      (entry) =>
+        entry?.login && entry.type === 'User' && !entry.login.endsWith('[bot]') && entry.login !== 'github-actions'
+    )
+    .slice(0, 12)
+    .map((entry) => ({
+      login: entry.login,
+      url: entry.html_url,
+      contributions: entry.contributions,
+    }));
+}
+
+function readContributors(repository) {
+  return normaliseContributors(ghApi([`repos/${ORGANISATION}/${repository.name}/contributors?per_page=100&anon=0`]));
+}
+
+async function readPublicContributors(repositoryName) {
+  const response = await fetch(
+    `https://api.github.com/repos/${ORGANISATION}/${encodeURIComponent(repositoryName)}/contributors?per_page=100&anon=0`,
+    {
+      headers: {
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'mage-os-lab-catalogue',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    }
+  );
+
+  if (response.status === 204) return [];
+  if (!response.ok) {
+    throw new Error(`GitHub contributors request failed for ${repositoryName}: ${response.status}`);
+  }
+
+  return normaliseContributors(await response.json());
+}
+
 function parseJson(text) {
   try {
     return text ? JSON.parse(text) : {};
@@ -482,7 +521,7 @@ function composerNameIsUsable(name) {
   return Boolean(name && !name.includes(':') && name.includes('/'));
 }
 
-function buildModule(repository, details) {
+function buildModule(repository, details, contributors) {
   const curated = curation[repository.name] ?? {};
   const readme = details.readme?.text ?? '';
   const composer = parseJson(details.composer?.text);
@@ -556,61 +595,84 @@ function buildModule(repository, details) {
     openIssues: repository.open_issues_count,
     defaultBranch: details.defaultBranchRef?.name ?? repository.default_branch ?? null,
     commitCount: details.defaultBranchRef?.target?.history?.totalCount ?? 0,
+    contributors,
     quality: { score, total: 6, label, signals },
   };
 }
 
-const existingCatalogue = readExistingCatalogue();
-const existingByRepository = new Map(existingCatalogue.modules.map((module) => [module.repository, module]));
-const repositories = ghApi([`orgs/${ORGANISATION}/repos?per_page=100&type=public&sort=full_name`])
-  .filter((repository) => !excludedRepositories.has(repository.name) && !repository.fork)
-  .sort((a, b) => a.name.localeCompare(b.name));
+if (contributorsOnly) {
+  const existingCatalogue = readExistingCatalogue();
+  const modules = [];
 
-const modules = [];
-const refreshed = [];
-const unchanged = [];
-
-for (const repository of repositories) {
-  const existing = existingByRepository.get(repository.name);
-  if (!forceRefresh && existing?.sourceUpdatedAt === repository.pushed_at) {
-    modules.push(existing);
-    unchanged.push(repository.name);
-    continue;
+  for (const module of existingCatalogue.modules) {
+    const contributors = await readPublicContributors(module.repository);
+    modules.push({ ...module, contributors, dataCheckedAt: checkedAt });
+    console.log(`Contributors: ${module.repository} (${contributors.length})`);
   }
 
-  const details = readRepositoryDetails(repository);
-  modules.push(buildModule(repository, details));
-  refreshed.push(repository.name);
+  const catalogue = {
+    ...existingCatalogue,
+    schemaVersion: 2,
+    catalogueUpdatedAt: checkedAt,
+    modules,
+  };
+
+  if (!dryRun) writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
+  console.log(`Mage-OS Lab catalogue: contributor data refreshed for ${modules.length} projects.`);
+  if (dryRun) console.log('Dry run: no file written.');
+} else {
+  const existingCatalogue = readExistingCatalogue();
+  const existingByRepository = new Map(existingCatalogue.modules.map((module) => [module.repository, module]));
+  const repositories = ghApi([`orgs/${ORGANISATION}/repos?per_page=100&type=public&sort=full_name`])
+    .filter((repository) => !excludedRepositories.has(repository.name) && !repository.fork)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const modules = [];
+  const refreshed = [];
+  const unchanged = [];
+
+  for (const repository of repositories) {
+    const existing = existingByRepository.get(repository.name);
+    if (!forceRefresh && existing?.sourceUpdatedAt === repository.pushed_at && Array.isArray(existing.contributors)) {
+      modules.push(existing);
+      unchanged.push(repository.name);
+      continue;
+    }
+
+    const details = readRepositoryDetails(repository);
+    modules.push(buildModule(repository, details, readContributors(repository)));
+    refreshed.push(repository.name);
+  }
+
+  const catalogue = {
+    schemaVersion: 2,
+    organisation: ORGANISATION,
+    catalogueUpdatedAt: checkedAt,
+    methodology: {
+      label: 'Repository quality signals',
+      totalSignals: 6,
+      signals: [
+        'Usage documentation',
+        'Installable package or tool',
+        'Published GitHub release',
+        'Tests',
+        'Automated checks',
+        'Push within 180 days',
+      ],
+      disclaimer:
+        'Signals describe public repository readiness, not a security audit, support promise, or production certification.',
+    },
+    modules,
+  };
+
+  if (!dryRun) {
+    mkdirSync(dirname(outputPath), { recursive: true });
+    writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
+  }
+
+  console.log(
+    `Mage-OS Lab catalogue: ${modules.length} projects, ${refreshed.length} refreshed, ${unchanged.length} unchanged.`
+  );
+  if (refreshed.length) console.log(`Refreshed: ${refreshed.join(', ')}`);
+  if (dryRun) console.log('Dry run: no file written.');
 }
-
-const catalogue = {
-  schemaVersion: 1,
-  organisation: ORGANISATION,
-  catalogueUpdatedAt: checkedAt,
-  methodology: {
-    label: 'Repository quality signals',
-    totalSignals: 6,
-    signals: [
-      'Usage documentation',
-      'Installable package or tool',
-      'Published GitHub release',
-      'Tests',
-      'Automated checks',
-      'Push within 180 days',
-    ],
-    disclaimer:
-      'Signals describe public repository readiness, not a security audit, support promise, or production certification.',
-  },
-  modules,
-};
-
-if (!dryRun) {
-  mkdirSync(dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
-}
-
-console.log(
-  `Mage-OS Lab catalogue: ${modules.length} projects, ${refreshed.length} refreshed, ${unchanged.length} unchanged.`
-);
-if (refreshed.length) console.log(`Refreshed: ${refreshed.join(', ')}`);
-if (dryRun) console.log('Dry run: no file written.');

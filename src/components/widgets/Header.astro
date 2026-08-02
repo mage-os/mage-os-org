@@ -17,6 +17,7 @@ interface Link {
 }
 
 interface MenuLink extends Link {
+  compactText?: string;
   links?: Array<MenuLink>;
 }
 
@@ -86,7 +87,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-lg lg:text-[0.9375rem] tracking-[0.01rem] font-medium lg:justify-center"
       >
         {
-          links.map(({ text, href, links }) => (
+          links.map(({ text, compactText, href, links }) => (
             <li class={links?.length ? 'dropdown' : ''}>
               {links?.length ? (
                 <>
@@ -162,7 +163,14 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   ]}
                   href={href}
                 >
-                  {text}
+                  {compactText ? (
+                    <>
+                      <span class="lg:hidden xl:inline">{text}</span>
+                      <span class="hidden lg:inline xl:hidden">{compactText}</span>
+                    </>
+                  ) : (
+                    text
+                  )}
                 </a>
               )}
             </li>

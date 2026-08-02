@@ -11,7 +11,7 @@ export const headerData = {
         { text: 'Releases', href: getPermalink('/product/releases') },
       ],
     },
-    { text: 'Lab', href: getPermalink('/labs') },
+    { text: 'Mage-OS Lab', compactText: 'Lab', href: getPermalink('/labs') },
     {
       text: 'Get Started',
       href: getPermalink('/get-started'),
