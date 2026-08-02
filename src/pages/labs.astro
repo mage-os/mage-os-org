@@ -490,13 +490,14 @@ const formatDate = (value: string) =>
   </section>
 
   <dialog
-    class="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-3xl overflow-hidden rounded-2xl border border-gray-200 bg-white p-0 text-gray-900 shadow-2xl backdrop:bg-slate-950/70 backdrop:backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900 dark:text-white"
+    class="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-[62.4rem] overflow-hidden rounded-2xl border border-gray-200 bg-white p-0 text-gray-900 shadow-2xl backdrop:bg-slate-950/70 backdrop:backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900 dark:text-white"
     data-quick-dialog
     aria-labelledby="lab-dialog-title"
   >
-    <div class="max-h-[90vh] overflow-y-auto">
+    <div class="max-h-[90vh] overflow-y-auto" data-dialog-scroll>
       <header
         class="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-gray-200 bg-white/95 p-5 backdrop-blur dark:border-slate-700 dark:bg-slate-900/95 sm:p-6"
+        data-dialog-header
       >
         <div>
           <div class="flex flex-wrap items-center gap-2">
@@ -865,6 +866,8 @@ const formatDate = (value: string) =>
     const cards = [...page.querySelectorAll<HTMLElement>('[data-module-card]')];
     const favouriteButtons = [...page.querySelectorAll<HTMLButtonElement>('[data-favourite-toggle]')];
     const dialogFavourite = dialog.querySelector<HTMLButtonElement>('[data-dialog-favourite]');
+    const dialogScroll = dialog.querySelector<HTMLElement>('[data-dialog-scroll]');
+    const dialogHeader = dialog.querySelector<HTMLElement>('[data-dialog-header]');
     const readmeButton = dialog.querySelector<HTMLButtonElement>('[data-dialog-readme]');
     const readmeButtonLabel = dialog.querySelector<HTMLElement>('[data-dialog-readme-label]');
     const readmePanel = dialog.querySelector<HTMLElement>('[data-readme-panel]');
@@ -887,6 +890,8 @@ const formatDate = (value: string) =>
       !noResults ||
       !noResultsTitle ||
       !dialogFavourite ||
+      !dialogScroll ||
+      !dialogHeader ||
       !readmeButton ||
       !readmeButtonLabel ||
       !readmePanel ||
@@ -940,6 +945,15 @@ const formatDate = (value: string) =>
       readmeContent.classList.remove('hidden');
       readmePanel.removeAttribute('aria-busy');
       readmeStatus.textContent = '';
+    };
+
+    const scrollReadmeIntoView = () => {
+      window.requestAnimationFrame(() => {
+        const scrollBounds = dialogScroll.getBoundingClientRect();
+        const readmeBounds = readmePanel.getBoundingClientRect();
+        const top = dialogScroll.scrollTop + readmeBounds.top - scrollBounds.top - dialogHeader.offsetHeight - 24;
+        dialogScroll.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
     };
 
     const updateCategoryButtons = () => {
@@ -1123,6 +1137,7 @@ const formatDate = (value: string) =>
     const openDialog = (module: LabModule) => {
       activeDialogModule = module;
       resetReadme(module);
+      dialogScroll.scrollTop = 0;
       setText(dialog, '[data-dialog-category]', module.category);
       setText(dialog, '[data-dialog-kind]', `· ${module.kind}`);
       setText(dialog, '[data-dialog-title]', module.title);
@@ -1283,7 +1298,7 @@ const formatDate = (value: string) =>
       }
       if (cachedReadme) {
         showReadme(cachedReadme);
-        readmePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        scrollReadmeIntoView();
         return;
       }
 
@@ -1316,7 +1331,7 @@ const formatDate = (value: string) =>
         readmeCache.set(module.slug, html);
         readmePanel.removeAttribute('aria-busy');
         showReadme(html);
-        readmePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        scrollReadmeIntoView();
       } catch {
         if (requestId === readmeRequestId && activeDialogModule?.slug === module.slug) {
           readmePanel.removeAttribute('aria-busy');
