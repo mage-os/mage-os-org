@@ -125,7 +125,7 @@ const curation = {
   },
   'module-alpine-loader': {
     title: 'Alpine Loader',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Frontend module',
     summary: 'An early proof of concept for initializing Alpine.js in a Mage-OS storefront.',
     howToUse: 'Evaluate from source in a development store; the public API and feature set are still being defined.',
@@ -135,7 +135,7 @@ const curation = {
   },
   'module-alpine-local-storage': {
     title: 'Alpine Local Storage',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Frontend module',
     summary: 'Provides local-storage behaviour for the experimental Alpine-based storefront module set.',
     howToUse:
@@ -144,7 +144,7 @@ const curation = {
   },
   'module-alpine-messages': {
     title: 'Alpine Messages',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Frontend module',
     summary: 'Implements storefront message handling for the experimental Alpine-based frontend stack.',
     howToUse:
@@ -153,7 +153,7 @@ const curation = {
   },
   'module-alpine-minicart': {
     title: 'Alpine Minicart',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Frontend module',
     summary: 'An Alpine.js implementation of the Mage-OS storefront minicart experience.',
     howToUse: 'Install it as part of the Alpine storefront stack and validate cart behaviour with the selected theme.',
@@ -161,7 +161,7 @@ const curation = {
   },
   'module-alpine-toplinks': {
     title: 'Alpine Top Links',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Frontend concept',
     summary: 'A reserved Lab project for Alpine-powered customer and account links in the storefront header.',
     howToUse: 'Not installable yet; follow the repository for its first implementation.',
@@ -314,7 +314,7 @@ const curation = {
   },
   'module-theme-uikit': {
     title: 'UIkit Theme Utilities',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Theme module',
     summary: 'Build and asset utilities used by the Mage-OS UIkit storefront theme.',
     howToUse: 'Install it with theme-frontend-uikit, then use its asset compilation and theme utility features.',
@@ -322,7 +322,7 @@ const curation = {
   },
   'module-uikit-js-replacement': {
     title: 'UIkit JavaScript Replacement',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Theme module',
     summary: 'Removes selected unnecessary JavaScript dependencies from UIkit-based storefront themes.',
     howToUse: 'Test with the UIkit theme in development and verify affected customer journeys before wider use.',
@@ -332,7 +332,7 @@ const curation = {
   },
   'module-uikit-menu': {
     title: 'UIkit Menu',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Theme module',
     summary: 'Provides the storefront navigation implementation for the Mage-OS UIkit theme.',
     howToUse: 'Install it with the UIkit theme and configure the standard catalog navigation.',
@@ -340,7 +340,7 @@ const curation = {
   },
   'module-uikit-product-page': {
     title: 'UIkit Product Page',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Theme module',
     summary: 'Product-page layout and JavaScript adaptations for the Mage-OS UIkit theme.',
     howToUse:
@@ -397,7 +397,7 @@ const curation = {
   },
   'theme-frontend-uikit': {
     title: 'UIkit Frontend Theme',
-    category: 'Storefront',
+    category: 'Developer tools',
     kind: 'Theme',
     summary: 'A UIkit 3 storefront theme that retains native Magento LESS tooling and broad Luma-style compatibility.',
     howToUse:
