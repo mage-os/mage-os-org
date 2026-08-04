@@ -327,11 +327,15 @@ function transformData(
   const latestSpecs: VersionSpecs = latestComposite
     ? {
         ...buildComponentSpecs(latestComposite, config),
-        mageosVersion: latestVersion || '2.3.0',
-        magentoBase: latestComposite.upstream || versions[latestVersion]?.magentoBase || '2.4.8-p5',
+        mageosVersion: latestVersion || '3.2.0',
+        magentoBase: latestComposite.upstream || versions[latestVersion]?.magentoBase || '2.4.9',
         releaseDate: latestComposite.release,
         eolDate: latestComposite.eol,
         isLatest: true,
+        // The PHP version upstream CI actually builds and tests against. Sits
+        // between the configured minimum and recommended, so the requirements
+        // page can surface it without hardcoding a version that goes stale.
+        phpDisplay: String(latestComposite.php),
       }
     : versions[latestVersion];
 
