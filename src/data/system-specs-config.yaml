@@ -10,16 +10,16 @@ components:
     recommended: '8.5'
 
   composer:
-    minimum: '2.7'
-    recommended: '2.9.3'
+    minimum: '2.10.2'
+    recommended: '2.10.2'
 
   mysql:
-    minimum: '8.0'
+    minimum: '8.4'
     recommended: '8.4'
 
   mariadb:
-    minimum: '10.6'
-    recommended: '11.4'
+    minimum: '11.4'
+    recommended: '12.3'
 
   opensearch:
     minimum: '2'
@@ -30,8 +30,8 @@ components:
     supported: '8.x'
 
   redis:
-    minimum: '7.0'
-    recommended: '7.2'
+    minimum: '7.2'
+    recommended: '8.0'
 
   valkey:
     minimum: '7.0'
@@ -50,5 +50,5 @@ components:
     recommended: '2.4'
 
   rabbitmq:
-    minimum: '3.13'
+    minimum: '4.0'
     recommended: '4.1'
