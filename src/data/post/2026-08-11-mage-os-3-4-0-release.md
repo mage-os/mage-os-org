@@ -64,7 +64,7 @@ Mage-OS 3.3.0 reaches end of life with this release.
 
 This release was made possible by:
 
-[@marcelmtz](https://github.com/marcelmtz), [@michielgerritsen](https://github.com/michielgerritsen)
+[@marcelmtz](https://github.com/marcelmtz), [@michielgerritsen](https://github.com/michielgerritsen), [@rhoerr](https://github.com/rhoerr)
 
 With upstream credit to Adobe for the security patch this release ports.
 
