@@ -57,7 +57,7 @@ It also was a great learning opportunity for us to figure out how to determine p
 The nightly builds are available now. We will be publishing a status page to show if the current upstream version is broken or not, soon.  
 We will also continue to tweak the versioning and generation process as we learn more.
 
-Please join our [Discord](http://chat.mage-os-org/) if you have feedback or if you are interested in the release process.
+Please join our [Discord](https://chat.mage-os.org/) if you have feedback or if you are interested in the release process.
 
 ### Next Steps
 

@@ -1,7 +1,7 @@
 ---
 title: Online Hackathon
 eventDate: "2025-12-14T15:03:00.000Z"
-url: https://mage-os.org/updates/mage-os-november-update/
+url: https://mage-os.org/updates/2025-11-30-mage-os-november-update
 image: Hackathon-Logo.png
 excerpt: "Hackathon: December 14 We are hosting an&nbsp;online, live-streamed Mage-OS Hackathon&nbsp;on&nbsp;December 14. Connect via Discord and join anytime during the..."
 ---
