@@ -137,67 +137,99 @@
 # =============================================================================
 # BLOG POSTS - Release announcements (moved from /updates to /releases)
 # =============================================================================
-/updates/mirror-2-4-5-release-and-many-contributions /releases/mirror-2-4-5-release-and-many-contributions 301
-/updates/mirror-2-4-5-release-and-many-contributions/ /releases/mirror-2-4-5-release-and-many-contributions 301
-/updates/magento-2-4-5-p1-release /releases/magento-2-4-5-p1-release 301
-/updates/magento-2-4-5-p1-release/ /releases/magento-2-4-5-p1-release 301
-/updates/202303magento-2-4-6-release /releases/202303magento-2-4-6-release 301
-/updates/202303magento-2-4-6-release/ /releases/202303magento-2-4-6-release 301
-/updates/introducing-the-mage-os-distribution /releases/introducing-the-mage-os-distribution 301
-/updates/introducing-the-mage-os-distribution/ /releases/introducing-the-mage-os-distribution 301
-/updates/release-mage-os-distribution-1-0-3 /releases/release-mage-os-distribution-1-0-3 301
-/updates/release-mage-os-distribution-1-0-3/ /releases/release-mage-os-distribution-1-0-3 301
-/updates/release-mage-os-distribution-1-0-4 /releases/release-mage-os-distribution-1-0-4 301
-/updates/release-mage-os-distribution-1-0-4/ /releases/release-mage-os-distribution-1-0-4 301
-/updates/release-mage-os-distribution-1-0-5 /releases/release-mage-os-distribution-1-0-5 301
-/updates/release-mage-os-distribution-1-0-5/ /releases/release-mage-os-distribution-1-0-5 301
-/updates/release-mage-os-distribution-1-0-6 /releases/release-mage-os-distribution-1-0-6 301
-/updates/release-mage-os-distribution-1-0-6/ /releases/release-mage-os-distribution-1-0-6 301
-/updates/mage-os-1-1-a-new-admin-experience-and-so-much-more /releases/mage-os-1-1-a-new-admin-experience-and-so-much-more 301
-/updates/mage-os-1-1-a-new-admin-experience-and-so-much-more/ /releases/mage-os-1-1-a-new-admin-experience-and-so-much-more 301
-/updates/mage-os-1-2-0 /releases/mage-os-1-2-0 301
-/updates/mage-os-1-2-0/ /releases/mage-os-1-2-0 301
-/updates/mage-os-1-3-0-is-out-now /releases/mage-os-1-3-0-is-out-now 301
-/updates/mage-os-1-3-0-is-out-now/ /releases/mage-os-1-3-0-is-out-now 301
-/updates/mage-os-1-3-1-is-out /releases/mage-os-1-3-1-is-out 301
-/updates/mage-os-1-3-1-is-out/ /releases/mage-os-1-3-1-is-out 301
-/updates/mage-os-2-0-innovation-takes-flight /releases/mage-os-2-0-innovation-takes-flight 301
-/updates/mage-os-2-0-innovation-takes-flight/ /releases/mage-os-2-0-innovation-takes-flight 301
+/updates/mirror-2-4-5-release-and-many-contributions /releases/2022-08-15-mirror-2-4-5-release-and-many-contributions 301
+/updates/mirror-2-4-5-release-and-many-contributions/ /releases/2022-08-15-mirror-2-4-5-release-and-many-contributions 301
+/updates/magento-2-4-5-p1-release /releases/2022-10-11-magento-2-4-5-p1-release 301
+/updates/magento-2-4-5-p1-release/ /releases/2022-10-11-magento-2-4-5-p1-release 301
+/updates/202303magento-2-4-6-release /releases/2023-03-26-202303magento-2-4-6-release 301
+/updates/202303magento-2-4-6-release/ /releases/2023-03-26-202303magento-2-4-6-release 301
+/updates/introducing-the-mage-os-distribution /releases/2023-10-09-introducing-the-mage-os-distribution 301
+/updates/introducing-the-mage-os-distribution/ /releases/2023-10-09-introducing-the-mage-os-distribution 301
+/updates/release-mage-os-distribution-1-0-3 /releases/2024-07-25-release-mage-os-distribution-1-0-3 301
+/updates/release-mage-os-distribution-1-0-3/ /releases/2024-07-25-release-mage-os-distribution-1-0-3 301
+/updates/release-mage-os-distribution-1-0-4 /releases/2024-08-22-release-mage-os-distribution-1-0-4 301
+/updates/release-mage-os-distribution-1-0-4/ /releases/2024-08-22-release-mage-os-distribution-1-0-4 301
+/updates/release-mage-os-distribution-1-0-5 /releases/2024-11-06-release-mage-os-distribution-1-0-5 301
+/updates/release-mage-os-distribution-1-0-5/ /releases/2024-11-06-release-mage-os-distribution-1-0-5 301
+/updates/release-mage-os-distribution-1-0-6 /releases/2025-02-13-release-mage-os-distribution-1-0-6 301
+/updates/release-mage-os-distribution-1-0-6/ /releases/2025-02-13-release-mage-os-distribution-1-0-6 301
+/releases/release-mage-os-distribution-1-0-6 /releases/2025-02-13-release-mage-os-distribution-1-0-6 301
+/releases/release-mage-os-distribution-1-0-6/ /releases/2025-02-13-release-mage-os-distribution-1-0-6 301
+/updates/mage-os-1-1-a-new-admin-experience-and-so-much-more /releases/2025-04-15-mage-os-1-1-a-new-admin-experience-and-so-much-more 301
+/updates/mage-os-1-1-a-new-admin-experience-and-so-much-more/ /releases/2025-04-15-mage-os-1-1-a-new-admin-experience-and-so-much-more 301
+/updates/mage-os-1-2-0 /releases/2025-06-18-mage-os-1-2-0 301
+/updates/mage-os-1-2-0/ /releases/2025-06-18-mage-os-1-2-0 301
+/updates/mage-os-1-3-0-is-out-now /releases/2025-08-15-mage-os-1-3-0-is-out-now 301
+/updates/mage-os-1-3-0-is-out-now/ /releases/2025-08-15-mage-os-1-3-0-is-out-now 301
+/updates/mage-os-1-3-1-is-out /releases/2025-09-09-mage-os-1-3-1-is-out 301
+/updates/mage-os-1-3-1-is-out/ /releases/2025-09-09-mage-os-1-3-1-is-out 301
+/updates/mage-os-2-0-innovation-takes-flight /releases/2025-10-16-mage-os-2-0-innovation-takes-flight 301
+/updates/mage-os-2-0-innovation-takes-flight/ /releases/2025-10-16-mage-os-2-0-innovation-takes-flight 301
 /updates/mage-os-2-1-0-release /releases/2026-01-20-mage-os-2-1-0-release/ 301
 /updates/mage-os-2-1-0-release/ /releases/2026-01-20-mage-os-2-1-0-release/ 301
 
 # =============================================================================
 # BLOG POSTS - Event recaps (moved from /updates to /events)
 # =============================================================================
-/updates/the-first-mage-os-meetup-in-italy /events/the-first-mage-os-meetup-in-italy 301
-/updates/the-first-mage-os-meetup-in-italy/ /events/the-first-mage-os-meetup-in-italy 301
-/updates/mage-titans-2023-the-mage-os-recap /events/mage-titans-2023-the-mage-os-recap 301
-/updates/mage-titans-2023-the-mage-os-recap/ /events/mage-titans-2023-the-mage-os-recap 301
-/updates/hackathon-mage-os-magic-in-action /events/hackathon-mage-os-magic-in-action 301
-/updates/hackathon-mage-os-magic-in-action/ /events/hackathon-mage-os-magic-in-action 301
-/updates/mageunconference-germany-2023-recap /events/mageunconference-germany-2023-recap 301
-/updates/mageunconference-germany-2023-recap/ /events/mageunconference-germany-2023-recap 301
-/updates/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community /events/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community 301
-/updates/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community/ /events/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community 301
-/updates/meet-magento-nl-2023-recap-the-dutch-are-back /events/meet-magento-nl-2023-recap-the-dutch-are-back 301
-/updates/meet-magento-nl-2023-recap-the-dutch-are-back/ /events/meet-magento-nl-2023-recap-the-dutch-are-back 301
-/updates/magento-community-events-september-highlights-and-insights /events/magento-community-events-september-highlights-and-insights 301
-/updates/magento-community-events-september-highlights-and-insights/ /events/magento-community-events-september-highlights-and-insights 301
-/updates/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future /events/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future 301
-/updates/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future/ /events/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future 301
-/updates/meet-you-soon-in-madrid /events/meet-you-soon-in-madrid 301
-/updates/meet-you-soon-in-madrid/ /events/meet-you-soon-in-madrid 301
-/updates/meet-us-in-new-york /events/meet-us-in-new-york 301
-/updates/meet-us-in-new-york/ /events/meet-us-in-new-york 301
-/updates/mm23ny-follow-up-assoc-interview /events/mm23ny-follow-up-assoc-interview 301
-/updates/mm23ny-follow-up-assoc-interview/ /events/mm23ny-follow-up-assoc-interview 301
-/updates/mage-os-nederland-member-meeting /events/mage-os-nederland-member-meeting 301
-/updates/mage-os-nederland-member-meeting/ /events/mage-os-nederland-member-meeting 301
+/updates/the-first-mage-os-meetup-in-italy /updates/2023-04-24-the-first-mage-os-meetup-in-italy 301
+/updates/the-first-mage-os-meetup-in-italy/ /updates/2023-04-24-the-first-mage-os-meetup-in-italy 301
+/updates/mage-titans-2023-the-mage-os-recap /events/2023-05-18-mage-titans-2023-the-mage-os-recap 301
+/updates/mage-titans-2023-the-mage-os-recap/ /events/2023-05-18-mage-titans-2023-the-mage-os-recap 301
+/updates/hackathon-mage-os-magic-in-action /events/2023-09-15-hackathon-mage-os-magic-in-action 301
+/updates/hackathon-mage-os-magic-in-action/ /events/2023-09-15-hackathon-mage-os-magic-in-action 301
+/updates/mageunconference-germany-2023-recap /events/2023-10-19-mageunconference-germany-2023-recap 301
+/updates/mageunconference-germany-2023-recap/ /events/2023-10-19-mageunconference-germany-2023-recap 301
+/updates/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community /events/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community 301
+/updates/meet-magento-nyc-2023-a-gathering-of-the-mage-os-community/ /events/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community 301
+/updates/meet-magento-nl-2023-recap-the-dutch-are-back /events/2023-11-14-meet-magento-nl-2023-recap-the-dutch-are-back 301
+/updates/meet-magento-nl-2023-recap-the-dutch-are-back/ /events/2023-11-14-meet-magento-nl-2023-recap-the-dutch-are-back 301
+/updates/magento-community-events-september-highlights-and-insights /events/2024-10-27-magento-community-events-september-highlights-and-insights 301
+/updates/magento-community-events-september-highlights-and-insights/ /events/2024-10-27-magento-community-events-september-highlights-and-insights 301
+/updates/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future /events/2025-05-21-hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future 301
+/updates/hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future/ /events/2025-05-21-hyva-developers-paradise-2025-the-power-of-community-driving-magentos-future 301
+/updates/meet-you-soon-in-madrid /events/2022-12-02-meet-you-soon-in-madrid 301
+/updates/meet-you-soon-in-madrid/ /events/2022-12-02-meet-you-soon-in-madrid 301
+/updates/meet-us-in-new-york /events/2023-09-19-meet-us-in-new-york 301
+/updates/meet-us-in-new-york/ /events/2023-09-19-meet-us-in-new-york 301
+/updates/mm23ny-follow-up-assoc-interview /events/2023-10-27-mm23ny-follow-up-assoc-interview 301
+/updates/mm23ny-follow-up-assoc-interview/ /events/2023-10-27-mm23ny-follow-up-assoc-interview 301
+/updates/mage-os-nederland-member-meeting /events/2024-03-07-mage-os-nederland-member-meeting 301
+/updates/mage-os-nederland-member-meeting/ /events/2024-03-07-mage-os-nederland-member-meeting 301
 
 # =============================================================================
-# BLOG POSTS - Insights (moved from /updates to /ecommerce-insights)
+# BLOG POSTS - Insights (moved from /updates to /initiatives)
 # =============================================================================
-/updates/transforming-magento-the-power-of-community-contributions-and-innovation /ecommerce-insights/transforming-magento-the-power-of-community-contributions-and-innovation 301
-/updates/transforming-magento-the-power-of-community-contributions-and-innovation/ /ecommerce-insights/transforming-magento-the-power-of-community-contributions-and-innovation 301
-/updates/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study /ecommerce-insights/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study 301
-/updates/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study/ /ecommerce-insights/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study 301
+/updates/transforming-magento-the-power-of-community-contributions-and-innovation /initiatives/2025-02-08-transforming-magento-the-power-of-community-contributions-and-innovation 301
+/updates/transforming-magento-the-power-of-community-contributions-and-innovation/ /initiatives/2025-02-08-transforming-magento-the-power-of-community-contributions-and-innovation 301
+/updates/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study /initiatives/2025-05-06-the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study 301
+/updates/the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study/ /initiatives/2025-05-06-the-evolution-of-documentation-in-the-age-of-ai-a-magento-case-study 301
+
+# =============================================================================
+# BLOG POSTS - Dateless slugs linked from old posts
+# =============================================================================
+/updates/m137-admin-theme /updates/2025-04-10-m137-admin-theme 301
+/updates/m137-admin-theme/ /updates/2025-04-10-m137-admin-theme 301
+/updates/join-mage-os-as-a-part-time-release-manager /updates/2025-11-24-join-mage-os-as-a-part-time-release-manager 301
+/updates/join-mage-os-as-a-part-time-release-manager/ /updates/2025-11-24-join-mage-os-as-a-part-time-release-manager 301
+/updates/mage-os-november-update /updates/2025-11-30-mage-os-november-update 301
+/updates/mage-os-november-update/ /updates/2025-11-30-mage-os-november-update 301
+/blog/mage-os-update-2022-week-14 /updates/2022-04-09-week-12-14-of-2022 301
+/blog/mage-os-update-2022-week-14/ /updates/2022-04-09-week-12-14-of-2022 301
+/blog/mage-os-update-2022-week-19 /updates/2022-05-19-week-15-19-of-2022 301
+/blog/mage-os-update-2022-week-19/ /updates/2022-05-19-week-15-19-of-2022 301
+/blog/mage-os-update-2022-week-30 /updates/2022-07-26-new-website-mirror-distribution-nightly-builds-content-and-community-updates-week-30 301
+/blog/mage-os-update-2022-week-30/ /updates/2022-07-26-new-website-mirror-distribution-nightly-builds-content-and-community-updates-week-30 301
+/blog/mage-os-update-january-2022 /updates/2022-02-02-mage-os-update-january-2022 301
+/blog/mage-os-update-january-2022/ /updates/2022-02-02-mage-os-update-january-2022 301
+
+# =============================================================================
+# OLD WORDPRESS PATHS still linked from blog posts
+# =============================================================================
+/organization/about /about 301
+/organization/about/ /about 301
+/community/events /events 301
+/community/events/ /events 301
+/community/resources /get-started 301
+/community/resources/ /get-started 301
+/why-magento/brands /product 301
+/why-magento/brands/ /product 301

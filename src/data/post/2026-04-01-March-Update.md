@@ -23,7 +23,7 @@ Topics under discussion include:
 
 To provide a space for these discussions, an open community session is being organized. Join us on [discord](https://discord.gg/jYHNhYY2u?event=1486727731805946036)!
 
-[![AI and the Future of Software Development](blob:https://mage-os.org/76bad5e1-906a-468b-b4ad-c098221a9200 "AI and the Future of Software Development")](https://www.linkedin.com/events/7442933600414519296?viewAsMember=true)
+[AI and the Future of Software Development](https://www.linkedin.com/events/7442933600414519296)
 
 ## **Mage-OS 2.2 and 2.2.1 Released**
 
