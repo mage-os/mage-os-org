@@ -105,26 +105,17 @@ const formatDate = (value: string) =>
 
   <section id="browse-labs" class="scroll-mt-24 bg-gray-50 py-14 dark:bg-slate-900 sm:py-20" data-labs-page>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-2xl">
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">Module directory</p>
-          <h2 class="mt-2 font-heading text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Find what your store or project needs
-          </h2>
-        </div>
-        <p class="text-sm text-muted dark:text-slate-400" aria-live="polite">
-          Showing <strong class="text-gray-900 dark:text-white" data-result-count>{defaultModules.length}</strong> projects
-        </p>
-      </div>
-
-      <div class="mt-8" aria-labelledby="category-filter-label">
-        <div class="flex items-end justify-between gap-4">
+      <div aria-labelledby="category-filter-label">
+        <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h3 id="category-filter-label" class="font-heading text-lg font-bold text-gray-900 dark:text-white">
+            <h2 id="category-filter-label" class="font-heading text-lg font-bold text-gray-900 dark:text-white">
               Browse by category
-            </h3>
+            </h2>
             <p class="mt-1 text-sm text-muted dark:text-slate-400">Choose an area to narrow the module list.</p>
           </div>
+          <p class="text-sm text-muted dark:text-slate-400" aria-live="polite">
+            Showing <strong class="text-gray-900 dark:text-white" data-result-count>{defaultModules.length}</strong> projects
+          </p>
         </div>
         <div class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5" role="group" aria-labelledby="category-filter-label">
           <button
@@ -232,7 +223,7 @@ const formatDate = (value: string) =>
         <div
           class="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-4 dark:border-slate-700"
         >
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2" data-incubating-filter>
             <label
               class="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300"
             >
@@ -259,7 +250,7 @@ const formatDate = (value: string) =>
               </span>
             </span>
           </div>
-          <button type="button" class="text-sm font-semibold text-primary hover:underline" data-filter-clear
+          <button type="button" class="ml-auto text-sm font-semibold text-primary hover:underline" data-filter-clear
             >Clear filters</button
           >
         </div>
@@ -921,6 +912,7 @@ const formatDate = (value: string) =>
     const contributor = page.querySelector<HTMLSelectElement>('[data-filter-contributor]');
     const quality = page.querySelector<HTMLSelectElement>('[data-filter-quality]');
     const showIncubating = page.querySelector<HTMLInputElement>('[data-filter-incubating]');
+    const incubatingFilter = page.querySelector<HTMLElement>('[data-incubating-filter]');
     const sort = page.querySelector<HTMLSelectElement>('[data-filter-sort]');
     const clear = page.querySelector<HTMLButtonElement>('[data-filter-clear]');
     const grid = page.querySelector<HTMLElement>('[data-module-grid]');
@@ -947,6 +939,7 @@ const formatDate = (value: string) =>
       !contributor ||
       !quality ||
       !showIncubating ||
+      !incubatingFilter ||
       !sort ||
       !clear ||
       !grid ||
@@ -1087,10 +1080,26 @@ const formatDate = (value: string) =>
       card.dataset.archived === 'true' ? 'Archived' : (card.dataset.quality ?? '');
 
     const matchesSelectedStatus = (card: HTMLElement) => {
+      if (showIncubating.checked) return card.dataset.archived !== 'true' && card.dataset.quality === 'Incubating';
       if (quality.value === 'Archived') return card.dataset.archived === 'true';
       if (card.dataset.archived === 'true') return false;
       if (quality.value) return card.dataset.quality === quality.value;
-      return showIncubating.checked || card.dataset.quality !== 'Incubating';
+      return card.dataset.quality !== 'Incubating';
+    };
+
+    // The toggle is only meaningful when the current search, category, and contributor
+    // scope actually contains an incubating project.
+    const hasIncubatingInScope = () => {
+      const query = search.value.trim().toLowerCase();
+      const selectedContributor = contributor.value.toLowerCase();
+      return cards.some(
+        (card) =>
+          card.dataset.quality === 'Incubating' &&
+          card.dataset.archived !== 'true' &&
+          matchesSelectedCategory(card) &&
+          (!query || card.dataset.search?.includes(query)) &&
+          (!selectedContributor || cardContributors(card).includes(selectedContributor))
+      );
     };
 
     const updateFacetOptions = () => {
@@ -1131,6 +1140,11 @@ const formatDate = (value: string) =>
         option.hidden = !isAvailable;
         option.disabled = !isAvailable;
       }
+
+      const incubatingAvailable = hasIncubatingInScope();
+      incubatingFilter.hidden = !incubatingAvailable;
+      // Leaving it ticked with nothing to match would strand the list on zero results.
+      if (!incubatingAvailable) showIncubating.checked = false;
 
       const availableContributors = getAvailableContributors();
       for (const option of [...contributor.options].filter((item) => item.value)) {
@@ -1329,8 +1343,15 @@ const formatDate = (value: string) =>
       });
     }
 
-    quality.addEventListener('change', applyFilters);
-    showIncubating.addEventListener('change', applyFilters);
+    quality.addEventListener('change', () => {
+      // Keep the two readiness controls mutually exclusive so neither becomes a dead input.
+      if (quality.value && showIncubating.checked) showIncubating.checked = false;
+      applyFilters();
+    });
+    showIncubating.addEventListener('change', () => {
+      if (showIncubating.checked && quality.value) quality.value = '';
+      applyFilters();
+    });
 
     dialogFavourite.addEventListener('click', () => {
       if (activeDialogModule) toggleFavourite(activeDialogModule.slug);
