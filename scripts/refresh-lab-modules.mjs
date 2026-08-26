@@ -424,13 +424,15 @@ const curation = {
 };
 
 function ghApi(arguments_) {
-  return JSON.parse(
-    execFileSync('gh', ['api', ...arguments_], {
-      cwd: rootDirectory,
-      encoding: 'utf8',
-      maxBuffer: 50 * 1024 * 1024,
-    })
-  );
+  const response = execFileSync('gh', ['api', ...arguments_], {
+    cwd: rootDirectory,
+    encoding: 'utf8',
+    maxBuffer: 50 * 1024 * 1024,
+  });
+
+  // GitHub answers 204 No Content with an empty body for repositories that have
+  // no contributors yet, so treat an empty response as an empty collection.
+  return response.trim() ? JSON.parse(response) : [];
 }
 
 function readExistingCatalogue() {
