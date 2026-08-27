@@ -114,6 +114,63 @@ const metadata = {
     description="Built by merchants, developers, and agencies worldwide. No shareholders, no investors—just the community."
   />
 
+  <!-- Latest News Widget ******* -->
+
+  <BlogLatestPosts
+    title="Latest News & Updates"
+    information={`Stay up to date with the latest Mage-OS releases, community events, and ecosystem news.`}
+    count={3}
+  />
+
+  <!-- Upcoming Events Widget ******** -->
+
+  <UpcomingEvents title="Upcoming Events" count={3}>
+    <Fragment slot="subtitle"> Meet the Mage-OS community at conferences and meetups around the world. </Fragment>
+    <Fragment slot="bg">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
+      >
+      </div>
+    </Fragment>
+  </UpcomingEvents>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="The Mage-OS Distribution"
+    title="Built on Magento<sup><small>®</small></sup>, Enhanced by Community"
+    items={[
+      {
+        title: 'Based on Magento 2.4.9',
+        description:
+          'Built on the rock-solid Magento foundation with all the latest security fixes and platform improvements.',
+      },
+      {
+        title: 'Community-Driven Features',
+        description:
+          'Innovations from the Mage-OS Lab including PCI DSS 4.0 compliance, AI-powered translation, and performance optimization.',
+      },
+      {
+        title: 'Developer-Friendly',
+        description:
+          'Accessible contribution pathways, comprehensive documentation, and active community support empower developers at every level.',
+      },
+    ]}
+    image={{
+      src: adminDashboard,
+      alt: 'Mage-OS Admin Dashboard showing the sleek M137 admin theme',
+      objectPosition: 'left',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Open Source Commerce, Reimagined
+      </h3>
+      The Mage-OS Distribution delivers everything you need to run a successful online store.
+    </Fragment>
+  </Content>
+
   <!-- Mage-OS Lab Section ********* -->
 
   <section class="relative overflow-hidden bg-slate-950 py-14 text-white sm:py-20">
@@ -174,63 +231,6 @@ const metadata = {
       </div>
     </div>
   </section>
-
-  <!-- Latest News Widget ******* -->
-
-  <BlogLatestPosts
-    title="Latest News & Updates"
-    information={`Stay up to date with the latest Mage-OS releases, community events, and ecosystem news.`}
-    count={3}
-  />
-
-  <!-- Upcoming Events Widget ******** -->
-
-  <UpcomingEvents title="Upcoming Events" count={3}>
-    <Fragment slot="subtitle"> Meet the Mage-OS community at conferences and meetups around the world. </Fragment>
-    <Fragment slot="bg">
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50/50 dark:from-slate-800/50 dark:to-slate-800/30"
-      >
-      </div>
-    </Fragment>
-  </UpcomingEvents>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="The Mage-OS Distribution"
-    title="Built on Magento<sup><small>®</small></sup>, Enhanced by Community"
-    items={[
-      {
-        title: 'Based on Magento 2.4.9',
-        description:
-          'Built on the rock-solid Magento foundation with all the latest security fixes and platform improvements.',
-      },
-      {
-        title: 'Community-Driven Features',
-        description:
-          'Innovations from the Mage-OS Lab including PCI DSS 4.0 compliance, AI-powered translation, and performance optimization.',
-      },
-      {
-        title: 'Developer-Friendly',
-        description:
-          'Accessible contribution pathways, comprehensive documentation, and active community support empower developers at every level.',
-      },
-    ]}
-    image={{
-      src: adminDashboard,
-      alt: 'Mage-OS Admin Dashboard showing the sleek M137 admin theme',
-      objectPosition: 'left',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Open Source Commerce, Reimagined
-      </h3>
-      The Mage-OS Distribution delivers everything you need to run a successful online store.
-    </Fragment>
-  </Content>
 
   <!-- Features Widget *************** -->
 
