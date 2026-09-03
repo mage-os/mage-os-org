@@ -1,0 +1,2417 @@
+{
+  "schemaVersion": 2,
+  "organisation": "mage-os-lab",
+  "catalogueUpdatedAt": "2026-09-03T15:21:44.169Z",
+  "methodology": {
+    "label": "Repository quality signals",
+    "totalSignals": 6,
+    "signals": [
+      "Usage documentation",
+      "Installable package or tool",
+      "Published GitHub release",
+      "Tests",
+      "Automated checks",
+      "Push within 180 days"
+    ],
+    "disclaimer": "Signals describe public repository readiness, not a security audit, support promise, or production certification."
+  },
+  "modules": [
+    {
+      "slug": "graphql-playground",
+      "title": "GraphQL Playground",
+      "repository": "graphql-playground",
+      "url": "https://github.com/mage-os-lab/graphql-playground",
+      "issuesUrl": "https://github.com/mage-os-lab/graphql-playground/issues",
+      "summary": "An in-store GraphiQL workspace for exploring Mage-OS and Magento GraphQL queries and mutations.",
+      "category": "Developer tools",
+      "kind": "Developer module",
+      "howToUse": "Enable the module, then open /graphiql while the store is in developer mode.",
+      "install": "composer require mageos/graphql-playground",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2 with GraphQL",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The maintainers explicitly state that this module is not intended for production use.",
+      "package": "mageos/graphql-playground",
+      "archived": false,
+      "sourceUpdatedAt": "2025-04-14T13:17:49Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "0.1.0",
+        "date": "2023-12-17T17:39:51Z"
+      },
+      "language": "JavaScript",
+      "license": "MIT",
+      "stars": 1,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 17,
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "cmuench",
+          "url": "https://github.com/cmuench",
+          "contributions": 16
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "llms.txt",
+      "title": "LLMs.txt",
+      "repository": "llms.txt",
+      "url": "https://github.com/mage-os-lab/llms.txt",
+      "issuesUrl": "https://github.com/mage-os-lab/llms.txt/issues",
+      "summary": "Creates an editable llms.txt for a store, with optional OpenAI-assisted content generation.",
+      "category": "SEO & discovery",
+      "kind": "Commerce module",
+      "howToUse": "Configure the module under Stores → Configuration → AI → LLMs.txt, generate or edit the content, then publish it at /llms.txt.",
+      "install": "composer require mage-os/module-llm-txt",
+      "requirements": "Mage-OS or Magento 2.4.x; OpenAI API key for assisted generation",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-llm-txt",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-08T16:00:24Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "0.2.2",
+        "date": "2026-07-08T16:00:25Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 24,
+      "forks": 10,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 69,
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "Valant13",
+          "url": "https://github.com/Valant13",
+          "contributions": 47
+        },
+        {
+          "login": "DavidLambauer",
+          "url": "https://github.com/DavidLambauer",
+          "contributions": 14
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 2
+        },
+        {
+          "login": "kevinmeijer97",
+          "url": "https://github.com/kevinmeijer97",
+          "contributions": 1
+        },
+        {
+          "login": "michielgerritsen",
+          "url": "https://github.com/michielgerritsen",
+          "contributions": 1
+        },
+        {
+          "login": "nikolalardev",
+          "url": "https://github.com/nikolalardev",
+          "contributions": 1
+        },
+        {
+          "login": "indykoning",
+          "url": "https://github.com/indykoning",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "mage-os-installer",
+      "title": "Mage-OS Installer",
+      "repository": "mage-os-installer",
+      "url": "https://github.com/mage-os-lab/mage-os-installer",
+      "issuesUrl": "https://github.com/mage-os-lab/mage-os-installer/issues",
+      "summary": "An interactive installer that prepares a local Mage-OS project using DDEV or Warden.",
+      "category": "Developer tools",
+      "kind": "CLI tool",
+      "howToUse": "Run mage-os-install in the directory where you want a project and follow the environment and admin setup prompts.",
+      "install": "Download a release binary, or run: go install github.com/mage-os-lab/mage-os-installer@latest",
+      "requirements": "Docker plus DDEV or Warden",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": null,
+      "archived": false,
+      "sourceUpdatedAt": "2026-04-28T06:32:22Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "v0.0.5",
+        "date": "2026-04-28T06:32:22Z"
+      },
+      "language": "Go",
+      "license": null,
+      "stars": 3,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 32,
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": true,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "michielgerritsen",
+          "url": "https://github.com/michielgerritsen",
+          "contributions": 32
+        }
+      ]
+    },
+    {
+      "slug": "magento2-lsp",
+      "title": "Magento 2 LSP & MCP",
+      "repository": "magento2-lsp",
+      "url": "https://github.com/mage-os-lab/magento2-lsp",
+      "issuesUrl": "https://github.com/mage-os-lab/magento2-lsp/issues",
+      "summary": "Magento-aware language and MCP servers for navigation, diagnostics, refactoring, and merged configuration insight.",
+      "category": "Developer tools",
+      "kind": "Editor tooling",
+      "howToUse": "Install the package globally, then configure magento2-lsp in an editor or magento2-lsp-mcp in an AI coding agent.",
+      "install": "npm install -g @mage-os/magento2-lsp",
+      "requirements": "Node.js 20+",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "@mage-os/magento2-lsp",
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-08T14:23:17Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.0.1",
+        "date": "2026-04-14T13:49:44Z"
+      },
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 27,
+      "forks": 4,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 90,
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "Vinai",
+          "url": "https://github.com/Vinai",
+          "contributions": 89
+        },
+        {
+          "login": "GrimLink",
+          "url": "https://github.com/GrimLink",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "mageos-pretty-cli",
+      "title": "Pretty CLI",
+      "repository": "mageos-pretty-cli",
+      "url": "https://github.com/mage-os-lab/mageos-pretty-cli",
+      "issuesUrl": "https://github.com/mage-os-lab/mageos-pretty-cli/issues",
+      "summary": "Reusable components for producing clearer output in Mage-OS console commands.",
+      "category": "Developer tools",
+      "kind": "Developer module",
+      "howToUse": "Reference the package from a custom console command and use its output components.",
+      "install": "composer require mage-os/mageos-pretty-cli",
+      "requirements": "See repository documentation",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "This repository is archived and no longer actively maintained.",
+      "package": "mage-os/mageos-pretty-cli",
+      "archived": true,
+      "sourceUpdatedAt": "2023-10-06T08:10:55Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": null,
+      "license": null,
+      "stars": 1,
+      "forks": 1,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 8,
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Archived",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "bka",
+          "url": "https://github.com/bka",
+          "contributions": 7
+        },
+        {
+          "login": "schmengler",
+          "url": "https://github.com/schmengler",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "migrate-m2-to-mageos",
+      "title": "Migrate Magento 2 to Mage-OS",
+      "repository": "migrate-m2-to-mageos",
+      "url": "https://github.com/mage-os-lab/migrate-m2-to-mageos",
+      "issuesUrl": "https://github.com/mage-os-lab/migrate-m2-to-mageos/issues",
+      "summary": "A guided shell migration that switches a compatible Magento Open Source installation to Mage-OS packages.",
+      "category": "Developer tools",
+      "kind": "Migration tool",
+      "howToUse": "Back up and test on staging, review the migration script, then run the command documented in the repository.",
+      "install": "bash <(curl -s https://raw.githubusercontent.com/mage-os-lab/migrate-m2-to-mageos/refs/heads/main/migrate-to-mage-os.sh)",
+      "requirements": "A compatible Magento Open Source installation; shell access",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "migrate-m2-to-mageos",
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-20T11:47:58Z",
+      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "latestRelease": null,
+      "language": "Shell",
+      "license": null,
+      "stars": 3,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 25,
+      "contributors": [
+        {
+          "login": "michielgerritsen",
+          "url": "https://github.com/michielgerritsen",
+          "contributions": 21
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 2
+        },
+        {
+          "login": "marcelmtz",
+          "url": "https://github.com/marcelmtz",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-admin-assistant",
+      "title": "Admin Assistant",
+      "repository": "module-admin-assistant",
+      "url": "https://github.com/mage-os-lab/module-admin-assistant",
+      "issuesUrl": "https://github.com/mage-os-lab/module-admin-assistant/issues",
+      "summary": "Adds an AI chat assistant to the Magento admin for store operations and contextual help.",
+      "category": "AI & automation",
+      "kind": "Admin module",
+      "howToUse": "Install and enable the module, configure an AI provider, then use the assistant from the admin panel.",
+      "install": "composer require mage-os/module-admin-assist",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; supported AI provider credentials",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-admin-assist",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-21T14:21:57Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "0.9.3",
+        "date": "2026-07-21T14:21:57Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 20,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 36,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "ryansunxl",
+          "url": "https://github.com/ryansunxl",
+          "contributions": 35
+        },
+        {
+          "login": "nikolalardev",
+          "url": "https://github.com/nikolalardev",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-admin-user-time-zone",
+      "title": "Admin User Time Zone",
+      "repository": "module-admin-user-time-zone",
+      "url": "https://github.com/mage-os-lab/module-admin-user-time-zone",
+      "issuesUrl": "https://github.com/mage-os-lab/module-admin-user-time-zone/issues",
+      "summary": "Lets each admin user view backend dates and times in their own time zone.",
+      "category": "Admin & operations",
+      "kind": "Admin module",
+      "howToUse": "Install the module, run setup:upgrade, and choose a time zone in each admin user profile.",
+      "install": "composer require mage-os/module-admin-user-time-zone",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-admin-user-time-zone",
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-03T20:06:30Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": null,
+      "stars": 2,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 3,
+      "quality": {
+        "score": 3,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "gianporta",
+          "url": "https://github.com/gianporta",
+          "contributions": 3
+        }
+      ]
+    },
+    {
+      "slug": "module-advanced-widget",
+      "title": "Advanced Widget",
+      "repository": "module-advanced-widget",
+      "url": "https://github.com/mage-os-lab/module-advanced-widget",
+      "issuesUrl": "https://github.com/mage-os-lab/module-advanced-widget/issues",
+      "summary": "Extends CMS widgets with configurable repeatable rows, image pickers, product pickers, and richer fields.",
+      "category": "Content & merchandising",
+      "kind": "Commerce module",
+      "howToUse": "Install the module, define an advanced widget, then configure its repeatable content in Page Builder or CMS.",
+      "install": "composer require mage-os/module-advanced-widget",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; Page Builder Widget dependency",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-advanced-widget",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-28T02:40:34Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.2.5",
+        "date": "2026-07-28T02:40:34Z"
+      },
+      "language": "JavaScript",
+      "license": "MIT",
+      "stars": 13,
+      "forks": 4,
+      "openIssues": 1,
+      "defaultBranch": "master",
+      "commitCount": 29,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 13
+        },
+        {
+          "login": "yuriy-boyko",
+          "url": "https://github.com/yuriy-boyko",
+          "contributions": 9
+        },
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 4
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 2
+        },
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-ai-base",
+      "title": "AI Base",
+      "repository": "module-ai-base",
+      "url": "https://github.com/mage-os-lab/module-ai-base",
+      "issuesUrl": "https://github.com/mage-os-lab/module-ai-base/issues",
+      "summary": "A shared configuration and adapter layer for modules that need one or more AI backends.",
+      "category": "AI & automation",
+      "kind": "Foundation module",
+      "howToUse": "Install and enable the module, configure providers under Services → AI Configuration, then integrate through its provider interfaces.",
+      "install": "composer require mage-os/module-ai-base",
+      "requirements": "PHP 8.2+; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-ai-base",
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-31T14:40:03Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": null,
+      "stars": 5,
+      "forks": 1,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 65,
+      "contributors": [
+        {
+          "login": "michielgerritsen",
+          "url": "https://github.com/michielgerritsen",
+          "contributions": 49
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 15
+        },
+        {
+          "login": "DavidLambauer",
+          "url": "https://github.com/DavidLambauer",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-alpine-loader",
+      "title": "Alpine Loader",
+      "repository": "module-alpine-loader",
+      "url": "https://github.com/mage-os-lab/module-alpine-loader",
+      "issuesUrl": "https://github.com/mage-os-lab/module-alpine-loader/issues",
+      "summary": "An early proof of concept for initializing Alpine.js in a Mage-OS storefront.",
+      "category": "Developer tools",
+      "kind": "Frontend module",
+      "howToUse": "Evaluate from source in a development store; the public API and feature set are still being defined.",
+      "install": "composer require mage-os/module-alpine-loader",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The README labels this as a proof of concept and does not yet document finished features.",
+      "package": "mage-os/module-alpine-loader",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-02T15:01:38Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "HTML",
+      "license": "MIT",
+      "stars": 2,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 18,
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 16
+        },
+        {
+          "login": "JeroenBoersma",
+          "url": "https://github.com/JeroenBoersma",
+          "contributions": 1
+        },
+        {
+          "login": "mahmoud-lembo",
+          "url": "https://github.com/mahmoud-lembo",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-alpine-local-storage",
+      "title": "Alpine Local Storage",
+      "repository": "module-alpine-local-storage",
+      "url": "https://github.com/mage-os-lab/module-alpine-local-storage",
+      "issuesUrl": "https://github.com/mage-os-lab/module-alpine-local-storage/issues",
+      "summary": "Provides local-storage behaviour for the experimental Alpine-based storefront module set.",
+      "category": "Developer tools",
+      "kind": "Frontend module",
+      "howToUse": "Install alongside the related Alpine storefront modules and validate the integration in a development environment.",
+      "install": "composer require mage-os/module-alpine-local-storage",
+      "requirements": "Mage-OS or Magento 2; related Alpine storefront modules",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-alpine-local-storage",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-02T15:01:39Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "JavaScript",
+      "license": null,
+      "stars": 2,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 19,
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 18
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-alpine-messages",
+      "title": "Alpine Messages",
+      "repository": "module-alpine-messages",
+      "url": "https://github.com/mage-os-lab/module-alpine-messages",
+      "issuesUrl": "https://github.com/mage-os-lab/module-alpine-messages/issues",
+      "summary": "Implements storefront message handling for the experimental Alpine-based frontend stack.",
+      "category": "Developer tools",
+      "kind": "Frontend module",
+      "howToUse": "Install alongside the Alpine module set and test storefront notices and session messages in development.",
+      "install": "composer require mage-os/module-alpine-messages",
+      "requirements": "Mage-OS or Magento 2; related Alpine storefront modules",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-alpine-messages",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-02T15:01:41Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "JavaScript",
+      "license": null,
+      "stars": 2,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 20,
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 19
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-alpine-minicart",
+      "title": "Alpine Minicart",
+      "repository": "module-alpine-minicart",
+      "url": "https://github.com/mage-os-lab/module-alpine-minicart",
+      "issuesUrl": "https://github.com/mage-os-lab/module-alpine-minicart/issues",
+      "summary": "An Alpine.js implementation of the Mage-OS storefront minicart experience.",
+      "category": "Developer tools",
+      "kind": "Frontend module",
+      "howToUse": "Install it as part of the Alpine storefront stack and validate cart behaviour with the selected theme.",
+      "install": "composer require mage-os/module-alpine-minicart",
+      "requirements": "Mage-OS or Magento 2; related Alpine storefront modules",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-alpine-minicart",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-02T15:01:43Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "HTML",
+      "license": null,
+      "stars": 4,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 22,
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 21
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-blog",
+      "title": "Blog",
+      "repository": "module-blog",
+      "url": "https://github.com/mage-os-lab/module-blog",
+      "issuesUrl": "https://github.com/mage-os-lab/module-blog/issues",
+      "summary": "A full blog for Mage-OS and Magento with authors, scheduling, SEO, RSS, widgets, GraphQL, Luma, and Hyvä support.",
+      "category": "Content & merchandising",
+      "kind": "Commerce module",
+      "howToUse": "Enable the module, manage posts and taxonomy in the admin, then place its routes or widgets in the storefront.",
+      "install": "composer require mage-os/module-blog",
+      "requirements": "PHP 8.2+; Mage-OS or Magento 2; Luma or Hyvä",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-blog",
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-28T16:52:23Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "v1.3.1",
+        "date": "2026-08-28T16:52:23Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 22,
+      "forks": 8,
+      "openIssues": 2,
+      "defaultBranch": "main",
+      "commitCount": 221,
+      "contributors": [
+        {
+          "login": "DavidLambauer",
+          "url": "https://github.com/DavidLambauer",
+          "contributions": 168
+        },
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 34
+        },
+        {
+          "login": "lucafuser",
+          "url": "https://github.com/lucafuser",
+          "contributions": 8
+        },
+        {
+          "login": "damienwebdev",
+          "url": "https://github.com/damienwebdev",
+          "contributions": 3
+        },
+        {
+          "login": "mage-os-ci",
+          "url": "https://github.com/mage-os-ci",
+          "contributions": 3
+        },
+        {
+          "login": "alin-roweb",
+          "url": "https://github.com/alin-roweb",
+          "contributions": 1
+        },
+        {
+          "login": "Bashev",
+          "url": "https://github.com/Bashev",
+          "contributions": 1
+        },
+        {
+          "login": "collymore",
+          "url": "https://github.com/collymore",
+          "contributions": 1
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 1
+        },
+        {
+          "login": "adrianalin89",
+          "url": "https://github.com/adrianalin89",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-blog-hyva",
+      "title": "Blog Hyvä Compatibility",
+      "repository": "module-blog-hyva",
+      "url": "https://github.com/mage-os-lab/module-blog-hyva",
+      "issuesUrl": "https://github.com/mage-os-lab/module-blog-hyva/issues",
+      "summary": "Hyvä storefront templates and compatibility work for the Mage-OS Blog module.",
+      "category": "Content & merchandising",
+      "kind": "Compatibility module",
+      "howToUse": "Install it with the main Blog module when the storefront uses a Hyvä theme.",
+      "install": "composer require mage-os/module-blog-hyva",
+      "requirements": "Mage-OS Blog and a Hyvä theme",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-blog-hyva",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-01T06:53:54Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "v1.0.0",
+        "date": "2026-09-01T06:53:54Z"
+      },
+      "language": "HTML",
+      "license": "OSL-3.0",
+      "stars": 2,
+      "forks": 2,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 5,
+      "contributors": [
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 3
+        },
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 1
+        },
+        {
+          "login": "adrianalin89",
+          "url": "https://github.com/adrianalin89",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-catalog-data-ai",
+      "title": "AI Catalog Data",
+      "repository": "module-catalog-data-ai",
+      "url": "https://github.com/mage-os-lab/module-catalog-data-ai",
+      "issuesUrl": "https://github.com/mage-os-lab/module-catalog-data-ai/issues",
+      "summary": "Generates and refines product descriptions and other catalog content with an AI provider.",
+      "category": "AI & automation",
+      "kind": "Admin module",
+      "howToUse": "Configure an AI provider, then generate content from supported product-editing workflows in the admin.",
+      "install": "composer require mage-os/module-catalog-data-ai",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; AI provider credentials",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-catalog-data-ai",
+      "archived": false,
+      "sourceUpdatedAt": "2026-04-19T21:40:27Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2025-03-12T02:59:17Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 39,
+      "forks": 9,
+      "openIssues": 13,
+      "defaultBranch": "main",
+      "commitCount": 59,
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "ryansunxl",
+          "url": "https://github.com/ryansunxl",
+          "contributions": 27
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 12
+        },
+        {
+          "login": "DavidLambauer",
+          "url": "https://github.com/DavidLambauer",
+          "contributions": 4
+        },
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 4
+        },
+        {
+          "login": "ProxiBlue",
+          "url": "https://github.com/ProxiBlue",
+          "contributions": 1
+        },
+        {
+          "login": "LS-Myron",
+          "url": "https://github.com/LS-Myron",
+          "contributions": 1
+        },
+        {
+          "login": "nikolalardev",
+          "url": "https://github.com/nikolalardev",
+          "contributions": 1
+        },
+        {
+          "login": "sprankhub",
+          "url": "https://github.com/sprankhub",
+          "contributions": 1
+        },
+        {
+          "login": "Vinai",
+          "url": "https://github.com/Vinai",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-digital-signature",
+      "title": "Digital Signature",
+      "repository": "module-digital-signature",
+      "url": "https://github.com/mage-os-lab/module-digital-signature",
+      "issuesUrl": "https://github.com/mage-os-lab/module-digital-signature/issues",
+      "summary": "Builds order contract PDFs and sends them to an external provider for digital signature.",
+      "category": "Admin & operations",
+      "kind": "Commerce module",
+      "howToUse": "Configure a signature provider and PDF template, then initiate and track signing for eligible orders.",
+      "install": "composer require mage-os/module-digital-signature",
+      "requirements": "PHP 8.1–8.5; Mage-OS or Magento 2; supported signature provider",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-digital-signature",
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-25T07:14:16Z",
+      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 0,
+      "forks": 0,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 6,
+      "contributors": [
+        {
+          "login": "cavalier79",
+          "url": "https://github.com/cavalier79",
+          "contributions": 6
+        }
+      ],
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-eav-debug-views",
+      "title": "EAV Debug Views",
+      "repository": "module-eav-debug-views",
+      "url": "https://github.com/mage-os-lab/module-eav-debug-views",
+      "issuesUrl": "https://github.com/mage-os-lab/module-eav-debug-views/issues",
+      "summary": "Creates database views that flatten EAV entity values into easier-to-query JSON structures.",
+      "category": "Developer tools",
+      "kind": "Developer module",
+      "howToUse": "Install in a development environment and query the generated database views during debugging or data analysis.",
+      "install": "composer require mage-os/module-eav-debug-views",
+      "requirements": "Mage-OS or Magento 2.4.x; database access",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "Designed for development and debugging; the maintainers advise evaluating database overhead before production use.",
+      "package": "mage-os/module-eav-debug-views",
+      "archived": false,
+      "sourceUpdatedAt": "2026-04-19T20:56:23Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.1.0",
+        "date": "2026-04-19T20:56:24Z"
+      },
+      "language": "PHP",
+      "license": null,
+      "stars": 8,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 12,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 11
+        },
+        {
+          "login": "nfourteen",
+          "url": "https://github.com/nfourteen",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-flexible-ads",
+      "title": "Flexible Ads",
+      "repository": "module-flexible-ads",
+      "url": "https://github.com/mage-os-lab/module-flexible-ads",
+      "issuesUrl": "https://github.com/mage-os-lab/module-flexible-ads/issues",
+      "summary": "A newly reserved Lab project for flexible promotional and advertising content.",
+      "category": "Content & merchandising",
+      "kind": "Commerce concept",
+      "howToUse": "Not installable yet; follow the repository as the initial scope is defined.",
+      "install": "Not installable yet",
+      "requirements": "Not yet documented",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The repository was created recently and does not yet contain an implementation.",
+      "package": null,
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-02T18:40:47Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": null,
+      "license": null,
+      "stars": 0,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 0,
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Incubating",
+        "signals": {
+          "documentation": false,
+          "installable": false,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": []
+    },
+    {
+      "slug": "module-hreflang",
+      "title": "Hreflang",
+      "repository": "module-hreflang",
+      "url": "https://github.com/mage-os-lab/module-hreflang",
+      "issuesUrl": "https://github.com/mage-os-lab/module-hreflang/issues",
+      "summary": "Adds locale-aware hreflang links for CMS pages, products, and categories.",
+      "category": "SEO & discovery",
+      "kind": "Commerce module",
+      "howToUse": "Install and enable the module, then configure locale relationships for relevant store views and URLs.",
+      "install": "composer require mage-os/module-hreflang",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-hreflang",
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-13T08:47:55Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.3.0",
+        "date": "2026-06-13T08:48:09Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 4,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 4,
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 4
+        }
+      ]
+    },
+    {
+      "slug": "module-maxmind-geoip-redirect",
+      "title": "MaxMind GeoIP Redirect",
+      "repository": "module-maxmind-geoip-redirect",
+      "url": "https://github.com/mage-os-lab/module-maxmind-geoip-redirect",
+      "issuesUrl": "https://github.com/mage-os-lab/module-maxmind-geoip-redirect/issues",
+      "summary": "Routes visitors to an appropriate store view using MaxMind GeoLite2 location data, with IPv4, IPv6, and Varnish support.",
+      "category": "Storefront",
+      "kind": "Commerce module",
+      "howToUse": "Install the module, provide a GeoLite2 database, and configure country-to-store redirect rules.",
+      "install": "composer require mage-os/module-maxmind-geoip-redirect",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; MaxMind GeoLite2 data",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-maxmind-geoip-redirect",
+      "archived": false,
+      "sourceUpdatedAt": "2026-05-31T03:22:29Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 8,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 43,
+      "quality": {
+        "score": 3,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 33
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 4
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 2
+        },
+        {
+          "login": "Irinina",
+          "url": "https://github.com/Irinina",
+          "contributions": 2
+        },
+        {
+          "login": "annv99",
+          "url": "https://github.com/annv99",
+          "contributions": 2
+        }
+      ]
+    },
+    {
+      "slug": "module-netsuite-connector",
+      "title": "Netsuite Connector",
+      "repository": "module-netsuite-connector",
+      "url": "https://github.com/mage-os-lab/module-netsuite-connector",
+      "issuesUrl": "https://github.com/mage-os-lab/module-netsuite-connector/issues",
+      "summary": "A Mage-OS Lab project.",
+      "category": "Other",
+      "kind": "Lab project",
+      "howToUse": "See the repository README for current usage guidance.",
+      "install": "composer require mage-os/module-netsuite-connector",
+      "requirements": "PHP ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-netsuite-connector",
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-26T21:07:21Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 4,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 2,
+      "contributors": [],
+      "quality": {
+        "score": 3,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-newsletter-coupon",
+      "title": "Newsletter Coupon",
+      "repository": "module-newsletter-coupon",
+      "url": "https://github.com/mage-os-lab/module-newsletter-coupon",
+      "issuesUrl": "https://github.com/mage-os-lab/module-newsletter-coupon/issues",
+      "summary": "Creates a unique cart-rule coupon for each new newsletter subscriber and includes it in the welcome email.",
+      "category": "Content & merchandising",
+      "kind": "Commerce module",
+      "howToUse": "Configure the source cart rule and newsletter behaviour, then the module generates coupons during subscription.",
+      "install": "composer require mage-os/module-newsletter-coupon",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-newsletter-coupon",
+      "archived": false,
+      "sourceUpdatedAt": "2026-05-19T04:31:42Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.1.0",
+        "date": "2026-05-19T04:31:42Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 9,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 5,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 2
+        },
+        {
+          "login": "aleron75",
+          "url": "https://github.com/aleron75",
+          "contributions": 1
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 1
+        },
+        {
+          "login": "indykoning",
+          "url": "https://github.com/indykoning",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-opentelemetry",
+      "title": "Opentelemetry",
+      "repository": "module-opentelemetry",
+      "url": "https://github.com/mage-os-lab/module-opentelemetry",
+      "issuesUrl": "https://github.com/mage-os-lab/module-opentelemetry/issues",
+      "summary": "A Mage-OS Lab project.",
+      "category": "Other",
+      "kind": "Lab project",
+      "howToUse": "See the repository README for current usage guidance.",
+      "install": "See the repository for installation guidance",
+      "requirements": "See repository documentation",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": null,
+      "archived": false,
+      "sourceUpdatedAt": "2026-08-11T14:13:24Z",
+      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "latestRelease": null,
+      "language": null,
+      "license": null,
+      "stars": 0,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 0,
+      "contributors": [],
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Incubating",
+        "signals": {
+          "documentation": false,
+          "installable": false,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-page-builder-graph-ql",
+      "title": "Page Builder GraphQL",
+      "repository": "module-page-builder-graph-ql",
+      "url": "https://github.com/mage-os-lab/module-page-builder-graph-ql",
+      "issuesUrl": "https://github.com/mage-os-lab/module-page-builder-graph-ql/issues",
+      "summary": "Converts Page Builder output into structured JSON for GraphQL and headless storefronts.",
+      "category": "Content & merchandising",
+      "kind": "Headless module",
+      "howToUse": "Install the module and request Page Builder content through its GraphQL fields instead of consuming rendered HTML.",
+      "install": "composer require mage-os/module-page-builder-graph-ql",
+      "requirements": "Mage-OS or Magento 2 with Page Builder and GraphQL",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-page-builder-graph-ql",
+      "archived": false,
+      "sourceUpdatedAt": "2025-12-04T16:18:33Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": null,
+      "stars": 3,
+      "forks": 1,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 1,
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "adrianalin89",
+          "url": "https://github.com/adrianalin89",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-passkey-auth",
+      "title": "Passkey Authentication",
+      "repository": "module-passkey-auth",
+      "url": "https://github.com/mage-os-lab/module-passkey-auth",
+      "issuesUrl": "https://github.com/mage-os-lab/module-passkey-auth/issues",
+      "summary": "Lets storefront customers register and sign in with WebAuthn passkeys.",
+      "category": "Security & access",
+      "kind": "Customer module",
+      "howToUse": "Enable the module over HTTPS, then customers can register and manage passkeys from their account.",
+      "install": "composer require mage-os/module-passkey-auth",
+      "requirements": "PHP 8.2+; Mage-OS or Magento 2; HTTPS and a WebAuthn-capable browser",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The latest published release is a beta; evaluate account recovery and browser coverage before production rollout.",
+      "package": "mage-os/module-passkey-auth",
+      "archived": false,
+      "sourceUpdatedAt": "2026-04-30T01:37:19Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.0.0-beta1",
+        "date": "2026-03-17T03:31:18Z"
+      },
+      "language": "PHP",
+      "license": null,
+      "stars": 14,
+      "forks": 5,
+      "openIssues": 3,
+      "defaultBranch": "main",
+      "commitCount": 45,
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 45
+        }
+      ]
+    },
+    {
+      "slug": "module-profiler",
+      "title": "Profiler",
+      "repository": "module-profiler",
+      "url": "https://github.com/mage-os-lab/module-profiler",
+      "issuesUrl": "https://github.com/mage-os-lab/module-profiler/issues",
+      "summary": "Mage-OS Profiler adds a tabular and a json profiler output type to Magento 2 — a third and fourth option next to the built-in html and csvfile.",
+      "category": "Other",
+      "kind": "Lab project",
+      "howToUse": "See the repository README for current usage guidance.",
+      "install": "composer require mage-os/module-profiler",
+      "requirements": "PHP ^8.2; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-profiler",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-02T14:06:25Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2026-08-31T15:56:11Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 1,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 7,
+      "contributors": [
+        {
+          "login": "MagePsycho",
+          "url": "https://github.com/MagePsycho",
+          "contributions": 7
+        }
+      ],
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-profiler-admin-ui",
+      "title": "Profiler Admin Ui",
+      "repository": "module-profiler-admin-ui",
+      "url": "https://github.com/mage-os-lab/module-profiler-admin-ui",
+      "issuesUrl": "https://github.com/mage-os-lab/module-profiler-admin-ui/issues",
+      "summary": "Mage-OS Profiler Admin UI is the admin viewer for the json reports written by MageOS_Profiler.",
+      "category": "Other",
+      "kind": "Lab project",
+      "howToUse": "See the repository README for current usage guidance.",
+      "install": "composer require mage-os/module-profiler-admin-ui",
+      "requirements": "PHP ^8.2; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-profiler-admin-ui",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-01T05:50:14Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2026-09-01T05:50:39Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 1,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 3,
+      "contributors": [
+        {
+          "login": "MagePsycho",
+          "url": "https://github.com/MagePsycho",
+          "contributions": 3
+        }
+      ],
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-require-js-optimizer",
+      "title": "RequireJS Optimizer",
+      "repository": "module-require-js-optimizer",
+      "url": "https://github.com/mage-os-lab/module-require-js-optimizer",
+      "issuesUrl": "https://github.com/mage-os-lab/module-require-js-optimizer/issues",
+      "summary": "Removes selected unnecessary dependencies from generated RequireJS configuration assets.",
+      "category": "Performance & runtime",
+      "kind": "Frontend module",
+      "howToUse": "Evaluate on a development store, configure replacement rules, and verify every affected storefront flow.",
+      "install": "composer require mage-os/module-require-js-optimizer",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2 with RequireJS storefront assets",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The README describes this as a proof of concept with incomplete controller handling.",
+      "package": "mage-os/module-require-js-optimizer",
+      "archived": false,
+      "sourceUpdatedAt": "2026-02-26T04:51:12Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 3,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 10,
+      "quality": {
+        "score": 3,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 6
+        },
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 4
+        }
+      ]
+    },
+    {
+      "slug": "module-seo",
+      "title": "SEO, AEO & GEO",
+      "repository": "module-seo",
+      "url": "https://github.com/mage-os-lab/module-seo",
+      "issuesUrl": "https://github.com/mage-os-lab/module-seo/issues",
+      "summary": "A broad search and answer-engine toolkit covering structured data, social metadata, canonicals, hreflang, and AI discovery files.",
+      "category": "SEO & discovery",
+      "kind": "Commerce module",
+      "howToUse": "Install the module, configure the required SEO features per store, then validate generated markup and crawler files.",
+      "install": "composer require mage-os/module-seo",
+      "requirements": "PHP 8.1–8.5; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-seo",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-12T18:55:39Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "v1.1.0",
+        "date": "2026-06-18T11:15:21Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 4,
+      "forks": 2,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 85,
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 85
+        }
+      ]
+    },
+    {
+      "slug": "module-shopping-feed",
+      "title": "Shopping Feed",
+      "repository": "module-shopping-feed",
+      "url": "https://github.com/mage-os-lab/module-shopping-feed",
+      "issuesUrl": "https://github.com/mage-os-lab/module-shopping-feed/issues",
+      "summary": "A Mage-OS Lab project.",
+      "category": "Other",
+      "kind": "Lab project",
+      "howToUse": "See the repository README for current usage guidance.",
+      "install": "composer require mage-os/module-shopping-feed",
+      "requirements": "PHP ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0; Mage-OS or Magento 2",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-shopping-feed",
+      "archived": false,
+      "sourceUpdatedAt": "2026-09-01T15:35:17Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 6,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 5,
+      "contributors": [
+        {
+          "login": "mattmacrocket",
+          "url": "https://github.com/mattmacrocket",
+          "contributions": 5
+        }
+      ],
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
+      "slug": "module-store-locator",
+      "title": "Store Locator",
+      "repository": "module-store-locator",
+      "url": "https://github.com/mage-os-lab/module-store-locator",
+      "issuesUrl": "https://github.com/mage-os-lab/module-store-locator/issues",
+      "summary": "Manages physical locations and helps customers find them with text search, maps, and browser geolocation.",
+      "category": "Storefront",
+      "kind": "Commerce module",
+      "howToUse": "Create stores in the admin, choose Google Maps or OpenStreetMap, then link the locator page from the storefront.",
+      "install": "composer require mage-os/module-store-locator",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; map provider configuration",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-store-locator",
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-15T06:10:00Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": null,
+      "stars": 2,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 1,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "gianporta",
+          "url": "https://github.com/gianporta",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-theme-uikit",
+      "title": "UIkit Theme Utilities",
+      "repository": "module-theme-uikit",
+      "url": "https://github.com/mage-os-lab/module-theme-uikit",
+      "issuesUrl": "https://github.com/mage-os-lab/module-theme-uikit/issues",
+      "summary": "Build and asset utilities used by the Mage-OS UIkit storefront theme.",
+      "category": "Developer tools",
+      "kind": "Theme module",
+      "howToUse": "Install it with theme-frontend-uikit, then use its asset compilation and theme utility features.",
+      "install": "composer require mage-os/module-theme-uikit",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; UIkit frontend theme",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-theme-uikit",
+      "archived": false,
+      "sourceUpdatedAt": "2025-11-02T10:14:29Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 5,
+      "forks": 2,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 19,
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 18
+        },
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-uikit-js-replacement",
+      "title": "UIkit JavaScript Replacement",
+      "repository": "module-uikit-js-replacement",
+      "url": "https://github.com/mage-os-lab/module-uikit-js-replacement",
+      "issuesUrl": "https://github.com/mage-os-lab/module-uikit-js-replacement/issues",
+      "summary": "Removes selected unnecessary JavaScript dependencies from UIkit-based storefront themes.",
+      "category": "Developer tools",
+      "kind": "Theme module",
+      "howToUse": "Test with the UIkit theme in development and verify affected customer journeys before wider use.",
+      "install": "composer require mage-os/module-uikit-js-replacement",
+      "requirements": "PHP 8.1+; UIkit frontend theme",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The README labels this a proof of concept and notes incomplete controller handling.",
+      "package": "mage-os/module-uikit-js-replacement",
+      "archived": false,
+      "sourceUpdatedAt": "2025-11-05T14:15:12Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "HTML",
+      "license": "MIT",
+      "stars": 2,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 4,
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 3
+        },
+        {
+          "login": "mahmoud-lembo",
+          "url": "https://github.com/mahmoud-lembo",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "module-uikit-menu",
+      "title": "UIkit Menu",
+      "repository": "module-uikit-menu",
+      "url": "https://github.com/mage-os-lab/module-uikit-menu",
+      "issuesUrl": "https://github.com/mage-os-lab/module-uikit-menu/issues",
+      "summary": "Provides the storefront navigation implementation for the Mage-OS UIkit theme.",
+      "category": "Developer tools",
+      "kind": "Theme module",
+      "howToUse": "Install it with the UIkit theme and configure the standard catalog navigation.",
+      "install": "composer require mage-os/module-uikit-menu",
+      "requirements": "PHP 8.1+; UIkit frontend theme",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-uikit-menu",
+      "archived": false,
+      "sourceUpdatedAt": "2025-10-24T12:56:26Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "HTML",
+      "license": "MIT",
+      "stars": 1,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 2,
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 2
+        }
+      ]
+    },
+    {
+      "slug": "module-uikit-product-page",
+      "title": "UIkit Product Page",
+      "repository": "module-uikit-product-page",
+      "url": "https://github.com/mage-os-lab/module-uikit-product-page",
+      "issuesUrl": "https://github.com/mage-os-lab/module-uikit-product-page/issues",
+      "summary": "Product-page layout and JavaScript adaptations for the Mage-OS UIkit theme.",
+      "category": "Developer tools",
+      "kind": "Theme module",
+      "howToUse": "Install it with the UIkit theme and validate product configuration, media, pricing, and cart interactions.",
+      "install": "composer require mage-os/module-uikit-product-page",
+      "requirements": "PHP 8.1+; UIkit frontend theme",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-uikit-product-page",
+      "archived": false,
+      "sourceUpdatedAt": "2025-10-24T12:58:22Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "HTML",
+      "license": "MIT",
+      "stars": 1,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 2,
+      "quality": {
+        "score": 1,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": false,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 2
+        }
+      ]
+    },
+    {
+      "slug": "module-widgetkit",
+      "title": "Widgetkit",
+      "repository": "module-widgetkit",
+      "url": "https://github.com/mage-os-lab/module-widgetkit",
+      "issuesUrl": "https://github.com/mage-os-lab/module-widgetkit/issues",
+      "summary": "A collection of Page Builder CMS widgets with previews and Hyvä-compatible Tailwind output.",
+      "category": "Content & merchandising",
+      "kind": "Commerce module",
+      "howToUse": "Install the module, then add and configure its widget collection through Page Builder.",
+      "install": "composer require mage-os/module-widgetkit",
+      "requirements": "PHP 8.1+; Mage-OS or Magento 2; Page Builder; Hyvä supported",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-widgetkit",
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-08T14:11:56Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "1.4.8",
+        "date": "2026-06-08T14:12:16Z"
+      },
+      "language": "HTML",
+      "license": "MIT",
+      "stars": 8,
+      "forks": 3,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 31,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 24
+        },
+        {
+          "login": "GrimLink",
+          "url": "https://github.com/GrimLink",
+          "contributions": 4
+        },
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 3
+        }
+      ]
+    },
+    {
+      "slug": "module-worker-mode",
+      "title": "FrankenPHP Worker Mode",
+      "repository": "module-worker-mode",
+      "url": "https://github.com/mage-os-lab/module-worker-mode",
+      "issuesUrl": "https://github.com/mage-os-lab/module-worker-mode/issues",
+      "summary": "Resets request-scoped Magento state so a store can run safely in FrankenPHP worker mode.",
+      "category": "Performance & runtime",
+      "kind": "Runtime module",
+      "howToUse": "Install and enable the module, configure FrankenPHP worker mode, then load-test state isolation before production use.",
+      "install": "composer require mage-os/module-worker-mode",
+      "requirements": "PHP 8.0–8.5; Mage-OS or Magento 2; FrankenPHP",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-worker-mode",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-13T14:38:13Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "v1.0.5",
+        "date": "2026-07-13T14:38:14Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 0,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 14,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 14
+        }
+      ]
+    },
+    {
+      "slug": "module-worker-mode-hyva",
+      "title": "FrankenPHP Worker Mode for Hyvä",
+      "repository": "module-worker-mode-hyva",
+      "url": "https://github.com/mage-os-lab/module-worker-mode-hyva",
+      "issuesUrl": "https://github.com/mage-os-lab/module-worker-mode-hyva/issues",
+      "summary": "Prevents Hyvä CSP state leaking between requests under FrankenPHP worker mode.",
+      "category": "Performance & runtime",
+      "kind": "Compatibility module",
+      "howToUse": "Install it alongside Worker Mode and Hyvä, then verify CSP behaviour across repeated worker requests.",
+      "install": "composer require mage-os/module-worker-mode-hyva",
+      "requirements": "Worker Mode module; Hyvä theme module; FrankenPHP",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-worker-mode-hyva",
+      "archived": false,
+      "sourceUpdatedAt": "2026-07-05T15:10:19Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": {
+        "tag": "v1.0.2",
+        "date": "2026-07-05T15:10:19Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 0,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 7,
+      "quality": {
+        "score": 4,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 7
+        }
+      ]
+    },
+    {
+      "slug": "patch-objectmanager-lazy-object",
+      "title": "ObjectManager Lazy Object Patch",
+      "repository": "patch-objectmanager-lazy-object",
+      "url": "https://github.com/mage-os-lab/patch-objectmanager-lazy-object",
+      "issuesUrl": "https://github.com/mage-os-lab/patch-objectmanager-lazy-object/issues",
+      "summary": "Explores PHP 8.4 native lazy objects in the Magento ObjectManager to reduce request startup work.",
+      "category": "Performance & runtime",
+      "kind": "Experimental patch",
+      "howToUse": "Apply the patch with cweagans/composer-patches only in a controlled test environment and benchmark compatibility.",
+      "install": "Apply lazyObjectsPatch.patch with cweagans/composer-patches",
+      "requirements": "PHP 8.4+; Mage-OS or Magento 2; composer-patches",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "The maintainers describe this as experimental and not yet battle-tested in production.",
+      "package": null,
+      "archived": false,
+      "sourceUpdatedAt": "2025-11-21T12:38:58Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": null,
+      "license": null,
+      "stars": 7,
+      "forks": 2,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 7,
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 5
+        }
+      ]
+    },
+    {
+      "slug": "theme-frontend-uikit",
+      "title": "UIkit Frontend Theme",
+      "repository": "theme-frontend-uikit",
+      "url": "https://github.com/mage-os-lab/theme-frontend-uikit",
+      "issuesUrl": "https://github.com/mage-os-lab/theme-frontend-uikit/issues",
+      "summary": "A UIkit 3 storefront theme that retains native Magento LESS tooling and broad Luma-style compatibility.",
+      "category": "Developer tools",
+      "kind": "Theme",
+      "howToUse": "Install the theme and its utilities module, register it in the admin, then inherit or customize it for the storefront.",
+      "install": "composer require mage-os/theme-frontend-uikit",
+      "requirements": "Mage-OS or Magento 2; UIkit Theme Utilities module",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/theme-frontend-uikit",
+      "archived": false,
+      "sourceUpdatedAt": "2025-11-02T10:25:43Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "Less",
+      "license": "MIT",
+      "stars": 8,
+      "forks": 3,
+      "openIssues": 0,
+      "defaultBranch": "master",
+      "commitCount": 18,
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Experimental",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 17
+        },
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 1
+        }
+      ]
+    },
+    {
+      "slug": "web-installer",
+      "title": "Web Installer",
+      "repository": "web-installer",
+      "url": "https://github.com/mage-os-lab/web-installer",
+      "issuesUrl": "https://github.com/mage-os-lab/web-installer/issues",
+      "summary": "A browser-based setup experiment for installing Mage-OS.",
+      "category": "Developer tools",
+      "kind": "Installer component",
+      "howToUse": "Kept for historical reference; do not start a new installation workflow with this archived project.",
+      "install": "composer require mage-os/web-installer",
+      "requirements": "See repository documentation",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "Archived after not reaching a stable release; the repository invites interested maintainers to contact Mage-OS.",
+      "package": "mage-os/web-installer",
+      "archived": true,
+      "sourceUpdatedAt": "2025-08-13T09:45:00Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": null,
+      "stars": 5,
+      "forks": 5,
+      "openIssues": 6,
+      "defaultBranch": "main",
+      "commitCount": 12,
+      "quality": {
+        "score": 2,
+        "total": 6,
+        "label": "Archived",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": false
+        }
+      },
+      "contributors": [
+        {
+          "login": "jakwinkler",
+          "url": "https://github.com/jakwinkler",
+          "contributions": 4
+        },
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 3
+        },
+        {
+          "login": "fballiano",
+          "url": "https://github.com/fballiano",
+          "contributions": 2
+        }
+      ]
+    },
+    {
+      "slug": "zed-magento2-snippets",
+      "title": "Magento 2 Snippets for Zed",
+      "repository": "zed-magento2-snippets",
+      "url": "https://github.com/mage-os-lab/zed-magento2-snippets",
+      "issuesUrl": "https://github.com/mage-os-lab/zed-magento2-snippets/issues",
+      "summary": "Zed snippets for common Magento 2 and Hyvä PHP, XML, PHTML, CSP, and Alpine patterns.",
+      "category": "Developer tools",
+      "kind": "Editor extension",
+      "howToUse": "Open Zed Extensions, search for “Magento 2 Snippets”, and install the extension.",
+      "install": "Install “Magento 2 Snippets” from the Zed Extensions panel",
+      "requirements": "Zed editor",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": null,
+      "archived": false,
+      "sourceUpdatedAt": "2026-06-14T13:01:29Z",
+      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "latestRelease": null,
+      "language": null,
+      "license": "MIT",
+      "stars": 6,
+      "forks": 1,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 5,
+      "quality": {
+        "score": 3,
+        "total": 6,
+        "label": "Developing",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": false,
+          "automation": false,
+          "recentActivity": true
+        }
+      },
+      "contributors": [
+        {
+          "login": "GrimLink",
+          "url": "https://github.com/GrimLink",
+          "contributions": 5
+        }
+      ]
+    }
+  ]
+}
