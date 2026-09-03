@@ -13,7 +13,9 @@ const metadata = {
 const modules = [...catalogue.modules].sort(
   (first, second) =>
     Number(first.archived) - Number(second.archived) ||
-    new Date(second.sourceUpdatedAt).getTime() - new Date(first.sourceUpdatedAt).getTime()
+    second.quality.score - first.quality.score ||
+    new Date(second.sourceUpdatedAt).getTime() - new Date(first.sourceUpdatedAt).getTime() ||
+    first.title.localeCompare(second.title)
 );
 const activeModules = modules.filter((module) => !module.archived);
 const defaultModules = activeModules.filter((module) => module.quality.label !== 'Incubating');
@@ -245,8 +247,8 @@ const formatDate = (value: string) =>
               class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
               data-filter-sort
             >
-              <option value="updated">Recently updated</option>
               <option value="quality">Most signals</option>
+              <option value="updated">Recently updated</option>
               <option value="name">Name A–Z</option>
             </select>
           </label>
@@ -994,7 +996,7 @@ const formatDate = (value: string) =>
     let favouritesOnly = parameters.get('favourites') === '1' && favouriteSlugs.size > 0;
     search.value = parameters.get('q') ?? '';
     quality.value = parameters.get('readiness') ?? '';
-    sort.value = parameters.get('sort') ?? 'updated';
+    sort.value = parameters.get('sort') ?? 'quality';
     let activeDialogModule: LabModule | null = null;
     const readmeCache = new Map<string, string | null>();
     let readmeRequestId = 0;
@@ -1148,6 +1150,7 @@ const formatDate = (value: string) =>
         if (sort.value === 'quality')
           return (
             Number(second.dataset.score) - Number(first.dataset.score) ||
+            new Date(second.dataset.updated ?? '').getTime() - new Date(first.dataset.updated ?? '').getTime() ||
             (first.dataset.title ?? '').localeCompare(second.dataset.title ?? '')
           );
         return new Date(second.dataset.updated ?? '').getTime() - new Date(first.dataset.updated ?? '').getTime();
@@ -1164,7 +1167,7 @@ const formatDate = (value: string) =>
       if (selectedCategory) nextParameters.set('category', selectedCategory);
       if (quality.value) nextParameters.set('readiness', quality.value);
       if (favouritesOnly) nextParameters.set('favourites', '1');
-      if (sort.value !== 'updated') nextParameters.set('sort', sort.value);
+      if (sort.value !== 'quality') nextParameters.set('sort', sort.value);
       const nextQuery = nextParameters.toString();
       window.history.replaceState(
         {},
@@ -1455,7 +1458,7 @@ const formatDate = (value: string) =>
       quality.value = '';
       favouritesOnly = false;
       updateFavouriteControls();
-      sort.value = 'updated';
+      sort.value = 'quality';
       updateCategoryButtons();
       applyFilters();
       search.focus();
