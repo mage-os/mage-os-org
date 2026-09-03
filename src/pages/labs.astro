@@ -308,7 +308,7 @@ const formatDate = (value: string) =>
                 <div class="flex items-start gap-2">
                   <button
                     type="button"
-                    class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition hover:border-amber-300 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:border-slate-600 dark:text-slate-300 dark:hover:border-amber-500 dark:hover:bg-amber-950/40 dark:hover:text-amber-300"
+                    class="group inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition hover:border-amber-300 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:border-slate-600 dark:text-slate-300 dark:hover:border-amber-500 dark:hover:bg-amber-950/40 dark:hover:text-amber-300"
                     data-favourite-toggle
                     data-favourite-slug={module.slug}
                     data-favourite-title={module.title}
@@ -316,7 +316,8 @@ const formatDate = (value: string) =>
                     aria-pressed="false"
                     title={`Add ${module.title} to favourites`}
                   >
-                    <Icon name="tabler:star" class="h-4 w-4" />
+                    <Icon name="tabler:star" class="h-4 w-4 group-aria-pressed:hidden" />
+                    <Icon name="tabler:star-filled" class="hidden h-4 w-4 text-yellow-400 group-aria-pressed:block" />
                   </button>
                   <span
                     class:list={[
@@ -574,13 +575,14 @@ const formatDate = (value: string) =>
         <div class="flex items-center gap-1">
           <button
             type="button"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-gray-500 transition hover:border-amber-300 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:text-slate-300 dark:hover:border-amber-500 dark:hover:bg-amber-950/40 dark:hover:text-amber-300"
+            class="group inline-flex h-9 w-9 items-center justify-center rounded-lg border border-transparent text-gray-500 transition hover:border-amber-300 hover:bg-amber-50 hover:text-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-400/40 dark:text-slate-300 dark:hover:border-amber-500 dark:hover:bg-amber-950/40 dark:hover:text-amber-300"
             data-dialog-favourite
             aria-label="Add project to favourites"
             aria-pressed="false"
             title="Add project to favourites"
           >
-            <Icon name="tabler:star" class="h-5 w-5" />
+            <Icon name="tabler:star" class="h-5 w-5 group-aria-pressed:hidden" />
+            <Icon name="tabler:star-filled" class="hidden h-5 w-5 text-yellow-400 group-aria-pressed:block" />
           </button>
           <form method="dialog">
             <button
@@ -1072,7 +1074,6 @@ const formatDate = (value: string) =>
       button.setAttribute('aria-label', `${action} ${title} ${destination} favourites`);
       button.title = `${action} ${title} ${destination} favourites`;
       for (const className of favouriteActiveClasses) button.classList.toggle(className, isFavourite);
-      button.querySelector('svg')?.classList.toggle('fill-current', isFavourite);
     };
 
     const updateFavouriteControls = () => {
