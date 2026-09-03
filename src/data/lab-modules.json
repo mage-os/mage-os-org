@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "organisation": "mage-os-lab",
-  "catalogueUpdatedAt": "2026-08-26T14:32:31.302Z",
+  "catalogueUpdatedAt": "2026-09-03T15:21:44.169Z",
   "methodology": {
     "label": "Repository quality signals",
     "totalSignals": 6,
@@ -553,21 +553,21 @@
       "caveat": null,
       "package": "mage-os/module-ai-base",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-21T07:46:26Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-08-31T14:40:03Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "PHP",
       "license": null,
       "stars": 5,
       "forks": 1,
-      "openIssues": 2,
+      "openIssues": 1,
       "defaultBranch": "main",
-      "commitCount": 58,
+      "commitCount": 65,
       "contributors": [
         {
           "login": "michielgerritsen",
           "url": "https://github.com/michielgerritsen",
-          "contributions": 42
+          "contributions": 49
         },
         {
           "login": "rhoerr",
@@ -610,8 +610,8 @@
       "caveat": "The README labels this as a proof of concept and does not yet document finished features.",
       "package": "mage-os/module-alpine-loader",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-08T17:54:49Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-09-02T15:01:38Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "HTML",
       "license": "MIT",
@@ -619,12 +619,12 @@
       "forks": 1,
       "openIssues": 0,
       "defaultBranch": "master",
-      "commitCount": 17,
+      "commitCount": 18,
       "contributors": [
         {
           "login": "jissereitsma",
           "url": "https://github.com/jissereitsma",
-          "contributions": 15
+          "contributions": 16
         },
         {
           "login": "JeroenBoersma",
@@ -667,8 +667,8 @@
       "caveat": null,
       "package": "mage-os/module-alpine-local-storage",
       "archived": false,
-      "sourceUpdatedAt": "2026-07-15T07:14:26Z",
-      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
+      "sourceUpdatedAt": "2026-09-02T15:01:39Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "JavaScript",
       "license": null,
@@ -676,7 +676,19 @@
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 18,
+      "commitCount": 19,
+      "contributors": [
+        {
+          "login": "jissereitsma",
+          "url": "https://github.com/jissereitsma",
+          "contributions": 18
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 1
+        }
+      ],
       "quality": {
         "score": 2,
         "total": 6,
@@ -689,19 +701,7 @@
           "automation": false,
           "recentActivity": true
         }
-      },
-      "contributors": [
-        {
-          "login": "jissereitsma",
-          "url": "https://github.com/jissereitsma",
-          "contributions": 17
-        },
-        {
-          "login": "dadolun95",
-          "url": "https://github.com/dadolun95",
-          "contributions": 1
-        }
-      ]
+      }
     },
     {
       "slug": "module-alpine-messages",
@@ -719,8 +719,8 @@
       "caveat": null,
       "package": "mage-os/module-alpine-messages",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-07T14:47:38Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-09-02T15:01:41Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "JavaScript",
       "license": null,
@@ -728,12 +728,12 @@
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 19,
+      "commitCount": 20,
       "contributors": [
         {
           "login": "jissereitsma",
           "url": "https://github.com/jissereitsma",
-          "contributions": 18
+          "contributions": 19
         },
         {
           "login": "dadolun95",
@@ -771,8 +771,8 @@
       "caveat": null,
       "package": "mage-os/module-alpine-minicart",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-07T14:47:39Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-09-02T15:01:43Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "HTML",
       "license": null,
@@ -780,12 +780,12 @@
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 21,
+      "commitCount": 22,
       "contributors": [
         {
           "login": "jissereitsma",
           "url": "https://github.com/jissereitsma",
-          "contributions": 20
+          "contributions": 21
         },
         {
           "login": "dadolun95",
@@ -823,19 +823,19 @@
       "caveat": null,
       "package": "mage-os/module-blog",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-25T22:38:15Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-08-28T16:52:23Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": {
-        "tag": "v1.3.0",
-        "date": "2026-08-25T22:38:15Z"
+        "tag": "v1.3.1",
+        "date": "2026-08-28T16:52:23Z"
       },
       "language": "PHP",
       "license": "OSL-3.0",
-      "stars": 20,
+      "stars": 22,
       "forks": 8,
-      "openIssues": 1,
+      "openIssues": 2,
       "defaultBranch": "main",
-      "commitCount": 216,
+      "commitCount": 221,
       "contributors": [
         {
           "login": "DavidLambauer",
@@ -845,7 +845,7 @@
         {
           "login": "Sental",
           "url": "https://github.com/Sental",
-          "contributions": 30
+          "contributions": 34
         },
         {
           "login": "lucafuser",
@@ -860,7 +860,7 @@
         {
           "login": "mage-os-ci",
           "url": "https://github.com/mage-os-ci",
-          "contributions": 2
+          "contributions": 3
         },
         {
           "login": "alin-roweb",
@@ -912,42 +912,55 @@
       "category": "Content & merchandising",
       "kind": "Compatibility module",
       "howToUse": "Install it with the main Blog module when the storefront uses a Hyvä theme.",
-      "install": "composer require mageos/module-blog-hyva",
+      "install": "composer require mage-os/module-blog-hyva",
       "requirements": "Mage-OS Blog and a Hyvä theme",
       "compatibility": "Check the package constraints and README against your store version before installing.",
       "caveat": null,
-      "package": "mageos/module-blog-hyva",
+      "package": "mage-os/module-blog-hyva",
       "archived": false,
-      "sourceUpdatedAt": "2025-12-14T10:04:38Z",
-      "dataCheckedAt": "2026-08-02T20:36:34.908Z",
-      "latestRelease": null,
-      "language": "HTML",
-      "license": null,
-      "stars": 2,
-      "forks": 1,
-      "openIssues": 0,
-      "defaultBranch": "main",
-      "commitCount": 1,
-      "quality": {
-        "score": 1,
-        "total": 6,
-        "label": "Experimental",
-        "signals": {
-          "documentation": false,
-          "installable": true,
-          "release": false,
-          "tests": false,
-          "automation": false,
-          "recentActivity": false
-        }
+      "sourceUpdatedAt": "2026-09-01T06:53:54Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "v1.0.0",
+        "date": "2026-09-01T06:53:54Z"
       },
+      "language": "HTML",
+      "license": "OSL-3.0",
+      "stars": 2,
+      "forks": 2,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 5,
       "contributors": [
+        {
+          "login": "rhoerr",
+          "url": "https://github.com/rhoerr",
+          "contributions": 3
+        },
+        {
+          "login": "Sental",
+          "url": "https://github.com/Sental",
+          "contributions": 1
+        },
         {
           "login": "adrianalin89",
           "url": "https://github.com/adrianalin89",
           "contributions": 1
         }
-      ]
+      ],
+      "quality": {
+        "score": 6,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
     },
     {
       "slug": "module-catalog-data-ai",
@@ -1309,30 +1322,30 @@
       "category": "Other",
       "kind": "Lab project",
       "howToUse": "See the repository README for current usage guidance.",
-      "install": "See the repository for installation guidance",
-      "requirements": "See repository documentation",
+      "install": "composer require mage-os/module-netsuite-connector",
+      "requirements": "PHP ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0; Mage-OS or Magento 2",
       "compatibility": "Check the package constraints and README against your store version before installing.",
       "caveat": null,
-      "package": null,
+      "package": "mage-os/module-netsuite-connector",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-22T02:28:22Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-08-26T21:07:21Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
-      "language": null,
-      "license": null,
-      "stars": 0,
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 4,
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 0,
+      "commitCount": 2,
       "contributors": [],
       "quality": {
-        "score": 1,
+        "score": 3,
         "total": 6,
-        "label": "Incubating",
+        "label": "Developing",
         "signals": {
-          "documentation": false,
-          "installable": false,
+          "documentation": true,
+          "installable": true,
           "release": false,
           "tests": false,
           "automation": false,
@@ -1549,37 +1562,46 @@
       "repository": "module-profiler",
       "url": "https://github.com/mage-os-lab/module-profiler",
       "issuesUrl": "https://github.com/mage-os-lab/module-profiler/issues",
-      "summary": "A Mage-OS Lab project.",
+      "summary": "Mage-OS Profiler adds a tabular and a json profiler output type to Magento 2 — a third and fourth option next to the built-in html and csvfile.",
       "category": "Other",
       "kind": "Lab project",
       "howToUse": "See the repository README for current usage guidance.",
-      "install": "See the repository for installation guidance",
-      "requirements": "See repository documentation",
+      "install": "composer require mage-os/module-profiler",
+      "requirements": "PHP ^8.2; Mage-OS or Magento 2",
       "compatibility": "Check the package constraints and README against your store version before installing.",
       "caveat": null,
-      "package": null,
+      "package": "mage-os/module-profiler",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-11T14:15:14Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
-      "latestRelease": null,
-      "language": null,
-      "license": null,
-      "stars": 0,
+      "sourceUpdatedAt": "2026-09-02T14:06:25Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2026-08-31T15:56:11Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 1,
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 0,
-      "contributors": [],
+      "commitCount": 7,
+      "contributors": [
+        {
+          "login": "MagePsycho",
+          "url": "https://github.com/MagePsycho",
+          "contributions": 7
+        }
+      ],
       "quality": {
-        "score": 1,
+        "score": 6,
         "total": 6,
-        "label": "Incubating",
+        "label": "Strong signals",
         "signals": {
-          "documentation": false,
-          "installable": false,
-          "release": false,
-          "tests": false,
-          "automation": false,
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
           "recentActivity": true
         }
       }
@@ -1590,37 +1612,46 @@
       "repository": "module-profiler-admin-ui",
       "url": "https://github.com/mage-os-lab/module-profiler-admin-ui",
       "issuesUrl": "https://github.com/mage-os-lab/module-profiler-admin-ui/issues",
-      "summary": "A Mage-OS Lab project.",
+      "summary": "Mage-OS Profiler Admin UI is the admin viewer for the json reports written by MageOS_Profiler.",
       "category": "Other",
       "kind": "Lab project",
       "howToUse": "See the repository README for current usage guidance.",
-      "install": "See the repository for installation guidance",
-      "requirements": "See repository documentation",
+      "install": "composer require mage-os/module-profiler-admin-ui",
+      "requirements": "PHP ^8.2; Mage-OS or Magento 2",
       "compatibility": "Check the package constraints and README against your store version before installing.",
       "caveat": null,
-      "package": null,
+      "package": "mage-os/module-profiler-admin-ui",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-11T14:17:06Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
-      "latestRelease": null,
-      "language": null,
-      "license": null,
-      "stars": 0,
+      "sourceUpdatedAt": "2026-09-01T05:50:14Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2026-09-01T05:50:39Z"
+      },
+      "language": "PHP",
+      "license": "OSL-3.0",
+      "stars": 1,
       "forks": 0,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 0,
-      "contributors": [],
+      "commitCount": 3,
+      "contributors": [
+        {
+          "login": "MagePsycho",
+          "url": "https://github.com/MagePsycho",
+          "contributions": 3
+        }
+      ],
       "quality": {
-        "score": 1,
+        "score": 6,
         "total": 6,
-        "label": "Incubating",
+        "label": "Strong signals",
         "signals": {
-          "documentation": false,
-          "installable": false,
-          "release": false,
-          "tests": false,
-          "automation": false,
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": true,
           "recentActivity": true
         }
       }
@@ -1743,21 +1774,21 @@
       "caveat": null,
       "package": "mage-os/module-shopping-feed",
       "archived": false,
-      "sourceUpdatedAt": "2026-08-19T03:20:59Z",
-      "dataCheckedAt": "2026-08-26T14:18:17.184Z",
+      "sourceUpdatedAt": "2026-09-01T15:35:17Z",
+      "dataCheckedAt": "2026-09-03T15:21:44.169Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
-      "stars": 4,
+      "stars": 6,
       "forks": 1,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 1,
+      "commitCount": 5,
       "contributors": [
         {
           "login": "mattmacrocket",
           "url": "https://github.com/mattmacrocket",
-          "contributions": 1
+          "contributions": 5
         }
       ],
       "quality": {
