@@ -18,9 +18,6 @@ const modules = [...catalogue.modules].sort(
 const activeModules = modules.filter((module) => !module.archived);
 const defaultModules = activeModules.filter((module) => module.quality.label !== 'Incubating');
 const categories = [...new Set(activeModules.map((module) => module.category))].sort();
-const contributors = [
-  ...new Set(modules.flatMap((module) => module.contributors.map((contributor) => contributor.login))),
-].sort((first, second) => first.localeCompare(second, 'en', { sensitivity: 'base' }));
 const qualityLabels = ['Strong signals', 'Developing', 'Experimental', 'Incubating'];
 
 const categoryIcons: Record<string, string> = {
@@ -103,67 +100,45 @@ const formatDate = (value: string) =>
     </div>
   </section>
 
-  <section id="browse-labs" class="scroll-mt-24 bg-gray-50 py-14 dark:bg-slate-900 sm:py-20" data-labs-page>
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div aria-labelledby="category-filter-label">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 id="category-filter-label" class="font-heading text-lg font-bold text-gray-900 dark:text-white">
-              Browse by category
-            </h2>
-            <p class="mt-1 text-sm text-muted dark:text-slate-400">Choose an area to narrow the module list.</p>
-          </div>
-          <p class="text-sm text-muted dark:text-slate-400" aria-live="polite">
-            Showing <strong class="text-gray-900 dark:text-white" data-result-count>{defaultModules.length}</strong> projects
-          </p>
-        </div>
-        <div class="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5" role="group" aria-labelledby="category-filter-label">
-          <button
-            type="button"
-            class="flex min-h-28 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white px-2 py-3 text-center text-gray-700 shadow-sm transition hover:border-orange-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 aria-pressed:border-primary aria-pressed:bg-orange-50 aria-pressed:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:aria-pressed:border-orange-500 dark:aria-pressed:bg-orange-950/30 dark:aria-pressed:text-orange-300"
-            data-filter-category-button
-            data-category-value=""
-            aria-pressed="true"
-          >
-            <Icon name="tabler:apps" class="h-7 w-7" />
-            <span class="mt-2 text-xs font-bold leading-tight">All projects</span>
-            <span class="mt-1 text-[0.6875rem] text-muted dark:text-slate-400">{defaultModules.length}</span>
-          </button>
-          <button
-            type="button"
-            class="flex min-h-28 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white px-2 py-3 text-center text-gray-700 shadow-sm transition hover:border-orange-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 aria-pressed:border-primary aria-pressed:bg-orange-50 aria-pressed:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:aria-pressed:border-orange-500 dark:aria-pressed:bg-orange-950/30 dark:aria-pressed:text-orange-300"
-            data-filter-category-button
-            data-favourites-category
-            data-category-value="Favourites"
-            aria-pressed="false"
-            hidden
-          >
-            <Icon name="tabler:star-filled" class="h-7 w-7" />
-            <span class="mt-2 text-xs font-bold leading-tight">Favourites</span>
-            <span class="mt-1 text-[0.6875rem] text-muted dark:text-slate-400" data-favourites-count>0</span>
-          </button>
-          {
-            categories.map((category) => (
-              <button
-                type="button"
-                class="flex min-h-28 flex-col items-center justify-center rounded-xl border border-gray-200 bg-white px-2 py-3 text-center text-gray-700 shadow-sm transition hover:border-orange-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 aria-pressed:border-primary aria-pressed:bg-orange-50 aria-pressed:text-primary dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:aria-pressed:border-orange-500 dark:aria-pressed:bg-orange-950/30 dark:aria-pressed:text-orange-300"
-                data-filter-category-button
-                data-category-value={category}
-                aria-pressed="false"
-              >
-                <Icon name={categoryIcons[category] ?? 'tabler:flask'} class="h-7 w-7" />
-                <span class="mt-2 text-xs font-bold leading-tight">{category}</span>
-                <span class="mt-1 text-[0.6875rem] text-muted dark:text-slate-400">
-                  {defaultModules.filter((module) => module.category === category).length}
-                </span>
-              </button>
-            ))
-          }
-        </div>
-      </div>
+  <div
+    class="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center px-4"
+    role="status"
+    aria-live="polite"
+  >
+    <div
+      class="hidden items-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-xl dark:bg-white dark:text-slate-900"
+      data-favourite-toast
+    >
+      <Icon name="tabler:star-filled" class="h-4 w-4 text-orange-400" />
+      <span data-favourite-toast-message></span>
+    </div>
+  </div>
 
+  <section
+    id="browse-labs"
+    class="scroll-mt-24 bg-gray-50 py-14 dark:bg-slate-900 sm:py-20"
+    aria-labelledby="browse-labs-title"
+    data-labs-page
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 id="browse-labs-title" class="sr-only">Browse Mage-OS Lab projects</h2>
+
+      <button
+        type="button"
+        class="mb-4 inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 shadow-sm transition hover:border-orange-300 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30 aria-pressed:border-primary aria-pressed:bg-orange-50 aria-pressed:text-primary dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:aria-pressed:border-orange-500 dark:aria-pressed:bg-orange-950/30 dark:aria-pressed:text-orange-300"
+        aria-pressed="false"
+        data-favourites-view
+        hidden
+      >
+        <Icon name="tabler:star-filled" class="h-4 w-4" />
+        <span data-favourites-view-label>View favourites</span>
+        <span
+          class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-bold text-gray-700 dark:bg-slate-700 dark:text-slate-200"
+          data-favourites-count>0</span
+        >
+      </button>
       <div
-        class="mt-6 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:p-5"
+        class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:p-5"
       >
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
           <label class="lg:col-span-5">
@@ -196,16 +171,73 @@ const formatDate = (value: string) =>
             </select>
           </label>
 
-          <label class="lg:col-span-3">
-            <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200">Contributor</span>
-            <select
-              class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
-              data-filter-contributor
+          <div class="lg:col-span-3">
+            <span
+              class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200"
+              id="category-filter-label">Browse by category</span
             >
-              <option value="">All contributors</option>
-              {contributors.map((contributor) => <option value={contributor}>{contributor}</option>)}
-            </select>
-          </label>
+            <div class="relative" data-category-select>
+              <button
+                type="button"
+                class="flex w-full items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-left text-gray-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-labelledby="category-filter-label"
+                data-category-trigger
+              >
+                <span class="flex h-5 w-5 shrink-0 items-center justify-center text-primary">
+                  <span data-trigger-icon=""><Icon name="tabler:apps" class="h-5 w-5" /></span>
+                  {
+                    categories.map((category) => (
+                      <span data-trigger-icon={category} hidden>
+                        <Icon name={categoryIcons[category] ?? 'tabler:flask'} class="h-5 w-5" />
+                      </span>
+                    ))
+                  }
+                </span>
+                <span class="flex-1 truncate" data-category-trigger-label>All projects</span>
+                <Icon name="tabler:chevron-down" class="h-4 w-4 shrink-0 text-gray-400" />
+              </button>
+
+              <div
+                class="absolute left-0 right-0 top-full z-30 mt-1 hidden max-h-72 overflow-y-auto rounded-lg border border-gray-200 bg-white py-1 shadow-xl dark:border-slate-600 dark:bg-slate-900"
+                role="menu"
+                aria-labelledby="category-filter-label"
+                data-category-list
+              >
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  aria-checked="true"
+                  class="flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm text-gray-700 transition hover:bg-orange-50 hover:text-primary focus:bg-orange-50 focus:text-primary focus:outline-none aria-checked:font-bold aria-checked:text-primary dark:text-slate-300 dark:hover:bg-slate-800 dark:focus:bg-slate-800 dark:aria-checked:text-orange-300"
+                  data-category-option
+                  data-category-value=""
+                >
+                  <Icon name="tabler:apps" class="h-5 w-5 shrink-0" />
+                  <span class="flex-1">All projects</span>
+                  <span class="text-xs text-muted dark:text-slate-400">{defaultModules.length}</span>
+                </button>
+                {
+                  categories.map((category) => (
+                    <button
+                      type="button"
+                      role="menuitemradio"
+                      aria-checked="false"
+                      class="flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm text-gray-700 transition hover:bg-orange-50 hover:text-primary focus:bg-orange-50 focus:text-primary focus:outline-none aria-checked:font-bold aria-checked:text-primary dark:text-slate-300 dark:hover:bg-slate-800 dark:focus:bg-slate-800 dark:aria-checked:text-orange-300"
+                      data-category-option
+                      data-category-value={category}
+                    >
+                      <Icon name={categoryIcons[category] ?? 'tabler:flask'} class="h-5 w-5 shrink-0" />
+                      <span class="flex-1">{category}</span>
+                      <span class="text-xs text-muted dark:text-slate-400">
+                        {defaultModules.filter((module) => module.category === category).length}
+                      </span>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
 
           <label class="lg:col-span-2">
             <span class="mb-1.5 block text-sm font-semibold text-gray-800 dark:text-slate-200">Sort</span>
@@ -223,33 +255,10 @@ const formatDate = (value: string) =>
         <div
           class="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-gray-100 pt-4 dark:border-slate-700"
         >
-          <div class="flex items-center gap-2" data-incubating-filter>
-            <label
-              class="inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-gray-700 dark:text-slate-300"
-            >
-              <input
-                type="checkbox"
-                class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary/30 dark:border-slate-600 dark:bg-slate-900"
-                data-filter-incubating
-              />
-              Show incubating projects
-            </label>
-            <span
-              class="group/incubating relative inline-flex h-5 w-5 shrink-0 cursor-help items-center justify-center rounded-full border border-gray-300 text-xs font-bold text-gray-600 outline-none focus:ring-2 focus:ring-primary/30 dark:border-slate-600 dark:text-slate-300"
-              tabindex="0"
-              aria-label="About incubating projects"
-              aria-describedby="incubating-projects-tooltip"
-            >
-              ?
-              <span
-                id="incubating-projects-tooltip"
-                role="tooltip"
-                class="pointer-events-none invisible absolute left-0 top-full z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] translate-y-1 rounded-lg bg-slate-950 px-3 py-2 text-left text-xs font-medium leading-5 text-white opacity-0 shadow-xl transition-[opacity,transform] duration-200 ease-out group-hover/incubating:visible group-hover/incubating:translate-y-0 group-hover/incubating:opacity-100 group-focus/incubating:visible group-focus/incubating:translate-y-0 group-focus/incubating:opacity-100 dark:bg-white dark:text-slate-900"
-              >
-                Incubating projects have been created but contain little to no code yet.
-              </span>
-            </span>
-          </div>
+          <p class="text-sm text-muted dark:text-slate-400" aria-live="polite">
+            Showing <strong class="text-gray-900 dark:text-white" data-result-count>{defaultModules.length}</strong> projects
+          </p>
+
           <button type="button" class="ml-auto text-sm font-semibold text-primary hover:underline" data-filter-clear
             >Clear filters</button
           >
@@ -269,7 +278,6 @@ const formatDate = (value: string) =>
               data-module-card
               data-slug={module.slug}
               data-category={module.category}
-              data-contributors={module.contributors.map((contributor) => contributor.login.toLowerCase()).join(',')}
               data-quality={module.quality.label}
               data-archived={String(module.archived)}
               data-updated={module.sourceUpdatedAt}
@@ -746,7 +754,6 @@ const formatDate = (value: string) =>
 <script>
   type LabModule = (typeof import('~/data/lab-modules.json'))['modules'][number];
 
-  const FAVOURITES_CATEGORY = 'Favourites';
   const FAVOURITES_STORAGE_KEY = 'mageos-lab-favourites';
 
   const signalLabels: Record<keyof LabModule['quality']['signals'], string> = {
@@ -906,13 +913,19 @@ const formatDate = (value: string) =>
 
     const search = page.querySelector<HTMLInputElement>('[data-filter-search]');
     const searchLabel = page.querySelector<HTMLElement>('[data-search-label]');
-    const categoryButtons = [...page.querySelectorAll<HTMLButtonElement>('[data-filter-category-button]')];
-    const favouritesCategory = page.querySelector<HTMLButtonElement>('[data-favourites-category]');
+    const categoryButtons = [...page.querySelectorAll<HTMLButtonElement>('[data-category-option]')];
+    const categorySelect = page.querySelector<HTMLElement>('[data-category-select]');
+    const categoryTrigger = page.querySelector<HTMLButtonElement>('[data-category-trigger]');
+    const categoryList = page.querySelector<HTMLElement>('[data-category-list]');
+    const categoryTriggerLabel = page.querySelector<HTMLElement>('[data-category-trigger-label]');
+    const triggerIcons = [...page.querySelectorAll<HTMLElement>('[data-trigger-icon]')];
+    const favouritesView = page.querySelector<HTMLButtonElement>('[data-favourites-view]');
+    const favouritesViewLabel = page.querySelector<HTMLElement>('[data-favourites-view-label]');
     const favouritesCount = page.querySelector<HTMLElement>('[data-favourites-count]');
-    const contributor = page.querySelector<HTMLSelectElement>('[data-filter-contributor]');
+    // The toast is fixed to the viewport and sits outside the section wrapper.
+    const favouriteToast = document.querySelector<HTMLElement>('[data-favourite-toast]');
+    const favouriteToastMessage = document.querySelector<HTMLElement>('[data-favourite-toast-message]');
     const quality = page.querySelector<HTMLSelectElement>('[data-filter-quality]');
-    const showIncubating = page.querySelector<HTMLInputElement>('[data-filter-incubating]');
-    const incubatingFilter = page.querySelector<HTMLElement>('[data-incubating-filter]');
     const sort = page.querySelector<HTMLSelectElement>('[data-filter-sort]');
     const clear = page.querySelector<HTMLButtonElement>('[data-filter-clear]');
     const grid = page.querySelector<HTMLElement>('[data-module-grid]');
@@ -934,12 +947,16 @@ const formatDate = (value: string) =>
       !search ||
       !searchLabel ||
       !categoryButtons.length ||
-      !favouritesCategory ||
+      !categorySelect ||
+      !categoryTrigger ||
+      !categoryList ||
+      !categoryTriggerLabel ||
+      !favouritesView ||
+      !favouritesViewLabel ||
       !favouritesCount ||
-      !contributor ||
+      !favouriteToast ||
+      !favouriteToastMessage ||
       !quality ||
-      !showIncubating ||
-      !incubatingFilter ||
       !sort ||
       !clear ||
       !grid ||
@@ -974,11 +991,9 @@ const formatDate = (value: string) =>
     const parameters = new URLSearchParams(window.location.search);
     let selectedCategory = parameters.get('category') ?? '';
     if (!categoryButtons.some((button) => button.dataset.categoryValue === selectedCategory)) selectedCategory = '';
-    if (selectedCategory === FAVOURITES_CATEGORY && favouriteSlugs.size === 0) selectedCategory = '';
+    let favouritesOnly = parameters.get('favourites') === '1' && favouriteSlugs.size > 0;
     search.value = parameters.get('q') ?? '';
-    contributor.value = parameters.get('contributor') ?? '';
     quality.value = parameters.get('readiness') ?? '';
-    showIncubating.checked = parameters.get('incubating') === '1';
     sort.value = parameters.get('sort') ?? 'updated';
     let activeDialogModule: LabModule | null = null;
     const readmeCache = new Map<string, string | null>();
@@ -1016,22 +1031,35 @@ const formatDate = (value: string) =>
     const updateCategoryButtons = () => {
       for (const categoryButton of categoryButtons) {
         categoryButton.setAttribute(
-          'aria-pressed',
+          'aria-checked',
           String((categoryButton.dataset.categoryValue ?? '') === selectedCategory)
         );
       }
+
+      const selectedOption = categoryButtons.find(
+        (categoryButton) => (categoryButton.dataset.categoryValue ?? '') === selectedCategory
+      );
+      categoryTriggerLabel.textContent = selectedOption?.querySelector('span')?.textContent ?? 'All projects';
+      for (const icon of triggerIcons) icon.hidden = (icon.dataset.triggerIcon ?? '') !== selectedCategory;
     };
 
+    const setCategoryListOpen = (open: boolean) => {
+      categoryList.classList.toggle('hidden', !open);
+      categoryTrigger.setAttribute('aria-expanded', String(open));
+    };
+
+    const visibleCategoryOptions = () => categoryButtons.filter((option) => !option.hidden);
+
     const updateCategoryCopy = () => {
-      if (!selectedCategory) {
+      const scope = [favouritesOnly ? 'favourite' : '', selectedCategory].filter(Boolean).join(' ');
+      if (!scope) {
         searchLabel.textContent = 'Search projects';
         noResultsTitle.textContent = 'No matching projects';
         return;
       }
 
-      const categoryName = selectedCategory === FAVOURITES_CATEGORY ? 'favourite' : selectedCategory;
-      searchLabel.textContent = `Search ${categoryName} projects`;
-      noResultsTitle.textContent = `No matching projects in ${categoryName}`;
+      searchLabel.textContent = `Search ${scope} projects`;
+      noResultsTitle.textContent = `No matching projects in ${scope}`;
     };
 
     const updateFavouriteButton = (button: HTMLButtonElement, slug: string, title: string) => {
@@ -1046,8 +1074,10 @@ const formatDate = (value: string) =>
     };
 
     const updateFavouriteControls = () => {
-      if (favouriteSlugs.size === 0 && selectedCategory === FAVOURITES_CATEGORY) selectedCategory = '';
-      favouritesCategory.hidden = favouriteSlugs.size === 0;
+      if (favouriteSlugs.size === 0) favouritesOnly = false;
+      favouritesView.hidden = favouriteSlugs.size === 0;
+      favouritesView.setAttribute('aria-pressed', String(favouritesOnly));
+      favouritesViewLabel.textContent = favouritesOnly ? 'Viewing favourites' : 'View favourites';
       favouritesCount.textContent = String(favouriteSlugs.size);
 
       for (const button of favouriteButtons) {
@@ -1069,86 +1099,29 @@ const formatDate = (value: string) =>
     };
 
     const matchesSelectedCategory = (card: HTMLElement) =>
-      !selectedCategory ||
-      (selectedCategory === FAVOURITES_CATEGORY
-        ? favouriteSlugs.has(card.dataset.slug ?? '')
-        : card.dataset.category === selectedCategory);
+      !selectedCategory || card.dataset.category === selectedCategory;
 
-    const cardContributors = (card: HTMLElement) => (card.dataset.contributors ?? '').split(',').filter(Boolean);
+    const matchesFavourites = (card: HTMLElement) => !favouritesOnly || favouriteSlugs.has(card.dataset.slug ?? '');
 
     const cardStatus = (card: HTMLElement) =>
       card.dataset.archived === 'true' ? 'Archived' : (card.dataset.quality ?? '');
 
     const matchesSelectedStatus = (card: HTMLElement) => {
-      if (showIncubating.checked) return card.dataset.archived !== 'true' && card.dataset.quality === 'Incubating';
       if (quality.value === 'Archived') return card.dataset.archived === 'true';
       if (card.dataset.archived === 'true') return false;
       if (quality.value) return card.dataset.quality === quality.value;
       return card.dataset.quality !== 'Incubating';
     };
 
-    // The toggle is only meaningful when the current search, category, and contributor
-    // scope actually contains an incubating project.
-    const hasIncubatingInScope = () => {
-      const query = search.value.trim().toLowerCase();
-      const selectedContributor = contributor.value.toLowerCase();
-      return cards.some(
-        (card) =>
-          card.dataset.quality === 'Incubating' &&
-          card.dataset.archived !== 'true' &&
-          matchesSelectedCategory(card) &&
-          (!query || card.dataset.search?.includes(query)) &&
-          (!selectedContributor || cardContributors(card).includes(selectedContributor))
-      );
-    };
-
     const updateFacetOptions = () => {
-      const categoryCards = cards.filter(matchesSelectedCategory);
+      const categoryCards = cards.filter((card) => matchesSelectedCategory(card) && matchesFavourites(card));
 
-      const getAvailableStatuses = () => {
-        const selectedContributor = contributor.value.toLowerCase();
-        return new Set(
-          categoryCards
-            .filter((card) => !selectedContributor || cardContributors(card).includes(selectedContributor))
-            .map(cardStatus)
-            .filter(Boolean)
-        );
-      };
-
-      const getAvailableContributors = () =>
-        new Set(categoryCards.filter(matchesSelectedStatus).flatMap(cardContributors));
-
-      for (let pass = 0; pass < 3; pass += 1) {
-        let selectionChanged = false;
-        const availableStatuses = getAvailableStatuses();
-        if (quality.value && !availableStatuses.has(quality.value)) {
-          quality.value = '';
-          selectionChanged = true;
-        }
-
-        const availableContributors = getAvailableContributors();
-        if (contributor.value && !availableContributors.has(contributor.value.toLowerCase())) {
-          contributor.value = '';
-          selectionChanged = true;
-        }
-        if (!selectionChanged) break;
-      }
+      const getAvailableStatuses = () => new Set(categoryCards.map(cardStatus).filter(Boolean));
 
       const availableStatuses = getAvailableStatuses();
+      if (quality.value && !availableStatuses.has(quality.value)) quality.value = '';
       for (const option of [...quality.options].filter((item) => item.value)) {
         const isAvailable = availableStatuses.has(option.value);
-        option.hidden = !isAvailable;
-        option.disabled = !isAvailable;
-      }
-
-      const incubatingAvailable = hasIncubatingInScope();
-      incubatingFilter.hidden = !incubatingAvailable;
-      // Leaving it ticked with nothing to match would strand the list on zero results.
-      if (!incubatingAvailable) showIncubating.checked = false;
-
-      const availableContributors = getAvailableContributors();
-      for (const option of [...contributor.options].filter((item) => item.value)) {
-        const isAvailable = availableContributors.has(option.value.toLowerCase());
         option.hidden = !isAvailable;
         option.disabled = !isAvailable;
       }
@@ -1161,12 +1134,10 @@ const formatDate = (value: string) =>
 
       for (const card of cards) {
         const matchesSearch = !query || card.dataset.search?.includes(query);
-        const matchesContributor =
-          !contributor.value || (card.dataset.contributors ?? '').split(',').includes(contributor.value.toLowerCase());
         card.hidden = !(
           matchesSearch &&
           matchesSelectedCategory(card) &&
-          matchesContributor &&
+          matchesFavourites(card) &&
           matchesSelectedStatus(card)
         );
         if (!card.hidden) visible += 1;
@@ -1188,13 +1159,11 @@ const formatDate = (value: string) =>
       updateCategoryCopy();
 
       const nextParameters = new URLSearchParams(window.location.search);
-      for (const key of ['q', 'category', 'contributor', 'readiness', 'sort', 'archived', 'incubating'])
-        nextParameters.delete(key);
+      for (const key of ['q', 'category', 'readiness', 'sort', 'archived', 'favourites']) nextParameters.delete(key);
       if (search.value.trim()) nextParameters.set('q', search.value.trim());
       if (selectedCategory) nextParameters.set('category', selectedCategory);
-      if (contributor.value) nextParameters.set('contributor', contributor.value);
       if (quality.value) nextParameters.set('readiness', quality.value);
-      if (showIncubating.checked) nextParameters.set('incubating', '1');
+      if (favouritesOnly) nextParameters.set('favourites', '1');
       if (sort.value !== 'updated') nextParameters.set('sort', sort.value);
       const nextQuery = nextParameters.toString();
       window.history.replaceState(
@@ -1204,12 +1173,27 @@ const formatDate = (value: string) =>
       );
     };
 
-    const toggleFavourite = (slug: string) => {
-      if (favouriteSlugs.has(slug)) favouriteSlugs.delete(slug);
-      else favouriteSlugs.add(slug);
+    let toastTimer = 0;
+
+    const showFavouriteToast = (message: string) => {
+      favouriteToastMessage.textContent = message;
+      favouriteToast.classList.remove('hidden');
+      favouriteToast.classList.add('flex');
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => {
+        favouriteToast.classList.add('hidden');
+        favouriteToast.classList.remove('flex');
+      }, 3200);
+    };
+
+    const toggleFavourite = (slug: string, title: string) => {
+      const added = !favouriteSlugs.has(slug);
+      if (added) favouriteSlugs.add(slug);
+      else favouriteSlugs.delete(slug);
       saveFavourites();
       updateFavouriteControls();
       applyFilters();
+      showFavouriteToast(added ? `${title} added to favourites` : `${title} removed from favourites`);
     };
 
     const openDialog = (module: LabModule) => {
@@ -1328,33 +1312,72 @@ const formatDate = (value: string) =>
       quickView?.addEventListener('click', () => {
         if (card.dataset.module) openDialog(JSON.parse(card.dataset.module) as LabModule);
       });
-      favourite?.addEventListener('click', () => toggleFavourite(card.dataset.slug ?? ''));
+      favourite?.addEventListener('click', () =>
+        toggleFavourite(card.dataset.slug ?? '', card.dataset.title ?? 'Project')
+      );
     }
 
-    for (const input of [search, contributor, sort]) {
-      input.addEventListener(input === search ? 'input' : 'change', applyFilters);
-    }
+    search.addEventListener('input', applyFilters);
+    sort.addEventListener('change', applyFilters);
 
     for (const button of categoryButtons) {
       button.addEventListener('click', () => {
         selectedCategory = button.dataset.categoryValue ?? '';
+        setCategoryListOpen(false);
+        categoryTrigger.focus();
         updateCategoryButtons();
         applyFilters();
       });
     }
 
-    quality.addEventListener('change', () => {
-      // Keep the two readiness controls mutually exclusive so neither becomes a dead input.
-      if (quality.value && showIncubating.checked) showIncubating.checked = false;
-      applyFilters();
+    categoryTrigger.addEventListener('click', () => {
+      const willOpen = categoryTrigger.getAttribute('aria-expanded') !== 'true';
+      setCategoryListOpen(willOpen);
+      if (willOpen) visibleCategoryOptions()[0]?.focus();
     });
-    showIncubating.addEventListener('change', () => {
-      if (showIncubating.checked && quality.value) quality.value = '';
+
+    categorySelect.addEventListener('keydown', (event) => {
+      const options = visibleCategoryOptions();
+      if (event.key === 'Escape') {
+        if (categoryTrigger.getAttribute('aria-expanded') !== 'true') return;
+        setCategoryListOpen(false);
+        categoryTrigger.focus();
+        return;
+      }
+      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+
+      event.preventDefault();
+      if (categoryTrigger.getAttribute('aria-expanded') !== 'true') {
+        setCategoryListOpen(true);
+        options[event.key === 'ArrowDown' ? 0 : options.length - 1]?.focus();
+        return;
+      }
+
+      const current = options.indexOf(document.activeElement as HTMLButtonElement);
+      const step = event.key === 'ArrowDown' ? 1 : -1;
+      const next = current === -1 ? 0 : (current + step + options.length) % options.length;
+      options[next]?.focus();
+    });
+
+    categorySelect.addEventListener('focusout', (event) => {
+      if (categorySelect.contains(event.relatedTarget as Node)) return;
+      setCategoryListOpen(false);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!categorySelect.contains(event.target as Node)) setCategoryListOpen(false);
+    });
+
+    quality.addEventListener('change', applyFilters);
+
+    favouritesView.addEventListener('click', () => {
+      favouritesOnly = !favouritesOnly;
+      updateFavouriteControls();
       applyFilters();
     });
 
     dialogFavourite.addEventListener('click', () => {
-      if (activeDialogModule) toggleFavourite(activeDialogModule.slug);
+      if (activeDialogModule) toggleFavourite(activeDialogModule.slug, activeDialogModule.title);
     });
 
     readmeButton.addEventListener('click', async () => {
@@ -1428,12 +1451,10 @@ const formatDate = (value: string) =>
     clear.addEventListener('click', () => {
       search.value = '';
       selectedCategory = '';
-      for (const categoryButton of categoryButtons) {
-        categoryButton.setAttribute('aria-pressed', String((categoryButton.dataset.categoryValue ?? '') === ''));
-      }
-      contributor.value = '';
+      setCategoryListOpen(false);
       quality.value = '';
-      showIncubating.checked = false;
+      favouritesOnly = false;
+      updateFavouriteControls();
       sort.value = 'updated';
       updateCategoryButtons();
       applyFilters();
