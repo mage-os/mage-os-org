@@ -17,6 +17,13 @@ const installerTabs = [
   { id: 'cli', label: 'Command-line', icon: 'tabler:terminal-2' },
 ];
 
+const platformTabs = [
+  { id: 'macos', label: 'macOS', icon: 'tabler:brand-apple' },
+  { id: 'linux', label: 'Linux', icon: 'tabler:brand-ubuntu' },
+  { id: 'windows', label: 'Windows', icon: 'tabler:brand-windows' },
+  { id: 'go', label: 'Go', icon: 'tabler:brand-golang' },
+];
+
 const metadata = {
   title: 'Quick Start Guide',
   description: 'Launch your first Mage-OS store in under 30 minutes with this step-by-step guide.',
@@ -60,7 +67,7 @@ const metadata = {
         <tbody>
           <tr>
             <td>PHP</td>
-            <td>{specs.php.minimum} or {specs.php.recommended}</td>
+            <td>{specs.php.minimum} - {specs.php.recommended}</td>
           </tr>
           <tr>
             <td>Composer</td>
@@ -88,9 +95,9 @@ const metadata = {
       <h3>Choose Your Environment</h3>
 
       <p>
-        <strong>Already have a development environment?</strong> Skip to <a href="#installation-steps"
-          >Installation Steps</a
-        >.
+        <strong>Already have a development environment?</strong> On DDEV or Warden, skip to the <a
+          href="#mage-os-installer">Mage-OS Installer</a
+        >. Anywhere else, skip to <a href="#installation-steps">Installation Steps</a>.
       </p>
 
       <p><strong>Need an environment?</strong> We recommend these Docker-based options:</p>
@@ -130,11 +137,152 @@ const metadata = {
     </div>
   </section>
 
+  <!-- Automated Installer Option -->
+  <section class="bg-gray-50 dark:bg-slate-800/50 py-16">
+    <div class="px-4 sm:px-6 mx-auto lg:px-8 max-w-4xl">
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
+        <div class="flex items-center gap-3 mb-6">
+          <Icon name="tabler:rocket" class="w-8 h-8 text-icon" />
+          <div>
+            <h2 id="mage-os-installer" class="text-2xl font-bold font-heading dark:text-white flex items-center gap-3">
+              Shortcut: Mage-OS Installer
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                >5 min</span
+              >
+            </h2>
+            <p class="text-muted">Automates every step below if you use DDEV or Warden</p>
+          </div>
+        </div>
+
+        <div
+          class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
+        >
+          <p>
+            The <a href="https://github.com/mage-os-lab/mage-os-installer" target="_blank">Mage-OS Installer</a> detects your
+            local environment and handles the project creation, database, and <code>setup:install</code> steps for you. Services
+            such as OpenSearch, Redis, RabbitMQ, and Varnish are configured out of the box.
+          </p>
+        </div>
+
+        <Callout type="info" title="Prerequisites">
+          <ul class="list-disc list-inside space-y-1 text-sm">
+            <li>
+              <a href="https://www.docker.com/" target="_blank" class="text-primary hover:underline">Docker</a> installed
+              and running
+            </li>
+            <li>
+              Either <a href="https://ddev.com/" target="_blank" class="text-primary hover:underline">DDEV</a> or
+              <a href="https://warden.dev/" target="_blank" class="text-primary hover:underline">Warden</a> installed
+            </li>
+          </ul>
+        </Callout>
+
+        <div
+          class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded mt-8"
+        >
+          <h3>1. Install the binary</h3>
+
+          <TabbedContent tabs={platformTabs} defaultTab="macos" label="Platform" prose>
+            <div data-tab="macos">
+              <p class="text-sm text-muted mb-3">Apple Silicon:</p>
+              <CodeBlock
+                code={`sudo curl -sL -o /usr/local/bin/mage-os-install https://github.com/mage-os-lab/mage-os-installer/releases/latest/download/mage-os-install_darwin_arm64
+sudo chmod +x /usr/local/bin/mage-os-install`}
+                lang="bash"
+              />
+              <p class="text-sm text-muted mb-3">Intel:</p>
+              <CodeBlock
+                code={`sudo curl -sL -o /usr/local/bin/mage-os-install https://github.com/mage-os-lab/mage-os-installer/releases/latest/download/mage-os-install_darwin_amd64
+sudo chmod +x /usr/local/bin/mage-os-install`}
+                lang="bash"
+              />
+            </div>
+            <div data-tab="linux">
+              <p class="text-sm text-muted mb-3">x86_64:</p>
+              <CodeBlock
+                code={`sudo curl -sL -o /usr/local/bin/mage-os-install https://github.com/mage-os-lab/mage-os-installer/releases/latest/download/mage-os-install_linux_amd64
+sudo chmod +x /usr/local/bin/mage-os-install`}
+                lang="bash"
+              />
+              <p class="text-sm text-muted mb-3">ARM64:</p>
+              <CodeBlock
+                code={`sudo curl -sL -o /usr/local/bin/mage-os-install https://github.com/mage-os-lab/mage-os-installer/releases/latest/download/mage-os-install_linux_arm64
+sudo chmod +x /usr/local/bin/mage-os-install`}
+                lang="bash"
+              />
+            </div>
+            <div data-tab="windows">
+              <p class="text-sm text-muted mb-3">
+                <strong>Running DDEV or Warden in WSL2?</strong> Use the Linux x86_64 command from the Linux tab and run it
+                inside your WSL2 distribution. This is the recommended setup for DDEV and the only supported one for Warden.
+              </p>
+              <p class="text-sm text-muted mb-3">
+                For a traditional Windows DDEV install, download <code>mage-os-install_windows_amd64.exe</code> (or <code
+                  >mage-os-install_windows_arm64.exe</code
+                >) from the <a href="https://github.com/mage-os-lab/mage-os-installer/releases/latest" target="_blank"
+                  >releases page</a
+                > and add the directory to your <code>PATH</code>.
+              </p>
+            </div>
+            <div data-tab="go">
+              <p class="text-sm text-muted mb-3">Build from source with Go installed:</p>
+              <CodeBlock code="go install github.com/mage-os-lab/mage-os-installer@latest" lang="bash" />
+            </div>
+          </TabbedContent>
+
+          <h3>2. Run the installer</h3>
+
+          <p>Run it from the directory where you want your project:</p>
+
+          <CodeBlock code="mage-os-install" lang="bash" />
+
+          <p>It walks you through:</p>
+
+          <ul>
+            <li><strong>Project name</strong> - defaults to the current directory name</li>
+            <li><strong>Install directory</strong> - where to create the project</li>
+            <li><strong>Environment</strong> - DDEV or Warden, auto-selected if only one is available</li>
+            <li><strong>Admin credentials</strong> - the Mage-OS admin user</li>
+            <li><strong>Command review</strong> - inspect the <code>setup:install</code> flags before running</li>
+            <li><strong>Installation</strong> - progress in real time</li>
+          </ul>
+
+          <p>When it finishes, your store is available at:</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Environment</th>
+                <th>Site URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://ddev.com/" target="_blank">DDEV</a></td>
+                <td><code>https://&#123;project&#125;.test</code></td>
+              </tr>
+              <tr>
+                <td><a href="https://warden.dev/" target="_blank">Warden</a></td>
+                <td><code>https://app.&#123;project&#125;.test</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <Callout type="tip" title="Want to know what happens under the hood?">
+          The manual steps below cover exactly what the installer automates. Follow them if you are not using DDEV or
+          Warden, or if you want full control over each step.
+        </Callout>
+      </div>
+    </div>
+  </section>
+
   <!-- Visual Timeline Overview -->
   <Steps
     id="installation-steps"
     title="Installation Steps"
-    subtitle="Follow these six steps to get your Mage-OS store up and running"
+    subtitle="Follow these six steps to set up your Mage-OS store manually"
     items={[
       {
         title:

@@ -204,12 +204,15 @@
   background-color: var(--shiki-dark-bg) !important;
 }
 
-/* Remove prose-code background from code inside pre blocks */
+/* Remove prose-code background and padding from code inside pre blocks */
 /* This prevents conflict between Tailwind prose styles and Shiki */
+/* Padding matters: the inline code element would indent only the first line */
 pre.astro-code code,
 pre.astro-code code::before,
 pre.astro-code code::after {
   background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* Code block wrapper for fixed copy button positioning */

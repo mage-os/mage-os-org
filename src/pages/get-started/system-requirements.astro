@@ -69,24 +69,29 @@ const metadata = {
               <tr class="border-b dark:border-gray-700">
                 <th class="text-left py-2 font-medium">Distribution</th>
                 <th class="text-left py-2 font-medium">Min Version</th>
+                <th class="text-left py-2 font-medium">Recommended</th>
               </tr>
             </thead>
             <tbody class="text-muted">
               <tr class="border-b dark:border-gray-700">
                 <td class="py-2">Ubuntu LTS</td>
-                <td class="py-2">22.04 <VersionBadge status="recommended" class="ml-2" /></td>
+                <td class="py-2">22.04</td>
+                <td class="py-2">24.04 <VersionBadge status="recommended" class="ml-2" /></td>
               </tr>
               <tr class="border-b dark:border-gray-700">
                 <td class="py-2">Debian</td>
-                <td class="py-2">12 <VersionBadge status="supported" class="ml-2" /></td>
+                <td class="py-2">12</td>
+                <td class="py-2">13 <VersionBadge status="supported" class="ml-2" /></td>
               </tr>
               <tr class="border-b dark:border-gray-700">
                 <td class="py-2">Rocky Linux</td>
-                <td class="py-2">9 <VersionBadge status="supported" class="ml-2" /></td>
+                <td class="py-2">9</td>
+                <td class="py-2">10 <VersionBadge status="supported" class="ml-2" /></td>
               </tr>
               <tr>
                 <td class="py-2">AlmaLinux</td>
-                <td class="py-2">9 <VersionBadge status="supported" class="ml-2" /></td>
+                <td class="py-2">9</td>
+                <td class="py-2">10 <VersionBadge status="supported" class="ml-2" /></td>
               </tr>
             </tbody>
           </table>
@@ -100,7 +105,7 @@ const metadata = {
           <ul class="space-y-3 text-muted">
             <li class="flex items-center gap-2">
               <Icon name="tabler:brand-apple" class="w-5 h-5" />
-              <span><strong>macOS:</strong> 13+ (Ventura or later)</span>
+              <span><strong>macOS:</strong> 14+ (Sonoma or later)</span>
             </li>
             <li class="flex items-center gap-2">
               <Icon name="tabler:brand-windows" class="w-5 h-5" />
@@ -184,14 +189,31 @@ const metadata = {
               <VersionBadge status="recommended" class="ml-2" />
             </div>
           </div>
+          {
+            specs.phpDisplay &&
+              specs.phpDisplay !== specs.php.recommended &&
+              specs.phpDisplay !== specs.php.minimum && (
+                <div class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg px-4 py-3">
+                  <Icon name="tabler:brand-php" class="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                  <div>
+                    <span class="text-2xl font-bold text-blue-700 dark:text-blue-300">PHP {specs.phpDisplay}</span>
+                    <VersionBadge status="supported" class="ml-2" />
+                  </div>
+                </div>
+              )
+          }
           <div class="flex items-center gap-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg px-4 py-3">
             <Icon name="tabler:brand-php" class="w-8 h-8 text-blue-600 dark:text-blue-400" />
             <div>
               <span class="text-2xl font-bold text-blue-700 dark:text-blue-300">PHP {specs.php.minimum}</span>
-              <VersionBadge status="supported" class="ml-2" />
+              <VersionBadge status="minimum" class="ml-2" />
             </div>
           </div>
         </div>
+        <p class="mt-4 text-sm text-muted">
+          Mage-OS {specs.mageosVersion} runs on PHP {specs.php.minimum} through {specs.php.recommended}.
+          {specs.phpDisplay && <>Upstream CI builds and tests against PHP {specs.phpDisplay}.</>}
+        </p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm">
@@ -212,6 +234,7 @@ const metadata = {
               'libxml',
               'mbstring',
               'openssl',
+              'pcntl',
               'pcre',
               'pdo_mysql',
               'simplexml',
@@ -256,7 +279,7 @@ const metadata = {
         {
           name: 'Percona',
           minimum: specs.mysql.minimum,
-          recommended: specs.mysql.minimum,
+          recommended: specs.mysql.recommended,
           notes: 'Enterprise MySQL variant',
           showRecBadge: false,
         },
@@ -317,7 +340,7 @@ max_connections = 150`}</code></pre>
           <p class="text-muted mb-4">Requires license for some features. Legacy option.</p>
           <div class="text-sm">
             <span class="text-gray-500">Min:</span>
-            {specs.elasticsearch?.minimum || '7.17'}
+            {specs.elasticsearch?.minimum || '8.x'}
             <span class="mx-2">|</span>
             <span class="text-blue-600 dark:text-blue-400 font-medium"
               >Supported: {specs.elasticsearch?.recommended || '8.x'}</span

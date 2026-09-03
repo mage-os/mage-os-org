@@ -5,4 +5,4 @@ location: LIEF AMSTERDAM
 url: https://nl.meet-magento.com/
 image: Speakers.png
 ---
-<figure class="wp-block-image size-full"><img src="https://mage-os.org/wp-content/uploads/2023/09/Speakers.png" alt="" class="wp-image-2598"/></figure>
+<figure class="wp-block-image size-full"><img src="/images/events/Speakers.png" alt="" class="wp-image-2598"/></figure>

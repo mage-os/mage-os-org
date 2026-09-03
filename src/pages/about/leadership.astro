@@ -8,14 +8,14 @@ import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
 
 // Team member photos
-import vinaiKopp from '~/assets/images/team/vinai-kopp.png';
+import benMarks from '~/assets/images/team/ben-marks.jpg';
+import janOrleanski from '~/assets/images/team/jan-orleanski.jpg';
+import lukeCollymore from '~/assets/images/team/luke-collymore.jpg';
+import melindaHumphrey from '~/assets/images/team/melinda-humphrey.png';
 import davidLambauer from '~/assets/images/team/david-lambauer.png';
-import cezaryKozon from '~/assets/images/team/cezary-kozon.png';
 import johnPrendergast from '~/assets/images/team/john-prendergast.png';
-import ryanHoerr from '~/assets/images/team/ryan-hoerr.png';
 import ruggeroLandolina from '~/assets/images/team/ruggero-landolina.png';
 import michielGerritsen from '~/assets/images/team/michiel-gerritsen.png';
-import maciejKalkowski from '~/assets/images/team/maciej-kalkowski.png';
 import lauraFolco from '~/assets/images/team/laura-folco.png';
 import francisGallagher from '~/assets/images/team/francis-gallagher.png';
 
@@ -51,15 +51,15 @@ const roleDescriptions: Record<string, string> = {
 
 const boardMembers: BoardMember[] = [
   {
-    name: 'Vinai Kopp',
+    name: 'Michiel Gerritsen',
     role: 'President',
     isOfficer: true,
-    bio: 'Vinai has been a developer for nearly 25 years. He delivered Magento training for over a decade through the official Magento U program and was awarded Magento Master three times. Today he serves as Partner, CTO, and CIO at Hyva. Known as a calm and kind leader who achieves incredible things through his following in the Magento ecosystem.',
-    country: 'Germany',
-    image: vinaiKopp,
+    bio: 'Founder of Control Alt Delete and MageDispatch.com. Over a decade of Magento experience, including projects for Mollie and PostNL, specializing in checkout flows and automated testing. Active open source contributor and frequent speaker in the Magento community.',
+    country: 'Netherlands',
+    image: michielGerritsen,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/vinai/',
-      github: 'https://github.com/Vinai',
+      linkedin: 'https://www.linkedin.com/in/michielgerritsen/',
+      github: 'https://github.com/michielgerritsen',
     },
   },
   {
@@ -75,14 +75,14 @@ const boardMembers: BoardMember[] = [
     },
   },
   {
-    name: 'Cezary Kożon',
+    name: 'Jan Orleański',
     role: 'Treasurer',
     isOfficer: true,
-    bio: 'With over ten years of eCommerce experience, Cezary is head of Spyrosoft eCommerce. He helps businesses translate their strategic vision into eCommerce operations, viewing eCommerce as a fundamental component impacting everything from brand perception to logistics. His career goals: inspire businesses to innovate and help his team work uninterrupted.',
+    bio: 'With several years of experience as a Project Manager in eCommerce and open‑source initiatives, focused on budgeting, delivery oversight, and cross‑team coordination. Experienced in managing complex Magento/Adobe Commerce projects, ensuring transparency, cost control, and alignment with business goals, while supporting sustainable growth of community‑driven organizations like Mage‑OS.',
     country: 'Poland',
-    image: cezaryKozon,
+    image: janOrleanski,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/cezarykozon/',
+      linkedin: 'https://www.linkedin.com/in/jan-orleanski/',
     },
   },
   {
@@ -97,15 +97,14 @@ const boardMembers: BoardMember[] = [
     },
   },
   {
-    name: 'Ryan Hoerr',
+    name: 'Ben Marks',
     role: 'Board Member',
     isOfficer: false,
-    bio: "Software developer at ParadoxLabs since 2008, working extensively on payment services, subscriptions, and security. His Magento extensions process billions of dollars in transactions each year. Previously community manager for one of the internet's largest forums under Curse LLC (acquired by Amazon). Holds a degree in Electrical Engineering.",
+    bio: 'Ben Marks is a longtime Magento evangelist, founding Magento Association board member, educator, speaker, and open source advocate. He has spent more than a decade helping shape and grow the global Magento ecosystem through community engagement, education, and ecosystem development.',
     country: 'USA',
-    image: ryanHoerr,
+    image: benMarks,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/rhoerr/',
-      github: 'https://github.com/rhoerr',
+      linkedin: 'https://www.linkedin.com/in/bhmarks/',
     },
   },
   {
@@ -120,26 +119,25 @@ const boardMembers: BoardMember[] = [
     },
   },
   {
-    name: 'Michiel Gerritsen',
+    name: 'Luke Collymore',
     role: 'Board Member',
     isOfficer: false,
-    bio: 'Founder of Control Alt Delete and MageDispatch.com. Over a decade of Magento experience, including projects for Mollie and PostNL, specializing in checkout flows and automated testing. Active open source contributor and frequent speaker in the Magento community.',
-    country: 'Netherlands',
-    image: michielGerritsen,
+    bio: 'Luke Collymore is the Managing Director of Develo, an eCommerce agency he has led since 2009. With a background in Computer Science and over 20 years of web development experience, Luke combines deep technical expertise in A.I, PHP, Magento, and Hyvä with a passion for delivering high-performance eCommerce solutions.',
+    country: 'UK',
+    image: lukeCollymore,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/michielgerritsen/',
-      github: 'https://github.com/michielgerritsen',
+      linkedin: 'https://www.linkedin.com/in/lukecollymore/',
     },
   },
   {
-    name: 'Maciej Kalkowski',
+    name: 'Melinda Humphrey',
     role: 'Board Member',
     isOfficer: false,
-    bio: 'CEO and founder of Centuria (managed service provider), active in the IT industry for 20 years. Holds a PhD in computer science and is an assistant professor at AMU in Poznan. Speaker at many retail and Meet Magento conferences worldwide. Extensive experience designing IT infrastructure for large and medium-sized e-commerce, evangelizing business continuity and growth readiness.',
-    country: 'Poland',
-    image: maciejKalkowski,
+    bio: '',
+    country: 'USA',
+    image: melindaHumphrey,
     socialLinks: {
-      linkedin: 'https://www.linkedin.com/in/kalkos/',
+      linkedin: 'https://www.linkedin.com/in/melinda-humphrey/',
     },
   },
 ];
