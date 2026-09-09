@@ -13,12 +13,32 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getCommunityStats, formatContributions } from '~/utils/openCollective';
+import { Icon } from 'astro-icon/components';
+import labCatalogue from '~/data/lab-modules.json';
 
 import heroLight from '~/assets/images/hero/CubicScene-White.webp';
 import heroDark from '~/assets/images/hero/CubicScene-Black.webp';
 import adminDashboard from '~/assets/images/blog/2025/dashboard-mage-os-admin-1024x581.png';
 
 const stats = await getCommunityStats();
+const activeLabProjects = labCatalogue.modules.filter(
+  (project) => !project.archived && project.quality.label !== 'Incubating'
+);
+const labCategoryIcons: Record<string, string> = {
+  'Admin & operations': 'tabler:settings-cog',
+  'AI & automation': 'tabler:sparkles',
+  'Content & merchandising': 'tabler:layout-grid',
+  'Developer tools': 'tabler:tools',
+  'Performance & runtime': 'tabler:gauge',
+  'Security & access': 'tabler:shield-lock',
+  'SEO & discovery': 'tabler:world-search',
+  Storefront: 'tabler:shopping-bag',
+};
+const labCategories = [...new Set(activeLabProjects.map((project) => project.category))].sort().map((category) => ({
+  name: category,
+  count: activeLabProjects.filter((project) => project.category === category).length,
+  href: `/labs?category=${encodeURIComponent(category)}#browse-labs`,
+}));
 
 const metadata = {
   title: 'Mage-OS | Community-Driven Open Source Commerce Platform',
@@ -150,6 +170,67 @@ const metadata = {
       The Mage-OS Distribution delivers everything you need to run a successful online store.
     </Fragment>
   </Content>
+
+  <!-- Mage-OS Lab Section ********* -->
+
+  <section class="relative overflow-hidden bg-slate-950 py-14 text-white sm:py-20">
+    <div class="absolute inset-0" aria-hidden="true">
+      <div class="absolute -right-24 -top-40 h-96 w-96 rounded-full bg-orange-500/20 blur-3xl"></div>
+      <div class="absolute -bottom-48 left-1/4 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl"></div>
+    </div>
+    <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+      <div>
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1 text-sm font-bold text-orange-200"
+        >
+          <Icon name="tabler:flask-2" class="h-4 w-4" /> Mage-OS Lab
+        </div>
+        <h2 class="mt-5 max-w-2xl font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+          Discover what the Mage-OS community is building.
+        </h2>
+        <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-300">
+          Explore innovative modules and tools contributed by the Mage-OS community. Merchants can add new capabilities
+          to their stores, while developers share ideas, improve each other’s work, and make Magento Open Source better
+          for everyone.
+        </p>
+        <div class="mt-7">
+          <a
+            href="/labs"
+            class="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-white shadow-lg transition hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-slate-950"
+          >
+            Browse modules <Icon name="tabler:arrow-right" class="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wider text-orange-200">Browse by category</h3>
+          <div class="mt-3 grid grid-cols-2 gap-2.5">
+            {
+              labCategories.map((category) => (
+                <a
+                  href={category.href}
+                  class="group flex min-h-20 items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:border-orange-300/50 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                >
+                  <span class="flex min-w-0 items-center gap-2.5">
+                    <Icon
+                      name={labCategoryIcons[category.name] ?? 'tabler:flask'}
+                      class="h-5 w-5 shrink-0 text-orange-300"
+                    />
+                    <span class="text-sm font-bold leading-tight text-white">{category.name}</span>
+                  </span>
+                  <span class="shrink-0 rounded-full bg-white/10 px-2 py-1 text-xs font-bold text-slate-300 transition group-hover:bg-orange-300/15 group-hover:text-orange-200">
+                    {category.count}
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Features Widget *************** -->
 
