@@ -44,21 +44,21 @@ If you want a reminder on our different membership (individual) and partner (bus
 
 Now that the Magento event season is in full swing, we took the opportunity to get exposure and raise awareness and comprehension of what Mage-OS is, why we exist and why others should consider supporting/joining us.
 
-Burning questions were asked at [MageUnconference in Cologne](/updates/2023-10-19-mageunconference-germany-2023-recap) and Meet Magento New York [Meet Magento New York](/updates/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) (see recaps below), and this provided a lot of food for thought to our team, especially around how to provide more clarity about our vision and roadmap.
+Burning questions were asked at [MageUnconference in Cologne](/events/2023-10-19-mageunconference-germany-2023-recap) and Meet Magento New York [Meet Magento New York](/events/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) (see recaps below), and this provided a lot of food for thought to our team, especially around how to provide more clarity about our vision and roadmap.
 
 One key point that we can address straight away is the collaboration between Adobe, the Magento Association and Mage-OS. Although our original movement came from the frustration of feeling less support from Adobe, we are now in a different space.
 
-We acknowledge all the efforts put in since, with the appointment of Mathias Schreiber on the Magento Association side, as well as Parul Sinha and Ritesh Somani on the Adobe side. We are also very thankful to the whole Meet Magento events team for their continuous effort to allow the Community to all gather in person and nurture our shared passion. We are very grateful that the organizers of various events like Meet Commerce, [Mage Titans](/updates/2023-05-18-mage-titans-2023-the-mage-os-recap), Mage Unconference NL and [DE](/updates/2023-10-19-mageunconference-germany-2023-recap), the [Mage-OS Hackathon](/updates/2023-09-15-hackathon-mage-os-magic-in-action) and [Meet Magento New York](/updates/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) have welcomed Mage-OS with open arms and allowed us to be represented.
+We acknowledge all the efforts put in since, with the appointment of Mathias Schreiber on the Magento Association side, as well as Parul Sinha and Ritesh Somani on the Adobe side. We are also very thankful to the whole Meet Magento events team for their continuous effort to allow the Community to all gather in person and nurture our shared passion. We are very grateful that the organizers of various events like Meet Commerce, [Mage Titans](/events/2023-05-18-mage-titans-2023-the-mage-os-recap), Mage Unconference NL and [DE](/events/2023-10-19-mageunconference-germany-2023-recap), the [Mage-OS Hackathon](/events/2023-09-15-hackathon-mage-os-magic-in-action) and [Meet Magento New York](/events/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) have welcomed Mage-OS with open arms and allowed us to be represented.
 
 With that in mind, we are now opening up more channels and reaching out more proactively to various stakeholders of the Magento ecosystem to collaborate, ensure our goals are aligned and avoid duplication of work wherever possible. However, in parallel, we will continue to set our own pace as the urgency to maintain and grow the Magento ecosystem and bring reassurance to all stakeholders (e.g. merchants/agencies/vendors) still exists.
 
-We also pledge to remain open and transparent, and to continue this, we've reviewed all the additional (and unanswered) questions we received during the Q&A session at Meet Magento New York and provided our responses in our [recent update post](/updates/2023-10-27-mm23ny-follow-up-assoc-interview).
+We also pledge to remain open and transparent, and to continue this, we've reviewed all the additional (and unanswered) questions we received during the Q&A session at Meet Magento New York and provided our responses in our [recent update post](/events/2023-10-27-mm23ny-follow-up-assoc-interview).
 
 ## Events & Community
 
 ### MageUnconference DE
 
-At the end of September, the legendary MageUnconference returned to Cologne, Germany, and Mage-OS was a hot topic during the weekend, which led to many burning questions (as noted above), plus an influx of new contributors! For more details, see our [recap article](/updates/2023-10-19-mageunconference-germany-2023-recap), contributed by attendee and Mage-OS DevDocs creator, David Lambauer.
+At the end of September, the legendary MageUnconference returned to Cologne, Germany, and Mage-OS was a hot topic during the weekend, which led to many burning questions (as noted above), plus an influx of new contributors! For more details, see our [recap article](/events/2023-10-19-mageunconference-germany-2023-recap), contributed by attendee and Mage-OS DevDocs creator, David Lambauer.
 
 ### Meet Magento New York
 
@@ -66,7 +66,7 @@ Thanks to the many of you who joined us at Meet Magento New York! Mage-OS was fr
 
 We were well represented throughout the event, with our own booth, involvement in multiple panels, as well as talk covering our journey to date, achievements and future plans. We’d like to extend our thanks to Marsha Naidoo and the team at Above the Fray for supporting our presence on every level and allow us to make a real splash in the US market.
 
-If you want to learn more, then see our [recap article](/updates/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) (another shoutout to David Lambauer for helping pull this article together, too!)
+If you want to learn more, then see our [recap article](/events/2023-10-31-meet-magento-nyc-2023-a-gathering-of-the-mage-os-community) (another shoutout to David Lambauer for helping pull this article together, too!)
 
 ### Magento Events Listing and Recaps
 

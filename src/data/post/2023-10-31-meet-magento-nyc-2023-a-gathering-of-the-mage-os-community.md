@@ -42,7 +42,7 @@ Yet another long-term Mage-OS tech contributor and one of the original Magento c
 
 The day reached its zenith with a fireside (panel) chat about the current state of the Magento ecosystem and the synergy between Mage-OS and the Magento Association. Kudos to our Board Member Ryan Hoerr for representing Mage-OS. Not to forget, Matthias Schreiber, Executive Director at the Magento Association, who painted a promising picture of the association’s future too.
 
-There were also many burning (and some controversial) questions submitted from the audience (and farther afield) that weren't answered on the day due to time constraints. However, we felt these were important to respond to, which is why we spent time collectively reviewing these questions, which culminated in us recently publishing a [follow up article](/updates/2023-10-27-mm23ny-follow-up-assoc-interview) to outline our responses.
+There were also many burning (and some controversial) questions submitted from the audience (and farther afield) that weren't answered on the day due to time constraints. However, we felt these were important to respond to, which is why we spent time collectively reviewing these questions, which culminated in us recently publishing a [follow up article](/events/2023-10-27-mm23ny-follow-up-assoc-interview) to outline our responses.
 
 ![](~/assets/images/blog/2023/whats-Up-Magento-1-1024x768.jpg)
 
