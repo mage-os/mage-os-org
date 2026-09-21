@@ -149,13 +149,22 @@
   @apply py-3;
 } */
 
-#header.expanded nav {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 70px !important;
-  padding: 0 5px;
+@media (max-width: 1023px) {
+  #header.expanded {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  #header.expanded nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 70px !important;
+    padding: 0 5px;
+  }
 }
 
 /* Dropdown focus, focus-within, and hover states only on large screens (desktop) */

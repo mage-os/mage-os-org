@@ -21,7 +21,8 @@
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier -w .",
     "test:a11y": "npm run build && npx concurrently -k -s first \"npx serve -l 4321 dist\" \"npx wait-on http://localhost:4321 && npx pa11y-ci --config .pa11yci.json\"",
-    "test:a11y:full": "npm run build && npx concurrently -k -s first \"npx serve -l 4321 dist\" \"npx wait-on http://localhost:4321 && npx pa11y-ci --config .pa11yci.full.json\""
+    "test:a11y:full": "npm run build && npx concurrently -k -s first \"npx serve -l 4321 dist\" \"npx wait-on http://localhost:4321 && npx pa11y-ci --config .pa11yci.full.json\"",
+    "refresh:labs": "node scripts/refresh-lab-modules.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.15",
