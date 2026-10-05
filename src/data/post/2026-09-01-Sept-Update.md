@@ -1,6 +1,6 @@
 ---
 title: "Mage-OS Sept Update"
-publishDate: "2026-09-01T00:00:00.000Z"
+publishDate: "2026-10-05T00:00:00.000Z"
 category: "Updates"
 author: "mage-os-team"
 draft: false
