@@ -1,10 +1,10 @@
 ---
-title: "Mage-OS Sept Update"
-publishDate: "2026-10-05T00:00:00.000Z"
+title: "Mage-OS September Update"
+publishDate: "2026-10-07T00:00:00.000Z"
 category: "Updates"
 author: "mage-os-team"
 draft: false
-excerpt: "October is packed with Mage-OS community activity, hackathons in Bologna and the Netherlands, 50+ pull requests in a single day, new projects in Mage-OS Lab, and upcoming Meet Magento events across Europe. Plus, we’re asking the community to help shape the future of AI in Mage-OS 4.0."
+excerpt: "September was packed with Mage-OS community activity, hackathons in Bologna and the Netherlands, 50+ pull requests in a single day, new projects in Mage-OS Lab, and upcoming Meet Magento events across Europe. Plus, we’re asking the community to help shape the future of AI in Mage-OS 4.0."
 image: "~/assets/images/blog/2026/mageos_blog_sept-update.jpg"
 ---
 
