@@ -249,6 +249,12 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 </div>
 
+<div>
+
+[![Rocket Web](~/assets/images/blog/2026/rocket-web.jpg)](https://opencollective.com/rocket-web)
+
+</div>
+
 </div>
 
 **Why Partner With Us?**
