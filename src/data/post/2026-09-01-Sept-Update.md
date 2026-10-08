@@ -255,6 +255,12 @@ We are proud to collaborate with industry leaders who believe in open source and
 
 </div>
 
+<div>
+
+[![Aonach](~/assets/images/blog/2026/aonach.jpg)](https://opencollective.com/Aonach)
+
+</div>
+
 </div>
 
 **Why Partner With Us?**
