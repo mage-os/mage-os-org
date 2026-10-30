@@ -1,0 +1,164 @@
+---
+title: Mage-OS 4.0.0 – Feature Release
+excerpt: A substantial overhaul of Multi-Source Inventory, with source-level reservations, oversell protection and a new storefront availability panel. This release also bundles SEO, AEO, FAQ and passkey authentication modules. Every new feature is disabled by default.
+publishDate: 2026-10-30T18:00:00
+draft: true
+category: Releases
+image: ~/assets/images/blog/2026/New-Mage-OS-Website.png
+imageAlt: ''
+author: mage-os-team
+---
+
+import Callout from '~/components/ui/Callout.astro';
+
+{/* TODO before publishing: add a sentence on why this is 4.0 rather than 3.7.
+    The upstream base and PHP support are unchanged from 3.6.0, so the major
+    version reflects our own scope, not an upstream rebase. That framing is the
+    team's call, not a fact to derive from the diff. */}
+
+**Mage-OS Distribution 4.0.0** is now available. This is a **feature release**.
+
+The largest body of work in this release is Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel. Every one of those features is disabled by default.
+
+This release also bundles eight packages that were not part of 3.6.0, including SEO, AEO, FAQ and passkey authentication modules.
+
+Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support. It remains a drop-in upgrade from 3.6.x, with one exception covered in the upgrade notes below.
+
+### Multi-Source Inventory
+
+Most of this work is off by default and enabled per feature. Upgrading does not change how your stock behaves until you turn something on.
+
+#### Source-level reservations
+
+A reservation can now carry the source it belongs to, rather than only the stock. With `cataloginventory/source_reservations/enabled` turned on, order reservations are allocated per source, aggregated across linked sources, and indexed with source-level aggregation.
+
+This closes a class of oversell that stock-level reservations cannot see: two orders drawing on the same physical source through different stocks.
+
+#### Oversell protection
+
+The lock taken when an order is placed is now a source-level lock, and it is taken at order submission, which also covers orders placed through the admin.
+
+This release also adds supply-side oversell detection, reservation invariant guards with reconciliation, and the ability to record compensations for an order that was already oversold. Each is configured separately, with optional hourly sweeps:
+
+  1. `cataloginventory/source_reservations/oversell_detection_enabled`
+  2. `cataloginventory/source_reservations/oversell_sweep_enabled`
+  3. `cataloginventory/source_reservations/reconcile_cancel_refund`
+  4. `cataloginventory/source_reservations/reconcile_sweep_enabled`
+
+All four default to disabled.
+
+#### Shipping and admin
+
+Shipments now resolve the source an order was allocated to, instead of falling back to the default source. This includes unmanaged and split shipments. Salable quantity in the admin is now broken down by source.
+
+#### Indexer performance
+
+The inventory indexer changes in four ways:
+
+  1. A full reindex is parallelised by stock dimension
+  2. Asynchronous reindex publishes one message per stock rather than per item
+  3. Reservation cleanup deletes in group-aligned chunks
+  4. Configurable products no longer walk their children live to evaluate quantity
+
+#### New module: Stock Visualizer
+
+A new module, `mage-os/module-inventory-stock-visualizer`, adds an availability panel to the product page. The panel renders availability status server-side, loads quantity on demand, resolves composite product availability by product type, and coordinates its own cache purging from the inventory indexer.
+
+The panel is disabled by default. Once `cataloginventory/stock_visualizer/enabled` is on, it can show a stock level or an exact quantity, aggregate across sources or break them out with labels. It is configurable per store view.
+
+### Core improvements
+
+This release changes compiled dependency injection in two ways. `setup:di:compile` now parses each `di.xml` scope once per reader. Non-global compiled areas are now stored as their difference from the global area rather than in full.
+
+Lazy object loading is also narrowed. Lazy ghost objects now apply to Magento and Mage-OS classes by default. `#[NonLazy]` is inherited from ancestor classes, and a constructor side-effect scan decides the treatment of third-party types. Extensions whose constructors do real work are no longer lazy-loaded by default.
+
+The rest of the core changes are:
+
+  1. Native WebP and AVIF support for image upload and processing
+  2. The full-page cache tag index is isolated per frontend and flushed through the backend, fixing stale pages when more than one cache frontend is configured
+  3. The CustomerGraphQl resolver cache key now includes the website id
+  4. Deferred product batching is restored in the Catalog and Bundle GraphQL resolvers
+  5. Sales order and comment dates are parsed in each store's locale
+  6. The new-account-email plugin moved into `Magento_Wishlist`, and the admin order-create items grid no longer depends on that module
+  7. Recommended PHP settings and reference `php.ini` files now ship with the distribution, and dead Suhosin directives have been removed
+  8. A block whose template fails validation is no longer cached
+  9. Uppercase media file extensions are routed correctly
+  10. A `false` date of birth is treated as empty on customer save
+
+### Newly bundled modules
+
+- **`mage-os/module-seo` 2.2.1** — structured data, Open Graph, canonical and robots tags, hreflang and sitemaps. This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled. See the upgrade notes below.
+- **`mage-os/module-aeo` 1.1.2** — answer-engine optimisation.
+- **`mage-os/module-faq` 1.1.0** — FAQ content with structured data.
+- **`mage-os/module-passkey-auth` 1.0.2** — passkey authentication.
+- **`mage-os/module-shopping-feed` 1.2.5** — product feed generation.
+- **`mage-os/module-extension-directory` 1.1.0** — the extension directory, in the admin.
+- **`avstudnitz/scopehint2` 2.0.0** — shows the configuration scope a value comes from.
+- **`mago-assistant/magento2-mago` 1.1.0** — Mago assistant integration.
+
+### Bundled add-on updates
+
+- **`mage-os/module-automatic-translation` 2.3.1 → 2.4.0.** Console commands renamed to match what they do, the OpenAI project ID is now decrypted before use, and the new-category form is fixed under PHP 8.5.
+- **`mage-os/module-theme-optimization` 2.3.0 → 2.4.0.** View transitions are disabled in the Meta in-app browser and no longer load on Hyvä themes.
+- **`mage-os/module-admin-activity-log` 2.0.2 → 2.0.4.** Theme config changes are logged from the saved config value model, sales document comments link to the order rather than the parent document id, and customer activity links to the customer edit page. A TypeError on iOS and Safari user agents without a version token is fixed.
+- **`mage-os/theme-adminhtml-m137` 1.3.4 → 1.3.5.** Admin radio button styling.
+- **`mage-os/module-rma` 2.5.0 → 2.5.1.** Refunded quantities are excluded when the return period is unlimited.
+- **`mage-os/module-page-builder-template-import-export` 1.9.0 → 1.9.1.** The remote template cron points at `UpdateRemoteTemplateList`.
+
+`n98/magerun2-dist` moves from `^9.4` to `^10.0`.
+
+### Upgrade notes
+
+<Callout type="warning" title="Remove module-meta-robots-tag before upgrading">
+
+`mage-os/module-seo` replaces the functionality of `mage-os/module-meta-robots-tag` and `mage-os/module-hreflang`, and declares a Composer conflict with both.
+
+Upgrading the metapackage on its own resolves cleanly, because the old module leaves the dependency set at the same time. If your project's own `composer.json` requires either module directly, Composer will refuse the upgrade. Remove them first:
+
+```bash
+composer remove mage-os/module-meta-robots-tag mage-os/module-hreflang --no-update
+```
+
+Your existing robots-tag configuration is not migrated. Review your per-page, category and product robots settings after upgrading.
+
+</Callout>
+
+### Our foundation
+
+For details on the upstream release, see the [Magento Open Source 2.4.9 release notes](https://experienceleague.adobe.com/en/docs/commerce-operations/release/notes/magento-open-source/2-4-9).
+
+There are no infrastructure changes associated with this release.
+
+Additionally, [as per our release policy](https://mage-os.org/product/releases/), Mage-OS 3.6.0 reaches end of life with this release.
+
+### Thanks to everyone who contributed!
+
+This release was made possible by:
+
+[@jeanmarcos-dev](https://github.com/jeanmarcos-dev), [@rhoerr](https://github.com/rhoerr), [@max-dernovyi](https://github.com/max-dernovyi), [@pingiun](https://github.com/pingiun), [@jissereitsma](https://github.com/jissereitsma), [@TuVanDev](https://github.com/TuVanDev), [@Blumm](https://github.com/Blumm), [@melindash](https://github.com/melindash), [@marcelmtz](https://github.com/marcelmtz), [@mattmacrocket](https://github.com/mattmacrocket), [@lbajsarowicz](https://github.com/lbajsarowicz), [@claudio-ferraro](https://github.com/claudio-ferraro), [@sumesh-GL](https://github.com/sumesh-GL), [@CyberNativeAI](https://github.com/CyberNativeAI), [@SamueleMartini](https://github.com/SamueleMartini), [@GrimLink](https://github.com/GrimLink), [@ImanuelBertrand](https://github.com/ImanuelBertrand), [@boldbart](https://github.com/boldbart), and [@rikwillems](https://github.com/rikwillems)
+
+The Multi-Source Inventory work in this release is overwhelmingly that of [@jeanmarcos-dev](https://github.com/jeanmarcos-dev).
+
+Upstream credit for the inventory fixes this release picks up to [@igorwulff](https://github.com/igorwulff), [@adamphh](https://github.com/adamphh), [@vlmed](https://github.com/vlmed), [@alzota](https://github.com/alzota), and [@arnobsh](https://github.com/arnobsh).
+
+### How to upgrade
+
+#### Upgrading from an older Mage-OS version
+
+```bash
+composer require mage-os/product-community-edition=^4.0 --no-update
+composer update
+bin/magento setup:upgrade
+```
+
+#### New installations
+
+```bash
+composer create-project --repository-url=https://repo.mage-os.org/ mage-os/project-community-edition:4.0.0 my-store
+```
+
+#### Migrating from Adobe Commerce or Magento Open Source
+
+See our [migration guide](/get-started/migration-guide) for detailed instructions on switching to Mage-OS.
+
+We hope you enjoy Mage-OS 4.0.0. As always, please report any issues on [GitHub](https://github.com/mage-os/mageos-magento2/issues) and join the conversation on [Discord](/discord-channel).
