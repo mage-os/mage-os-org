@@ -1,11 +1,11 @@
 ---
 title: Mage-OS 4.0.0 – Feature Release
-excerpt: A substantial overhaul of Multi-Source Inventory, and nine new packages covering SEO and structured data, AI discoverability, passkey login, product feeds, admin tooling and an AI admin assistant. Built on the same Magento Open Source 2.4.9 base as 3.x.
+excerpt: "Nine new packages in a default install: an AI admin assistant, built-in SEO and structured data, AI discoverability, passwordless passkey login, product feeds and admin tooling. Plus a substantial overhaul of Multi-Source Inventory. Built on the same Magento Open Source 2.4.9 base as 3.x."
 publishDate: 2026-10-30T18:00:00
 draft: true
 category: Releases
-image: ~/assets/images/blog/2026/New-Mage-OS-Website.png
-imageAlt: ''
+image: ~/assets/images/blog/2026/mageos-4-0-release.png
+imageAlt: 'Mage-OS 4.0 Now Available — built on Magento 2.4.9, with built-in SEO and structured data, passwordless passkey login, AI discoverability and an admin assistant, and product feeds for Google, Meta and more'
 author: mage-os-team
 ---
 
@@ -18,15 +18,110 @@ import Callout from '~/components/ui/Callout.astro';
 
 **Mage-OS Distribution 4.0.0** is now available. This is a **feature release**.
 
-The largest body of work is in Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel.
+This release adds nine packages to a default install: an AI assistant for your admin, built-in SEO and structured data, AI discoverability, passwordless login with passkeys, product feeds for the major channels, and tooling that makes the admin easier to work in. Things merchants have long had to buy separately, or go without.
 
-This release also adds nine packages to a default install: six Mage-OS modules, one new MSI module and two community modules. Between them they cover SEO and structured data, AI discoverability, passwordless login, product feeds, admin tooling and an AI admin assistant.
+Underneath, Multi-Source Inventory gets its largest overhaul since it arrived: source-level reservations, oversell detection and reconciliation, and shipping from the source an order was actually allocated to.
 
-Most new storefront features ship **off by default**. The exceptions are listed in the upgrade notes, and they are worth reading before you upgrade.
+Most new features ship **off by default**, so you choose what to turn on. The exceptions are listed in the upgrade notes, and they are worth reading before you upgrade.
 
 Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support, so it remains a drop-in upgrade from 3.6.x.
 
+### Mago: an AI assistant in your admin
+
+![The Mago chat panel answering a question about best sellers, then asking for confirmation before changing a live checkout setting](~/assets/images/blog/2026/mageos-4-0-mago.png)
+
+Mage-OS 4.0.0 bundles **Mago**, an MIT-licensed AI admin assistant you can ask about the store in plain language.
+
+  1. Chat in the admin with streamed answers rendered as stat cards, charts, tables and deep links into the relevant admin page
+  2. Built-in skills for sales analytics, store configuration, content management and admin navigation
+  3. **Safe writes** — every change asks first, irreversible actions such as cancelling an order show their impact before confirmation, and access follows each admin's ACL role
+  4. **Slash commands** (`/cache flush`, `/index reindex`) run directly with no AI round-trip
+  5. **Bring your own key** — requests go straight from the store to the provider, with no Mago server in between
+
+Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default, the assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
+
+Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
+
+#### One place to configure AI providers
+
+Mage-OS 4.0.0 bundles `mage-os/module-ai-base`, which gives the distribution one place to configure AI providers and one client for every module that calls them.
+
+Providers are configured under **Stores > Configuration > Mage-OS > AI Configuration**. OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, OpenRouter, Opper, Hugging Face, Ollama, LM Studio, OpenCode Zen, a self-hosted OpenCode server and any OpenAI-compatible gateway are supported. A provider can be added more than once, each row named and switched on or off independently, with Test Connection and Refresh Models available from the form. API keys are encrypted at rest and are not shown again after saving.
+
+Token usage is reported per module, service and store, on a dashboard at **Reports > AI Token Usage**, in a grid, and through a CLI report. Prompts and responses are not stored.
+
+### SEO, AI discoverability and FAQs
+
+#### Structured data and crawl control
+
+`mage-os/module-seo` 2.2.1 brings full SEO and structured data into the distribution: product schema, social share cards, robots and canonical control, and hreflang for multistore.
+
+  1. **Structured data** as JSON-LD — Organization, WebSite, Breadcrumb, CollectionPage and product schema, linked by a shared `@id`, with 16 product-type templates
+  2. **Configurable products as a `ProductGroup`**, each child a variant with its own offer and a URL that preselects its options; large configurables collapse to one AggregateOffer
+  3. **Merchant listing ready** — shipping, return policy and item condition merged into product offers, with ratings from native reviews
+  4. **Open Graph and Twitter/X cards** on product, category and site pages
+  5. **Crawl control** — INDEX/FOLLOW defaults per content type with per-item overrides, `?p=N` pagination handling, and directives such as `max-snippet`, `max-image-preview` and `noai`
+  6. **Multistore hreflang** in `<head>` and inline in `sitemap.xml`, with x-default
+  7. Every concern is a provider pool, so blogs and review vendors can contribute without patching it
+
+This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled, and `mage-os/module-hreflang`. Both are migrated for you — see the upgrade notes.
+
+#### AI discoverability
+
+`mage-os/module-aeo` 1.1.2 makes the store readable to AI assistants and answer engines, and lets you decide which AI crawlers may index you.
+
+  1. **`/llms.txt`** — a concise store summary with organisation, description, locale, schema types, top FAQs and an AI contact
+  2. **`/llms-full.txt`** — the same plus social profiles, the full category tree and every selected FAQ
+  3. **`/llms.jsonl`** — one JSON-LD `Product` per line, a machine-readable catalog feed
+  4. **AI crawler controls** — `Disallow` rules in `robots.txt` for any of 14 known AI crawlers, defaulting to CCBot and Bytespider
+
+Files are pre-generated per store view in its own language, rebuilt through a queue when data changes, served cacheably without a session, streamed when large, and S3 remote storage is supported. Everything is **off by default**, per store view, under Stores > Configuration > MageOS SEO > AI Information & Crawlers. The module depends on `module-seo` and its Organisation details.
+
+#### FAQs
+
+`mage-os/module-faq` 1.1.0 adds an FAQ manager under Marketing > SEO, with entries grouped by identifier per store view.
+
+  1. A theme-agnostic *SEO FAQ List* widget for CMS pages, blocks and layouts, and a native Page Builder *FAQ* content type
+  2. Plain `<details>`/`<summary>` markup with no JavaScript, styled for Luma, Blank and Hyvä
+  3. FAQPage JSON-LD matching the questions actually on the page, including under full-page cache
+  4. Saving a FAQ purges only the pages showing its group
+  5. FAQ groups flow into `module-aeo`'s `/llms.txt` files
+
+Do not place the widget inside a block that caches its own HTML, or the JSON-LD goes missing on a cache hit.
+
+### Passwordless login with passkeys
+
+`mage-os/module-passkey-auth` 1.0.2 brings passwordless login with passkeys. Shoppers sign in with Face ID, a fingerprint, Windows Hello or a security key, so there is no password to phish or leak.
+
+  1. **One-tap sign-in** using WebAuthn/FIDO2, offered in the browser's email autofill on login and at checkout
+  2. **Self-service** — customers add, rename and delete passkeys under My Account, with an email whenever one changes
+  3. **Luma and Hyvä** storefronts natively, with full REST and GraphQL coverage for headless builds
+  4. **Admin controls** — a Customer Passkeys grid to view and revoke passkeys, signing the customer out everywhere, plus optional enrollment banners
+  5. **Admin 2FA** — a passkey provider for Magento's admin two-factor authentication
+  6. **Hardened** — clone detection via sign counts, anti-enumeration decoys for unknown emails, and rate limiting
+
+Customer passkey login is **off by default** (`customer/passkey/enabled`) and requires HTTPS.
+
+### Product feeds
+
+`mage-os/module-shopping-feed` 1.2.5 adds product feeds configured entirely in the admin, with presets for Google Shopping, Google Local Inventory, Google Promotions, Meta, Pinterest, TikTok, Microsoft Merchant Center, generic delimited files, and an OpenAI Google-compatible preset in beta.
+
+  1. Per-feed columns, filters, category taxonomy mapping, a cron schedule, and optional FTP or SFTP delivery with host-key pinning
+  2. schema.org microdata for Google Automatic Item Updates, deep links that preselect configurable and custom options, and Google Ads `view_item` events on Luma
+  3. Source-level Google Local Inventory feeds when MSI is present
+  4. Per-product opt-out through a *Skip from Being Submitted* attribute
+
+It consolidates four Rocket Web shopping-feed modules into one package under its own namespace, so it can sit beside the originals; migration is a separate, explicit step. Feeds produce nothing until one is defined. Validate a sample before relying on the OpenAI preset, which does not yet match OpenAI's current feed spec.
+
+### Admin tooling
+
+**`mage-os/module-extension-directory` 1.1.0** lets you browse a curated catalog of around 1,100 open-source Magento modules from the admin, under System > Extensions, with search, category chips and filters for editors' picks, tested-with-your-version, recently updated, high quality, popular and trending. It reads `composer.lock` and your version to show installed and update badges, surfaces quality tiers, PHPStan levels and a version test matrix from PackageMaven alongside Packagist download trends, and **never installs anything** — shortlisting builds a list to hand to a developer, and Composer commands appear only in developer mode. In the default *Direct* mode admin browsers fetch the public feed; *Proxy* mode has the server fetch and cache it so no admin requests reach the directory host.
+
+**`avstudnitz/scopehint2` 2.0.0**, a long-standing community module by Andreas von Studnitz, shows where a setting is overridden by a website or store view, right next to the field. Clicking the indicator lists the overridden values grouped by website. Product and category attributes, product grid cells and Page Builder content get the same popovers. Category override detection is skipped above 50 store views by default (`dev/debug/scopehint_max_stores`).
+
 ### Multi-Source Inventory
+
+The largest single body of work in 4.0.0 is under the hood, in Multi-Source Inventory. If you run stock across more than one location, this is the part of the release that changes what the platform can guarantee.
 
 #### Source-level reservations
 
@@ -78,93 +173,6 @@ A new module, `mage-os/module-inventory-stock-visualizer`, shows shoppers real a
   5. Fragments are purged when a product or its source items change, through a queue that coalesces purges
 
 It ships inside `inventory-metapackage` rather than as a top-level add-on, is additive, and is **off by default** (`cataloginventory/stock_visualizer/enabled`). Contributed by [@jeanmarcos-dev](https://github.com/jeanmarcos-dev).
-
-### SEO and structured data
-
-`mage-os/module-seo` 2.2.1 brings full SEO and structured data into the distribution: product schema, social share cards, robots and canonical control, and hreflang for multistore.
-
-  1. **Structured data** as JSON-LD — Organization, WebSite, Breadcrumb, CollectionPage and product schema, linked by a shared `@id`, with 16 product-type templates
-  2. **Configurable products as a `ProductGroup`**, each child a variant with its own offer and a URL that preselects its options; large configurables collapse to one AggregateOffer
-  3. **Merchant listing ready** — shipping, return policy and item condition merged into product offers, with ratings from native reviews
-  4. **Open Graph and Twitter/X cards** on product, category and site pages
-  5. **Crawl control** — INDEX/FOLLOW defaults per content type with per-item overrides, `?p=N` pagination handling, and directives such as `max-snippet`, `max-image-preview` and `noai`
-  6. **Multistore hreflang** in `<head>` and inline in `sitemap.xml`, with x-default
-  7. Every concern is a provider pool, so blogs and review vendors can contribute without patching it
-
-This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled, and `mage-os/module-hreflang`. Both are migrated for you — see the upgrade notes.
-
-### AI discoverability
-
-`mage-os/module-aeo` 1.1.2 makes the store readable to AI assistants and answer engines, and lets you decide which AI crawlers may index you.
-
-  1. **`/llms.txt`** — a concise store summary with organisation, description, locale, schema types, top FAQs and an AI contact
-  2. **`/llms-full.txt`** — the same plus social profiles, the full category tree and every selected FAQ
-  3. **`/llms.jsonl`** — one JSON-LD `Product` per line, a machine-readable catalog feed
-  4. **AI crawler controls** — `Disallow` rules in `robots.txt` for any of 14 known AI crawlers, defaulting to CCBot and Bytespider
-
-Files are pre-generated per store view in its own language, rebuilt through a queue when data changes, served cacheably without a session, streamed when large, and S3 remote storage is supported. Everything is **off by default**, per store view, under Stores > Configuration > MageOS SEO > AI Information & Crawlers. The module depends on `module-seo` and its Organisation details.
-
-### FAQ
-
-`mage-os/module-faq` 1.1.0 adds an FAQ manager under Marketing > SEO, with entries grouped by identifier per store view.
-
-  1. A theme-agnostic *SEO FAQ List* widget for CMS pages, blocks and layouts, and a native Page Builder *FAQ* content type
-  2. Plain `<details>`/`<summary>` markup with no JavaScript, styled for Luma, Blank and Hyvä
-  3. FAQPage JSON-LD matching the questions actually on the page, including under full-page cache
-  4. Saving a FAQ purges only the pages showing its group
-  5. FAQ groups flow into `module-aeo`'s `/llms.txt` files
-
-Do not place the widget inside a block that caches its own HTML, or the JSON-LD goes missing on a cache hit.
-
-### Passkeys
-
-`mage-os/module-passkey-auth` 1.0.2 brings passwordless login with passkeys. Shoppers sign in with Face ID, a fingerprint, Windows Hello or a security key, so there is no password to phish or leak.
-
-  1. **One-tap sign-in** using WebAuthn/FIDO2, offered in the browser's email autofill on login and at checkout
-  2. **Self-service** — customers add, rename and delete passkeys under My Account, with an email whenever one changes
-  3. **Luma and Hyvä** storefronts natively, with full REST and GraphQL coverage for headless builds
-  4. **Admin controls** — a Customer Passkeys grid to view and revoke passkeys, signing the customer out everywhere, plus optional enrollment banners
-  5. **Admin 2FA** — a passkey provider for Magento's admin two-factor authentication
-  6. **Hardened** — clone detection via sign counts, anti-enumeration decoys for unknown emails, and rate limiting
-
-Customer passkey login is **off by default** (`customer/passkey/enabled`) and requires HTTPS.
-
-### Product feeds
-
-`mage-os/module-shopping-feed` 1.2.5 adds product feeds configured entirely in the admin, with presets for Google Shopping, Google Local Inventory, Google Promotions, Meta, Pinterest, TikTok, Microsoft Merchant Center, generic delimited files, and an OpenAI Google-compatible preset in beta.
-
-  1. Per-feed columns, filters, category taxonomy mapping, a cron schedule, and optional FTP or SFTP delivery with host-key pinning
-  2. schema.org microdata for Google Automatic Item Updates, deep links that preselect configurable and custom options, and Google Ads `view_item` events on Luma
-  3. Source-level Google Local Inventory feeds when MSI is present
-  4. Per-product opt-out through a *Skip from Being Submitted* attribute
-
-It consolidates four Rocket Web shopping-feed modules into one package under its own namespace, so it can sit beside the originals; migration is a separate, explicit step. Feeds produce nothing until one is defined. Validate a sample before relying on the OpenAI preset, which does not yet match OpenAI's current feed spec.
-
-### Admin tooling
-
-**`mage-os/module-extension-directory` 1.1.0** lets you browse a curated catalog of around 1,100 open-source Magento modules from the admin, under System > Extensions, with search, category chips and filters for editors' picks, tested-with-your-version, recently updated, high quality, popular and trending. It reads `composer.lock` and your version to show installed and update badges, surfaces quality tiers, PHPStan levels and a version test matrix from PackageMaven alongside Packagist download trends, and **never installs anything** — shortlisting builds a list to hand to a developer, and Composer commands appear only in developer mode. In the default *Direct* mode admin browsers fetch the public feed; *Proxy* mode has the server fetch and cache it so no admin requests reach the directory host.
-
-**`avstudnitz/scopehint2` 2.0.0**, a long-standing community module by Andreas von Studnitz, shows where a setting is overridden by a website or store view, right next to the field. Clicking the indicator lists the overridden values grouped by website. Product and category attributes, product grid cells and Page Builder content get the same popovers. Category override detection is skipped above 50 store views by default (`dev/debug/scopehint_max_stores`).
-
-### AI provider configuration and the Mago assistant
-
-Mage-OS 4.0.0 bundles `mage-os/module-ai-base`, which gives the distribution one place to configure AI providers and one client for every module that calls them.
-
-Providers are configured under **Stores > Configuration > Mage-OS > AI Configuration**. OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, OpenRouter, Opper, Hugging Face, Ollama, LM Studio, OpenCode Zen, a self-hosted OpenCode server and any OpenAI-compatible gateway are supported. A provider can be added more than once, each row named and switched on or off independently, with Test Connection and Refresh Models available from the form. API keys are encrypted at rest and are not shown again after saving.
-
-Token usage is reported per module, service and store, on a dashboard at **Reports > AI Token Usage**, in a grid, and through a CLI report. Prompts and responses are not stored.
-
-On top of that configuration layer, this release bundles **Mago**, an MIT-licensed AI admin assistant you can ask about the store in plain language.
-
-  1. Chat in the admin with streamed answers rendered as stat cards, charts, tables and deep links into the relevant admin page
-  2. Built-in skills for sales analytics, store configuration, content management and admin navigation
-  3. **Safe writes** — every change asks first, irreversible actions such as cancelling an order show their impact before confirmation, and access follows each admin's ACL role
-  4. **Slash commands** (`/cache flush`, `/index reindex`) run directly with no AI round-trip
-  5. **Bring your own key** — requests go straight from the store to the provider, with no Mago server in between
-
-Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default, the assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
-
-Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
 
 ### Core improvements
 
