@@ -18,15 +18,15 @@ import Callout from '~/components/ui/Callout.astro';
 
 **Mage-OS Distribution 4.0.0** is now available. This is a **feature release**.
 
-The largest body of work in this release is Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel. Every one of those features is disabled by default.
+The largest body of work is in Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel.
 
-This release also bundles eight packages that were not part of 3.6.0. Among them are a shared AI provider configuration module with an admin assistant, and SEO, AEO, FAQ and passkey authentication modules.
+This release also bundles eight packages that were not part of 3.6.0. Among them are a shared AI provider configuration layer with an admin assistant, and modules for SEO, AEO, FAQ and passkey authentication.
+
+**Every new feature in this release is disabled by default.** Upgrading changes nothing about how your store behaves until you turn something on.
 
 Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support. It remains a drop-in upgrade from 3.6.x, with one exception covered in the upgrade notes below.
 
 ### Multi-Source Inventory
-
-Most of this work is off by default and enabled per feature. Upgrading does not change how your stock behaves until you turn something on.
 
 #### Source-level reservations
 
@@ -38,7 +38,7 @@ This closes a class of oversell that stock-level reservations cannot see: two or
 
 The lock taken when an order is placed is now a source-level lock, and it is taken at order submission, which also covers orders placed through the admin.
 
-This release also adds supply-side oversell detection, reservation invariant guards with reconciliation, and the ability to record compensations for an order that was already oversold. Each is configured separately, with optional hourly sweeps:
+This release adds supply-side oversell detection, reservation invariant guards with reconciliation, and the ability to record compensations for an order that was already oversold. Each is configured separately, with optional hourly sweeps:
 
   1. `cataloginventory/source_reservations/oversell_detection_enabled`
   2. `cataloginventory/source_reservations/oversell_sweep_enabled`
@@ -74,15 +74,15 @@ Providers are configured under **Stores > Configuration > Mage-OS > AI Configura
 
 Token usage is reported per module, service and store, on a dashboard at **Reports > AI Token Usage**, in a grid, and through a CLI report. Prompts and responses are not stored.
 
-On top of that configuration layer, this release bundles **Mago**, an AI admin assistant that answers questions about the store. Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default, the assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
+On top of that configuration layer, this release bundles **Mago**, an AI admin assistant that answers questions about the store. Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default. The assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
 
 Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
 
 ### Core improvements
 
-This release changes compiled dependency injection in two ways. `setup:di:compile` now parses each `di.xml` scope once per reader. Non-global compiled areas are now stored as their difference from the global area rather than in full.
+This release changes compiled dependency injection in two ways. `setup:di:compile` now parses each `di.xml` scope once per reader. Non-global compiled areas are stored as their difference from the global area rather than in full.
 
-Lazy object loading is also narrowed. Lazy ghost objects now apply to Magento and Mage-OS classes by default. `#[NonLazy]` is inherited from ancestor classes, and a constructor side-effect scan decides the treatment of third-party types. Extensions whose constructors do real work are no longer lazy-loaded by default.
+Lazy object loading is narrowed. Lazy ghost objects now apply to Magento and Mage-OS classes by default. `#[NonLazy]` is inherited from ancestor classes, and a constructor side-effect scan decides the treatment of third-party types. Extensions whose constructors do real work are no longer lazy-loaded by default.
 
 The rest of the core changes are:
 
@@ -99,16 +99,17 @@ The rest of the core changes are:
 
 ### Newly bundled modules
 
+- **`mage-os/module-ai-base`** — AI provider configuration and token usage reporting, described above.
+- **`mago-assistant/magento2-mago` 1.1.0** — the Mago admin assistant.
 - **`mage-os/module-seo` 2.2.1** — structured data, Open Graph, canonical and robots tags, hreflang and sitemaps. This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled. See the upgrade notes below.
 - **`mage-os/module-aeo` 1.1.2** — answer-engine optimisation.
 - **`mage-os/module-faq` 1.1.0** — FAQ content with structured data.
-- **`mage-os/module-passkey-auth` 1.0.2** — passkey authentication.
+- **`mage-os/module-passkey-auth` 1.0.2** — passkey authentication for the admin.
 - **`mage-os/module-shopping-feed` 1.2.5** — product feed generation.
 - **`mage-os/module-extension-directory` 1.1.0** — the extension directory, in the admin.
 - **`avstudnitz/scopehint2` 2.0.0** — shows the configuration scope a value comes from.
-- **`mago-assistant/magento2-mago` 1.1.0** — the Mago admin assistant, described above. This brings in `mage-os/module-ai-base` and the Symfony AI platform packages.
 
-Between them, these packages add 30 packages to a default install, 541 to 571. The AI configuration layer brings the Symfony AI platform components along with `symfony/http-client`, `symfony/serializer`, `symfony/property-info` and `symfony/uid`. Passkey authentication brings `web-auth/webauthn-lib`, `web-auth/cose-lib` and `spomky-labs/cbor-php`.
+Between them, these add 30 packages to a default install, 541 to 571. The AI configuration layer brings the Symfony AI platform components along with `symfony/http-client`, `symfony/serializer`, `symfony/property-info` and `symfony/uid`. Passkey authentication brings `web-auth/webauthn-lib`, `web-auth/cose-lib` and `spomky-labs/cbor-php`.
 
 ### Bundled add-on updates
 
