@@ -1,6 +1,6 @@
 ---
 title: Mage-OS 4.0.0 – Feature Release
-excerpt: A substantial overhaul of Multi-Source Inventory, with source-level reservations, oversell protection and a new storefront availability panel. This release also bundles SEO, AEO, FAQ and passkey authentication modules. Every new feature is disabled by default.
+excerpt: A substantial overhaul of Multi-Source Inventory, with source-level reservations, oversell protection and a new storefront availability panel. This release also bundles AI provider configuration with an admin assistant, along with SEO, AEO, FAQ and passkey authentication modules. Every new feature is disabled by default.
 publishDate: 2026-10-30T18:00:00
 draft: true
 category: Releases
@@ -20,7 +20,7 @@ import Callout from '~/components/ui/Callout.astro';
 
 The largest body of work in this release is Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel. Every one of those features is disabled by default.
 
-This release also bundles eight packages that were not part of 3.6.0, including SEO, AEO, FAQ and passkey authentication modules.
+This release also bundles eight packages that were not part of 3.6.0. Among them are a shared AI provider configuration module with an admin assistant, and SEO, AEO, FAQ and passkey authentication modules.
 
 Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support. It remains a drop-in upgrade from 3.6.x, with one exception covered in the upgrade notes below.
 
@@ -66,6 +66,18 @@ A new module, `mage-os/module-inventory-stock-visualizer`, adds an availability 
 
 The panel is disabled by default. Once `cataloginventory/stock_visualizer/enabled` is on, it can show a stock level or an exact quantity, aggregate across sources or break them out with labels. It is configurable per store view.
 
+### AI provider configuration and the Mago assistant
+
+Mage-OS 4.0.0 bundles `mage-os/module-ai-base`, which gives the distribution one place to configure AI providers and one client for every module that calls them.
+
+Providers are configured under **Stores > Configuration > Mage-OS > AI Configuration**. OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, OpenRouter, Opper, Hugging Face, Ollama, LM Studio, OpenCode Zen, a self-hosted OpenCode server and any OpenAI-compatible gateway are supported. A provider can be added more than once, each row named and switched on or off independently, with Test Connection and Refresh Models available from the form. API keys are encrypted at rest and are not shown again after saving.
+
+Token usage is reported per module, service and store, on a dashboard at **Reports > AI Token Usage**, in a grid, and through a CLI report. Prompts and responses are not stored.
+
+On top of that configuration layer, this release bundles **Mago**, an AI admin assistant that answers questions about the store. Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default, the assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
+
+Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
+
 ### Core improvements
 
 This release changes compiled dependency injection in two ways. `setup:di:compile` now parses each `di.xml` scope once per reader. Non-global compiled areas are now stored as their difference from the global area rather than in full.
@@ -94,7 +106,9 @@ The rest of the core changes are:
 - **`mage-os/module-shopping-feed` 1.2.5** — product feed generation.
 - **`mage-os/module-extension-directory` 1.1.0** — the extension directory, in the admin.
 - **`avstudnitz/scopehint2` 2.0.0** — shows the configuration scope a value comes from.
-- **`mago-assistant/magento2-mago` 1.1.0** — Mago assistant integration.
+- **`mago-assistant/magento2-mago` 1.1.0** — the Mago admin assistant, described above. This brings in `mage-os/module-ai-base` and the Symfony AI platform packages.
+
+Between them, these packages add 30 packages to a default install, 541 to 571. The AI configuration layer brings the Symfony AI platform components along with `symfony/http-client`, `symfony/serializer`, `symfony/property-info` and `symfony/uid`. Passkey authentication brings `web-auth/webauthn-lib`, `web-auth/cose-lib` and `spomky-labs/cbor-php`.
 
 ### Bundled add-on updates
 
