@@ -32,6 +32,9 @@ const excludedRepositories = new Set([
 // community module that has graduated from the Lab.
 const excludedGraduatedRepositories = new Set(['module-demo-package']);
 
+// Graduated repositories are normally named module-*; these are the exceptions.
+const additionalGraduatedRepositories = new Set(['directory']);
+
 const curation = {
   'module-admin-activity-log': {
     title: 'Admin Activity Log',
@@ -74,7 +77,7 @@ const curation = {
     howToUse:
       'Enable the module, then set the required robot directives in the Search Engine Optimization section of each product, category, or CMS page.',
     requirements: 'PHP 8.2–8.5; Mage-OS or Magento 2 with Catalog and CMS modules',
-    note: 'An unchecked directive uses the store design configuration; it does not explicitly force indexing or following.',
+    note: 'Replaced by SEO & Structured Data (mage-os/module-seo) in Mage-OS 4.0, which imports its settings; the two cannot be installed together.',
   },
   'module-page-builder-widget': {
     title: 'Page Builder Widget',
@@ -293,8 +296,9 @@ const curation = {
     summary:
       'Publishes machine-readable store and catalogue information for AI assistants through llms.txt and related feeds.',
     howToUse:
-      'Install the module, configure its answer-engine feeds, then validate the generated crawler files and catalogue output.',
-    requirements: 'PHP 8.3–8.5; Magento 2.4.7+ or Mage-OS; SEO ^2.0',
+      'Fill in the SEO Organisation details, then enable llms.txt, the product feed, and AI crawler rules per store view under Stores → Configuration → MageOS SEO → AI Information & Crawlers.',
+    requirements: 'PHP 8.3–8.5; Magento 2.4.7+ or Mage-OS; SEO ^2.0; a running queue consumer',
+    note: 'Included in Mage-OS 4.0 with every feature off by default.',
   },
   'module-agentic': {
     title: 'Agentic Commerce',
@@ -455,7 +459,7 @@ const curation = {
     summary:
       'Manages customer-facing FAQs and the structured data that helps search and answer engines understand them.',
     howToUse:
-      'Create and organise FAQs in the admin, publish them in the storefront, and validate the generated schema.',
+      'Create FAQs under Marketing → SEO → FAQ Manager, then place them with the SEO FAQ List widget or the Page Builder FAQ content type.',
     requirements: 'PHP 8.3–8.5; Magento 2.4.7+ or Mage-OS; SEO ^2.0; optional Page Builder',
   },
   'module-hreflang': {
@@ -465,6 +469,7 @@ const curation = {
     summary: 'Adds locale-aware hreflang links for CMS pages, products, and categories.',
     howToUse: 'Install and enable the module, then configure locale relationships for relevant store views and URLs.',
     requirements: 'PHP 8.1+; Mage-OS or Magento 2',
+    note: 'Superseded by SEO & Structured Data (mage-os/module-seo), which includes multistore hreflang and imports these settings; the two cannot be installed together.',
   },
   'module-inline-docs': {
     title: 'Inline Admin Documentation',
@@ -569,6 +574,7 @@ const curation = {
     howToUse:
       'Install over HTTPS, enable customer passkeys in Customer Configuration, and test registration, recovery, and sign-in for the selected storefront.',
     requirements: 'PHP 8.2+; Magento 2.4.6+ or Mage-OS; HTTPS and a WebAuthn-capable browser',
+    note: 'Included in Mage-OS 4.0; customer passkey login is off by default.',
   },
   'module-profiler': {
     title: 'Profiler',
@@ -605,8 +611,9 @@ const curation = {
     summary:
       'A search and answer-engine foundation covering structured data, social metadata, canonicals, hreflang, and sitemaps, with separate FAQ, AEO, and Agentic companions.',
     howToUse:
-      'Install the module, configure the required SEO features per store, then validate generated markup and crawler files.',
+      'Fill in the Organisation details under Marketing → SEO → Organization, review robots and canonical defaults per store, then validate the generated structured data.',
     requirements: 'PHP 8.3–8.5; Magento 2.4.7+ or Mage-OS; Magento MSI inventory modules',
+    note: "Included in Mage-OS 4.0, where it replaces Meta Robots Tag and conflicts with Hreflang; both modules' settings can be imported.",
   },
   'module-shopping-feed': {
     title: 'Shopping Feed',
@@ -617,6 +624,7 @@ const curation = {
     howToUse:
       'Choose a channel preset or custom mapping, configure filters and delivery, then preview and schedule feed generation.',
     requirements: 'Mage-OS or Magento 2; channel account or delivery destination',
+    note: 'The OpenAI preset is in beta and does not yet match OpenAI’s current feed specification; validate a sample before relying on it.',
   },
   'module-social-login': {
     title: 'Social Login',
@@ -1016,7 +1024,7 @@ if (contributorsOnly) {
   );
   const graduatedRepositories = readRepositories(GRADUATED_ORGANISATION).filter(
     (repository) =>
-      repository.name.startsWith('module-') &&
+      (repository.name.startsWith('module-') || additionalGraduatedRepositories.has(repository.name)) &&
       !excludedGraduatedRepositories.has(repository.name) &&
       hasGraduatedFromLab(repository, existingGraduates)
   );
