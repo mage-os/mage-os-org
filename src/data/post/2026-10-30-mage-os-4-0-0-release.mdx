@@ -42,9 +42,11 @@ Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conv
 
 Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
 
+Mago is the first module to use this layer. `mage-os/module-automatic-translation`, also bundled, still carries its own OpenAI configuration, so for now that one is set up separately.
+
 #### One place to configure AI providers
 
-Mage-OS 4.0.0 bundles `mage-os/module-ai-base`, which gives the distribution one place to configure AI providers and one client for every module that calls them.
+Mago is built on `mage-os/module-ai-base`, also new in 4.0.0: a shared layer that holds AI provider configuration and gives any module one client to call them through.
 
 Providers are configured under **Stores > Configuration > Mage-OS > AI Configuration**. OpenAI, Anthropic, Google Gemini, Azure OpenAI, DeepSeek, OpenRouter, Opper, Hugging Face, Ollama, LM Studio, OpenCode Zen, a self-hosted OpenCode server and any OpenAI-compatible gateway are supported. A provider can be added more than once, each row named and switched on or off independently, with Test Connection and Refresh Models available from the form. API keys are encrypted at rest and are not shown again after saving.
 
@@ -245,6 +247,8 @@ This release was made possible by:
 [@jeanmarcos-dev](https://github.com/jeanmarcos-dev), [@rhoerr](https://github.com/rhoerr), [@max-dernovyi](https://github.com/max-dernovyi), [@pingiun](https://github.com/pingiun), [@jissereitsma](https://github.com/jissereitsma), [@TuVanDev](https://github.com/TuVanDev), [@Blumm](https://github.com/Blumm), [@melindash](https://github.com/melindash), [@marcelmtz](https://github.com/marcelmtz), [@mattmacrocket](https://github.com/mattmacrocket), [@CyberNativeAI](https://github.com/CyberNativeAI), [@GrimLink](https://github.com/GrimLink), [@SamueleMartini](https://github.com/SamueleMartini), [@ImanuelBertrand](https://github.com/ImanuelBertrand), [@boldbart](https://github.com/boldbart), [@rikwillems](https://github.com/rikwillems), and [@avstudnitz](https://github.com/avstudnitz)
 
 The Multi-Source Inventory work in this release is overwhelmingly that of [@jeanmarcos-dev](https://github.com/jeanmarcos-dev), ported by [@rhoerr](https://github.com/rhoerr).
+
+The packages newly bundled in 4.0.0 come from their own teams. Mago and `mage-os/module-ai-base` from [@michielgerritsen](https://github.com/michielgerritsen), with [@haimanti-dekker](https://github.com/haimanti-dekker), [@Marvin-Magmodules](https://github.com/Marvin-Magmodules), [@mitchelvk](https://github.com/mitchelvk), [@Renews1337](https://github.com/Renews1337), [@mbm-peter](https://github.com/mbm-peter), [@henkvalk](https://github.com/henkvalk), [@GrimLink](https://github.com/GrimLink), [@gregor-RW](https://github.com/gregor-RW), [@JeroenBoersma](https://github.com/JeroenBoersma), [@cmuench](https://github.com/cmuench) and [@DavidLambauer](https://github.com/DavidLambauer). `module-seo`, `module-aeo` and `module-faq` from [@Sental](https://github.com/Sental), with [@XxXgeoXxX](https://github.com/XxXgeoXxX). `module-passkey-auth` from [@rhoerr](https://github.com/rhoerr) and [@brosenberger](https://github.com/brosenberger). `module-shopping-feed` from [Rocket Web](https://rocketweb.com/) and [@mattmacrocket](https://github.com/mattmacrocket). The extension directory from [@rhoerr](https://github.com/rhoerr).
 
 Upstream credit for fixes this release picks up to [Claudio Ferraro](https://github.com/claudio-ferraro), [Łukasz Bajsarowicz](https://github.com/lbajsarowicz), Sumesh P, and for the MSI picks to [@igorwulff](https://github.com/igorwulff), [@adamphh](https://github.com/adamphh), [@vlmed](https://github.com/vlmed), [@alzota](https://github.com/alzota), and [@arnobsh](https://github.com/arnobsh).
 
