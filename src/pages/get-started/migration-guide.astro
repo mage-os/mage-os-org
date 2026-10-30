@@ -66,6 +66,22 @@ const metadata = {
         icon: 'tabler:bolt',
       },
       {
+        title: 'Built-In SEO',
+        description:
+          'Structured data, social cards, robots and canonical control, and hreflang with no paid extension.',
+        icon: 'tabler:world-search',
+      },
+      {
+        title: 'Passkey Sign-In',
+        description: 'Optional passwordless customer login and a passkey provider for admin 2FA.',
+        icon: 'tabler:fingerprint',
+      },
+      {
+        title: 'Product Feeds',
+        description: 'Feeds for Google Shopping, Meta, Pinterest, TikTok, and Microsoft, configured in the admin.',
+        icon: 'tabler:rss',
+      },
+      {
         title: 'No Vendor Lock-in',
         description: 'Fully open source with transparent, community-led governance.',
         icon: 'tabler:heart-handshake',
@@ -455,9 +471,28 @@ bin/magento setup:upgrade`}
         <!-- Explore New Features -->
         <div class="bg-white dark:bg-slate-900 rounded-lg p-6 shadow-sm min-w-0">
           <h3 class="text-lg font-bold mb-4 dark:text-white">Explore New Mage-OS Features</h3>
-          <p class="text-muted mb-4 text-sm">Mage-OS 2 includes powerful new capabilities:</p>
+          <p class="text-muted mb-4 text-sm">Mage-OS 4 includes powerful new capabilities:</p>
 
           <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <Icon
+                name="tabler:world-search"
+                class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5"
+              />
+              <div>
+                <span class="font-medium dark:text-white">SEO &amp; Structured Data</span>
+                <p class="text-xs text-muted">
+                  Fill in Admin &gt; Marketing &gt; SEO &gt; Organization so structured data is complete
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:fingerprint" class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <span class="font-medium dark:text-white">Passkey Sign-In</span>
+                <p class="text-xs text-muted">Off by default; enable in Customer Configuration (requires HTTPS)</p>
+              </div>
+            </div>
             <div class="flex items-start gap-3">
               <Icon name="tabler:shield-lock" class="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
               <div>

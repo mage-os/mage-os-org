@@ -108,9 +108,9 @@ const metadata = {
           <Icon name="tabler:star" class="w-8 h-8 text-green-600 dark:text-green-400" />
         </div>
         <div>
-          <h2 class="text-3xl font-bold font-heading text-green-800 dark:text-green-200">Current Release: Mage-OS 3</h2>
+          <h2 class="text-3xl font-bold font-heading text-green-800 dark:text-green-200">Current Release: Mage-OS 4</h2>
           <p class="text-green-700 dark:text-green-300">
-            Released May 2026 on Magento Open Source 2.4.9, our most feature-rich release to date.
+            Built on Magento Open Source 2.4.9, with SEO, AI discoverability, passkeys, and product feeds built in.
           </p>
         </div>
       </div>
@@ -119,37 +119,50 @@ const metadata = {
         columns={2}
         items={[
           {
-            title: 'Interactive Installer',
+            title: 'SEO & Structured Data',
             description:
-              'A guided <code>bin/magento install</code> wizard with service auto-detection, resume-on-failure, and optional Hyvä setup.',
-            icon: 'tabler:terminal-2',
+              'Google-ready JSON-LD, social share cards, robots and canonical control, and multistore hreflang, with no paid extension needed.',
+            icon: 'tabler:world-search',
           },
           {
-            title: 'Returns (RMA)',
+            title: 'AI Discoverability',
             description:
-              'Built-in Return Merchandise Authorization — customers request returns and merchants review, approve, and respond.',
-            icon: 'tabler:package-import',
+              'Opt-in <code>/llms.txt</code> files and a product feed for AI assistants, plus control over which AI crawlers may index your store.',
+            icon: 'tabler:sparkles',
           },
           {
-            title: 'Admin Activity Log',
-            description: 'A built-in audit trail of who changed what and when, for auditing and compliance.',
-            icon: 'tabler:history',
-          },
-          {
-            title: 'Minimal Distribution',
+            title: 'Passkey Sign-In',
             description:
-              'A lean install of ~98 core packages, with everything else available as individual Composer packages.',
-            icon: 'tabler:package',
+              'Passwordless customer login with Face ID, fingerprints, or security keys, and a passkey provider for admin 2FA.',
+            icon: 'tabler:fingerprint',
           },
           {
-            title: 'Bundled Developer Toolkit',
-            description: 'n98-magerun2 and other established community tools shipped by default.',
-            icon: 'tabler:tools',
+            title: 'Product Feeds',
+            description:
+              'Built-in feeds for Google Shopping, Meta, Pinterest, TikTok, and Microsoft, configured entirely in the admin.',
+            icon: 'tabler:rss',
           },
           {
-            title: 'PHP 8.5 Support',
-            description: 'Built on Magento Open Source 2.4.9, with PHP 8.5 support and faster compiled performance.',
-            icon: 'tabler:brand-php',
+            title: 'FAQ Manager',
+            description:
+              'Manage FAQs in the admin, place them with a widget or Page Builder, and get FAQ rich results automatically.',
+            icon: 'tabler:help-circle',
+          },
+          {
+            title: 'Extension Directory',
+            description:
+              'Browse about 1,100 open-source modules from the admin, with quality and compatibility signals.',
+            icon: 'tabler:puzzle',
+          },
+          {
+            title: 'Real-Time Stock Availability',
+            description: 'An optional product page panel showing stock per source and per variant, driven by MSI.',
+            icon: 'tabler:building-store',
+          },
+          {
+            title: 'AI Admin Assistant',
+            description: 'Mago answers questions about your store in plain language, using your own AI provider key.',
+            icon: 'tabler:message-chatbot',
           },
         ]}
         classes={{
@@ -164,7 +177,7 @@ const metadata = {
           class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
         >
           <Icon name="tabler:download" class="w-5 h-5" />
-          Get Started with Mage-OS 3
+          Get Started with Mage-OS 4
         </a>
       </div>
     </div>
@@ -192,7 +205,7 @@ const metadata = {
       {
         title: 'Q3-Q4 2026 <span class="text-sm font-normal text-muted ml-2">(July - December)</span>',
         description:
-          'Ongoing security patch releases, additional Lab module graduations, ecosystem integrations and partner tooling, and community growth initiatives.',
+          '<strong>Mage-OS 3.x &amp; 4.0</strong> - Security releases on 3.x, followed by Mage-OS 4.0, our next major release, with built-in SEO and structured data, AI discoverability, passkey sign-in, product feeds, and newly graduated Lab modules. Plus ecosystem integrations and community growth initiatives.',
         icon: 'tabler:trending-up',
       },
     ]}
@@ -343,11 +356,35 @@ const metadata = {
         </div>
         <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
           <Icon name="tabler:check" class="w-5 h-5" />
-          <span>Meta Robots Control for SEO</span>
+          <span>SEO &amp; Structured Data (successor to Meta Robots Tag)</span>
         </div>
         <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
           <Icon name="tabler:check" class="w-5 h-5" />
           <span>PageBuilder Widget support</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Theme optimization (bfcache, speculative preloading)</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>AI discoverability (llms.txt) and AI crawler controls</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Passkey authentication</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>FAQ manager with rich results</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>Shopping and marketplace product feeds</span>
+        </div>
+        <div class="flex items-center gap-2 text-green-700 dark:text-green-300">
+          <Icon name="tabler:check" class="w-5 h-5" />
+          <span>In-admin Extension Directory</span>
         </div>
       </div>
     </div>
@@ -460,7 +497,7 @@ const metadata = {
           </li>
           <li class="flex items-start gap-2">
             <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-            <span>Mage-OS Distribution 1.0, 2.0, and 3.0 releases</span>
+            <span>Mage-OS Distribution 1.0, 2.0, 3.0, and 4.0 releases</span>
           </li>
           <li class="flex items-start gap-2">
             <Icon name="tabler:check" class="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
