@@ -10,7 +10,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 const metadata = {
   title: 'Mage-OS Features | Performance, Security & Innovation',
   description:
-    'Discover how Mage-OS Distribution delivers enhanced performance, enterprise-grade security, and community-driven innovation. 100% compatible with Magento extensions. Free and open source.',
+    'Discover how Mage-OS Distribution delivers enhanced performance, enterprise-grade security, built-in SEO, and community-driven innovation. 100% compatible with Magento extensions. Free and open source.',
   openGraph: {
     images: [{ url: '/og/page/features.png', width: 1200, height: 630 }],
   },
@@ -109,6 +109,18 @@ const metadata = {
           'Updated VCL configuration plus the bundled Varnish Extended module deliver richer cache controls and production-tuned defaults.',
         icon: 'tabler:server',
       },
+      {
+        title: 'WebP & AVIF Images',
+        description:
+          'Native upload and processing for modern image formats delivers smaller files and faster-loading catalog pages.',
+        icon: 'tabler:photo',
+      },
+      {
+        title: 'Faster DI Compilation',
+        description:
+          'setup:di:compile parses each di.xml scope once and stores compiled areas as a diff, so compiles finish sooner and generate less.',
+        icon: 'tabler:stack-2',
+      },
     ]}
   />
 
@@ -134,9 +146,10 @@ const metadata = {
         icon: 'tabler:certificate',
       },
       {
-        title: 'Enhanced Authentication',
-        description: 'Two-factor authentication (2FA), OAuth 2.0 support, and role-based access control (RBAC).',
-        icon: 'tabler:lock',
+        title: 'Passkeys & Two-Factor Authentication',
+        description:
+          'Optional passwordless passkey sign-in for customers, a passkey provider for admin 2FA, OAuth 2.0, and role-based access control.',
+        icon: 'tabler:fingerprint',
       },
       {
         title: 'Security Audits',
@@ -152,6 +165,64 @@ const metadata = {
         title: 'Session Management',
         description: '15-minute idle timeout enforcement and improved lockout policies protect admin accounts.',
         icon: 'tabler:clock',
+      },
+    ]}
+  />
+
+  <!-- Features Widget: SEO & Discoverability *************** -->
+
+  <FeaturesWidget
+    id="seo"
+    tagline="SEO & Discoverability"
+    title="Get Found Everywhere"
+    subtitle="Search engines, AI assistants, and shopping channels, built in with no paid extensions needed"
+    items={[
+      {
+        title: 'Structured Data Built In',
+        description:
+          'Google-ready JSON-LD for your organization, breadcrumbs, categories, and products, including variant groups for configurable products and the shipping and returns data merchant listings require.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Social Share Cards',
+        description:
+          'Open Graph and X (Twitter) cards on product, category, and site pages, so shared links look right.',
+        icon: 'tabler:share',
+      },
+      {
+        title: 'Robots & Canonical Control',
+        description:
+          'Index and follow defaults with per-page overrides, pagination handling, snippet and AI directives, and automatic canonicals.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Multistore Hreflang',
+        description:
+          'Hreflang links in the page head and sitemap, with x-default, for stores that sell across languages and regions.',
+        icon: 'tabler:language',
+      },
+      {
+        title: 'llms.txt for AI Assistants',
+        description:
+          'Opt-in /llms.txt summaries and a machine-readable product feed help AI assistants and answer engines understand your store.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'AI Crawler Controls',
+        description: 'Decide which AI crawlers may index your store, with robots.txt rules managed per store view.',
+        icon: 'tabler:shield-cog',
+      },
+      {
+        title: 'FAQ Manager',
+        description:
+          'Manage FAQs in the admin, place them with a widget or Page Builder, and get FAQ rich results automatically.',
+        icon: 'tabler:help-circle',
+      },
+      {
+        title: 'Product Feeds',
+        description:
+          'Scheduled feeds for Google Shopping, Meta, Pinterest, TikTok, and Microsoft, with filters, category mapping, and SFTP delivery.',
+        icon: 'tabler:rss',
       },
     ]}
   />
@@ -407,9 +478,65 @@ const metadata = {
               <td class="px-4 py-3 text-center text-gray-500">—</td>
             </tr>
             <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-              <td class="px-4 py-3">Meta Robots Tag Control</td>
+              <td class="px-4 py-3">SEO & Structured Data</td>
               <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
-                >✓ Built-in (per-page NOINDEX/NOFOLLOW/NOARCHIVE)</td
+                >✓ Built-in (JSON-LD, social cards, robots, canonicals, hreflang)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Basic (canonicals, default robots)</td>
+              <td class="px-4 py-3 text-center text-gray-500">Basic (canonicals, default robots)</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">AI Discoverability</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in, opt-in (llms.txt, AI product feed, crawler rules)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">FAQ Manager & Rich Results</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (widget, Page Builder, FAQPage schema)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Product Feeds</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (Google, Meta, Pinterest, TikTok, Microsoft)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Passkey Sign-In</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in, opt-in (customer login, admin 2FA)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+              <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">Stock Availability Display</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in, opt-in (per source and variant)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">Basic (stock status, "only X left")</td>
+              <td class="px-4 py-3 text-center text-gray-500">Basic (stock status, "only X left")</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">In-Admin Extension Directory</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Built-in (~1,100 open-source modules with quality signals)</td
+              >
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+              <td class="px-4 py-3 text-center text-gray-500">—</td>
+            </tr>
+            <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <td class="px-4 py-3">AI Admin Assistant</td>
+              <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
+                >✓ Bundled (Mago, bring your own AI key)</td
               >
               <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
               <td class="px-4 py-3 text-center text-gray-500">Third-party</td>
@@ -456,7 +583,7 @@ const metadata = {
             <tr class="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
               <td class="px-4 py-3">Bundled Developer Toolkit</td>
               <td class="px-4 py-3 text-center text-green-600 dark:text-green-400"
-                >✓ n98-magerun2, Ignition, Varnish Extended</td
+                >✓ n98-magerun2, Ignition, Varnish Extended, ScopeHint</td
               >
               <td class="px-4 py-3 text-center text-gray-500">—</td>
               <td class="px-4 py-3 text-center text-gray-500">—</td>
@@ -500,8 +627,14 @@ const metadata = {
       {
         title: 'Bundled Dev Toolkit',
         description:
-          'n98-magerun2, Ignition error pages, Varnish Extended, and Custom Admin Logo ship by default — no extra setup.',
+          'n98-magerun2, Ignition error pages, Varnish Extended, ScopeHint, and Custom Admin Logo ship by default — no extra setup.',
         icon: 'tabler:tools',
+      },
+      {
+        title: 'Extension Directory',
+        description:
+          'Browse about 1,100 open-source modules from the admin, with quality tiers, version test results, and installed or outdated badges.',
+        icon: 'tabler:puzzle',
       },
       {
         title: 'Ignition Error Pages',
@@ -607,6 +740,34 @@ const metadata = {
         title: 'Custom Admin Logo',
         description: 'Replace the admin login and header logo without touching a theme — a quick branding touch.',
         icon: 'tabler:photo',
+      },
+      {
+        title: 'AI Admin Assistant',
+        description:
+          'Ask questions like "What sold best this week?" in plain language. Mago answers with live store data and only changes things after you confirm.',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Real-Time Stock Availability',
+        description:
+          'Show shoppers stock levels or exact quantities on the product page, per source and per variant, when you turn it on.',
+        icon: 'tabler:building-store',
+      },
+      {
+        title: 'Passkey Sign-In',
+        description:
+          'Customers can sign in with Face ID, a fingerprint, or a security key, so there is no password to phish or forget.',
+        icon: 'tabler:fingerprint',
+      },
+      {
+        title: 'Built-In SEO',
+        description:
+          'Structured data, social cards, product feeds, and FAQ rich results come with the platform, not as paid extensions.',
+        icon: 'tabler:world-search',
+        callToAction: {
+          text: 'SEO features',
+          href: '#seo',
+        },
       },
     ]}
   />
