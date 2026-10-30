@@ -1,6 +1,6 @@
 ---
 title: Mage-OS 4.0.0 – Feature Release
-excerpt: A substantial overhaul of Multi-Source Inventory, with source-level reservations, oversell protection and a new storefront availability panel. This release also bundles AI provider configuration with an admin assistant, along with SEO, AEO, FAQ and passkey authentication modules. Every new feature is disabled by default.
+excerpt: A substantial overhaul of Multi-Source Inventory, and nine new packages covering SEO and structured data, AI discoverability, passkey login, product feeds, admin tooling and an AI admin assistant. Built on the same Magento Open Source 2.4.9 base as 3.x.
 publishDate: 2026-10-30T18:00:00
 draft: true
 category: Releases
@@ -20,25 +20,23 @@ import Callout from '~/components/ui/Callout.astro';
 
 The largest body of work is in Multi-Source Inventory. Mage-OS 4.0.0 adds source-level reservations, oversell detection and reconciliation, shipping from the source an order was allocated to, and a new storefront availability panel.
 
-This release also bundles eight packages that were not part of 3.6.0. Among them are a shared AI provider configuration layer with an admin assistant, and modules for SEO, AEO, FAQ and passkey authentication.
+This release also adds nine packages to a default install: six Mage-OS modules, one new MSI module and two community modules. Between them they cover SEO and structured data, AI discoverability, passwordless login, product feeds, admin tooling and an AI admin assistant.
 
-**Every new feature in this release is disabled by default.** Upgrading changes nothing about how your store behaves until you turn something on.
+Most new storefront features ship **off by default**. The exceptions are listed in the upgrade notes, and they are worth reading before you upgrade.
 
-Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support. It remains a drop-in upgrade from 3.6.x, with one exception covered in the upgrade notes below.
+Mage-OS 4.0.0 is built on the same **Magento Open Source 2.4.9** base as 3.6.0, with no change to PHP support, so it remains a drop-in upgrade from 3.6.x.
 
 ### Multi-Source Inventory
 
 #### Source-level reservations
 
-A reservation can now carry the source it belongs to, rather than only the stock. With `cataloginventory/source_reservations/enabled` turned on, order reservations are allocated per source, aggregated across linked sources, and indexed with source-level aggregation.
+A reservation can now carry the source it belongs to, rather than only the stock. `inventory_reservation` gains `source_code` and `object_increment_id` columns. With `cataloginventory/source_reservations/enabled` turned on, order reservations are allocated per source, aggregated across linked sources, and indexed with source-level aggregation.
 
 This closes a class of oversell that stock-level reservations cannot see: two orders drawing on the same physical source through different stocks.
 
 #### Oversell protection
 
-The lock taken when an order is placed is now a source-level lock, and it is taken at order submission, which also covers orders placed through the admin.
-
-This release adds supply-side oversell detection, reservation invariant guards with reconciliation, and the ability to record compensations for an order that was already oversold. Each is configured separately, with optional hourly sweeps:
+This release adds supply-side oversell detection, reservation invariant guards with reconciliation, and compensation for an order that was already oversold. Each is configured separately, with optional hourly sweeps:
 
   1. `cataloginventory/source_reservations/oversell_detection_enabled`
   2. `cataloginventory/source_reservations/oversell_sweep_enabled`
@@ -47,24 +45,106 @@ This release adds supply-side oversell detection, reservation invariant guards w
 
 All four default to disabled.
 
+<Callout type="warning" title="Two inventory paths change even with the flag off">
+
+The lock taken when an order is placed is now a source-level lock, and it is taken at order submission rather than at place-order, so orders created in the admin are covered the same way as checkout. Shipments now resolve the source an order was allocated to instead of falling back to the default source.
+
+Both apply regardless of whether source-level reservations are enabled. If you have customised order placement or shipment source selection, test those paths before upgrading in production.
+
+</Callout>
+
 #### Shipping and admin
 
-Shipments now resolve the source an order was allocated to, instead of falling back to the default source. This includes unmanaged and split shipments. Salable quantity in the admin is now broken down by source.
+Shipments resolve a source for unmanaged and split shipments, and the shipping plugins moved into the modules they plug into. Salable quantity in the admin is now broken down by source.
 
 #### Indexer performance
 
-The inventory indexer changes in four ways:
+The inventory indexer changes in five ways:
 
   1. A full reindex is parallelised by stock dimension
   2. Asynchronous reindex publishes one message per stock rather than per item
-  3. Reservation cleanup deletes in group-aligned chunks
+  3. Reservation cleanup deletes compensated reservations in group-aligned chunks
   4. Configurable products no longer walk their children live to evaluate quantity
+  5. Index rows are sorted by SKU to avoid deadlocks, and SKUs are cast to avoid a full scan
 
 #### New module: Stock Visualizer
 
-A new module, `mage-os/module-inventory-stock-visualizer`, adds an availability panel to the product page. The panel renders availability status server-side, loads quantity on demand, resolves composite product availability by product type, and coordinates its own cache purging from the inventory indexer.
+A new module, `mage-os/module-inventory-stock-visualizer`, shows shoppers real availability on the product page, either as a traffic-light level or an exact count.
 
-The panel is disabled by default. Once `cataloginventory/stock_visualizer/enabled` is on, it can show a stock level or an exact quantity, aggregate across sources or break them out with labels. It is configurable per store view.
+  1. Two display types: `level` (high, medium, low or out, never revealing a number) or `quantity` (the exact salable quantity), with thresholds overridable per product
+  2. A per-source breakdown for simple products and the selected configurable variant, accounting for source-level reservations when enabled
+  3. Composite-aware: the selected variant's stock, the maximum orderable quantity for the current bundle selection, and a complete-sets calculator for grouped products
+  4. It replaces the core stock badge rather than duplicating it, and loads on demand or instantly
+  5. Fragments are purged when a product or its source items change, through a queue that coalesces purges
+
+It ships inside `inventory-metapackage` rather than as a top-level add-on, is additive, and is **off by default** (`cataloginventory/stock_visualizer/enabled`). Contributed by [@jeanmarcos-dev](https://github.com/jeanmarcos-dev).
+
+### SEO and structured data
+
+`mage-os/module-seo` 2.2.1 brings full SEO and structured data into the distribution: product schema, social share cards, robots and canonical control, and hreflang for multistore.
+
+  1. **Structured data** as JSON-LD — Organization, WebSite, Breadcrumb, CollectionPage and product schema, linked by a shared `@id`, with 16 product-type templates
+  2. **Configurable products as a `ProductGroup`**, each child a variant with its own offer and a URL that preselects its options; large configurables collapse to one AggregateOffer
+  3. **Merchant listing ready** — shipping, return policy and item condition merged into product offers, with ratings from native reviews
+  4. **Open Graph and Twitter/X cards** on product, category and site pages
+  5. **Crawl control** — INDEX/FOLLOW defaults per content type with per-item overrides, `?p=N` pagination handling, and directives such as `max-snippet`, `max-image-preview` and `noai`
+  6. **Multistore hreflang** in `<head>` and inline in `sitemap.xml`, with x-default
+  7. Every concern is a provider pool, so blogs and review vendors can contribute without patching it
+
+This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled, and `mage-os/module-hreflang`. Both are migrated for you — see the upgrade notes.
+
+### AI discoverability
+
+`mage-os/module-aeo` 1.1.2 makes the store readable to AI assistants and answer engines, and lets you decide which AI crawlers may index you.
+
+  1. **`/llms.txt`** — a concise store summary with organisation, description, locale, schema types, top FAQs and an AI contact
+  2. **`/llms-full.txt`** — the same plus social profiles, the full category tree and every selected FAQ
+  3. **`/llms.jsonl`** — one JSON-LD `Product` per line, a machine-readable catalog feed
+  4. **AI crawler controls** — `Disallow` rules in `robots.txt` for any of 14 known AI crawlers, defaulting to CCBot and Bytespider
+
+Files are pre-generated per store view in its own language, rebuilt through a queue when data changes, served cacheably without a session, streamed when large, and S3 remote storage is supported. Everything is **off by default**, per store view, under Stores > Configuration > MageOS SEO > AI Information & Crawlers. The module depends on `module-seo` and its Organisation details.
+
+### FAQ
+
+`mage-os/module-faq` 1.1.0 adds an FAQ manager under Marketing > SEO, with entries grouped by identifier per store view.
+
+  1. A theme-agnostic *SEO FAQ List* widget for CMS pages, blocks and layouts, and a native Page Builder *FAQ* content type
+  2. Plain `<details>`/`<summary>` markup with no JavaScript, styled for Luma, Blank and Hyvä
+  3. FAQPage JSON-LD matching the questions actually on the page, including under full-page cache
+  4. Saving a FAQ purges only the pages showing its group
+  5. FAQ groups flow into `module-aeo`'s `/llms.txt` files
+
+Do not place the widget inside a block that caches its own HTML, or the JSON-LD goes missing on a cache hit.
+
+### Passkeys
+
+`mage-os/module-passkey-auth` 1.0.2 brings passwordless login with passkeys. Shoppers sign in with Face ID, a fingerprint, Windows Hello or a security key, so there is no password to phish or leak.
+
+  1. **One-tap sign-in** using WebAuthn/FIDO2, offered in the browser's email autofill on login and at checkout
+  2. **Self-service** — customers add, rename and delete passkeys under My Account, with an email whenever one changes
+  3. **Luma and Hyvä** storefronts natively, with full REST and GraphQL coverage for headless builds
+  4. **Admin controls** — a Customer Passkeys grid to view and revoke passkeys, signing the customer out everywhere, plus optional enrollment banners
+  5. **Admin 2FA** — a passkey provider for Magento's admin two-factor authentication
+  6. **Hardened** — clone detection via sign counts, anti-enumeration decoys for unknown emails, and rate limiting
+
+Customer passkey login is **off by default** (`customer/passkey/enabled`) and requires HTTPS.
+
+### Product feeds
+
+`mage-os/module-shopping-feed` 1.2.5 adds product feeds configured entirely in the admin, with presets for Google Shopping, Google Local Inventory, Google Promotions, Meta, Pinterest, TikTok, Microsoft Merchant Center, generic delimited files, and an OpenAI Google-compatible preset in beta.
+
+  1. Per-feed columns, filters, category taxonomy mapping, a cron schedule, and optional FTP or SFTP delivery with host-key pinning
+  2. schema.org microdata for Google Automatic Item Updates, deep links that preselect configurable and custom options, and Google Ads `view_item` events on Luma
+  3. Source-level Google Local Inventory feeds when MSI is present
+  4. Per-product opt-out through a *Skip from Being Submitted* attribute
+
+It consolidates four Rocket Web shopping-feed modules into one package under its own namespace, so it can sit beside the originals; migration is a separate, explicit step. Feeds produce nothing until one is defined. Validate a sample before relying on the OpenAI preset, which does not yet match OpenAI's current feed spec.
+
+### Admin tooling
+
+**`mage-os/module-extension-directory` 1.1.0** lets you browse a curated catalog of around 1,100 open-source Magento modules from the admin, under System > Extensions, with search, category chips and filters for editors' picks, tested-with-your-version, recently updated, high quality, popular and trending. It reads `composer.lock` and your version to show installed and update badges, surfaces quality tiers, PHPStan levels and a version test matrix from PackageMaven alongside Packagist download trends, and **never installs anything** — shortlisting builds a list to hand to a developer, and Composer commands appear only in developer mode. In the default *Direct* mode admin browsers fetch the public feed; *Proxy* mode has the server fetch and cache it so no admin requests reach the directory host.
+
+**`avstudnitz/scopehint2` 2.0.0**, a long-standing community module by Andreas von Studnitz, shows where a setting is overridden by a website or store view, right next to the field. Clicking the indicator lists the overridden values grouped by website. Product and category attributes, product grid cells and Page Builder content get the same popovers. Category override detection is skipped above 50 store views by default (`dev/debug/scopehint_max_stores`).
 
 ### AI provider configuration and the Mago assistant
 
@@ -74,7 +154,15 @@ Providers are configured under **Stores > Configuration > Mage-OS > AI Configura
 
 Token usage is reported per module, service and store, on a dashboard at **Reports > AI Token Usage**, in a grid, and through a CLI report. Prompts and responses are not stored.
 
-On top of that configuration layer, this release bundles **Mago**, an AI admin assistant that answers questions about the store. Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default. The assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
+On top of that configuration layer, this release bundles **Mago**, an MIT-licensed AI admin assistant you can ask about the store in plain language.
+
+  1. Chat in the admin with streamed answers rendered as stat cards, charts, tables and deep links into the relevant admin page
+  2. Built-in skills for sales analytics, store configuration, content management and admin navigation
+  3. **Safe writes** — every change asks first, irreversible actions such as cancelling an order show their impact before confirmation, and access follows each admin's ACL role
+  4. **Slash commands** (`/cache flush`, `/index reindex`) run directly with no AI round-trip
+  5. **Bring your own key** — requests go straight from the store to the provider, with no Mago server in between
+
+Mago is disabled by default (`mago/general/enabled`), as is its voice mode. Conversation history is retained for 90 days by default, the assistant name, accent colour and system prompt are configurable, tool iterations are capped, and reindexing through the assistant is off by default.
 
 Nothing is sent to any provider until a store configures one with its own credentials and enables the feature that uses it.
 
@@ -87,56 +175,52 @@ Lazy object loading is narrowed. Lazy ghost objects now apply to Magento and Mag
 The rest of the core changes are:
 
   1. Native WebP and AVIF support for image upload and processing
-  2. The full-page cache tag index is isolated per frontend and flushed through the backend, fixing stale pages when more than one cache frontend is configured
-  3. The CustomerGraphQl resolver cache key now includes the website id
-  4. Deferred product batching is restored in the Catalog and Bundle GraphQL resolvers
+  2. The full-page cache tag index is isolated per frontend and flushed through the backend; `cache:flush` now also removes untagged entries
+  3. The in-memory response cache is dropped from the Symfony cache frontend, which no longer retains loaded values
+  4. The CustomerGraphQl resolver cache key includes the website id, and deferred product batching is restored in the Catalog and Bundle resolvers
   5. Sales order and comment dates are parsed in each store's locale
   6. The new-account-email plugin moved into `Magento_Wishlist`, and the admin order-create items grid no longer depends on that module
-  7. Recommended PHP settings and reference `php.ini` files now ship with the distribution, and dead Suhosin directives have been removed
-  8. A block whose template fails validation is no longer cached
-  9. Uppercase media file extensions are routed correctly
-  10. A `false` date of birth is treated as empty on customer save
-
-### Newly bundled modules
-
-- **`mage-os/module-ai-base`** — AI provider configuration and token usage reporting, described above.
-- **`mago-assistant/magento2-mago` 1.1.0** — the Mago admin assistant.
-- **`mage-os/module-seo` 2.2.1** — structured data, Open Graph, canonical and robots tags, hreflang and sitemaps. This supersedes `mage-os/module-meta-robots-tag`, which is no longer bundled. See the upgrade notes below.
-- **`mage-os/module-aeo` 1.1.2** — answer-engine optimisation.
-- **`mage-os/module-faq` 1.1.0** — FAQ content with structured data.
-- **`mage-os/module-passkey-auth` 1.0.2** — passkey authentication for the admin.
-- **`mage-os/module-shopping-feed` 1.2.5** — product feed generation.
-- **`mage-os/module-extension-directory` 1.1.0** — the extension directory, in the admin.
-- **`avstudnitz/scopehint2` 2.0.0** — shows the configuration scope a value comes from.
-
-Between them, these add 30 packages to a default install, 541 to 571. The AI configuration layer brings the Symfony AI platform components along with `symfony/http-client`, `symfony/serializer`, `symfony/property-info` and `symfony/uid`. Passkey authentication brings `web-auth/webauthn-lib`, `web-auth/cose-lib` and `spomky-labs/cbor-php`.
+  7. Recommended PHP settings and reference `php.ini` files now ship, and dead Suhosin directives have been removed
+  8. Short-lived AMQP consumer prefetch is bounded
+  9. Quote items and custom prices survive an unrelated cart save, a `false` date of birth is treated as empty, uppercase media extensions are routed correctly, and a block whose template fails validation is no longer cached
+  10. The layout reader context is reset on re-entrant builds, and `File::getContent()` keeps original asset content
 
 ### Bundled add-on updates
 
-- **`mage-os/module-automatic-translation` 2.3.1 → 2.4.0.** Console commands renamed to match what they do, the OpenAI project ID is now decrypted before use, and the new-category form is fixed under PHP 8.5.
-- **`mage-os/module-theme-optimization` 2.3.0 → 2.4.0.** View transitions are disabled in the Meta in-app browser and no longer load on Hyvä themes.
-- **`mage-os/module-admin-activity-log` 2.0.2 → 2.0.4.** Theme config changes are logged from the saved config value model, sales document comments link to the order rather than the parent document id, and customer activity links to the customer edit page. A TypeError on iOS and Safari user agents without a version token is fixed.
-- **`mage-os/theme-adminhtml-m137` 1.3.4 → 1.3.5.** Admin radio button styling.
+- **`mage-os/module-automatic-translation` 2.3.1 → 2.4.0.** Console commands are **renamed** to match what they do, the OpenAI project ID is decrypted before use, and the new-category form is fixed under PHP 8.5.
+- **`mage-os/module-theme-optimization` 2.3.0 → 2.4.0.** View transitions are disabled in Meta in-app browsers, and neither they nor the bfcache handler load on Hyvä themes.
+- **`mage-os/module-admin-activity-log` 2.0.2 → 2.0.4.** Theme config changes are logged from the saved config value model, sales comments link to the order, customer and address activity links to the customer edit page, logout logging is skipped when the session has no user, an array-to-string conversion in ThemeConfig is fixed, and a TypeError on iOS and Safari user agents without a version token is fixed.
+- **`mage-os/theme-adminhtml-m137` 1.3.4 → 1.3.5.** A missing admin radio style.
 - **`mage-os/module-rma` 2.5.0 → 2.5.1.** Refunded quantities are excluded when the return period is unlimited.
-- **`mage-os/module-page-builder-template-import-export` 1.9.0 → 1.9.1.** The remote template cron points at `UpdateRemoteTemplateList`.
+- **`mage-os/module-page-builder-template-import-export` 1.9.0 → 1.9.1.** The remote-template cron points at `UpdateRemoteTemplateList`.
 
-`n98/magerun2-dist` moves from `^9.4` to `^10.0`.
+`n98/magerun2-dist` moves from `^9.4` to `^10.0`, a major version bump: check any scripts or CI that call magerun commands.
 
 ### Upgrade notes
 
-<Callout type="warning" title="Remove module-meta-robots-tag before upgrading">
+<Callout type="warning" title="Remove module-meta-robots-tag and module-hreflang from your root composer.json">
 
-`mage-os/module-seo` replaces the functionality of `mage-os/module-meta-robots-tag` and `mage-os/module-hreflang`, and declares a Composer conflict with both.
-
-Upgrading the metapackage on its own resolves cleanly, because the old module leaves the dependency set at the same time. If your project's own `composer.json` requires either module directly, Composer will refuse the upgrade. Remove them first:
+`mage-os/module-seo` supersedes both and declares a Composer conflict with them. Upgrading the metapackage on its own resolves cleanly, because the old module leaves the dependency set at the same time. If your project's own `composer.json` requires either module directly, Composer will refuse the upgrade. Remove them first:
 
 ```bash
 composer remove mage-os/module-meta-robots-tag mage-os/module-hreflang --no-update
 ```
 
-Your existing robots-tag configuration is not migrated. Review your per-page, category and product robots settings after upgrading.
+**Your settings are carried over.** `module-seo` ships data patches and a `bin/magento` import command that import existing meta-robots-tag and hreflang configuration, and reports the result as an admin message.
 
 </Callout>
+
+A few other things to know before upgrading:
+
+  1. **Fill in Organisation details.** `module-seo` outputs structured data as soon as it is installed, and it stays incomplete until Marketing > SEO > Organization is filled in. `/llms.txt` depends on the same data.
+  2. **Run your queue consumers.** AEO documents and SEO rebuilds are generated by the `mageosSeoFeedRegenerate` consumer, so make sure consumers run under cron or a supervisor.
+  3. **Off by default**: passkey login, the AEO documents and AI-crawler rules, Stock Visualizer, source-level reservations, and Mago. Shopping feeds produce nothing until a feed is defined.
+  4. **On by default, admin only**: ScopeHint popovers and config paths, and the Extension Directory page with its dashboard tip panel.
+  5. **Data leaving the store**: Mago sends prompts to the AI provider you configure. The Extension Directory in its default *Direct* mode has admin browsers fetch the public catalog feed; *Proxy* mode avoids that.
+  6. **Passkeys require HTTPS.**
+  7. Recompile after upgrading. The compiled DI format has changed, and extensions that read compiled configuration directly may need attention.
+
+Between them the new packages add 30 packages to a default install, 541 to 571. The AI configuration layer brings the Symfony AI platform components along with `symfony/http-client`, `symfony/serializer`, `symfony/property-info` and `symfony/uid`. Passkey authentication brings `web-auth/webauthn-lib`, `web-auth/cose-lib` and `spomky-labs/cbor-php`.
 
 ### Our foundation
 
@@ -150,11 +234,11 @@ Additionally, [as per our release policy](https://mage-os.org/product/releases/)
 
 This release was made possible by:
 
-[@jeanmarcos-dev](https://github.com/jeanmarcos-dev), [@rhoerr](https://github.com/rhoerr), [@max-dernovyi](https://github.com/max-dernovyi), [@pingiun](https://github.com/pingiun), [@jissereitsma](https://github.com/jissereitsma), [@TuVanDev](https://github.com/TuVanDev), [@Blumm](https://github.com/Blumm), [@melindash](https://github.com/melindash), [@marcelmtz](https://github.com/marcelmtz), [@mattmacrocket](https://github.com/mattmacrocket), [@lbajsarowicz](https://github.com/lbajsarowicz), [@claudio-ferraro](https://github.com/claudio-ferraro), [@sumesh-GL](https://github.com/sumesh-GL), [@CyberNativeAI](https://github.com/CyberNativeAI), [@SamueleMartini](https://github.com/SamueleMartini), [@GrimLink](https://github.com/GrimLink), [@ImanuelBertrand](https://github.com/ImanuelBertrand), [@boldbart](https://github.com/boldbart), and [@rikwillems](https://github.com/rikwillems)
+[@jeanmarcos-dev](https://github.com/jeanmarcos-dev), [@rhoerr](https://github.com/rhoerr), [@max-dernovyi](https://github.com/max-dernovyi), [@pingiun](https://github.com/pingiun), [@jissereitsma](https://github.com/jissereitsma), [@TuVanDev](https://github.com/TuVanDev), [@Blumm](https://github.com/Blumm), [@melindash](https://github.com/melindash), [@marcelmtz](https://github.com/marcelmtz), [@mattmacrocket](https://github.com/mattmacrocket), [@CyberNativeAI](https://github.com/CyberNativeAI), [@GrimLink](https://github.com/GrimLink), [@SamueleMartini](https://github.com/SamueleMartini), [@ImanuelBertrand](https://github.com/ImanuelBertrand), [@boldbart](https://github.com/boldbart), [@rikwillems](https://github.com/rikwillems), and [@avstudnitz](https://github.com/avstudnitz)
 
-The Multi-Source Inventory work in this release is overwhelmingly that of [@jeanmarcos-dev](https://github.com/jeanmarcos-dev).
+The Multi-Source Inventory work in this release is overwhelmingly that of [@jeanmarcos-dev](https://github.com/jeanmarcos-dev), ported by [@rhoerr](https://github.com/rhoerr).
 
-Upstream credit for the inventory fixes this release picks up to [@igorwulff](https://github.com/igorwulff), [@adamphh](https://github.com/adamphh), [@vlmed](https://github.com/vlmed), [@alzota](https://github.com/alzota), and [@arnobsh](https://github.com/arnobsh).
+Upstream credit for fixes this release picks up to [Claudio Ferraro](https://github.com/claudio-ferraro), [Łukasz Bajsarowicz](https://github.com/lbajsarowicz), Sumesh P, and for the MSI picks to [@igorwulff](https://github.com/igorwulff), [@adamphh](https://github.com/adamphh), [@vlmed](https://github.com/vlmed), [@alzota](https://github.com/alzota), and [@arnobsh](https://github.com/arnobsh).
 
 ### How to upgrade
 
