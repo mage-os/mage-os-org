@@ -15,6 +15,27 @@ October was a busy month for the Mage-OS community. We released an important sec
 
 Here's a look at what happened this month.
 
+### Mage-OS 4.0.0 has arrived!
+
+The biggest milestone of October came right at the end of the month: **Mage-OS 4.0.0 was released on October 30!**
+
+This is one of our most significant feature releases to date, bringing major improvements to the platform and taking another step towards AI-powered ecommerce. Developed by contributors and companies around the globe, the release introduces several exciting additions:
+
+- **Mago:** An AI-powered admin assistant that lets merchants ask questions about their store and manage settings using natural language.
+- **AI discoverability:** New capabilities to make storefront content more accessible to AI-powered search and answer engines.
+- **Multi-Source Inventory:** Its biggest overhaul since its introduction.
+- **Native product feeds:** Support for major advertising channels.
+- **Passkeys:** Passwordless login for customers and administrators.
+- **Enhanced admin tooling:** Further improvements to the everyday administration experience.
+
+One of the highlights is Mago, powered by the new `mage-os/module-ai-base`. Merchants can connect their preferred AI provider, including OpenAI, Anthropic, Gemini, Azure and even local solutions such as Ollama or LM Studio. Mago works with live store data, respects administrator permissions and asks for confirmation before making changes.
+
+The good news for existing installations: Mage-OS 4.0.0 keeps the Magento Open Source 2.4.9 foundation and supports PHP 8.3, 8.4 and 8.5. Upgrading from Mage-OS 3.6.x is a drop-in upgrade.
+
+**A big thank you to everyone who contributed to making this release happen!** It's the result of a truly international open-source effort.
+
+Check out the [full Mage-OS 4.0.0 release notes](https://mage-os.org/releases/2026-10-30-mage-os-4-0-0-release/) for all the details and upgrade instructions.
+
 ### Mage-OS 3.6.0 – Security Release
 
 On October 14, we released **Mage-OS 3.6.0**, an important security release based on Adobe's October isolated patch (APSB26-153).
@@ -24,19 +45,6 @@ The release addresses critical security vulnerabilities, including one rated CVS
 All Mage-OS 3.x installations should upgrade to this release.
 
 Read more about the release and its security fixes in our [release announcement](https://mage-os.org/releases/2026-10-14-mage-os-3-6-0-release/).
-
-### Mage-OS 4.0 is getting closer
-
-Preparations for Mage-OS 4.0 are in full swing.
-
-The community is working on several improvements and integrations, including:
-
-- SEO, AEO and FAQ modules
-- MSI improvements
-- Lazy-loading compatibility fixes
-- Additional Magento Open Source improvements, including GraphQL and caching enhancements
-
-We're also bundling **Mago** with Mage-OS 4.0. More on that below.
 
 ### Meet Mago – your new admin assistant
 
