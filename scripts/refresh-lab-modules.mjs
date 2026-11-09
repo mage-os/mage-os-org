@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-// Refreshes the Mage-OS Lab catalogue that the site builds from. READMEs are not
-// stored here: the viewer on /labs loads them from GitHub when a visitor opens one.
+// Refreshes the Mage-OS Lab catalogue that the site builds from. The build only
+// reads the committed file, so new data reaches the site when a refresh is merged.
 //
 // Every run reads repository metadata and GraphQL details for all projects, so
 // stars, releases, and signals cannot go stale. Contributors are reused until
