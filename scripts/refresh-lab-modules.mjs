@@ -284,6 +284,17 @@ const curation = {
     howToUse: 'Install the module, run setup:upgrade, and choose a time zone in each admin user profile.',
     requirements: 'PHP 8.1+; Mage-OS or Magento 2',
   },
+  'module-advanced-report': {
+    title: 'Advanced Report',
+    category: 'Admin & operations',
+    kind: 'Admin module',
+    summary:
+      'Adds sales, catalog, customer, cart, and stock reports to the admin, with period comparison, saved reports, and CSV export.',
+    howToUse:
+      'Install it with Composer and run setup:upgrade, then open Reports → Advanced Report to run a preset report or build your own.',
+    requirements: 'PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; tested on MySQL 8.4 and MariaDB 11.4',
+    note: 'Installing adds database indexes to order and quote tables, so on a large store run setup:upgrade outside peak traffic.',
+  },
   'module-advanced-widget': {
     title: 'Advanced Widget',
     category: 'Content & merchandising',
@@ -449,6 +460,16 @@ const curation = {
       'Install the module, enable customer two-factor authentication, and let customers enrol an authenticator from their account.',
     requirements: 'Mage-OS or Magento 2; Luma or Hyvä',
   },
+  'module-dashboard-chart': {
+    title: 'Dashboard Charts',
+    category: 'Admin & operations',
+    kind: 'Admin module',
+    summary:
+      'Shows Advanced Report charts on the admin dashboard, with default charts per admin role and a layout each admin can rearrange.',
+    howToUse:
+      'Install it alongside Advanced Report, then set the default charts per role under Stores → Configuration → Advanced → Admin → Dashboard.',
+    requirements: 'PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; Advanced Report module',
+  },
   'module-digital-signature': {
     title: 'Digital Signature',
     category: 'Admin & operations',
@@ -606,13 +627,13 @@ const curation = {
   'module-page-builder-improved': {
     title: 'Page Builder Improved',
     category: 'Content & merchandising',
-    kind: 'Commerce concept',
-    summary: 'A reserved Lab project for improving Page Builder in Mage-OS and Magento.',
-    howToUse: 'Not installable yet; follow the repository as the initial scope is defined.',
-    requirements: 'Not yet documented',
-    install: 'Not installable yet',
-    status: 'Incubating',
-    note: 'The repository was created recently and does not yet contain an implementation.',
+    kind: 'Commerce module',
+    summary:
+      'Extends Page Builder with content types declared in PHP, ready-made components, a new editor panel, and layout settings per viewport, including tablet.',
+    howToUse:
+      'Install the package, then enable the modules you want: components, example components, the editor panel, and layout settings.',
+    requirements: 'PHP 8.3–8.5; Mage-OS 1.3–3.x or Magento Open Source 2.4.8–2.4.9; Page Builder 2.2.6 or 2.2.7',
+    note: 'Pinned to Page Builder 2.2.6 and 2.2.7, because it overrides private Page Builder APIs.',
   },
   'module-passkey-auth': {
     title: 'Passkey Authentication',

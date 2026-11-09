@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
   "organisation": "mage-os-lab",
-  "catalogueUpdatedAt": "2026-11-02T21:26:05.790Z",
+  "catalogueUpdatedAt": "2026-11-09T10:44:43.389Z",
   "methodology": {
     "label": "Repository quality signals",
     "totalSignals": 6,
@@ -34,7 +34,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-25T17:30:34Z",
       "sourceCommit": "5f8f337f6c1fb0d330d0f20ff3b9a9b948feb54c",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "Python",
       "license": "OSL-3.0",
@@ -82,7 +82,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-04-14T13:17:49Z",
       "sourceCommit": "92271f4e7da0ffe6307079ce94c029c98966143e",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "0.1.0",
         "date": "2023-12-17T17:39:51Z"
@@ -138,7 +138,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-25T18:53:22Z",
       "sourceCommit": "ed9b40715177ac6aad193030d235a38ce2bb2fdd",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.1",
         "date": "2026-10-25T18:53:22Z"
@@ -194,7 +194,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-25T18:53:20Z",
       "sourceCommit": "70c653f63ff5addedb7059aa886a1c6dcc1b1e3f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.1",
         "date": "2026-10-25T18:53:20Z"
@@ -250,7 +250,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-07-08T16:00:24Z",
       "sourceCommit": "79a5a186d4b49577a8a793fc684857030aa6686f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "0.2.2",
         "date": "2026-07-08T16:00:25Z"
@@ -331,11 +331,11 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-22T01:43:37Z",
       "sourceCommit": "99513699b07e7c9f9f67681346f0c31e787c3eb8",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
-      "stars": 2,
+      "stars": 4,
       "forks": 1,
       "openIssues": 4,
       "defaultBranch": "main",
@@ -384,14 +384,14 @@
       "archived": false,
       "sourceUpdatedAt": "2026-06-08T14:23:17Z",
       "sourceCommit": "dde7c6765b71a96efb4f7749b5809d813b06c9d3",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.1",
         "date": "2026-04-14T13:49:44Z"
       },
       "language": "TypeScript",
       "license": "MIT",
-      "stars": 29,
+      "stars": 30,
       "forks": 5,
       "openIssues": 2,
       "defaultBranch": "main",
@@ -440,7 +440,7 @@
       "archived": true,
       "sourceUpdatedAt": "2023-10-06T08:10:55Z",
       "sourceCommit": "ec2a26ee2f4d98eafc307678c5321b279debab49",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -493,7 +493,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-26T03:01:16Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -535,7 +535,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-07-21T14:21:57Z",
       "sourceCommit": "0ab87073c770c500c972197485b1370b68ed48c3",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "0.9.3",
         "date": "2026-07-21T14:21:57Z"
@@ -591,7 +591,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-06-03T20:06:30Z",
       "sourceCommit": "4505a26649691205e2b54aef5b02c1570363d5cd",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": null,
@@ -622,6 +622,59 @@
       }
     },
     {
+      "slug": "module-advanced-report",
+      "title": "Advanced Report",
+      "repository": "module-advanced-report",
+      "url": "https://github.com/mage-os-lab/module-advanced-report",
+      "issuesUrl": "https://github.com/mage-os-lab/module-advanced-report/issues",
+      "summary": "Adds sales, catalog, customer, cart, and stock reports to the admin, with period comparison, saved reports, and CSV export.",
+      "category": "Admin & operations",
+      "kind": "Admin module",
+      "howToUse": "Install it with Composer and run setup:upgrade, then open Reports → Advanced Report to run a preset report or build your own.",
+      "install": "composer require mage-os/module-advanced-report",
+      "requirements": "PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; tested on MySQL 8.4 and MariaDB 11.4",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": "Installing adds database indexes to order and quote tables, so on a large store run setup:upgrade outside peak traffic.",
+      "package": "mage-os/module-advanced-report",
+      "archived": false,
+      "sourceUpdatedAt": "2026-11-08T22:38:26Z",
+      "sourceCommit": "7c2364df33d9915c6d07dda4313b37683da7baef",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
+      "latestRelease": null,
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 1,
+      "forks": 0,
+      "openIssues": 1,
+      "defaultBranch": "main",
+      "commitCount": 46,
+      "contributors": [
+        {
+          "login": "lucafuser",
+          "url": "https://github.com/lucafuser",
+          "contributions": 32
+        },
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 14
+        }
+      ],
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": false,
+          "tests": true,
+          "automation": true,
+          "recentActivity": true
+        }
+      }
+    },
+    {
       "slug": "module-advanced-widget",
       "title": "Advanced Widget",
       "repository": "module-advanced-widget",
@@ -639,7 +692,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-07-28T02:40:34Z",
       "sourceCommit": "2d0341b85fa8cde77818432c136f8b7f429f7bc6",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.2.5",
         "date": "2026-07-28T02:40:34Z"
@@ -710,7 +763,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T00:36:22Z",
       "sourceCommit": "ce1988906c5d3edb2888548d93d3e46aee293f10",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
@@ -756,9 +809,9 @@
       "caveat": "Renamed from Claude Consumer Agent; existing installations need the migration steps in the README.",
       "package": "mage-os/module-ai-shopping-assistant",
       "archived": false,
-      "sourceUpdatedAt": "2026-10-29T09:22:40Z",
-      "sourceCommit": "68424d64a55dd0100a8f67d705e4a2dd0061e88c",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "sourceUpdatedAt": "2026-11-06T18:37:03Z",
+      "sourceCommit": "b3c95e8d6e52c0ab37e128dd88c7dff4fb28810f",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.0.0",
         "date": "2026-10-10T16:00:47Z"
@@ -769,7 +822,7 @@
       "forks": 1,
       "openIssues": 0,
       "defaultBranch": "main",
-      "commitCount": 248,
+      "commitCount": 252,
       "contributors": [
         {
           "login": "gregor-RW",
@@ -809,7 +862,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-02T15:01:38Z",
       "sourceCommit": "5b84039b35461c1a1d948b6d4809c2a597d23c86",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "HTML",
       "license": "MIT",
@@ -867,7 +920,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-02T15:01:39Z",
       "sourceCommit": "444e6c8db52dcd354a619952f8f2810815dbf297",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "JavaScript",
       "license": null,
@@ -920,7 +973,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-02T15:01:41Z",
       "sourceCommit": "25361890a0ff74f44d7c7e7607000295ab3483cb",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "JavaScript",
       "license": null,
@@ -973,7 +1026,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-02T15:01:43Z",
       "sourceCommit": "4c436fcc623c00188cac32ab930667d1d1c46bf7",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "HTML",
       "license": null,
@@ -1026,7 +1079,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-11-02T15:03:39Z",
       "sourceCommit": "a51c723c4f602a64f2317a2a8f5e130899897a33",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.5.0",
         "date": "2026-11-02T13:17:00Z"
@@ -1122,7 +1175,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-01T06:53:54Z",
       "sourceCommit": "64493a2cbb81be84c3e16c6de7d8ea5fd11de0f8",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.0.0",
         "date": "2026-09-01T06:53:54Z"
@@ -1183,7 +1236,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-12T06:43:54Z",
       "sourceCommit": "55df565f8d5a49ddc15210ed8c91a697539e0cde",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.0.0",
         "date": "2026-10-12T06:43:54Z"
@@ -1234,7 +1287,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-04-19T21:40:27Z",
       "sourceCommit": "4a44952ef0e830ed1088f047e4195bdfc4c1b600",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.0",
         "date": "2025-03-12T02:59:17Z"
@@ -1325,7 +1378,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-16T06:13:35Z",
       "sourceCommit": "a751b4b3ddd1ec94a778aa00f74b48a3bc276011",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -1373,7 +1426,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-28T13:06:32Z",
       "sourceCommit": "aa602353bab1cd05f46974d811f58242699bd381",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
@@ -1415,13 +1468,13 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-25T14:13:58Z",
       "sourceCommit": "f59c5694629361d8600dc916f0af652752916ad1",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
       "stars": 3,
       "forks": 0,
-      "openIssues": 1,
+      "openIssues": 2,
       "defaultBranch": "main",
       "commitCount": 1,
       "contributors": [
@@ -1446,6 +1499,62 @@
       }
     },
     {
+      "slug": "module-dashboard-chart",
+      "title": "Dashboard Charts",
+      "repository": "module-dashboard-chart",
+      "url": "https://github.com/mage-os-lab/module-dashboard-chart",
+      "issuesUrl": "https://github.com/mage-os-lab/module-dashboard-chart/issues",
+      "summary": "Shows Advanced Report charts on the admin dashboard, with default charts per admin role and a layout each admin can rearrange.",
+      "category": "Admin & operations",
+      "kind": "Admin module",
+      "howToUse": "Install it alongside Advanced Report, then set the default charts per role under Stores → Configuration → Advanced → Admin → Dashboard.",
+      "install": "composer require mage-os/module-dashboard-chart",
+      "requirements": "PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; Advanced Report module",
+      "compatibility": "Check the package constraints and README against your store version before installing.",
+      "caveat": null,
+      "package": "mage-os/module-dashboard-chart",
+      "archived": false,
+      "sourceUpdatedAt": "2026-11-08T21:55:15Z",
+      "sourceCommit": "09535aece017be333331247a3e526b880a220c9b",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
+      "latestRelease": {
+        "tag": "1.0.0",
+        "date": "2026-11-04T14:24:27Z"
+      },
+      "language": "PHP",
+      "license": "MIT",
+      "stars": 0,
+      "forks": 0,
+      "openIssues": 0,
+      "defaultBranch": "main",
+      "commitCount": 11,
+      "contributors": [
+        {
+          "login": "SamueleMartini",
+          "url": "https://github.com/SamueleMartini",
+          "contributions": 10
+        },
+        {
+          "login": "dadolun95",
+          "url": "https://github.com/dadolun95",
+          "contributions": 1
+        }
+      ],
+      "quality": {
+        "score": 5,
+        "total": 6,
+        "label": "Strong signals",
+        "signals": {
+          "documentation": true,
+          "installable": true,
+          "release": true,
+          "tests": true,
+          "automation": false,
+          "recentActivity": true
+        }
+      }
+    },
+    {
       "slug": "module-digital-signature",
       "title": "Digital Signature",
       "repository": "module-digital-signature",
@@ -1463,7 +1572,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T18:32:44Z",
       "sourceCommit": "154cd9b8d2cce68209edecd8b77ed1768b09677f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -1511,7 +1620,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-04-19T20:56:23Z",
       "sourceCommit": "31be8fa4a9d8af3405895de694950d20d027e6d5",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.1.0",
         "date": "2026-04-19T20:56:24Z"
@@ -1567,7 +1676,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-02T18:40:47Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -1609,7 +1718,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-23T13:57:18Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -1651,7 +1760,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-06-13T08:47:55Z",
       "sourceCommit": "4c24661e720e9fb20215d0ee233727e811a2b50f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.3.0",
         "date": "2026-06-13T08:48:09Z"
@@ -1702,7 +1811,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-21T14:18:43Z",
       "sourceCommit": "50d5aa61ce2f74e3b734de4f8396655ee76177b6",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "JavaScript",
       "license": "MIT",
@@ -1750,7 +1859,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-01T14:58:11Z",
       "sourceCommit": "a15131547a174b8b162757dcf1e63b89bbd3f444",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -1823,7 +1932,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-29T14:40:30Z",
       "sourceCommit": "aea6059e3b0334d53017588fce4502e26fac54c5",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
@@ -1876,7 +1985,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-05-19T04:31:42Z",
       "sourceCommit": "82f1dedf22c41cdd6e1c91ea391aa852be4b41d6",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.1.0",
         "date": "2026-05-19T04:31:42Z"
@@ -1942,7 +2051,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-09T18:42:12Z",
       "sourceCommit": "bc27a1a4f6d564c0af65ddeeec01fdc2d4c464cb",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "Python",
       "license": "OSL-3.0",
@@ -1990,7 +2099,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-09T18:26:43Z",
       "sourceCommit": "286bcf46774a21b039d84883ae6e3bac3fac263f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "OSL-3.0",
@@ -2038,7 +2147,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-11T14:13:24Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -2080,7 +2189,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-12-04T16:18:33Z",
       "sourceCommit": "5d071ac7c9901144ac997845f3912aefcb8b8ebd",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": null,
@@ -2116,38 +2225,44 @@
       "repository": "module-page-builder-improved",
       "url": "https://github.com/mage-os-lab/module-page-builder-improved",
       "issuesUrl": "https://github.com/mage-os-lab/module-page-builder-improved/issues",
-      "summary": "A reserved Lab project for improving Page Builder in Mage-OS and Magento.",
+      "summary": "Extends Page Builder with content types declared in PHP, ready-made components, a new editor panel, and layout settings per viewport, including tablet.",
       "category": "Content & merchandising",
-      "kind": "Commerce concept",
-      "howToUse": "Not installable yet; follow the repository as the initial scope is defined.",
-      "install": "Not installable yet",
-      "requirements": "Not yet documented",
+      "kind": "Commerce module",
+      "howToUse": "Install the package, then enable the modules you want: components, example components, the editor panel, and layout settings.",
+      "install": "composer require mage-os/module-page-builder-improved",
+      "requirements": "PHP 8.3–8.5; Mage-OS 1.3–3.x or Magento Open Source 2.4.8–2.4.9; Page Builder 2.2.6 or 2.2.7",
       "compatibility": "Check the package constraints and README against your store version before installing.",
-      "caveat": "The repository was created recently and does not yet contain an implementation.",
-      "package": null,
+      "caveat": "Pinned to Page Builder 2.2.6 and 2.2.7, because it overrides private Page Builder APIs.",
+      "package": "mage-os/module-page-builder-improved",
       "archived": false,
-      "sourceUpdatedAt": "2026-10-21T06:35:35Z",
-      "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "sourceUpdatedAt": "2026-11-09T10:37:58Z",
+      "sourceCommit": "adde437134e91abc45d76d81e24fa955031bc01f",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
-      "language": null,
-      "license": null,
+      "language": "PHP",
+      "license": "OSL-3.0",
       "stars": 0,
       "forks": 0,
       "openIssues": 0,
-      "defaultBranch": "main",
-      "commitCount": 0,
-      "contributors": [],
+      "defaultBranch": "dev",
+      "commitCount": 4,
+      "contributors": [
+        {
+          "login": "LouisdeLooze",
+          "url": "https://github.com/LouisdeLooze",
+          "contributions": 4
+        }
+      ],
       "quality": {
-        "score": 1,
+        "score": 5,
         "total": 6,
-        "label": "Incubating",
+        "label": "Strong signals",
         "signals": {
-          "documentation": false,
-          "installable": false,
+          "documentation": true,
+          "installable": true,
           "release": false,
-          "tests": false,
-          "automation": false,
+          "tests": true,
+          "automation": true,
           "recentActivity": true
         }
       }
@@ -2170,7 +2285,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-19T16:05:54Z",
       "sourceCommit": "36ee5f4308df733f7975d0bca0dd7b54e2469c8f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.0",
         "date": "2026-08-31T15:56:11Z"
@@ -2226,7 +2341,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-01T05:50:14Z",
       "sourceCommit": "5eb9fd5d7da046e6a6ecdb4e4aeb3f664463b720",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.0",
         "date": "2026-09-01T05:50:39Z"
@@ -2277,7 +2392,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-02-26T04:51:12Z",
       "sourceCommit": "1e268b312821a199f133bf75480c76d9c017c20e",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -2330,7 +2445,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-14T09:15:08Z",
       "sourceCommit": "69ee70fa7784b24daf67685bfa47282f50e072c7",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -2378,7 +2493,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-01T14:34:29Z",
       "sourceCommit": "35577bd6824509b66728a3801c37177b22e83dcf",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": null,
@@ -2426,7 +2541,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-29T13:36:11Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -2468,7 +2583,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-11-02T10:14:29Z",
       "sourceCommit": "8d9011da395faf8415d555447c1472c3b485bf2e",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": "MIT",
@@ -2521,7 +2636,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-11-05T14:15:12Z",
       "sourceCommit": "01c3c200e7e07dcd86a4361f90f7f9c0bc139b45",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "HTML",
       "license": "MIT",
@@ -2574,7 +2689,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-10-24T12:56:26Z",
       "sourceCommit": "c77eeb6147d761283848c74560b2810c108295fe",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "HTML",
       "license": "MIT",
@@ -2622,7 +2737,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-10-24T12:58:22Z",
       "sourceCommit": "be8690a78986b9ce1420338aa805985a752eb3c2",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "HTML",
       "license": "MIT",
@@ -2670,7 +2785,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-09-15T09:59:58Z",
       "sourceCommit": "ffe08061cae00ea737ebde9302b7971b2d197d6a",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.2.0",
         "date": "2026-09-15T10:00:22Z"
@@ -2731,7 +2846,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-21T21:19:14Z",
       "sourceCommit": "65b38751f921388905c7dfa7e88b35bd0359cc79",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.0.6",
         "date": "2026-10-21T21:19:15Z"
@@ -2787,7 +2902,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-21T21:25:34Z",
       "sourceCommit": "273f368f3769632cc70cfc41983b6ea6153156d9",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.0.4",
         "date": "2026-10-21T21:25:34Z"
@@ -2838,11 +2953,11 @@
       "archived": false,
       "sourceUpdatedAt": "2025-11-21T12:38:58Z",
       "sourceCommit": "edac494ecb5734baaf6c07aacaa84a213750f39c",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
-      "stars": 8,
+      "stars": 9,
       "forks": 2,
       "openIssues": 2,
       "defaultBranch": "main",
@@ -2886,7 +3001,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-26T03:03:17Z",
       "sourceCommit": null,
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": null,
@@ -2928,7 +3043,7 @@
       "archived": false,
       "sourceUpdatedAt": "2025-11-02T10:25:43Z",
       "sourceCommit": "e21d8602c3b0e7ba0f98d3ed7617ed22dd778cc1",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "Less",
       "license": "MIT",
@@ -2981,7 +3096,7 @@
       "archived": true,
       "sourceUpdatedAt": "2025-08-13T09:45:00Z",
       "sourceCommit": "890c79fc3b42e1a2a0151037639a9ab483d0d9b5",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "PHP",
       "license": null,
@@ -3039,7 +3154,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-06-14T13:01:29Z",
       "sourceCommit": "207df1496a111bec6e47e9246be45041936c2692",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": null,
       "license": "MIT",
@@ -3092,7 +3207,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-29T17:17:04Z",
       "sourceCommit": "7e0b69d91aa7d95a0179eaa67753012885609782",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.1.0",
         "date": "2026-10-29T17:17:05Z"
@@ -3156,7 +3271,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-30T13:13:06Z",
       "sourceCommit": "a05391cd9f787103f7365945b8960455a64f58ab",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v0.1.1",
         "date": "2026-09-15T08:48:50Z"
@@ -3165,7 +3280,7 @@
       "license": null,
       "stars": 3,
       "forks": 1,
-      "openIssues": 3,
+      "openIssues": 4,
       "defaultBranch": "main",
       "commitCount": 58,
       "contributors": [
@@ -3215,7 +3330,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-31T10:11:55Z",
       "sourceCommit": "9a8eae99277583a36c7f7b59cee81707c014d3f9",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": null,
       "language": "Shell",
       "license": null,
@@ -3281,14 +3396,14 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-29T16:07:12Z",
       "sourceCommit": "888e3111ce9338a637cc875f43215a5194056b93",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.0.4",
         "date": "2026-10-29T16:07:13Z"
       },
       "language": "PHP",
       "license": null,
-      "stars": 29,
+      "stars": 30,
       "forks": 11,
       "openIssues": 1,
       "defaultBranch": "main",
@@ -3390,7 +3505,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-30T13:12:55Z",
       "sourceCommit": "c7a6ef41923114b3108e9639d5c245f00fc2e631",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.1.2",
         "date": "2026-10-29T08:27:26Z"
@@ -3399,7 +3514,7 @@
       "license": "OSL-3.0",
       "stars": 1,
       "forks": 1,
-      "openIssues": 1,
+      "openIssues": 2,
       "defaultBranch": "main",
       "commitCount": 30,
       "contributors": [
@@ -3447,9 +3562,9 @@
       "caveat": null,
       "package": "mage-os/module-ai-base",
       "archived": false,
-      "sourceUpdatedAt": "2026-10-30T13:13:12Z",
+      "sourceUpdatedAt": "2026-11-04T12:34:41Z",
       "sourceCommit": "66102614a7939464b6810d9faab7fbf967b5a521",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.1.0",
         "date": "2026-10-27T12:01:08Z"
@@ -3457,8 +3572,8 @@
       "language": "PHP",
       "license": null,
       "stars": 10,
-      "forks": 6,
-      "openIssues": 1,
+      "forks": 9,
+      "openIssues": 8,
       "defaultBranch": "main",
       "commitCount": 131,
       "contributors": [
@@ -3543,7 +3658,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-16T15:42:16Z",
       "sourceCommit": "7200487026f29ef3ff33da78735c91c24ca8a89f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.4.0",
         "date": "2026-10-16T15:42:17Z"
@@ -3552,7 +3667,7 @@
       "license": "MIT",
       "stars": 33,
       "forks": 17,
-      "openIssues": 7,
+      "openIssues": 8,
       "defaultBranch": "main",
       "commitCount": 106,
       "contributors": [
@@ -3647,7 +3762,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-30T13:13:10Z",
       "sourceCommit": "9528615e0f2c0ecb88b6d011729bef86634a7e5f",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.1.0",
         "date": "2026-10-12T06:56:27Z"
@@ -3706,7 +3821,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-10T13:35:13Z",
       "sourceCommit": "81b8d62b06743b0ae259c4a8870f0d8eb60587a2",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.5",
         "date": "2026-05-09T03:32:25Z"
@@ -3805,7 +3920,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-10T13:35:30Z",
       "sourceCommit": "b365f5c3670b4e0b7b566d0bb8a4c896ac678fc1",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.2.1",
         "date": "2026-05-01T02:43:14Z"
@@ -3869,7 +3984,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-10T13:34:25Z",
       "sourceCommit": "383879bde4440982110a9df5498aeb6bb691534e",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.5.0",
         "date": "2026-05-15T00:45:13Z"
@@ -3953,7 +4068,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T03:22:06Z",
       "sourceCommit": "e5887b41568e2f7e1a229d6f8aa507d53140b8a5",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.9.1",
         "date": "2026-10-27T03:22:07Z"
@@ -4032,7 +4147,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T13:41:00Z",
       "sourceCommit": "256cc947db415bcc5161f1a87e64ff0d2ee98d3d",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.0.2",
         "date": "2026-10-26T01:05:37Z"
@@ -4040,8 +4155,8 @@
       "language": "PHP",
       "license": "OSL-3.0",
       "stars": 15,
-      "forks": 6,
-      "openIssues": 3,
+      "forks": 7,
+      "openIssues": 4,
       "defaultBranch": "main",
       "commitCount": 98,
       "contributors": [
@@ -4101,7 +4216,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T03:27:29Z",
       "sourceCommit": "203c52bb4ddae561606b98e657476ecfa5263c6c",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.5.1",
         "date": "2026-10-27T03:27:30Z"
@@ -4190,7 +4305,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-30T13:13:14Z",
       "sourceCommit": "00c32c0a11871587737ba6b6a1aef91e1d6b29a5",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.2.1",
         "date": "2026-10-29T08:31:10Z"
@@ -4198,8 +4313,8 @@
       "language": "PHP",
       "license": "OSL-3.0",
       "stars": 9,
-      "forks": 4,
-      "openIssues": 12,
+      "forks": 5,
+      "openIssues": 14,
       "defaultBranch": "main",
       "commitCount": 229,
       "contributors": [
@@ -4257,9 +4372,9 @@
       "caveat": "The OpenAI preset is in beta and does not yet match OpenAI’s current feed specification; validate a sample before relying on it.",
       "package": "mage-os/module-shopping-feed",
       "archived": false,
-      "sourceUpdatedAt": "2026-10-27T13:40:57Z",
+      "sourceUpdatedAt": "2026-11-03T15:36:58Z",
       "sourceCommit": "286b938045039bbbda04dc4713eb149666d50f80",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "v1.2.5",
         "date": "2026-10-22T05:12:06Z"
@@ -4318,7 +4433,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-08-10T13:36:30Z",
       "sourceCommit": "768e343c3041d7fec413ba216b06dca658c0b4f6",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "1.2.1",
         "date": "2026-05-01T02:30:12Z"
@@ -4407,7 +4522,7 @@
       "archived": false,
       "sourceUpdatedAt": "2026-10-27T02:52:51Z",
       "sourceCommit": "6cedde1f2d3e83c5d54b826db4fee78456b934da",
-      "dataCheckedAt": "2026-11-02T21:26:05.790Z",
+      "dataCheckedAt": "2026-11-09T10:44:43.389Z",
       "latestRelease": {
         "tag": "2.4.0",
         "date": "2026-10-27T02:52:51Z"
