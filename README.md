@@ -21,7 +21,7 @@ The official Mage-OS website built with Astro, featuring a product-focused desig
 | Section | Pages |
 |---------|-------|
 | Homepage | `/` |
-| Product | `/product`, `/product/features`, `/product/roadmap`, `/product/releases` |
+| Product | `/product`, `/product/features`, `/product/roadmap`, `/product/releases`, `/labs` |
 | Get Started | `/get-started`, `/get-started/quick-start`, `/get-started/installation`, `/get-started/migration-guide`, `/get-started/system-requirements` |
 | Documentation | `/documentation` |
 | Community | `/community` |
@@ -171,6 +171,41 @@ excerpt: Join us for our monthly community meetup.
 Event details...
 ```
 
+### Mage-OS Lab Data
+
+The `/labs` page lists the public projects in the [mage-os-lab](https://github.com/mage-os-lab) GitHub organization, plus projects that have moved from there to [mage-os](https://github.com/mage-os). Its data lives in `src/data/lab-modules.json`. The build only reads that file and never calls GitHub, so the page changes when a refresh is committed and deployed.
+
+To refresh the data, sign in to the [GitHub CLI](https://cli.github.com/) with `gh auth login`, then run:
+
+```bash
+npm run refresh:labs
+```
+
+| Run | Time | GitHub requests |
+|-----|------|-----------------|
+| Typical, with a few projects changed | About 30 seconds | About 20 |
+| Nothing changed | About 25 seconds | 11 |
+| `--all`, refetching every contributor list | About 55 seconds | About 80 |
+
+Measured locally with 77 projects in November 2026. Most of the time goes on GitHub's GraphQL API, which is read for every project on every run so stars, releases, and readiness signals stay current. A run that finds no changes leaves the file untouched.
+
+| Option | Effect |
+|--------|--------|
+| `--all` | Refetch contributors for every project |
+| `--dry-run` | Report what would change without writing anything |
+| `--contributors-only` | Refetch contributors and leave everything else alone |
+| `--accept-shrink` | Allow an intended drop of more than a fifth of the projects |
+
+Pass options after `--`, for example `npm run refresh:labs -- --dry-run`.
+
+After a refresh:
+
+- New projects appear under "Other" with a placeholder summary. Add an entry to `curation` in `scripts/refresh-lab-modules.mjs`, then run the refresh again.
+- Check that no project disappeared unexpectedly.
+- Run `npm run check` before committing.
+
+`.github/workflows/refresh-lab-catalogue.yaml` runs the refresh every Monday at 06:00 UTC and opens a pull request when the data changes. A repository admin needs to enable "Allow GitHub Actions to create and approve pull requests" under **Settings** → **Actions** → **General**. Pull requests opened with the default token do not start CI, so add a `LAB_CATALOGUE_TOKEN` secret if CI should run on them.
+
 ## Configuration
 
 ### Site Configuration
@@ -226,6 +261,7 @@ Run all commands from the `astro/` directory:
 | `npm run preview` | Preview production build locally |
 | `npm run check` | Check project for errors |
 | `npm run fix` | Run ESLint and format with Prettier |
+| `npm run refresh:labs` | Refresh the Mage-OS Lab data from GitHub |
 
 ## Deployment
 
@@ -391,6 +427,8 @@ All writing must comply with the [Mage-OS Code of Conduct](https://mage-os.org/c
 | Homepage data | `src/data/homepage/*.yaml` |
 | Partners data | `src/data/partners.yaml` |
 | URL redirects | `public/_redirects` |
+| Lab project data | `src/data/lab-modules.json` |
+| Lab data refresh | `scripts/refresh-lab-modules.mjs` |
 
 ---
 
