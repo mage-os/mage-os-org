@@ -1,0 +1,56 @@
+name: Refresh Lab Catalogue
+
+# Keeps the Lab catalogue current by opening a pull request, so the site always
+# builds from reviewed data and never calls GitHub during a build.
+#
+# Setup, by a repository admin:
+#   1. Under Settings > Actions > General, enable "Allow GitHub Actions to create
+#      and approve pull requests".
+#   2. Optionally add a LAB_CATALOGUE_TOKEN secret that can write contents and
+#      pull requests. Pull requests opened with the default token do not start
+#      CI, so without this secret CI has to be started by hand on each one.
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC, ahead of the daily deploy at 12:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    # Forks that enable Actions would otherwise run this schedule too.
+    if: github.repository == 'mage-os/mage-os-org'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use Node.js 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      # The script only needs Node built-ins and the preinstalled gh CLI.
+      - name: Refresh the catalogue
+        run: npm run refresh:labs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Does nothing when the refresh changed no files, and updates the open pull
+      # request when there is one.
+      - name: Open or update the pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.LAB_CATALOGUE_TOKEN || secrets.GITHUB_TOKEN }}
+          branch: automation/refresh-lab-catalogue
+          delete-branch: true
+          add-paths: src/data/lab-modules.json
+          commit-message: Refresh Lab catalogue
+          title: Refresh Mage-OS Lab catalogue
+          body: |
+            The weekly refresh found changes in the Mage-OS Lab repositories.
+
+            Before merging, check for projects that have left the catalogue, and for new projects in the "Other" category. New projects need a `curation` entry in `scripts/refresh-lab-modules.mjs`.

@@ -1,7 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-type Project = (typeof import('~/data/lab-modules.json'))['modules'][number] & {
+type Catalogue = typeof import('~/data/lab-modules.json');
+type Project = (Catalogue['modules'][number] | Catalogue['graduatedModules'][number]) & {
   graduated?: boolean;
   organisation?: string;
 };

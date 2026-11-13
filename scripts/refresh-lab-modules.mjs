@@ -1,8 +1,18 @@
 #!/usr/bin/env node
 
-// Refreshes the Mage-OS Lab catalogue. Repository metadata is fetched first;
-// unchanged projects retain their existing enriched data so later runs only
-// inspect repositories that have actually received a new push.
+// Refreshes the Mage-OS Lab catalogue that the site builds from. The build only
+// reads the committed file, so new data reaches the site when a refresh is merged.
+//
+// Every run reads repository metadata and GraphQL details for all projects, so
+// stars, releases, and signals cannot go stale. Contributors are reused until
+// the default branch moves, because only a commit changes them. All requests go
+// through the authenticated gh CLI, and a run that finds no changes writes
+// nothing, so a scheduled run only produces a real diff.
+//
+//   --all                 Refetch contributors for every project.
+//   --contributors-only   Refetch contributors and leave everything else alone.
+//   --dry-run             Report what would happen without writing any files.
+//   --accept-shrink       Allow an intended drop of more than a fifth of projects.
 
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -16,6 +26,14 @@ const outputPath = resolve(rootDirectory, 'src/data/lab-modules.json');
 const forceRefresh = process.argv.includes('--all');
 const dryRun = process.argv.includes('--dry-run');
 const contributorsOnly = process.argv.includes('--contributors-only');
+const acceptShrink = process.argv.includes('--accept-shrink');
+const REQUEST_TIMEOUT_MS = 60_000;
+const REQUEST_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 5_000;
+// GitHub abandons a GraphQL query after ten seconds. Batches of 20 took up to
+// that long, while batches of 10 stay well inside the limit.
+const GRAPHQL_BATCH_SIZE = 10;
+const SHRINK_TOLERANCE = 0.8;
 const checkedAt = new Date().toISOString();
 const recentCutoff = new Date(checkedAt);
 recentCutoff.setUTCDate(recentCutoff.getUTCDate() - 180);
@@ -31,9 +49,6 @@ const excludedRepositories = new Set([
 // This empty fixture is used to test packaging in CI, rather than being a
 // community module that has graduated from the Lab.
 const excludedGraduatedRepositories = new Set(['module-demo-package']);
-
-// Graduated repositories are normally named module-*; these are the exceptions.
-const additionalGraduatedRepositories = new Set(['directory']);
 
 const curation = {
   'module-admin-activity-log': {
@@ -197,7 +212,7 @@ const curation = {
     howToUse:
       'Run mage-os-install in the directory where you want a project and follow the environment and admin setup prompts.',
     requirements: 'Docker plus DDEV or Warden',
-    install: 'Download a release binary, or run: go install github.com/mage-os-lab/mage-os-installer@latest',
+    install: 'Download the latest release binary from https://github.com/mage-os/mage-os-installer/releases/latest',
   },
   'magento2-lsp': {
     title: 'Magento 2 LSP & MCP',
@@ -240,7 +255,18 @@ const curation = {
       'Back up and test on staging, review the migration script, then run the command documented in the repository.',
     requirements: 'Magento Open Source 2.4.9; developer mode; local or staging environment; shell access',
     install:
-      'bash <(curl -s https://raw.githubusercontent.com/mage-os-lab/migrate-m2-to-mageos/refs/heads/main/migrate-to-mage-os.sh)',
+      'bash <(curl -s https://raw.githubusercontent.com/mage-os/migrate-m2-to-mageos/refs/heads/main/migrate-to-mage-os.sh)',
+  },
+  'module-accessibility-audit': {
+    title: 'Accessibility Audit',
+    category: 'Developer tools',
+    kind: 'Developer concept',
+    summary: 'A reserved Lab project for accessibility auditing in Mage-OS and Magento.',
+    howToUse: 'Not installable yet; follow the repository as the initial scope is defined.',
+    requirements: 'Not yet documented',
+    install: 'Not installable yet',
+    status: 'Incubating',
+    note: 'The repository was created recently and does not yet contain an implementation.',
   },
   'module-admin-assistant': {
     title: 'Admin Assistant',
@@ -257,6 +283,17 @@ const curation = {
     summary: 'Lets each admin user view backend dates and times in their own time zone.',
     howToUse: 'Install the module, run setup:upgrade, and choose a time zone in each admin user profile.',
     requirements: 'PHP 8.1+; Mage-OS or Magento 2',
+  },
+  'module-advanced-report': {
+    title: 'Advanced Report',
+    category: 'Admin & operations',
+    kind: 'Admin module',
+    summary:
+      'Adds sales, catalog, customer, cart, and stock reports to the admin, with period comparison, saved reports, and CSV export.',
+    howToUse:
+      'Install it with Composer and run setup:upgrade, then open Reports → Advanced Report to run a preset report or build your own.',
+    requirements: 'PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; tested on MySQL 8.4 and MariaDB 11.4',
+    note: 'Installing adds database indexes to order and quote tables, so on a large store run setup:upgrade outside peak traffic.',
   },
   'module-advanced-widget': {
     title: 'Advanced Widget',
@@ -315,7 +352,7 @@ const curation = {
     kind: 'Frontend module',
     summary: 'An early proof of concept for initializing Alpine.js in a Mage-OS storefront.',
     howToUse: 'Evaluate from source in a development store; the public API and feature set are still being defined.',
-    requirements: 'PHP 8.1+; Mage-OS or Magento 2',
+    requirements: 'PHP 8.2–8.5; Mage-OS or Magento 2',
     status: 'Experimental',
     note: 'The README labels this as a proof of concept and does not yet document finished features.',
   },
@@ -423,6 +460,16 @@ const curation = {
       'Install the module, enable customer two-factor authentication, and let customers enrol an authenticator from their account.',
     requirements: 'Mage-OS or Magento 2; Luma or Hyvä',
   },
+  'module-dashboard-chart': {
+    title: 'Dashboard Charts',
+    category: 'Admin & operations',
+    kind: 'Admin module',
+    summary:
+      'Shows Advanced Report charts on the admin dashboard, with default charts per admin role and a layout each admin can rearrange.',
+    howToUse:
+      'Install it alongside Advanced Report, then set the default charts per role under Stores → Configuration → Advanced → Admin → Dashboard.',
+    requirements: 'PHP 8.3–8.5; Mage-OS or Magento Open Source 2.4.7+; Advanced Report module',
+  },
   'module-digital-signature': {
     title: 'Digital Signature',
     category: 'Admin & operations',
@@ -461,6 +508,17 @@ const curation = {
     howToUse:
       'Create FAQs under Marketing → SEO → FAQ Manager, then place them with the SEO FAQ List widget or the Page Builder FAQ content type.',
     requirements: 'PHP 8.3–8.5; Magento 2.4.7+ or Mage-OS; SEO ^2.0; optional Page Builder',
+  },
+  'module-google-tracking': {
+    title: 'Google Tracking',
+    category: 'SEO & discovery',
+    kind: 'Commerce concept',
+    summary: 'A reserved Lab project for Google tracking in Mage-OS and Magento.',
+    howToUse: 'Not installable yet; follow the repository as the initial scope is defined.',
+    requirements: 'Not yet documented',
+    install: 'Not installable yet',
+    status: 'Incubating',
+    note: 'The repository was created recently and does not yet contain an implementation.',
   },
   'module-hreflang': {
     title: 'Hreflang',
@@ -565,6 +623,17 @@ const curation = {
     howToUse:
       'Install the module and request Page Builder content through its GraphQL fields instead of consuming rendered HTML.',
     requirements: 'Mage-OS or Magento 2 with Page Builder and GraphQL',
+  },
+  'module-page-builder-improved': {
+    title: 'Page Builder Improved',
+    category: 'Content & merchandising',
+    kind: 'Commerce module',
+    summary:
+      'Extends Page Builder with content types declared in PHP, ready-made components, a new editor panel, and layout settings per viewport, including tablet.',
+    howToUse:
+      'Install the package, then enable the modules you want: components, example components, the editor panel, and layout settings.',
+    requirements: 'PHP 8.3–8.5; Mage-OS 1.3–3.x or Magento Open Source 2.4.8–2.4.9; Page Builder 2.2.6 or 2.2.7',
+    note: 'Pinned to Page Builder 2.2.6 and 2.2.7, because it overrides private Page Builder APIs.',
   },
   'module-passkey-auth': {
     title: 'Passkey Authentication',
@@ -738,6 +807,17 @@ const curation = {
     status: 'Experimental',
     note: 'The maintainers describe this as experimental and not yet battle-tested in production.',
   },
+  'theme-accessible-blank': {
+    title: 'Accessible Blank Theme',
+    category: 'Developer tools',
+    kind: 'Theme concept',
+    summary: 'A reserved Lab project for an accessibility-focused blank storefront theme.',
+    howToUse: 'Not installable yet; follow the repository as the initial scope is defined.',
+    requirements: 'Not yet documented',
+    install: 'Not installable yet',
+    status: 'Incubating',
+    note: 'The repository was created recently and does not yet contain an implementation.',
+  },
   'theme-frontend-uikit': {
     title: 'UIkit Frontend Theme',
     category: 'Developer tools',
@@ -766,16 +846,45 @@ const curation = {
   },
 };
 
-function ghApi(arguments_) {
-  const response = execFileSync('gh', ['api', ...arguments_], {
-    cwd: rootDirectory,
-    encoding: 'utf8',
-    maxBuffer: 50 * 1024 * 1024,
-  });
+function sleepSync(milliseconds) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, milliseconds);
+}
 
-  // GitHub answers 204 No Content with an empty body for repositories that have
-  // no contributors yet, so treat an empty response as an empty collection.
-  return response.trim() ? JSON.parse(response) : [];
+// A scheduled run should survive a dropped connection or a GitHub timeout. An
+// HTTP 4xx answer is final, and callers rely on seeing a 404 straight away.
+function ghRequest(arguments_) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      return execFileSync('gh', ['api', ...arguments_], {
+        cwd: rootDirectory,
+        encoding: 'utf8',
+        maxBuffer: 50 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        timeout: REQUEST_TIMEOUT_MS,
+      });
+    } catch (error) {
+      if (attempt === REQUEST_ATTEMPTS || /HTTP 4\d\d/.test(String(error.stderr))) throw error;
+
+      console.warn(`Retrying a failed GitHub request: ${String(error.stderr).trim() || error.message}`);
+      sleepSync(RETRY_DELAY_MS * attempt);
+    }
+  }
+}
+
+// GitHub answers 204 No Content with an empty body on some collection
+// endpoints, so a caller that expects a list passes `emptyAs: []`. Every other
+// caller treats an empty body as a failure rather than as an empty result,
+// because an empty body on a single-object endpoint means the request did not
+// return what was asked for.
+function ghApi(arguments_, { emptyAs } = {}) {
+  const response = ghRequest(arguments_);
+
+  if (!response.trim()) {
+    if (emptyAs !== undefined) return emptyAs;
+    throw new Error(`GitHub returned an empty body for: gh api ${arguments_.join(' ')}`);
+  }
+
+  return JSON.parse(response);
 }
 
 function readExistingCatalogue() {
@@ -786,14 +895,37 @@ function readExistingCatalogue() {
   }
 }
 
+function assertCatalogueIsComplete(existingCatalogue, modules, graduatedModules) {
+  const previous = (existingCatalogue.modules?.length ?? 0) + (existingCatalogue.graduatedModules?.length ?? 0);
+  const current = modules.length + graduatedModules.length;
+  const floor = Math.ceil(previous * SHRINK_TOLERANCE);
+
+  if (!previous || current >= floor || acceptShrink) return;
+
+  throw new Error(
+    `Refusing to write ${outputPath}: the catalogue would fall from ${previous} to ${current} projects. ` +
+      'Check GitHub access and rerun, or pass --accept-shrink when the reduction is intended.'
+  );
+}
+
 function repositoryOwner(repository) {
   return repository.owner?.login ?? repository.organisation ?? ORGANISATION;
 }
 
 function readRepositories(organisation) {
-  return ghApi([`orgs/${organisation}/repos?per_page=100&type=public&sort=full_name`, '--paginate', '--slurp'])
-    .flat()
-    .sort((a, b) => a.name.localeCompare(b.name));
+  const repositories = ghApi([
+    `orgs/${organisation}/repos?per_page=100&type=public&sort=full_name`,
+    '--paginate',
+    '--slurp',
+  ]).flat();
+
+  // An organisation listing that comes back empty means the request failed or
+  // the token lost visibility, not that the organisation has no repositories.
+  if (!repositories.length) {
+    throw new Error(`GitHub returned no repositories for the ${organisation} organisation. Check access and rerun.`);
+  }
+
+  return repositories.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function hasGraduatedFromLab(repository, existingGraduates) {
@@ -812,34 +944,59 @@ function hasGraduatedFromLab(repository, existingGraduates) {
   }
 }
 
-function readRepositoryDetails(repository) {
-  const query = `
-    query RepositoryDetails($owner: String!, $name: String!) {
-      repository(owner: $owner, name: $name) {
-        defaultBranchRef {
-          name
-          target { ... on Commit { history { totalCount } } }
-        }
-        latestRelease { tagName publishedAt }
-        readme: object(expression: "HEAD:README.md") { ... on Blob { text } }
-        composer: object(expression: "HEAD:composer.json") { ... on Blob { text } }
-        package: object(expression: "HEAD:package.json") { ... on Blob { text } }
-        workflows: object(expression: "HEAD:.github/workflows") { ... on Tree { entries { name } } }
-        testsUpper: object(expression: "HEAD:Test") { ... on Tree { entries { name } } }
-        testsLower: object(expression: "HEAD:tests") { ... on Tree { entries { name } } }
-      }
+const repositoryDetailsFragment = `
+  fragment RepositoryDetails on Repository {
+    defaultBranchRef {
+      name
+      target { oid ... on Commit { history { totalCount } } }
     }
-  `;
+    latestRelease { tagName publishedAt }
+    readme: object(expression: "HEAD:README.md") { ... on Blob { text } }
+    composer: object(expression: "HEAD:composer.json") { ... on Blob { text } }
+    package: object(expression: "HEAD:package.json") { ... on Blob { text } }
+    workflows: object(expression: "HEAD:.github/workflows") { ... on Tree { entries { name } } }
+    testsUpper: object(expression: "HEAD:Test") { ... on Tree { entries { name } } }
+    testsLower: object(expression: "HEAD:tests") { ... on Tree { entries { name } } }
+    testsDev: object(expression: "HEAD:dev/tests") { ... on Tree { entries { name } } }
+  }
+`;
 
-  return ghApi([
-    'graphql',
-    '-f',
-    `query=${query}`,
-    '-F',
-    `owner=${repositoryOwner(repository)}`,
-    '-F',
-    `name=${repository.name}`,
-  ]).data.repository;
+// Aliases fetch a whole batch in one request, so every project can be read on
+// every run for a handful of requests rather than one per project.
+function readRepositoryDetails(repositories) {
+  const details = new Map();
+
+  for (let start = 0; start < repositories.length; start += GRAPHQL_BATCH_SIZE) {
+    const batch = repositories.slice(start, start + GRAPHQL_BATCH_SIZE);
+    const fields = batch.map((repository, index) => {
+      const owner = JSON.stringify(repositoryOwner(repository));
+      return `repository${index}: repository(owner: ${owner}, name: ${JSON.stringify(repository.name)}) { ...RepositoryDetails }`;
+    });
+    const response = ghApi([
+      'graphql',
+      '-f',
+      `query=query RepositoryDetailsBatch { ${fields.join(' ')} } ${repositoryDetailsFragment}`,
+    ]);
+
+    // GraphQL can answer with both data and per-field errors at exit code zero. A
+    // timed-out readme field would otherwise be recorded as a missing readme and
+    // lower the published quality score.
+    if (response.errors?.length) {
+      const messages = response.errors.map((entry) => entry.message).join('; ');
+      throw new Error(`GitHub GraphQL errors for ${batch.map(({ full_name }) => full_name).join(', ')}: ${messages}`);
+    }
+
+    batch.forEach((repository, index) => {
+      const repositoryDetails = response.data?.[`repository${index}`];
+      if (!repositoryDetails) {
+        throw new Error(`GitHub GraphQL returned no repository for ${repository.full_name}.`);
+      }
+
+      details.set(repository.full_name, repositoryDetails);
+    });
+  }
+
+  return details;
 }
 
 function normaliseContributors(entries) {
@@ -858,28 +1015,10 @@ function normaliseContributors(entries) {
 
 function readContributors(repository) {
   return normaliseContributors(
-    ghApi([`repos/${repositoryOwner(repository)}/${repository.name}/contributors?per_page=100&anon=0`])
+    ghApi([`repos/${repositoryOwner(repository)}/${repository.name}/contributors?per_page=100&anon=0`], {
+      emptyAs: [],
+    })
   );
-}
-
-async function readPublicContributors(module) {
-  const response = await fetch(
-    `https://api.github.com/repos/${repositoryOwner(module)}/${encodeURIComponent(module.repository)}/contributors?per_page=100&anon=0`,
-    {
-      headers: {
-        Accept: 'application/vnd.github+json',
-        'User-Agent': 'mage-os-lab-catalogue',
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-    }
-  );
-
-  if (response.status === 204) return [];
-  if (!response.ok) {
-    throw new Error(`GitHub contributors request failed for ${module.repository}: ${response.status}`);
-  }
-
-  return normaliseContributors(await response.json());
 }
 
 function parseJson(text) {
@@ -922,8 +1061,16 @@ function buildModule(repository, details, contributors) {
   const isInstallable =
     install !== 'Not installable yet' &&
     (Boolean(composerName || npmName || curated.install) || Boolean(latestRelease));
+  // A test framework in require-dev only shows intent, so the signal looks for a
+  // test directory or a declared test command. Magento modules commonly keep
+  // tests under dev/tests rather than at the repository root.
   const hasTests = Boolean(
-    details.testsUpper || details.testsLower || packageJson.scripts?.test || /## Testing\b/i.test(readme)
+    details.testsUpper ||
+    details.testsLower ||
+    details.testsDev ||
+    packageJson.scripts?.test ||
+    composer.scripts?.test ||
+    /## Testing\b/i.test(readme)
   );
   const hasAutomation = (details.workflows?.entries?.length ?? 0) > 0;
   const isRecentlyMaintained = new Date(repository.pushed_at) >= recentCutoff;
@@ -972,6 +1119,7 @@ function buildModule(repository, details, contributors) {
     package: composerName ?? npmName,
     archived: repository.archived,
     sourceUpdatedAt: repository.pushed_at,
+    sourceCommit: details.defaultBranchRef?.target?.oid ?? null,
     dataCheckedAt: checkedAt,
     latestRelease,
     language: repository.language ?? null,
@@ -987,13 +1135,37 @@ function buildModule(repository, details, contributors) {
   };
 }
 
+function withoutTimestamps(catalogue) {
+  return JSON.stringify(catalogue, (key, value) =>
+    key === 'catalogueUpdatedAt' || key === 'dataCheckedAt' ? undefined : value
+  );
+}
+
+function publish(existingCatalogue, catalogue) {
+  assertCatalogueIsComplete(existingCatalogue, catalogue.modules, catalogue.graduatedModules);
+
+  if (dryRun) {
+    console.log('Dry run: no file written.');
+    return;
+  }
+
+  if (withoutTimestamps(catalogue) === withoutTimestamps(existingCatalogue)) {
+    console.log('No data changed: the catalogue was left as it was.');
+    return;
+  }
+
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
+  console.log('Catalogue updated.');
+}
+
 if (contributorsOnly) {
   const existingCatalogue = readExistingCatalogue();
   const modules = [];
   const graduatedModules = [];
 
   for (const module of [...existingCatalogue.modules, ...(existingCatalogue.graduatedModules ?? [])]) {
-    const contributors = await readPublicContributors(module);
+    const contributors = readContributors({ ...module, name: module.repository });
     const target = module.graduated ? graduatedModules : modules;
     target.push({ ...module, contributors, dataCheckedAt: checkedAt });
     console.log(`Contributors: ${repositoryOwner(module)}/${module.repository} (${contributors.length})`);
@@ -1001,17 +1173,16 @@ if (contributorsOnly) {
 
   const catalogue = {
     ...existingCatalogue,
-    schemaVersion: 3,
+    schemaVersion: 4,
     catalogueUpdatedAt: checkedAt,
     modules,
     graduatedModules,
   };
 
-  if (!dryRun) writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
   console.log(
     `Mage-OS Lab catalogue: contributor data refreshed for ${modules.length} Lab and ${graduatedModules.length} graduated projects.`
   );
-  if (dryRun) console.log('Dry run: no file written.');
+  publish(existingCatalogue, catalogue);
 } else {
   const existingCatalogue = readExistingCatalogue();
   const existingModules = [...existingCatalogue.modules, ...(existingCatalogue.graduatedModules ?? [])];
@@ -1019,37 +1190,51 @@ if (contributorsOnly) {
     existingModules.map((module) => [`${repositoryOwner(module)}/${module.repository}`.toLowerCase(), module])
   );
   const existingGraduates = new Set((existingCatalogue.graduatedModules ?? []).map((module) => module.repository));
+  const cataloguedRepositories = new Set(existingModules.map((module) => module.repository));
   const repositories = readRepositories(ORGANISATION).filter(
     (repository) => !excludedRepositories.has(repository.name) && !repository.fork
   );
+  // Most of the main organisation is unrelated to the Lab, so only check modules
+  // and projects already in the catalogue. Without the catalogue check, a tool
+  // or library transferred out of the Lab would silently leave the catalogue.
   const graduatedRepositories = readRepositories(GRADUATED_ORGANISATION).filter(
     (repository) =>
-      (repository.name.startsWith('module-') || additionalGraduatedRepositories.has(repository.name)) &&
+      (repository.name.startsWith('module-') || cataloguedRepositories.has(repository.name)) &&
       !excludedGraduatedRepositories.has(repository.name) &&
       hasGraduatedFromLab(repository, existingGraduates)
   );
 
+  const allRepositories = [...repositories, ...graduatedRepositories];
+  const details = readRepositoryDetails(allRepositories);
   const modules = [];
   const graduatedModules = [];
   const refreshed = [];
-  const unchanged = [];
+  const reused = [];
 
-  for (const repository of [...repositories, ...graduatedRepositories]) {
+  for (const repository of allRepositories) {
+    const fullName = `${repositoryOwner(repository)}/${repository.name}`;
     const target = repositoryOwner(repository) === GRADUATED_ORGANISATION ? graduatedModules : modules;
-    const existing = existingByRepository.get(`${repositoryOwner(repository)}/${repository.name}`.toLowerCase());
-    if (!forceRefresh && existing?.sourceUpdatedAt === repository.pushed_at && Array.isArray(existing.contributors)) {
-      target.push(existing);
-      unchanged.push(`${repositoryOwner(repository)}/${repository.name}`);
+    const existing = existingByRepository.get(fullName.toLowerCase());
+    const repositoryDetails = details.get(repository.full_name);
+    const sourceCommit = repositoryDetails.defaultBranchRef?.target?.oid ?? null;
+
+    // Only a commit changes contributors, so the default branch's head says
+    // whether the stored list is current. Everything else in the module is rebuilt
+    // from data read on this run.
+    const isCurrent = !forceRefresh && existing?.sourceCommit === sourceCommit && Array.isArray(existing.contributors);
+
+    if (isCurrent) {
+      target.push(buildModule(repository, repositoryDetails, existing.contributors));
+      reused.push(fullName);
       continue;
     }
 
-    const details = readRepositoryDetails(repository);
-    target.push(buildModule(repository, details, readContributors(repository)));
-    refreshed.push(`${repositoryOwner(repository)}/${repository.name}`);
+    target.push(buildModule(repository, repositoryDetails, sourceCommit ? readContributors(repository) : []));
+    refreshed.push(fullName);
   }
 
   const catalogue = {
-    schemaVersion: 3,
+    schemaVersion: 4,
     organisation: ORGANISATION,
     catalogueUpdatedAt: checkedAt,
     methodology: {
@@ -1070,14 +1255,9 @@ if (contributorsOnly) {
     graduatedModules,
   };
 
-  if (!dryRun) {
-    mkdirSync(dirname(outputPath), { recursive: true });
-    writeFileSync(outputPath, `${JSON.stringify(catalogue, null, 2)}\n`);
-  }
-
   console.log(
-    `Mage-OS Lab catalogue: ${modules.length} Lab projects, ${graduatedModules.length} graduated projects, ${refreshed.length} refreshed, ${unchanged.length} unchanged.`
+    `Mage-OS Lab catalogue: ${modules.length} Lab projects, ${graduatedModules.length} graduated projects. Contributors: ${refreshed.length} refreshed, ${reused.length} reused.`
   );
   if (refreshed.length) console.log(`Refreshed: ${refreshed.join(', ')}`);
-  if (dryRun) console.log('Dry run: no file written.');
+  publish(existingCatalogue, catalogue);
 }
