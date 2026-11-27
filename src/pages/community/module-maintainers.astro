@@ -1,0 +1,174 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Callout from '~/components/ui/Callout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Module Maintainers',
+  description:
+    'What Module Maintainers do at Mage-OS: reviewing pull requests on the modules in the Mage-OS GitHub organization, what is expected and who is eligible.',
+  openGraph: {
+    images: [{ url: '/og/page/module-maintainers.png', width: 1200, height: 630 }],
+  },
+};
+
+const responsibilities = [
+  {
+    title: 'Review pull requests',
+    description: 'Review PRs on the module repositories and give feedback where needed.',
+    icon: 'tabler:eye-check',
+  },
+  {
+    title: 'Approve when it is ready',
+    description: 'Your approval is what unblocks a PR. Approve once you are confident the change is sound.',
+    icon: 'tabler:circle-check',
+  },
+  {
+    title: 'Look after your own module first',
+    description:
+      'Most of your time will go to the module you maintain. Reviewing PRs on other modules is welcome whenever you have time.',
+    icon: 'tabler:puzzle',
+  },
+];
+
+const optional = [
+  {
+    title: 'Judging whether a PR makes sense',
+    description:
+      'You can weigh in on the direction of a change, but you do not have to. That call stays with the owner of the module: the person who maintains that specific module.',
+    icon: 'tabler:compass',
+  },
+  {
+    title: 'Merging',
+    description:
+      'You can merge after approving, but reviewing and leaving the merge to the owner of the module is perfectly fine.',
+    icon: 'tabler:git-merge',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <PageHero tagline="Get Involved" variant="default">
+    <Fragment slot="title">Module Maintainers</Fragment>
+    <Fragment slot="subtitle">
+      More and more modules are moving into the Mage-OS organization. Module Maintainers review their pull requests, so
+      they don't have to wait on a handful of people.
+    </Fragment>
+  </PageHero>
+
+  <section class="px-4 py-8 sm:px-6 mx-auto lg:px-8 max-w-5xl">
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 mb-12"
+    >
+      <h2 class="flex items-center gap-3">
+        <Icon name="tabler:users-group" class="w-8 h-8 text-icon" />
+        Why this role exists
+      </h2>
+      <p>
+        Once a module is transferred to the <a
+          href="https://github.com/mage-os"
+          target="_blank"
+          rel="noopener noreferrer">Mage-OS GitHub organization</a
+        >, every pull request needs a review from someone other than the author. That includes the original author of
+        the module: they can no longer merge their own changes. Until now those reviews came from the distribution team,
+        which made them a bottleneck.
+      </p>
+      <p>
+        Module Maintainers spread that load. They have review and merge rights on every module that moved from
+        <a href="/labs">Mage-OS Lab</a> into the Mage-OS organization, such as SEO, AI Base and Blog. Not just their own module,
+        but all of them. Repositories that are still in the Mage-OS Lab organization are not covered.
+      </p>
+      <p>
+        The distribution itself is not part of this role. A change to the distribution can affect every shop running
+        Mage-OS, while a module change is contained, so reviewing it takes a different skill set. Distribution pull
+        requests stay with the distribution team.
+      </p>
+    </div>
+
+    <h2 class="flex items-center gap-3 text-2xl font-bold font-heading mb-6 dark:text-white">
+      <Icon name="tabler:list-check" class="w-7 h-7 text-icon" />
+      What is expected from you
+    </h2>
+    <div class="mb-12">
+      <ItemGrid
+        columns={3}
+        items={responsibilities}
+        classes={{
+          container: 'gap-4 md:gap-6',
+          panel: 'bg-white dark:bg-slate-900 p-5 rounded-xl shadow-md border border-gray-100 dark:border-gray-700',
+          title: 'text-base font-bold',
+          description: 'text-sm text-muted',
+          icon: 'text-primary',
+        }}
+      />
+    </div>
+
+    <h2 class="flex items-center gap-3 text-2xl font-bold font-heading mb-6 dark:text-white">
+      <Icon name="tabler:adjustments" class="w-7 h-7 text-icon" />
+      What is up to you
+    </h2>
+    <div class="mb-12">
+      <ItemGrid
+        columns={2}
+        items={optional}
+        classes={{
+          container: 'gap-4 md:gap-6',
+          panel: 'bg-white dark:bg-slate-900 p-5 rounded-xl shadow-md border border-gray-100 dark:border-gray-700',
+          title: 'text-base font-bold',
+          description: 'text-sm text-muted',
+          icon: 'text-primary',
+        }}
+      />
+    </div>
+
+    <div
+      class="prose prose-lg max-w-none dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-indigo-600 dark:prose-a:text-indigo-400 mb-12"
+    >
+      <h2 class="flex items-center gap-3">
+        <Icon name="tabler:message-circle" class="w-8 h-8 text-icon" />
+        Finding and requesting reviews
+      </h2>
+      <p>
+        The <a href="https://dashboard.mage-os.org/reviews/" target="_blank" rel="noopener noreferrer"
+          >review dashboard</a
+        >
+        lists all pull requests that are waiting for a review. That is the place to start when you have time to review.
+      </p>
+      <p>
+        Module Maintainers have their own channel on the <a href="/discord-channel">Mage-OS Discord</a>. Need a review
+        on your module? Post the pull request there, and another Module Maintainer can pick it up.
+      </p>
+
+      <h2 class="flex items-center gap-3">
+        <Icon name="tabler:user-check" class="w-8 h-8 text-icon" />
+        Who can become a Module Maintainer
+      </h2>
+      <p>
+        If you maintain a module that moved from Mage-OS Lab into the Mage-OS organization, you are a Module Maintainer.
+        You are added to the Module Maintainers team on GitHub, which gives you review and merge rights on all of these
+        modules.
+      </p>
+      <p>
+        Beyond that, Module Maintainers are invited: staff decides per person, based on their contributions to the
+        modules and the community. It is not open to every contributor as a blanket rule.
+      </p>
+    </div>
+
+    <Callout type="info" title="Not a Module Maintainer?">
+      <p>
+        You are always welcome to leave feedback on <a
+          href="https://dashboard.mage-os.org/reviews/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium underline">open pull requests</a
+        >. It helps maintainers understand the code better.
+      </p>
+      <p class="mt-2">
+        Want to become a maintainer yourself? Reach out to the team on{' '}
+        <a href="/discord-channel" class="font-medium underline">Discord</a>.
+      </p>
+    </Callout>
+  </section>
+</Layout>

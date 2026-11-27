@@ -274,6 +274,11 @@ export const staticPagesMeta: Record<string, { title: string; description: strin
     title: 'Code of Conduct',
     description: 'Community standards that create a welcoming, respectful environment for all participants.',
   },
+  'module-maintainers': {
+    title: 'Module Maintainers',
+    description:
+      'Review pull requests on the modules in the Mage-OS organization: what is expected and who is eligible.',
+  },
   imprint: {
     title: 'Legal Imprint',
     description: 'Legal information about the Mage-OS Association.',
