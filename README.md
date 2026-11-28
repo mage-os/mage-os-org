@@ -259,7 +259,8 @@ Run all commands from the `astro/` directory:
 | `npm run dev` | Start dev server at `localhost:4321` |
 | `npm run build` | Build production site to `./dist/` |
 | `npm run preview` | Preview production build locally |
-| `npm run check` | Check project for errors |
+| `npm run check` | Check project for errors (types, lint, formatting, tests) |
+| `npm test` | Run the unit tests in `tests/` |
 | `npm run fix` | Run ESLint and format with Prettier |
 | `npm run refresh:labs` | Refresh the Mage-OS Lab data from GitHub |
 

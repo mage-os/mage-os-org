@@ -67,10 +67,11 @@ npm run build        # Production build
 npm run preview      # Preview production build
 
 # Code Quality
-npm run check        # Run all checks (astro + eslint + prettier)
+npm run check        # Run all checks (astro + eslint + prettier + tests)
 npm run check:astro  # TypeScript/Astro type checking
 npm run check:eslint # Linting
 npm run check:prettier # Formatting check
+npm test             # Unit tests (tests/*.test.mjs, Node test runner)
 
 # Fixes
 npm run fix          # Auto-fix all (eslint + prettier)

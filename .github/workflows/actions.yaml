@@ -64,11 +64,16 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Run all checks in parallel
+        # A bare `wait` always exits 0, so wait on each PID to fail the job when any check fails.
         run: |
-          npm run check:astro &
-          npm run check:eslint &
-          npm run check:prettier &
-          wait
+          pids=()
+          npm run check:astro & pids+=($!)
+          npm run check:eslint & pids+=($!)
+          npm run check:prettier & pids+=($!)
+          npm test & pids+=($!)
+          status=0
+          for pid in "${pids[@]}"; do wait "$pid" || status=1; done
+          exit "$status"
 
   accessibility:
     runs-on: ubuntu-latest
