@@ -13,6 +13,7 @@ import type { AstroIntegration } from 'astro';
 
 import astrowind from './vendor/integration';
 import llms from './src/integrations/llms';
+import agentSkills from './src/integrations/agentSkills';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
@@ -71,6 +72,7 @@ export default defineConfig({
     }),
     // After astro-compress and astrowind, so it reads the final HTML.
     llms(),
+    agentSkills(),
   ],
 
   image: {

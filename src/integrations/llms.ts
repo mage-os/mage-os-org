@@ -41,6 +41,7 @@ const INTRO = [
   '- Source code: https://github.com/mage-os',
   '- Composer repository: https://repo.mage-os.org/',
   '- Developer documentation: https://devdocs.mage-os.org/',
+  '- Agent skill for installing, upgrading and migrating to Mage-OS: https://mage-os.org/.well-known/agent-skills/mage-os/SKILL.md (install with `npx skills add https://mage-os.org --skill mage-os`)',
 ];
 
 /** llms.txt sections for pages, matched by path prefix. Other pages go to "Overview". */

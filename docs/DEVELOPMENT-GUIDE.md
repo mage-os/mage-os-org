@@ -869,6 +869,7 @@ The build writes agent-readable versions of the site (`src/integrations/llms.ts`
 - **Markdown pages**: every indexable page links its Markdown version with `<link rel="alternate" type="text/markdown">` (set in `Layout.astro`), for example `/community` → `/community.md`. Only the page's `<main>` element is converted, so the header, footer and banners stay out.
 - **`/llms.txt`** ([llmstxt.org](https://llmstxt.org)): a site summary plus links to the Markdown pages, grouped by section. Sections match path prefixes listed in `SECTIONS`; pages outside them are listed under Overview. Posts go under Releases, News (latest 20) and Optional.
 - **`/llms-full.txt`**: the Markdown of every page in `llms.txt` except the Optional section, in one file.
+- **Agent skills** ([agentskills.io](https://agentskills.io/specification)) live in `public/.well-known/agent-skills/<name>/SKILL.md`. The build validates each skill and publishes `/.well-known/agent-skills/index.json` with SHA-256 digests (`src/integrations/agentSkills.ts`), so agents can install them with `npx skills add https://mage-os.org --skill mage-os`. The `mage-os` skill restates the Get Started pages and release notes; update it when install, migration or upgrade steps change.
 - `public/robots.txt` declares [Content Signals](https://contentsignals.org) and `public/_headers` adds `Link` headers on the homepage for agent discovery.
 
 Inside `<main>`, scripts, SVG icons, forms, `aria-hidden` elements and images without alt text are left out. Add `data-llms-ignore` to anything else agents should skip:
