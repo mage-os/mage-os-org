@@ -16,8 +16,10 @@ const GTM_ID = 'GTM-MQFTJCL';
 {/* Google Consent Mode v2 - Set defaults immediately (small, critical) */}
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(...args) {
-    dataLayer.push(args);
+  function gtag() {
+    // The Google tag snippet queues the arguments object for command messages.
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer.push(arguments);
   }
 
   // Default consent state - deny all until user consents via CookieYes

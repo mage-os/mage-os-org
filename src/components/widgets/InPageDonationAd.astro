@@ -1,0 +1,121 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  id: string;
+  dismissalKey?: string;
+}
+
+const { id, dismissalKey } = Astro.props;
+const titleId = `${id}-title`;
+const membershipUrl = 'https://opencollective.com/mage-os/contribute/community-member-44722/checkout';
+---
+
+<aside
+  id={id}
+  class:list={[
+    'border-orange-300 bg-orange-50 dark:border-orange-500/30 dark:bg-slate-900',
+    dismissalKey ? 'campaign-overlay rounded-xl border p-4 shadow-xl sm:p-5' : 'relative scroll-mt-24 border-y py-10',
+  ]}
+  aria-labelledby={titleId}
+  data-donation-ad-variant={dismissalKey ? 'top_overlay' : 'in_page'}
+  data-donation-ad-dismissal-key={dismissalKey}
+  data-donation-ad-pending={dismissalKey ? '' : undefined}
+>
+  {
+    dismissalKey && (
+      <button
+        type="button"
+        class="absolute right-3 top-3 rounded-full p-2 text-slate-600 transition hover:bg-orange-100 hover:text-slate-950 focus:outline-none focus:ring-2 focus:ring-orange-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white dark:focus:ring-orange-400 sm:right-5"
+        aria-label="Dismiss Mage-OS membership message"
+        data-donation-ad-dismiss
+        hidden
+      >
+        <Icon name="tabler:x" class="h-6 w-6" aria-hidden="true" />
+      </button>
+    )
+  }
+  <div
+    class:list={[
+      'flex flex-col',
+      dismissalKey
+        ? 'gap-3 pe-10'
+        : 'mx-auto max-w-6xl gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8',
+    ]}
+  >
+    <div class="max-w-3xl">
+      <p class="text-xs font-bold uppercase tracking-[0.18em] text-orange-700 dark:text-orange-300">Support Mage-OS</p>
+      <h2
+        id={titleId}
+        class:list={[
+          'font-extrabold tracking-tight text-slate-950 dark:text-white',
+          dismissalKey ? 'mt-1 text-xl leading-tight' : 'mt-2 text-3xl',
+        ]}
+      >
+        Built by the community. Backed by you.
+      </h2>
+      <p
+        class:list={[
+          'text-slate-700 dark:text-slate-300',
+          dismissalKey ? 'mt-2 text-sm leading-5' : 'mt-3 text-base leading-7',
+        ]}
+      >
+        Membership funds features, grants, docs, and events—and gives you a vote.
+      </p>
+    </div>
+    <a
+      href={membershipUrl}
+      data-donation-ad-action="join"
+      target="_blank"
+      rel="noopener noreferrer"
+      class:list={[
+        'inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-lg bg-orange-600 font-bold text-white shadow-sm transition hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-orange-50 dark:bg-orange-500 dark:text-slate-950 dark:hover:bg-orange-400 dark:focus:ring-orange-400 dark:focus:ring-offset-slate-900',
+        dismissalKey ? 'min-h-10 px-4 py-2 text-sm' : 'px-6 py-3 lg:self-auto',
+      ]}
+    >
+      Join from €10/year
+      <Icon name="tabler:arrow-up-right" class="h-4 w-4" aria-hidden="true" />
+    </a>
+  </div>
+</aside>
+
+<style>
+  .campaign-overlay {
+    --campaign-top: calc(env(safe-area-inset-top, 0px) + 4.75rem);
+    position: fixed;
+    z-index: 35;
+    inset-block-start: var(--campaign-top);
+    inset-inline-end: 1rem;
+    inline-size: min(28rem, calc(100% - 2rem));
+    max-block-size: calc(100dvh - var(--campaign-top) - 1rem);
+    overflow-y: auto;
+  }
+
+  @media (min-width: 768px) {
+    .campaign-overlay {
+      --campaign-top: calc(env(safe-area-inset-top, 0px) + 7rem);
+    }
+  }
+
+  [data-donation-ad-pending],
+  [data-donation-ad-dismissal-key][inert] {
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    [data-donation-ad-reveal='slide']:not([inert]) {
+      animation: donation-slide-in 350ms ease-out both;
+    }
+  }
+
+  @keyframes donation-slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
