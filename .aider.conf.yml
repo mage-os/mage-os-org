@@ -1,0 +1,3 @@
+# Aider doesn't read AGENTS.md on its own, so load it as read-only context.
+# All agent instructions for this repository live in AGENTS.md.
+read: AGENTS.md
