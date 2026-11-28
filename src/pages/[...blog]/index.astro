@@ -3,9 +3,11 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import merge from 'lodash.merge';
 import type { ImageMetadata } from 'astro';
+import { getEntry } from 'astro:content';
 import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
 import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
 
 import { getCanonical, getPermalink } from '~/utils/permalinks';
 import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
@@ -49,10 +51,35 @@ const metadata = merge(
 
 // Construct edit file path for blog posts
 const editFile = `src/data/post/${post.id}.md`;
+
+// Posts reference authors by slug (src/data/authors). The team account is an organization, not a person.
+const author = post.author ? await getEntry('authors', post.author) : undefined;
+const authorName = author?.data.name ?? post.author;
+const authorLinks = [author?.data.website, ...Object.values(author?.data.social ?? {})].filter(
+  (link): link is string => !!link
+);
+const articleData = {
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  url: String(url),
+  mainEntityOfPage: String(url),
+  datePublished: post.publishDate.toISOString(),
+  dateModified: (post.updateDate ?? post.publishDate).toISOString(),
+  image: new URL(typeof image === 'string' ? image : (image?.src ?? `/og/${post.permalink}.png`), Astro.site).href,
+  author: authorName && {
+    '@type': author?.id === 'mage-os-team' ? 'Organization' : 'Person',
+    name: authorName,
+    ...(authorLinks.length ? { url: authorLinks[0], sameAs: authorLinks } : {}),
+  },
+  articleSection: post.category?.title,
+  keywords: post.tags?.map((tag) => tag.title).join(', ') || undefined,
+};
 ---
 
 <Layout metadata={metadata} editFile={editFile}>
-  <SinglePost post={{ ...post, image: image }} url={url}>
+  <StructuredData type="Article" data={articleData} />
+  <SinglePost post={{ ...post, image: image, author: authorName }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
   <ToBlogLink />
