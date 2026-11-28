@@ -29,3 +29,8 @@ pnpm-lock.yaml
 
 # Partner data cache
 .cache/
+
+# Personal AI agent instructions and settings
+CLAUDE.local.md
+AGENTS.local.md
+.claude/settings.local.json

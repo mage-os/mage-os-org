@@ -22,7 +22,7 @@ This guide documents how to manage content on the Mage-OS Astro website. Written
 ## Directory Structure
 
 ```
-astro/src/
+src/
 ├── assets/images/          # Image assets
 │   ├── blog/               # Blog post images
 │   ├── events/             # Event images
@@ -50,7 +50,7 @@ astro/src/
 ## Blog Posts
 
 ### Location
-`astro/src/data/post/`
+`src/data/post/`
 
 ### File Naming Convention
 ```
@@ -89,10 +89,10 @@ Common categories used:
 
 ### Creating a New Blog Post
 
-1. Create file: `astro/src/data/post/YYYY-MM-DD-slug.md`
+1. Create file: `src/data/post/YYYY-MM-DD-slug.md`
 2. Add frontmatter (see schema above)
 3. Write content in Markdown
-4. Add images to `astro/src/assets/images/blog/`
+4. Add images to `src/assets/images/blog/`
 5. Reference images: `![Alt text](~/assets/images/blog/filename.png)`
 
 ### Release Post Template
@@ -167,7 +167,7 @@ Mage-OS wouldn't exist without a great community. Among others, thank you to:
 ## Events
 
 ### Location
-`astro/src/data/events/`
+`src/data/events/`
 
 ### File Naming Convention
 ```
@@ -196,7 +196,7 @@ draft: false                          # Optional
 
 ### Creating a New Event
 
-1. Create file: `astro/src/data/events/YYYY-MM-DD-event-slug.md`
+1. Create file: `src/data/events/YYYY-MM-DD-event-slug.md`
 2. Add frontmatter with at minimum: `title`, `date`, `location`
 3. Optionally add body content (displayed on event detail page)
 
@@ -229,7 +229,7 @@ Join us for the premier Magento event in the Netherlands!
 
 ### Astro Pages (`.astro`)
 
-**Location:** `astro/src/pages/`
+**Location:** `src/pages/`
 
 **Structure:**
 ```astro
@@ -266,7 +266,7 @@ const metadata = {
 
 ### Markdown Pages (`.md`)
 
-**Location:** `astro/src/pages/`
+**Location:** `src/pages/`
 
 **Frontmatter:**
 ```yaml
@@ -409,7 +409,7 @@ Common background classes:
 ## Navigation
 
 ### Location
-`astro/src/navigation.ts`
+`src/navigation.ts`
 
 ### Header Navigation Structure
 
@@ -455,7 +455,7 @@ export const footerData = {
 
 ### Adding a New Navigation Item
 
-1. Open `astro/src/navigation.ts`
+1. Open `src/navigation.ts`
 2. Add to appropriate section in `headerData.links` or `footerData.links`
 3. Use `getPermalink('/path')` for internal links
 
@@ -468,23 +468,23 @@ export const footerData = {
 **Files to update:**
 
 1. **Create release blog post:**
-   - `astro/src/data/post/YYYY-MM-DD-release-mage-os-X-Y-Z.md`
+   - `src/data/post/YYYY-MM-DD-release-mage-os-X-Y-Z.md`
    - Use release post template above
 
 2. **Update system requirements (if changed):**
-   - `astro/src/pages/get-started/system-requirements.md`
+   - `src/pages/get-started/system-requirements.astro`
    - Update version tables
 
 3. **Update releases page:**
-   - `astro/src/pages/product/releases.md`
+   - `src/pages/product/releases.astro`
    - Add to release history table
 
 4. **Update get-started pages (if installation changes):**
-   - `astro/src/pages/get-started/quick-start.md`
-   - `astro/src/pages/get-started/installation.md`
+   - `src/pages/get-started/quick-start.astro`
+   - `src/pages/get-started/installation.astro`
 
 5. **Update homepage stats (if applicable):**
-   - `astro/src/pages/index.astro`
+   - `src/pages/index.astro`
    - Update any version numbers displayed
 
 ### System Requirements Update
@@ -510,21 +510,21 @@ components:
 
 ### Adding a New Event
 
-1. Create: `astro/src/data/events/YYYY-MM-DD-event-slug.md`
+1. Create: `src/data/events/YYYY-MM-DD-event-slug.md`
 2. Add frontmatter with `title`, `date`, `location`
 3. Optionally add `url`, `venue`, `excerpt`
 
 ### Updating Leadership/Contributors
 
 **Files:**
-- `astro/src/pages/about/leadership.astro`
-- `astro/src/pages/about/contributors.astro`
+- `src/pages/about/leadership.astro`
+- `src/pages/about/contributors.astro`
 
 Update the member arrays in the frontmatter/script section.
 
 ### Adding a Partner Logo
 
-1. Add logo: `astro/src/assets/images/partners/partner-name.png`
+1. Add logo: `src/assets/images/partners/partner-name.png`
 2. Update PartnersBar usage in relevant pages
 
 ---
@@ -534,7 +534,7 @@ Update the member arrays in the frontmatter/script section.
 ### Directory Structure
 
 ```
-astro/src/assets/images/
+src/assets/images/
 ├── blog/           # Blog post images
 ├── events/         # Event images
 ├── partners/       # Partner/sponsor logos
@@ -681,7 +681,7 @@ When modifying content:
 | New event | `src/data/events/YYYY-MM-DD-slug.md` |
 | Update navigation | `src/navigation.ts` |
 | Update system requirements | `src/data/system-specs-config.yaml` (for min/recommended overrides) |
-| New release announcement | `src/data/post/` + `src/pages/product/releases.md` |
+| New release announcement | `src/data/post/` + `src/pages/product/releases.astro` |
 | Update leadership | `src/pages/about/leadership.astro` |
 | Update FAQ | `src/pages/faq.mdx` |
 | Update homepage | `src/pages/index.astro` |

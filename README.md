@@ -387,6 +387,8 @@ Contributions are welcome! Please follow these guidelines:
 
 For content contributions, you can also use the CMS interface at `/admin` (requires GitHub access).
 
+Working with an AI coding agent? [AGENTS.md](AGENTS.md) holds the project instructions for all of them. `CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md` and `.aider.conf.yml` only point there, so update `AGENTS.md` when conventions change.
+
 ## Communication Standards
 
 All content must adhere to these standards:
