@@ -6,6 +6,10 @@
 /*
   Cache-Control: public, max-age=0, must-revalidate
 
+# Agent discovery (RFC 8288): the site overview for LLMs and the homepage's Markdown version
+/
+  Link: </llms.txt>; rel="describedby", </index.md>; rel="alternate"; type="text/markdown"
+
 # Security headers
 /*
   X-Content-Type-Options: nosniff

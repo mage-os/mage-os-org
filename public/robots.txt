@@ -1,2 +1,6 @@
+# Content Signals (https://contentsignals.org): search engines, AI answers and AI training may use this site's content.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Disallow:
+
+# Site overview for LLMs: https://mage-os.org/llms.txt
