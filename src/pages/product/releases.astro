@@ -8,9 +8,15 @@ import { getFormattedDate } from '~/utils/utils';
 import { Icon } from 'astro-icon/components';
 import CodeBlock from '~/components/ui/CodeBlock.astro';
 import Callout from '~/components/ui/Callout.astro';
+import { getLatestSpecs } from '~/utils/systemSpecs';
 
 const releasePosts = await findReleasePosts();
 const latestRelease = releasePosts.length > 0 ? releasePosts[0] : null;
+
+// Projects pin an exact version, so upgrading means raising the constraint first.
+const specs = await getLatestSpecs();
+const [latestMajor, latestMinor] = specs.mageosVersion.split('.');
+const upgradeConstraint = `^${latestMajor}.${latestMinor}`;
 
 const metadata = {
   title: 'Releases',
@@ -114,21 +120,27 @@ const metadata = {
       <h2>Upgrading</h2>
 
       <h3>From a Previous Mage-OS Version</h3>
-      <p>Upgrade your existing Mage-OS installation to the latest version:</p>
+      <p>
+        Upgrade your existing Mage-OS installation to the latest version. Projects pin an exact version in
+        <code>composer.json</code>, so set the new version first:
+      </p>
       <CodeBlock
-        code={`# Step 1: Update packages
+        code={`# Step 1: Set the new version
+composer require mage-os/product-community-edition=${upgradeConstraint} --no-update
+
+# Step 2: Update packages
 composer update mage-os/product-community-edition --with-all-dependencies
 
-# Step 2: Run database migrations
+# Step 3: Run database migrations
 bin/magento setup:upgrade
 
-# Step 3: Compile dependency injection
+# Step 4: Compile dependency injection
 bin/magento setup:di:compile
 
-# Step 4: Deploy static content
+# Step 5: Deploy static content
 bin/magento setup:static-content:deploy -f
 
-# Step 5: Clear cache
+# Step 6: Clear cache
 bin/magento cache:flush`}
         lang="bash"
       />
