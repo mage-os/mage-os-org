@@ -26,6 +26,13 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  // Write /about.html instead of /about/index.html. Cloudflare Pages serves it at /about, the URL used
+  // in canonical tags, the sitemap and internal links (trailingSlash: false), instead of redirecting
+  // /about to /about/.
+  build: {
+    format: 'file',
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
