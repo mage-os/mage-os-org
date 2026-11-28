@@ -1,0 +1,178 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import PageHero from '~/components/widgets/PageHero.astro';
+
+const directoryUrl = 'https://directory.mage-os.org';
+
+const metadata = {
+  title: 'Extension Directory',
+  description:
+    'Find modules for Mage-OS and Magento 2, each installed and compiled against real Magento releases by PackageMaven, with editors’ picks and warnings from the Mage-OS maintainers.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Links go up here: the directory loads more modules as visitors scroll, so little below it gets seen. -->
+  <PageHero
+    tagline="Ecosystem"
+    variant="default"
+    actions={[
+      {
+        text: 'Use it in your admin',
+        href: 'https://github.com/mage-os/directory#install-the-admin-module',
+        icon: 'tabler:layout-dashboard',
+      },
+      { text: 'Get your module listed', href: `${directoryUrl}/how-to-get-listed/`, icon: 'tabler:package' },
+    ]}
+  >
+    <Fragment slot="title">Extension Directory</Fragment>
+    <Fragment slot="subtitle"
+      >Modules for Mage-OS and Magento 2, each installed and compiled against real Magento releases by <a
+        href="https://package-maven.com/"
+        class="text-link underline hover:no-underline">PackageMaven</a
+      >. Editors’ picks and warnings come from the Mage-OS maintainers.</Fragment
+    >
+  </PageHero>
+
+  <section class="bg-gray-50 py-12 dark:bg-slate-900 sm:py-16" aria-labelledby="extension-directory-title">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 id="extension-directory-title" class="sr-only">Browse modules</h2>
+      <!--
+        The directory renders into this element's shadow root, which hides the fallback below once it loads.
+        The fallback stays when JavaScript is off or the directory can't be reached.
+      -->
+      <div id="extension-directory" class="extension-directory" data-extension-directory>
+        <p class="text-muted" data-directory-loading>
+          Loading the directory… You can also browse it at <a
+            href={`${directoryUrl}/`}
+            class="text-link underline hover:no-underline">directory.mage-os.org</a
+          >.
+        </p>
+        <p class="hidden text-muted" role="alert" data-directory-error>
+          The directory couldn’t be loaded here. Browse it at <a
+            href={`${directoryUrl}/`}
+            class="text-link underline hover:no-underline">directory.mage-os.org</a
+          > instead.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /*
+   * The directory's colors, mapped to the site palette. Custom properties reach into the directory's shadow root,
+   * and these switch with the site's own light/dark toggle. The ok/warn/risk colors repeat the directory's defaults
+   * so they switch along with the rest.
+   */
+  .extension-directory {
+    min-height: 60vh;
+    --mosd-theme-accent: rgb(194 65 12);
+    --mosd-theme-on-accent: rgb(255 255 255);
+    --mosd-theme-accent-soft: rgb(255 247 237);
+    --mosd-theme-accent-container: rgb(255 237 213);
+    --mosd-theme-on-accent-container: rgb(124 45 18);
+    --mosd-theme-fg: var(--aw-color-text-default);
+    --mosd-theme-fg-muted: var(--aw-color-text-muted);
+    --mosd-theme-surface: rgb(255 255 255);
+    --mosd-theme-bg-soft: rgb(249 250 251);
+    --mosd-theme-tonal: rgb(255 237 213);
+    --mosd-theme-border: rgb(229 231 235);
+    --mosd-theme-outline: rgb(209 213 219);
+    --mosd-theme-action: rgb(194 65 12);
+    --mosd-theme-on-action: rgb(255 255 255);
+    --mosd-theme-ok: #0f7b45;
+    --mosd-theme-ok-soft: #eff7f2;
+    --mosd-theme-warn: #8a5300;
+    --mosd-theme-warn-soft: #fdf5e7;
+    --mosd-theme-risk: #a52626;
+    --mosd-theme-risk-soft: #fdeeee;
+  }
+
+  :global(.dark) .extension-directory {
+    --mosd-theme-accent: rgb(251 146 60);
+    --mosd-theme-on-accent: rgb(67 20 7);
+    --mosd-theme-accent-soft: rgb(67 20 7);
+    --mosd-theme-accent-container: rgb(67 20 7);
+    --mosd-theme-on-accent-container: rgb(254 215 170);
+    --mosd-theme-surface: rgb(30 41 59);
+    --mosd-theme-bg-soft: rgb(15 23 42);
+    --mosd-theme-tonal: rgb(67 20 7);
+    --mosd-theme-border: rgb(51 65 85);
+    --mosd-theme-outline: rgb(71 85 105);
+    --mosd-theme-action: rgb(251 146 60);
+    --mosd-theme-on-action: rgb(67 20 7);
+    --mosd-theme-ok: #6fd39a;
+    --mosd-theme-ok-soft: #182b21;
+    --mosd-theme-warn: #f2be62;
+    --mosd-theme-warn-soft: #302614;
+    --mosd-theme-risk: #ff8585;
+    --mosd-theme-risk-soft: #33191b;
+  }
+</style>
+
+<script>
+  /**
+   * Mounts the Mage-OS Extension Directory (https://github.com/mage-os/directory). Its browse UI is a classic script
+   * that defines window.MageOSDirectory. It loads from the directory itself, so the UI always matches the feed.
+   */
+  type MountDirectory = (element: HTMLElement, options: Record<string, unknown>) => () => void;
+
+  interface DirectoryWindow extends Window {
+    MageOSDirectory?: { mountDirectory?: MountDirectory };
+  }
+
+  const DIRECTORY_URL = 'https://directory.mage-os.org';
+
+  let bundle: Promise<MountDirectory> | undefined;
+  let unmount: (() => void) | undefined;
+
+  function loadBundle(): Promise<MountDirectory> {
+    bundle ??= new Promise<MountDirectory>((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = `${DIRECTORY_URL}/embed/directory-ui.iife.js`;
+      script.onload = () => {
+        const mountDirectory = (window as DirectoryWindow).MageOSDirectory?.mountDirectory;
+        if (mountDirectory) resolve(mountDirectory);
+        else reject(new Error('The directory script did not define MageOSDirectory.mountDirectory'));
+      };
+      script.onerror = () => reject(new Error('The directory script failed to load'));
+      document.head.append(script);
+    }).catch((error: unknown) => {
+      // Let the next visit to the page try again.
+      bundle = undefined;
+      throw error;
+    });
+    return bundle;
+  }
+
+  async function initDirectory() {
+    const element = document.querySelector<HTMLElement>('[data-extension-directory]');
+    if (!element) return;
+
+    try {
+      const mountDirectory = await loadBundle();
+      // The visitor may have left the page while the script loaded.
+      if (!element.isConnected) return;
+
+      unmount?.();
+      unmount = mountDirectory(element, {
+        feedUrl: `${DIRECTORY_URL}/api/v1/feed.json`,
+        // Module cards link to their pages on the directory site.
+        baseUrl: DIRECTORY_URL,
+        // The directory follows the OS setting by default, but the site has its own theme toggle.
+        colorScheme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+      });
+    } catch (error) {
+      console.error(error);
+      element.querySelector('[data-directory-loading]')?.classList.add('hidden');
+      element.querySelector('[data-directory-error]')?.classList.remove('hidden');
+    }
+  }
+
+  document.addEventListener('astro:page-load', initDirectory);
+  document.addEventListener('astro:before-swap', () => {
+    unmount?.();
+    unmount = undefined;
+  });
+</script>
