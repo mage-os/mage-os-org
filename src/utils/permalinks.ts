@@ -38,8 +38,12 @@ export const getCanonical = (path = ''): string | URL => {
   return url;
 };
 
-/** Path of a page's Markdown version, written by src/integrations/llms.ts: /community -> /community.md */
-export const getMarkdownPermalink = (pathname = ''): string => '/' + (trimSlash(pathname) || 'index') + '.md';
+/**
+ * Path of a page's Markdown version, written by src/integrations/llms.ts: /community -> /community.md.
+ * Ignores the .html suffix Astro.url has during the build when pages are built as files.
+ */
+export const getMarkdownPermalink = (pathname = ''): string =>
+  '/' + (trimSlash(pathname).replace(/(?:^|\/)index\.html$|\.html$/, '') || 'index') + '.md';
 
 /** */
 export const getPermalink = (slug = '', type = 'page'): string => {
