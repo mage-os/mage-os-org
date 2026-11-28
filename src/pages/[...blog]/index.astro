@@ -55,6 +55,8 @@ const editFile = `src/data/post/${post.id}.md`;
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
-  <ToBlogLink />
-  <RelatedPosts post={post} />
+  <div data-pagefind-ignore>
+    <ToBlogLink />
+    <RelatedPosts post={post} />
+  </div>
 </Layout>

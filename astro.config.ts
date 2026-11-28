@@ -12,6 +12,7 @@ import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
 
 import astrowind from './vendor/integration';
+import search from './src/integrations/search';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
@@ -68,6 +69,8 @@ export default defineConfig({
     astrowind({
       config: './src/config.yaml',
     }),
+    // Indexes the final HTML, so it runs after astro-compress.
+    search(),
   ],
 
   image: {
