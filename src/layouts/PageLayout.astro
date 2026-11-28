@@ -4,7 +4,7 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
 import PartnersMarquee from '~/components/widgets/PartnersMarquee.astro';
-import { trimSlash } from '~/utils/permalinks';
+import { getPagePath, trimSlash } from '~/utils/permalinks';
 
 import { headerData, footerData } from '~/navigation';
 
@@ -29,7 +29,7 @@ function getEditUrl(): string | undefined {
   }
 
   // For static pages, construct from URL pathname
-  const pathname = trimSlash(new URL(Astro.url).pathname);
+  const pathname = trimSlash(getPagePath(Astro.url.pathname));
 
   // Skip edit link for dynamic routes (blog posts, etc.)
   if (pathname.includes('[') || pathname.includes(']')) {

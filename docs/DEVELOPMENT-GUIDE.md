@@ -832,6 +832,13 @@ When component props accept HTML strings, use Fragment:
 <Fragment set:html={htmlContent} />
 ```
 
+### URLs Without Trailing Slashes
+
+Page URLs have no trailing slash (`/get-started/installation`). Astro builds each page as a file (`build.format: 'file'`, so `dist/get-started/installation.html`), which Cloudflare Pages serves at that URL without a redirect; `/get-started/installation/` redirects to it.
+
+- Link to pages without a trailing slash, or use `getPermalink()`.
+- During the build, `Astro.url.pathname` ends in `.html`. Pass it through `getPagePath()` from `~/utils/permalinks` before comparing or building URLs with it.
+
 ---
 
 ## Accessibility Requirements
