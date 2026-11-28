@@ -249,7 +249,7 @@ export function groupPages(pages: MarkdownPage[]): Section[] {
 }
 
 const pageName = (page: MarkdownPage) =>
-  page.title.replace(new RegExp(`(\\s+\\|\\s+${SITE_NAME})+$`), '').replace(/[[\]]/g, '\\$&');
+  page.title.replace(new RegExp(`(\\s+\\|\\s+${SITE_NAME})+$`), '').replace(/[\\[\]]/g, '\\$&');
 
 function entry(page: MarkdownPage): string {
   const notes = [

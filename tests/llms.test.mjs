@@ -112,10 +112,14 @@ test('llms.txt groups pages into sections and keeps only recent news outside Opt
     page('/blog'),
     page('/category/releases'),
     page('/', { title: 'Mage-OS | Community-Driven Open Source Commerce Platform' }),
+    page('/faq', { title: 'FAQ [beta] C:\\temp | Mage-OS' }),
     page('/releases/mage-os-4-0-0', { isPost: true, published: new Date('2026-10-30') }),
     ...news,
   ];
   const llms = buildLlmsTxt(pages, 'https://mage-os.org');
+
+  // Brackets and backslashes in titles are escaped so they can't break the link.
+  assert.ok(llms.includes('- [FAQ \\[beta\\] C:\\\\temp](https://mage-os.org/faq.md)'));
 
   assert.match(llms, /^# Mage-OS\n\n> /);
   assert.deepEqual(
