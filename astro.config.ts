@@ -12,6 +12,7 @@ import compress from 'astro-compress';
 import type { AstroIntegration } from 'astro';
 
 import astrowind from './vendor/integration';
+import llms from './src/integrations/llms';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
@@ -68,6 +69,8 @@ export default defineConfig({
     astrowind({
       config: './src/config.yaml',
     }),
+    // After astro-compress and astrowind, so it reads the final HTML.
+    llms(),
   ],
 
   image: {

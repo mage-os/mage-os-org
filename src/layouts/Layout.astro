@@ -16,6 +16,7 @@ import ScrollToTop from '~/components/common/ScrollToTop.astro';
 import DonationTracking from '~/components/common/DonationTracking.astro';
 import InPageDonationAd from '~/components/widgets/InPageDonationAd.astro';
 import { donationCampaignDismissalKey, donationCampaignEnabled } from '~/utils/donationCampaign';
+import { getMarkdownPermalink } from '~/utils/permalinks';
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
@@ -30,6 +31,12 @@ export interface Props {
 
 const { metadata = {}, rssFeed, showDonationCampaign = true } = Astro.props;
 const { language, textDirection } = I18N;
+
+// Indexable pages get a Markdown version for AI agents; src/integrations/llms.ts writes it after the build.
+const markdownPermalink =
+  metadata.robots?.index === false || /^\/404\/?$/.test(Astro.url.pathname)
+    ? undefined
+    : getMarkdownPermalink(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -40,6 +47,7 @@ const { language, textDirection } = I18N;
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} />
+    {markdownPermalink && <link rel="alternate" type="text/markdown" href={markdownPermalink} />}
     <SiteVerification />
     <CookieConsent />
     <Analytics />
