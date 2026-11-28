@@ -16,6 +16,7 @@ This guide documents development patterns, components, and conventions for AI to
 - [Background Patterns](#background-patterns)
 - [Content Patterns](#content-patterns)
 - [Common Conventions](#common-conventions)
+- [Site Search](#site-search)
 - [Accessibility Requirements](#accessibility-requirements)
 
 ---
@@ -831,6 +832,17 @@ When component props accept HTML strings, use Fragment:
 ```astro
 <Fragment set:html={htmlContent} />
 ```
+
+---
+
+## Site Search
+
+Search runs on [Pagefind](https://pagefind.app), entirely static. After `npm run build`, `src/integrations/search.ts` indexes the `<main>` element of every searchable page and writes the index to `dist/pagefind/`. The search button in the header, Ctrl/Cmd+K or `/` open `src/components/common/SearchDialog.astro`, which loads Pagefind's UI and index on first use.
+
+- Every page is searchable unless it is noindex. Pass `searchable={false}` to `PageLayout` to leave a page out; the blog, category and tag listings do.
+- Inside `<main>`, add `data-pagefind-ignore` to content that shouldn't be searchable, such as the related posts under a post.
+- Results show the page's metadata title, not its first heading.
+- The dev server has no index. To try search, run `npm run build` and then `npm run preview`.
 
 ---
 

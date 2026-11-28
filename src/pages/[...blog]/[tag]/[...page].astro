@@ -32,7 +32,7 @@ const rssHref = `/rss/tag/${tag.slug}.xml`;
 const rssFeed = { href: rssHref, title: `Mage-OS ${tag.title}` };
 ---
 
-<Layout metadata={metadata} rssFeed={rssFeed}>
+<Layout metadata={metadata} rssFeed={rssFeed} searchable={false}>
   <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
     <Headline>Tag: {tag.title}</Headline>
     <RssLink href={rssHref} label={`Subscribe to ${tag.title}`} />

@@ -4,6 +4,7 @@ import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
 import PartnersMarquee from '~/components/widgets/PartnersMarquee.astro';
+import SearchDialog from '~/components/common/SearchDialog.astro';
 import { trimSlash } from '~/utils/permalinks';
 
 import { headerData, footerData } from '~/navigation';
@@ -15,9 +16,17 @@ export interface Props {
   editFile?: string;
   rssFeed?: { href: string; title: string };
   showDonationCampaign?: boolean;
+  /** Include the page in site search. Off for noindex pages; listing pages turn it off too. */
+  searchable?: boolean;
 }
 
-const { metadata, editFile, rssFeed, showDonationCampaign } = Astro.props;
+const {
+  metadata,
+  editFile,
+  rssFeed,
+  showDonationCampaign,
+  searchable = metadata?.robots?.index !== false,
+} = Astro.props;
 
 // Construct GitHub edit URL
 const GITHUB_REPO = 'https://github.com/mage-os/mage-os-org/tree/main';
@@ -60,6 +69,9 @@ function getEditUrl(): string | undefined {
 }
 
 const editUrl = getEditUrl();
+
+// Search results show the page title rather than the first <h1>, which is often a slogan.
+const searchTitle = metadata?.title?.replace(/(\s+\|\s+Mage-OS)+$/, '');
 ---
 
 <Layout metadata={metadata} rssFeed={rssFeed} showDonationCampaign={showDonationCampaign}>
@@ -70,7 +82,12 @@ const editUrl = getEditUrl();
   <slot name="header">
     <Header {...headerData} isSticky showToggleTheme />
   </slot>
-  <main id="main-content">
+  <SearchDialog />
+  <main
+    id="main-content"
+    data-pagefind-body={searchable ? '' : undefined}
+    data-pagefind-meta={searchable && searchTitle ? `title:${searchTitle}` : undefined}
+  >
     <slot />
   </main>
   <PartnersMarquee />

@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  iconClass?: string;
+}
+
+const { iconClass = 'w-5 h-5' } = Astro.props;
+---
+
+<button
+  type="button"
+  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+  aria-label="Search"
+  title="Search (Ctrl+K)"
+  aria-haspopup="dialog"
+  aria-controls="site-search"
+  aria-keyshortcuts="Control+K Meta+K /"
+  data-site-search-open
+>
+  <Icon name="tabler:search" class={iconClass} aria-hidden="true" />
+</button>
